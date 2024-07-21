@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    ".git",
+    "node_modules"
+  ],
+  "watch": [
+    "source",
+    "_config.icarus.yml",
+    "_config.yml"
+  ],
+  "exec": "pnpm dev",
+  "ext": "yml"
+}
