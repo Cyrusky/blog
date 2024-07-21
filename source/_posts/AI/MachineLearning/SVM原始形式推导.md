@@ -9,7 +9,7 @@ categories:
   - AI
   - 公式推导
 toc: true
-thumbnail: https://imgs.borgor.cn/imgs/20191023140547.png
+thumbnail: /assets/images/20191023140547.webp
 abbrlink: fbf31c8a
 date: 2019-10-23 13:08:17
 ---
