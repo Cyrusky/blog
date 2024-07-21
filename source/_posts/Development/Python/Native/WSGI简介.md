@@ -4,13 +4,13 @@ categories:
   - Development
   - Python
 tags:
-  - Web
-  - WSGI
+  - 开发
 keywords: 'Web,Development,WSGI,RESTFul'
 toc: true
-cover: '/assets/images/imgs20190625084441.webp'
+cover: /assets/images/imgs20190625084441.webp
 abbrlink: fbe99afb
-date: 2017-09-01 16:57:41
+date: 2017-09-01T16:57:41.000Z
+thumbnail: /assets/thumbnail/imgs20190625084441.webp
 ---
 
 [原文链接](https://segmentfault.com/a/1190000003069785)

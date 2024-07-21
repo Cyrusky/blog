@@ -1,15 +1,15 @@
 ---
 title: OpenStack相关服务端口
 tags:
-  - Oprations
-  - Develop
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084604.webp'
+cover: /assets/images/imgs20190625084604.webp
 abbrlink: e3b04838
-date: 2017-10-25 08:50:44
+date: 2017-10-25T08:50:44.000Z
+thumbnail: /assets/thumbnail/imgs20190625084604.webp
 ---
 
 ## openstack组件使用的默认端口号

@@ -1,8 +1,7 @@
 ---
 title: Identity API v3 (CURRENT)(二)
 tags:
-  - OpenStackApi
-  - Development
+  - DevOps
 categories:
   - Operations
   - OpenStack
@@ -21,7 +20,7 @@ date: 2017-09-08 08:18:28
 
 你可以列出凭据、创建凭据、查看凭据的详细信息、更新凭据或者删除一个凭据。
 
-###  创建一个凭据
+### 创建一个凭据
 
 ```
 [post] /v3/credentials
@@ -29,7 +28,8 @@ date: 2017-09-08 08:18:28
 
 * 关联项：`https://docs.openstack.org/api/openstack-identity/3/rel/credentials`
 * 创建一个凭据。
-* 下面的例子显示了如何创建一个类似于`EC2`风格的凭据。凭证的`blob`是一个包含`access`和 `secret`密钥的JSON字符串。在指定`ec2`类型时需要这种格式。如果要修改数据的`blob`类型和内容，需要同时指定其他的凭证，如`access_key`。
+* 下面的例子显示了如何创建一个类似于`EC2`风格的凭据。凭证的`blob`是一个包含`access`和 `secret`
+  密钥的JSON字符串。在指定`ec2`类型时需要这种格式。如果要修改数据的`blob`类型和内容，需要同时指定其他的凭证，如`access_key`。
 * 正常返回代码：`201`
 * 可能的错误代码：`413`,`415`,`405`,`404`,`403`,`401`,`400`,`503`,`409`
 
@@ -40,7 +40,7 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名        | 位置   | 类型     | 描述                                  |
-| ---------- | ---- | ------ | ----------------------------------- |
+|------------|------|--------|-------------------------------------|
 | credential | body | object | 一个`credential`对象。                   |
 | project_id | body | string | `project`的ID。                       |
 | type       | body | string | 凭据类型，如：`ec2`或者`cert`。该项决定了受支持类型的列表。 |
@@ -60,11 +60,10 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 #### 响应参数
 
 | 参数名        | 位置   | 类型     | 描述                                 |
-| ---------- | ---- | ------ | ---------------------------------- |
+|------------|------|--------|------------------------------------|
 | credential | body | object | 一个 `credential` 对象。                |
 | user_id    | body | string | 拥有该`credential`的用户ID。              |
 | links      | body | object | `credential` 资源链接。                 |
@@ -90,7 +89,6 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 ### 获取凭据列表
 
 ```
@@ -110,16 +108,14 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名                | 位置    | 类型     | 描述                            |
-| ------------------ | ----- | ------ | ----------------------------- |
+|--------------------|-------|--------|-------------------------------|
 | user_id (Optional) | query | string | 通过`user_id`过滤列表。              |
 | type (Optional)    | body  | string | 凭证类型，用于过滤列表，可以是`ec2`或者`cert`。 |
-
-
 
 #### 响应参数
 
 | 参数名         | 位置   | 类型     | 描述                                |
-| ----------- | ---- | ------ | --------------------------------- |
+|-------------|------|--------|-----------------------------------|
 | user_id     | body | string | 拥有该`credential`的用户ID。             |
 | links       | body | object | `credential` 资源链接。                |
 | blob        | body | string | `credential`自身，包含一个序列化的字符串。       |
@@ -152,8 +148,7 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
-###  获取凭证的详细信息
+### 获取凭证的详细信息
 
 ```
 [get] /v3/credentials/{credential_id}
@@ -171,15 +166,13 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名           | 位置   | 类型     | 描述                   |
-| ------------- | ---- | ------ | -------------------- |
+|---------------|------|--------|----------------------|
 | credential_id | path | string | `credential`的`UUID`。 |
-
-
 
 #### 响应参数
 
 | 参数名        | 位置   | 类型     | 描述                                |
-| ---------- | ---- | ------ | --------------------------------- |
+|------------|------|--------|-----------------------------------|
 | credential | body | object | 一个 `credential` 对象。               |
 | user_id    | body | string | 拥有该`credential`的用户ID。             |
 | links      | body | object | `credential` 资源链接。                |
@@ -205,7 +198,6 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 ### 更新凭据
 
 ```
@@ -224,14 +216,13 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名                | 位置   | 类型     | 描述                                 |
-| ------------------ | ---- | ------ | ---------------------------------- |
+|--------------------|------|--------|------------------------------------|
 | credential_id      | path | string | `credential`的`UUID`。               |
 | credential         | body | object | 一个 `credential` 对象。                |
 | project_id         | body | string | `project`的ID。                      |
 | type (Optional)    | body | string | `credential`的类型，可以是`ec2`或者是`cert`。 |
 | blob (Optional)    | body | string | `credential`自身，包含一个序列化的字符串。        |
 | user_id (Optional) | body | string | 拥有该`credential`的用户ID。              |
-
 
 ```
 译者注：此处需要在请求头中加入X-Auth-token参数，该参数需要为Scoped。
@@ -248,11 +239,10 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 #### 响应参数
 
 | 参数名        | 位置   | 类型     | 描述                                |
-| ---------- | ---- | ------ | --------------------------------- |
+|------------|------|--------|-----------------------------------|
 | credential | body | object | 一个 `credential` 对象。               |
 | user_id    | body | string | 拥有该`credential`的用户ID。             |
 | links      | body | object | `credential` 资源链接。                |
@@ -278,7 +268,6 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 ### 删除一个凭证
 
 ```
@@ -297,17 +286,14 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名           | 位置   | 类型     | 描述                   |
-| ------------- | ---- | ------ | -------------------- |
+|---------------|------|--------|----------------------|
 | credential_id | path | string | `credential`的`UUID`。 |
-
-
 
 #### 响应示例
 
 ```
 译者注：该请求不会返回请求体。
 ```
-
 
 ## 域
 
@@ -342,23 +328,21 @@ date: 2017-09-08 08:18:28
 译者注：此处需要在请求头中加入X-Auth-token参数，该参数需要为Scoped。
 ```
 
-| 参数名                | 位置    | 类型     | 描述                                       |
-| ------------------ | ----- | ------ | ---------------------------------------- |
-| name (Optional)    | query | string | 使用域的名称过滤列表。                              |
+| 参数名                | 位置    | 类型     | 描述                                                                           |
+|--------------------|-------|--------|------------------------------------------------------------------------------|
+| name (Optional)    | query | string | 使用域的名称过滤列表。                                                                  |
 | enabled (Optional) | query | string | 如果该项设置为`true`，则只会返回当前可用域，如果设置为`false`，则只会返回当前不可用的域。任何大于`0`的值都会被当做是`true`来处理。 |
-
-
 
 #### 响应参数
 
-| 参数名         | 位置   | 类型     | 描述                                       |
-| ----------- | ---- | ------ | ---------------------------------------- |
-| domains     | body | array  | `domain`对象的列表。每一个元素都包含以下内容：              |
-| description | body | string | `domain`的描述。                             |
+| 参数名         | 位置   | 类型     | 描述                                         |
+|-------------|------|--------|--------------------------------------------|
+| domains     | body | array  | `domain`对象的列表。每一个元素都包含以下内容：                |
+| description | body | string | `domain`的描述。                               |
 | enabled     | body | string | 如果该项设置为`true`，则该域可用，如果该项设置为`false`，则该域不可用。 |
-| id          | body | string | 域的ID。                                    |
-| links       | body | object | `domain`资源的链接。                           |
-| name        | body | string | `domain`的名称。                             |
+| id          | body | string | 域的ID。                                      |
+| links       | body | object | `domain`资源的链接。                             |
+| name        | body | string | `domain`的名称。                               |
 
 #### 响应示例
 
@@ -392,7 +376,6 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 ### 创建一个域
 
 ```
@@ -410,13 +393,12 @@ date: 2017-09-08 08:18:28
 译者注：此处需要在请求头中加入X-Auth-token参数，该参数需要为Scoped。
 ```
 
-| 参数名                    | 位置   | 类型     | 描述                                       |
-| ---------------------- | ---- | ------ | ---------------------------------------- |
-| domain                 | body | object | 一个`domain`对象，包含以下：                       |
+| 参数名                    | 位置   | 类型     | 描述                                                                                                             |
+|------------------------|------|--------|----------------------------------------------------------------------------------------------------------------|
+| domain                 | body | object | 一个`domain`对象，包含以下：                                                                                             |
 | enabled (Optional)     | body | string | 如果该项被设置为`true`，域被创建时为可用状态。如果被这只为`false`，域被创建时为不可用状态。 默认为`true`。用户只能对一个只有可用状态的域（或项目）才能被授权给用户。另外，用户也只能对可用状态的域授权。 |
-| description (Optional) | body | string | `domain`对象的描述。                           |
-| name                   | body | string | `domain`对象的名称。                           |
-
+| description (Optional) | body | string | `domain`对象的描述。                                                                                                 |
+| name                   | body | string | `domain`对象的名称。                                                                                                 |
 
 ```json
 {
@@ -428,17 +410,16 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 #### 响应参数
 
-| 参数名         | 位置   | 类型     | 描述                                       |
-| ----------- | ---- | ------ | ---------------------------------------- |
-| domain      | body | object | 一个`domain`对象，包含以下：                       |
-| description | body | string | `domain`对象的描述。                           |
+| 参数名         | 位置   | 类型     | 描述                                         |
+|-------------|------|--------|--------------------------------------------|
+| domain      | body | object | 一个`domain`对象，包含以下：                         |
+| description | body | string | `domain`对象的描述。                             |
 | enabled     | body | string | 如果该项设置为`true`，则该域可用，如果该项设置为`false`，则该域不可用。 |
-| id          | body | string | `domain`的ID。                             |
-| links       | body | object | `domain`对象的资源链接。                         |
-| name        | body | string | `domain`对象的名称。                           |
+| id          | body | string | `domain`的ID。                               |
+| links       | body | object | `domain`对象的资源链接。                           |
+| name        | body | string | `domain`对象的名称。                             |
 
 #### 响应示例
 
@@ -455,7 +436,6 @@ date: 2017-09-08 08:18:28
   }
 }
 ```
-
 
 ### 获取域的详细信息
 
@@ -475,21 +455,19 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名       | 位置   | 类型     | 描述    |
-| --------- | ---- | ------ | ----- |
+|-----------|------|--------|-------|
 | domain_id | path | string | 域的ID。 |
-
-
 
 #### 响应参数
 
-| 参数名         | 位置   | 类型     | 描述                                       |
-| ----------- | ---- | ------ | ---------------------------------------- |
-| domain      | body | object | 一个`domain`对象，包含以下：                       |
-| description | body | string | `domain`对象的描述。                           |
+| 参数名         | 位置   | 类型     | 描述                                         |
+|-------------|------|--------|--------------------------------------------|
+| domain      | body | object | 一个`domain`对象，包含以下：                         |
+| description | body | string | `domain`对象的描述。                             |
 | enabled     | body | string | 如果该项设置为`true`，则该域可用，如果该项设置为`false`，则该域不可用。 |
-| id          | body | string | `domain`的ID。                             |
-| links       | body | object | `domain`对象的资源链接。                         |
-| name        | body | string | `domain`对象的名称。                           |
+| id          | body | string | `domain`的ID。                               |
+| links       | body | object | `domain`对象的资源链接。                           |
+| name        | body | string | `domain`对象的名称。                             |
 
 #### 响应示例
 
@@ -507,14 +485,13 @@ date: 2017-09-08 08:18:28
 }
 ```
 
-
 ### 更新域信息
 
 ```
 [patch] /v3/domains/{domain_id}
 ```
 
-*  关联项：`https://docs.openstack.org/api/openstack-identity/3/rel/domain`
+* 关联项：`https://docs.openstack.org/api/openstack-identity/3/rel/domain`
 * 更新域信息。
 * 正常返回代码：`200`。
 * 可能的错误代码：`413`,`415`,`405`,`404`,`403`,`401`,`400`,`503`,`409`
@@ -525,30 +502,28 @@ date: 2017-09-08 08:18:28
 译者注：此处需要在请求头中加入X-Auth-token参数，该参数需要为Scoped。
 ```
 
-| Name                   | In   | Type   | Description                              |
-| ---------------------- | ---- | ------ | ---------------------------------------- |
-| domain_id              | path | string | 域的ID。                                    |
-| domain                 | body | object | 一个`domain`对象，包含以下：                       |
+| Name                   | In   | Type   | Description                                                                                                                                                        |
+|------------------------|------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| domain_id              | path | string | 域的ID。                                                                                                                                                              |
+| domain                 | body | object | 一个`domain`对象，包含以下：                                                                                                                                                 |
 | enabled (Optional)     | body | string | 如果该项被设置为`true`，域被创建时为可用状态。如果被这只为`false`，域被创建时为不可用状态。 默认为`true`。用户只能对一个只有可用状态的域（或项目）才能被授权给用户。另外，用户也只能对可用状态的域授权。 当你禁用一个域时，所有授权到该域的`token`都会失效。即使当你重新启用该域时，令牌也不会重新有效。 |
-| description (Optional) | body | string | `domain`对象的新描述。                          |
-| name (Optional)        | body | string | `domain`对象的新名称。                          |
-
+| description (Optional) | body | string | `domain`对象的新描述。                                                                                                                                                    |
+| name (Optional)        | body | string | `domain`对象的新名称。                                                                                                                                                    |
 
 ```
 译者注：此处需要在请求头中加入X-Auth-token参数，该参数需要为Scoped。
 ```
 
-
 #### 响应参数
 
-| 参数名         | 位置   | 类型     | 描述                                       |
-| ----------- | ---- | ------ | ---------------------------------------- |
-| domain      | body | object | 一个`domain`对象，包含以下：                       |
-| description | body | string | `domain`对象的描述。                           |
+| 参数名         | 位置   | 类型     | 描述                                         |
+|-------------|------|--------|--------------------------------------------|
+| domain      | body | object | 一个`domain`对象，包含以下：                         |
+| description | body | string | `domain`对象的描述。                             |
 | enabled     | body | string | 如果该项设置为`true`，则该域可用，如果该项设置为`false`，则该域不可用。 |
-| id          | body | string | `domain`的ID。                             |
-| links       | body | object | `domain`对象的资源链接。                         |
-| name        | body | string | `domain`对象的名称。                           |
+| id          | body | string | `domain`的ID。                               |
+| links       | body | object | `domain`对象的资源链接。                           |
+| name        | body | string | `domain`对象的名称。                             |
 
 #### 响应示例
 
@@ -565,7 +540,6 @@ date: 2017-09-08 08:18:28
     }
 }
 ```
-
 
 ### 删除域
 
@@ -588,10 +562,8 @@ date: 2017-09-08 08:18:28
 ```
 
 | 参数名       | 位置   | 类型     | 描述    |
-| --------- | ---- | ------ | ----- |
+|-----------|------|--------|-------|
 | domain_id | path | string | 域的ID。 |
-
-
 
 #### 响应示例
 

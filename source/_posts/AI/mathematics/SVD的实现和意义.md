@@ -1,15 +1,15 @@
 ---
 title: SVD的实现和意义
 tags:
-  - SVD
-  - Mathematics
+  - 数学
 categories:
   - AI
   - Mathematics
 toc: true
 abbrlink: 60ffb787
-date: 2020-04-10 09:43:48
+date: 2020-04-10T09:43:48.000Z
 cover: /assets/images/20200410135631.webp
+thumbnail: /assets/thumbnail/20200410135631.webp
 ---
 
 # SVD 概念的复习

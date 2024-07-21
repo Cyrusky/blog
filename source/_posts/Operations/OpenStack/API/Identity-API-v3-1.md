@@ -1,8 +1,7 @@
 ---
 title: Identity API v3 (CURRENT)(一)
 tags:
-  - OpenStackApi
-  - Development
+  - DevOps
 categories:
   - Operations
   - OpenStack
@@ -13,7 +12,8 @@ date: 2017-09-06 09:18:28
 
 #### [原文地址](https://developer.openstack.org/api-ref/identity/v3/)
 
-认证服务（Identity）生成一套令牌（Token）来授权用户访问OpenStack Restful Api。用户以授权令牌和服务端点（URL Endpoint）作为有效凭证访问其他服务的API。
+认证服务（Identity）生成一套令牌（Token）来授权用户访问OpenStack Restful Api。用户以授权令牌和服务端点（URL
+Endpoint）作为有效凭证访问其他服务的API。
 
 每次访问一个OpenStack的API，都要提供名为X-Auth-Token，值为Token的访问头。
 
@@ -40,7 +40,8 @@ date: 2017-09-06 09:18:28
 
 ## 关联项
 
-下面的操作中的条目包含一个关系链接，它看起来是一个有效的URI，但是这些实际上是URN(统一的资源名)，它与GUID类似，只是使用了URI语法，以便更容易被读取。这些关系链接并不能解决任何有效的问题，仅用作显示关系。
+下面的操作中的条目包含一个关系链接，它看起来是一个有效的URI，但是这些实际上是URN(统一的资源名)
+，它与GUID类似，只是使用了URI语法，以便更容易被读取。这些关系链接并不能解决任何有效的问题，仅用作显示关系。
 
 ## 凭证（Authentication）与令牌管理
 
@@ -62,19 +63,21 @@ date: 2017-09-06 09:18:28
 
 - 列出被撤销的公钥基础设施(PKI)令牌。
 
-在认证服务3.7版本中，添加了两个新的配置选项，叫做`[resource] admin_project_name` 和`[resource] admin_project_domain_name`。这两个选项在标识了只有云管理员才能访问的项目，这样会在令牌相应参数中添加一个额外的字段`{is_admin_project: True}`。该字段可以在写入策略规则（Policy rules）时可以作为附加字段写入。
+在认证服务3.7版本中，添加了两个新的配置选项，叫做`[resource] admin_project_name` 和`[resource] admin_project_domain_name`
+。这两个选项在标识了只有云管理员才能访问的项目，这样会在令牌相应参数中添加一个额外的字段`{is_admin_project: True}`
+。该字段可以在写入策略规则（Policy rules）时可以作为附加字段写入。
 
 已超时的令牌被当做是无效令牌。部署时可以决定令牌可以被存储多长时间。
 
 在验证身份时可能会出现以下错误：
 
-| 响应代码                 | 描述                                       |
-| -------------------- | ---------------------------------------- |
+| 响应代码                 | 描述                                                                                           |
+|----------------------|----------------------------------------------------------------------------------------------|
 | `Bad Request (400)`  | 身份服务未能像预期的那样解析请求。可能原因是：1、缺少一个必需的属性。2、指定了一个不被允许的属性，例如一个基本CRUD操作中的POST请求上的ID。3、指定了一个意外数据类型的属性。 |
-| `Unauthorized (401)` | 可能原因如下：1、未进行认证。2、凭证无效，给定的 `X-Auth-Token` 头错误或无效。3、凭据无效。 |
-| `Forbidden (403)`    | 凭据虽然有效，但是凭据没有进行该操作的权限。                   |
-| `Not Found (404)`    | 应用实体的ID不能被找到。对于一个POST请求，引用的实体可以在请求体中指定，而不是在URL中指定。 |
-| `Conflict (409)`     | 常见于POST或者PATCH操作。如：请求想要修改一个唯一属性，但这个属性与其他实体冲突或相同。或者请求想要创建已经存在的唯一值。又或者如：两次请求想要创建一个想用的用户。 |
+| `Unauthorized (401)` | 可能原因如下：1、未进行认证。2、凭证无效，给定的 `X-Auth-Token` 头错误或无效。3、凭据无效。                                      |
+| `Forbidden (403)`    | 凭据虽然有效，但是凭据没有进行该操作的权限。                                                                       |
+| `Not Found (404)`    | 应用实体的ID不能被找到。对于一个POST请求，引用的实体可以在请求体中指定，而不是在URL中指定。                                           |
+| `Conflict (409)`     | 常见于POST或者PATCH操作。如：请求想要修改一个唯一属性，但这个属性与其他实体冲突或相同。或者请求想要创建已经存在的唯一值。又或者如：两次请求想要创建一个想用的用户。       |
 
 ## 认证与令牌相关
 
@@ -92,17 +95,17 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                  | 位置   | 类型     | 描述                                       |
-| -------------------- | ---- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | URL  | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| domain               | body | object | 包含一个 `domain`的对象信息。                      |
+| 参数名                  | 位置   | 类型     | 描述                                                   |
+|----------------------|------|--------|------------------------------------------------------|
+| nocatalog (Optional) | URL  | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                           |
+| domain               | body | object | 包含一个 `domain`的对象信息。                                  |
 | name (Optional)      | body | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
-| auth                 | body | object | 一个`auth`对象                               |
-| user                 | body | object | 一个`user`对象                               |
-| password             | body | object | `password` 对象，包括认证信息。                    |
-| id (Optional)        | body | string | 用户的ID，如果未提供用户名，则该项必选。                    |
-| identity             | body | object | 一个 `identity` 对象。                        |
-| methods              | body | array  | 认证方式，如果以密码方式认证，则填写为 `password`。          |
+| auth                 | body | object | 一个`auth`对象                                           |
+| user                 | body | object | 一个`user`对象                                           |
+| password             | body | object | `password` 对象，包括认证信息。                                |
+| id (Optional)        | body | string | 用户的ID，如果未提供用户名，则该项必选。                                |
+| identity             | body | object | 一个 `identity` 对象。                                    |
+| methods              | body | array  | 认证方式，如果以密码方式认证，则填写为 `password`。                      |
 
 #### 请求示例
 
@@ -129,19 +132,19 @@ date: 2017-09-06 09:18:28
 
 #### 响应参数
 
-| 参数名             | 位置     | 类型     | 描述                                       |
-| --------------- | ------ | ------ | ---------------------------------------- |
-| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。           |
-| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                  |
-| methods         | body   | array  | 认证方式，指定为 `password`。                     |
-| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。 |
-| token           | body   | object | 一个 `token` 对象。                           |
-| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                     |
-| user            | body   | object | 一个 `user` 对象。                            |
+| 参数名             | 位置     | 类型     | 描述                                                                                                                                                                         |
+|-----------------|--------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。                                                                                                                                             |
+| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                                                                                                                                                    |
+| methods         | body   | array  | 认证方式，指定为 `password`。                                                                                                                                                       |
+| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。                             |
+| token           | body   | object | 一个 `token` 对象。                                                                                                                                                             |
+| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                                                                                                                                                       |
+| user            | body   | object | 一个 `user` 对象。                                                                                                                                                              |
 | audit_ids       | body   | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`. |
-| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                       |
-| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
+| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`.                                               |
+| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                                                                                                                                                         |
+| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。                                                                                                                       |
 
 #### 响应示例
 
@@ -170,10 +173,6 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-
-
 ### 通过密码进行指定授权范围的认证
 
 ```shell
@@ -188,17 +187,17 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                  | 位置    | 类型     | 描述                                       |
-| -------------------- | ----- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| name (Optional)      | body  | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
-| auth                 | body  | object | 一个`auth`对象                               |
-| user                 | body  | object | 一个`user`对象                               |
+| 参数名                  | 位置    | 类型     | 描述                                                                                                    |
+|----------------------|-------|--------|-------------------------------------------------------------------------------------------------------|
+| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                                                                            |
+| name (Optional)      | body  | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。                                                  |
+| auth                 | body  | object | 一个`auth`对象                                                                                            |
+| user                 | body  | object | 一个`user`对象                                                                                            |
 | scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。 |
-| password             | body  | object | `password` 对象，包括认证信息。                    |
-| id (Optional)        | body  | string | 用户的ID，如果未提供用户名，则该项必选。                    |
-| identity             | body  | object | 一个`identity`对象                           |
-| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `password`。          |
+| password             | body  | object | `password` 对象，包括认证信息。                                                                                 |
+| id (Optional)        | body  | string | 用户的ID，如果未提供用户名，则该项必选。                                                                                 |
+| identity             | body  | object | 一个`identity`对象                                                                                        |
+| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `password`。                                                                       |
 
 #### 请求示例
 
@@ -225,23 +224,21 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
 #### 响应参数
 
-| 参数名             | 位置     | 类型     | 描述                                       |
-| --------------- | ------ | ------ | ---------------------------------------- |
-| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。           |
-| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                  |
-| methods         | body   | array  | 认证方式，指定为 `password`。                     |
-| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。 |
-| token           | body   | object | 一个 `token` 对象。                           |
-| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                     |
-| user            | body   | object | 一个 `user` 对象。                            |
+| 参数名             | 位置     | 类型     | 描述                                                                                                                                                                         |
+|-----------------|--------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。                                                                                                                                             |
+| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                                                                                                                                                    |
+| methods         | body   | array  | 认证方式，指定为 `password`。                                                                                                                                                       |
+| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。                             |
+| token           | body   | object | 一个 `token` 对象。                                                                                                                                                             |
+| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                                                                                                                                                       |
+| user            | body   | object | 一个 `user` 对象。                                                                                                                                                              |
 | audit_ids       | body   | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`. |
-| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                       |
-| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
+| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`.                                               |
+| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                                                                                                                                                         |
+| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。                                                                                                                       |
 
 #### 响应示例
 
@@ -419,12 +416,6 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-
-
-
-
 ### 使用显式授权的密码身份验证(未指定授权范围)
 
 ```shell
@@ -439,17 +430,17 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                  | 位置    | 类型     | 描述                                       |
-| -------------------- | ----- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| name (Optional)      | body  | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
-| auth                 | body  | object | 一个`auth`对象                               |
-| user                 | body  | object | 一个`user`对象                               |
+| 参数名                  | 位置    | 类型     | 描述                                                                                                    |
+|----------------------|-------|--------|-------------------------------------------------------------------------------------------------------|
+| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                                                                            |
+| name (Optional)      | body  | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。                                                  |
+| auth                 | body  | object | 一个`auth`对象                                                                                            |
+| user                 | body  | object | 一个`user`对象                                                                                            |
 | scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。 |
-| password             | body  | object | `password` 对象，包括认证信息。                    |
-| id (Optional)        | body  | string | 用户的ID，如果未提供用户名，则该项必选。                    |
-| identity             | body  | object | 一个 `identity` 对象。                        |
-| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `password`。          |
+| password             | body  | object | `password` 对象，包括认证信息。                                                                                 |
+| id (Optional)        | body  | string | 用户的ID，如果未提供用户名，则该项必选。                                                                                 |
+| identity             | body  | object | 一个 `identity` 对象。                                                                                     |
+| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `password`。                                                                       |
 
 #### 请求示例
 
@@ -472,24 +463,22 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
 #### 响应参数
 
-| 参数名             | 位置     | 类型     | 描述                                       |
-| --------------- | ------ | ------ | ---------------------------------------- |
-| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。           |
-| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                  |
-| methods         | body   | array  | 认证方式，指定为 `password`。                     |
-| roles           | body   | array  | A list of `role` objects, each containing: |
-| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。 |
-| token           | body   | object | 一个 `token` 对象。                           |
-| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                     |
-| user            | body   | object | 一个 `user` 对象。                            |
+| 参数名             | 位置     | 类型     | 描述                                                                                                                                                                         |
+|-----------------|--------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。                                                                                                                                             |
+| domain          | body   | object | 一个 `domain` 域对象，包含如下内容：                                                                                                                                                    |
+| methods         | body   | array  | 认证方式，指定为 `password`。                                                                                                                                                       |
+| roles           | body   | array  | A list of `role` objects, each containing:                                                                                                                                 |
+| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。                             |
+| token           | body   | object | 一个 `token` 对象。                                                                                                                                                             |
+| extras          | body   | object | 如果有的话，以键值对方式返回一组元数据。                                                                                                                                                       |
+| user            | body   | object | 一个 `user` 对象。                                                                                                                                                              |
 | audit_ids       | body   | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`. |
-| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                       |
-| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。 |
+| issued_at       | body   | string | 令牌的发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`，如： `2015-08-27T09:49:58.000000Z`.                                               |
+| id (Optional)   | body   | string | 用户ID，如果用户名未指定用户对象。                                                                                                                                                         |
+| name (Optional) | body   | string | 用户名，如果未提供用户的ID，则该项为必选项，如果你提供了用户名，则必须要以ID或名称的形式提供域信息。                                                                                                                       |
 
 #### 响应示例
 
@@ -518,10 +507,6 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-
-
 ### 使用令牌进行未指定范围授权的认证
 
 ```shell
@@ -536,14 +521,14 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| Name                 | In    | Type   | Description                              |
-| -------------------- | ----- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| identity             | body  | object | 一个 `identity` 对象。                        |
+| Name                 | In    | Type   | Description                                 |
+|----------------------|-------|--------|---------------------------------------------|
+| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                  |
+| identity             | body  | object | 一个 `identity` 对象。                           |
 | token                | body  | object | 一个`token`对象。使用令牌身份验证方法。此方法通常与更改授权范围的请求一起使用。 |
-| id                   | body  | string | 一个`token`的ID                             |
-| auth                 | body  | object | 一个`auth`对象                               |
-| methods              | body  | array  | 认证方式，对于以令牌认证的方式，指定为`token`               |
+| id                   | body  | string | 一个`token`的ID                                |
+| auth                 | body  | object | 一个`auth`对象                                  |
+| methods              | body  | array  | 认证方式，对于以令牌认证的方式，指定为`token`                  |
 
 #### 请求示例
 
@@ -562,12 +547,10 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
 #### 响应参数
 
 | Name            | In     | Type   | Description                    |
-| --------------- | ------ | ------ | ------------------------------ |
+|-----------------|--------|--------|--------------------------------|
 | X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。 |
 
 #### 响应示例
@@ -597,10 +580,6 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-
-
 ### 使用范围授权的令牌身份验证
 
 ```shell
@@ -615,16 +594,16 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                  | 位置    | 类型     | 描述                                       |
-| -------------------- | ----- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `token`。             |
-| auth                 | body  | object | 一个`auth`对象                               |
-| token                | body  | object | 一个`token`对象。使用令牌身份验证方法。此方法通常与更改授权范围的请求一起使用。 |
+| 参数名                  | 位置    | 类型     | 描述                                                                                                                                                                         |
+|----------------------|-------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                                                                                                                                                 |
+| methods              | body  | array  | 认证方式，如果以密码方式认证，则填写为 `token`。                                                                                                                                               |
+| auth                 | body  | object | 一个`auth`对象                                                                                                                                                                 |
+| token                | body  | object | 一个`token`对象。使用令牌身份验证方法。此方法通常与更改授权范围的请求一起使用。                                                                                                                                |
 | audit_ids            | body  | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。 |
-| id                   | body  | string | 一个`token`的ID                             |
-| identity             | body  | object | 一个`identity`对象                           |
+| scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。                                                                      |
+| id                   | body  | string | 一个`token`的ID                                                                                                                                                               |
+| identity             | body  | object | 一个`identity`对象                                                                                                                                                             |
 
 #### 请求示例
 
@@ -648,12 +627,10 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
 #### 响应参数
 
 | 参数名             | 位置     | 类型     | 描述                             |
-| --------------- | ------ | ------ | ------------------------------ |
+|-----------------|--------|--------|--------------------------------|
 | X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。 |
 
 #### 响应示例
@@ -834,9 +811,7 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-###  使用显式授权的令牌身份认证（未指定授权范围）
+### 使用显式授权的令牌身份认证（未指定授权范围）
 
 ```shell
 [post] /v3/auth/tokens
@@ -850,16 +825,16 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                  | 位置    | 类型     | 描述                                       |
-| -------------------- | ----- | ------ | ---------------------------------------- |
-| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录               |
-| methods              | body  | array  | 授权方式，作为以`token`认证的方式来说，指定为`token`        |
-| auth                 | body  | object | 一个`auth`对象                               |
-| token                | body  | object | 一个`token`对象。使用令牌身份验证方法。此方法通常与更改授权范围的请求一起使用。 |
+| 参数名                  | 位置    | 类型     | 描述                                                                                                                                                                         |
+|----------------------|-------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nocatalog (Optional) | query | string | (v3.1以后) 响应信息是否包含目录，默认包含目录                                                                                                                                                 |
+| methods              | body  | array  | 授权方式，作为以`token`认证的方式来说，指定为`token`                                                                                                                                          |
+| auth                 | body  | object | 一个`auth`对象                                                                                                                                                                 |
+| token                | body  | object | 一个`token`对象。使用令牌身份验证方法。此方法通常与更改授权范围的请求一起使用。                                                                                                                                |
 | audit_ids            | body  | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。 |
-| id                   | body  | string | 一个`token`的ID                             |
-| identity             | body  | object | 一个 `identity` 对象。                        |
+| scope (Optional)     | body  | string | 授权范围，包含一个项目或者一个域(v3.4以后)。一个令牌不能同时制定项目和域，否则会返回一个400的Http错误，使用ID来表示一个项目，但如果项目是以名称给定，则项目的域也应该被一同指定。域也如此。                                                                      |
+| id                   | body  | string | 一个`token`的ID                                                                                                                                                               |
+| identity             | body  | object | 一个 `identity` 对象。                                                                                                                                                          |
 
 #### 请求示例
 
@@ -879,12 +854,10 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
 #### 响应参数
 
 | 参数名             | 位置     | 类型     | 描述                             |
-| --------------- | ------ | ------ | ------------------------------ |
+|-----------------|--------|--------|--------------------------------|
 | X-Subject-Token | header | string | 认证返回的令牌，响应中在头部返回令牌ID，而不是在响应体中。 |
 
 #### 响应示例
@@ -915,12 +888,6 @@ date: 2017-09-06 09:18:28
 }
 ```
 
-
-
-
-
-
-
 ### 验证和显示令牌信息
 
 ```shell
@@ -936,42 +903,36 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                      | 位置     | 类型     | 描述                                       |
-| ------------------------ | ------ | ------ | ---------------------------------------- |
-| X-Auth-Token             | header | string | 管理员`token`                               |
-| X-Subject-Token          | header | string | 需要验证的`token`，此处不再请求体中提供，而在请求头中提供。        |
-| nocatalog (Optional)     | query  | string | (v3.1以后) 响应信息是否包含目录，默认包含目录。              |
+| 参数名                      | 位置     | 类型     | 描述                                                  |
+|--------------------------|--------|--------|-----------------------------------------------------|
+| X-Auth-Token             | header | string | 管理员`token`                                          |
+| X-Subject-Token          | header | string | 需要验证的`token`，此处不再请求体中提供，而在请求头中提供。                   |
+| nocatalog (Optional)     | query  | string | (v3.1以后) 响应信息是否包含目录，默认包含目录。                         |
 | allow_expired (Optional) | query  | bool   | (v3.8以后)允许获取已经超时的`token`，默认情况下，已超时的`token`会返回404错误。 |
 
 #### 请求示例
 
-
-
-
-
 #### 响应参数
 
-| 参数名             | 位置     | 类型     | 描述                                       |
-| --------------- | ------ | ------ | ---------------------------------------- |
-| X-Subject-Token | header | string | 验证的`token`，此处不再请求体中提供，而在请求头中提供。          |
-| domain          | body   | object | 一个 `domain` 对象。                          |
+| 参数名             | 位置     | 类型     | 描述                                                                                                                                                                                                                    |
+|-----------------|--------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| X-Subject-Token | header | string | 验证的`token`，此处不再请求体中提供，而在请求头中提供。                                                                                                                                                                                       |
+| domain          | body   | object | 一个 `domain` 对象。                                                                                                                                                                                                       |
 | methods         | body   | array  | 验证方式，可以提供为`password`和`token`两种中的其中一种或同时提供。表示用于验证`token`时的身份验证方法。例如，如果通过密码身份验证获得令牌，则它包含`password`。此后，如果该`token`使用令牌验证方法交换过多次，则随后创建的包括`password`和`token`两个属性。不同于多因素认证，`method`属性仅仅是表示用于对用户换取令牌进行身份验证的方法。客户端负责检测认证因素的总数。 |
-| links           | body   | object | 到 `domain` 资源的链接。                        |
-| user            | body   | object | 一个 `user` 对象                             |
-| token           | body   | object | 一个 `token` 对象。                           |
-| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。 |
-| project         | body   | object | A `project` object, containing:          |
-| catalog         | body   | array  | A `catalog` object.                      |
-| extras          | body   | object | A set of metadata key and value pairs, if any. |
-| roles           | body   | array  | A list of `role` objects, each containing: |
-| audit_ids       | body   | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。 |
-| issued_at       | body   | string | 令牌发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。 |
-| id (Optional)   | body   | string | 用户`id`，在未指定用户`name`时指定。                  |
-| name (Optional) | body   | string | 用户`name`，在未指定用户`id`时指定。若果指定`name`，同事也要通过ID或者名称指定域。 |
+| links           | body   | object | 到 `domain` 资源的链接。                                                                                                                                                                                                     |
+| user            | body   | object | 一个 `user` 对象                                                                                                                                                                                                          |
+| token           | body   | object | 一个 `token` 对象。                                                                                                                                                                                                        |
+| expires_at      | body   | string | 令牌失效时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。                                                                        |
+| project         | body   | object | A `project` object, containing:                                                                                                                                                                                       |
+| catalog         | body   | array  | A `catalog` object.                                                                                                                                                                                                   |
+| extras          | body   | object | A set of metadata key and value pairs, if any.                                                                                                                                                                        |
+| roles           | body   | array  | A list of `role` objects, each containing:                                                                                                                                                                            |
+| audit_ids       | body   | array  | 包含一个或者两个审计ID。审计ID是随机产生的唯一值，对URL安全，可以用于追踪令牌行为。第一个审计ID用于当前令牌。第二个审计ID仅作用于重新申请具有访问范围的令牌。重新申请新令牌后失效。重新授权的令牌被交换给另外一个具有相同或者不同的访问范围的令牌。你可以使用这些审计ID追踪这些令牌或者令牌链的访问行为，而不会将令牌暴露给未授权用户。                                            |
+| issued_at       | body   | string | 令牌发放时间，格式为标准[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):`CCYY-MM-DDThh:mm:ss.sssZ`。例如, `2015-08-27T09:49:58.000000Z`，如果令牌不过期，则范围`null`。                                                                        |
+| id (Optional)   | body   | string | 用户`id`，在未指定用户`name`时指定。                                                                                                                                                                                               |
+| name (Optional) | body   | string | 用户`name`，在未指定用户`id`时指定。若果指定`name`，同事也要通过ID或者名称指定域。                                                                                                                                                                    |
 
 #### 响应示例
-
-
 
 ### 检查令牌
 
@@ -988,40 +949,33 @@ date: 2017-09-06 09:18:28
 
 #### 请求参数
 
-| 参数名                      | 位置     | 类型     | 描述                                       |
-| ------------------------ | ------ | ------ | ---------------------------------------- |
-| X-Auth-Token             | header | string | 管理员`token`                               |
-| X-Subject-Token          | header | string | 需要验证的`token`，此处不再请求体中提供，而在请求头中提供。        |
+| 参数名                      | 位置     | 类型     | 描述                                                  |
+|--------------------------|--------|--------|-----------------------------------------------------|
+| X-Auth-Token             | header | string | 管理员`token`                                          |
+| X-Subject-Token          | header | string | 需要验证的`token`，此处不再请求体中提供，而在请求头中提供。                   |
 | allow_expired (Optional) | query  | bool   | (v3.8以后)允许获取已经超时的`token`，默认情况下，已超时的`token`会返回404错误。 |
 
 #### 响应示例
-
-
 
 ### 撤销令牌
 
 * 关联项：`https://docs.openstack.org/api/openstack-identity/3/rel/auth_tokens`
 * 撤销一个令牌。
-* 与 HEAD `/auth/tokens` 调用方式一致，如果调用，则无视`X-Subject-Token`无视`expires_at`立即失效。不需要额外的`X-Auth-Token`参数。
+* 与 HEAD `/auth/tokens` 调用方式一致，如果调用，则无视`X-Subject-Token`无视`expires_at`
+  立即失效。不需要额外的`X-Auth-Token`参数。
 * 正常返回代码：`204`
 * 可能的错误返回代码：`413`,`415`,`405`,`404`,`403`,`401`,`400`,`503`,`409`
 
 #### 请求参数
 
 | 参数名             | 位置     | 类型     | 描述                                |
-| --------------- | ------ | ------ | --------------------------------- |
+|-----------------|--------|--------|-----------------------------------|
 | X-Auth-Token    | header | string | 管理员`token`                        |
 | X-Subject-Token | header | string | 需要撤销的`token`，此处不再请求体中提供，而在请求头中提供。 |
 
 #### 请求示例
 
-
-
 #### 响应示例
-
-
-
-
 
 ## 服务目录
 
@@ -1039,27 +993,21 @@ date: 2017-09-06 09:18:28
 #### 请求参数
 
 | 参数名          | 位置     | 类型     | 描述            |
-| ------------ | ------ | ------ | ------------- |
+|--------------|--------|--------|---------------|
 | X-Auth-Token | header | string | 管理员的有效`token` |
 
 #### 请求示例
 
-
-
 #### 响应参数
 
-| 参数名       | 位置   | 类型     | 描述                                       |
-| --------- | ---- | ------ | ---------------------------------------- |
-| endpoints | body | array  | 一个`endpoint`对象列表                         |
-| id        | body | string | `endpoint`包含的`service`的`UUID`            |
+| 参数名       | 位置   | 类型     | 描述                                                                                           |
+|-----------|------|--------|----------------------------------------------------------------------------------------------|
+| endpoints | body | array  | 一个`endpoint`对象列表                                                                             |
+| id        | body | string | `endpoint`包含的`service`的`UUID`                                                                |
 | type      | body | string | `service`类型，用于描述服务提供的API。可以的值为： `compute`, `ec2`,`identity`, `image`, `network`, 或 `volume`. |
-| name      | body | string | 服务名称                                     |
+| name      | body | string | 服务名称                                                                                         |
 
 #### 响应示例
-
-
-
-
 
 ## 项目范围
 
@@ -1077,17 +1025,15 @@ date: 2017-09-06 09:18:28
 #### 请求参数
 
 | 参数名          | 位置     | 类型     | 描述            |
-| ------------ | ------ | ------ | ------------- |
+|--------------|--------|--------|---------------|
 | X-Auth-Token | header | string | 管理员的有效`token` |
 
 #### 请求示例
 
-
-
 #### 响应参数
 
 | 参数名       | 位置   | 类型      | 描述                      |
-| --------- | ---- | ------- | ----------------------- |
+|-----------|------|---------|-------------------------|
 | domain_id | body | string  | `project`的域ID           |
 | enabled   | body | boolean | 如果该值为`true`则项目可用，否则不可用。 |
 | id        | body | string  | `project`的ID            |
@@ -1095,8 +1041,6 @@ date: 2017-09-06 09:18:28
 | name      | body | string  | `project`的名称            |
 
 #### 响应示例
-
-
 
 ## 获取可用域的范围
 
@@ -1111,17 +1055,15 @@ date: 2017-09-06 09:18:28
 #### 请求参数
 
 | 参数名          | 位置     | 类型     | 描述           |
-| ------------ | ------ | ------ | ------------ |
+|--------------|--------|--------|--------------|
 | X-Auth-Token | header | string | 管理员的有效`token |
 
 #### 请求示例
 
-
-
 #### 响应参数
 
 | 参数名         | 位置   | 类型      | 描述                      |
-| ----------- | ---- | ------- | ----------------------- |
+|-------------|------|---------|-------------------------|
 | description | body | string  | 域描述                     |
 | enabled     | body | boolean | 如果该值为`true`则项目可用，否则不可用。 |
 | id          | body | string  | `domain`的ID             |

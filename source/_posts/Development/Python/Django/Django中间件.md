@@ -1,15 +1,15 @@
 ---
 title: Django中的中间件机制
 tags:
-  - Django
-  - MiddleWare
+  - 开发
 categories:
   - Development
   - Python
 toc: true
-cover: '/assets/images/imgs20190625083744.webp'
+cover: /assets/images/imgs20190625083744.webp
 abbrlink: 4e5ff57d
-date: 2018-06-20 11:27:49
+date: 2018-06-20T11:27:49.000Z
+thumbnail: /assets/thumbnail/imgs20190625083744.webp
 ---
 
 在这篇文章中，将会介绍到以下内容：
@@ -48,8 +48,8 @@ date: 2018-06-20 11:27:49
   > - 通过配置[`APPEND_SLASH`](https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-APPEND_SLASH)
       和[`PREPEND_WWW`](https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-PREPEND_WWW)来设置：
       >
-  - ***APPEND_SLASH***为*True*并且URL没有以**'/'**结尾的话，没有匹配url时会在结尾加上**‘/’**后再次尝试。
-  >   - ***PREPEND_WWW***为True的话，会在url前加上www。
+    - ***APPEND_SLASH***为*True*并且URL没有以**'/'**结尾的话，没有匹配url时会在结尾加上**‘/’**后再次尝试。
+  > - ***PREPEND_WWW***为True的话，会在url前加上www。
 
 - ***GZip middleware***
 

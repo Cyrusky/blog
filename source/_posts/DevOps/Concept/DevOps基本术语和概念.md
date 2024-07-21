@@ -1,14 +1,14 @@
 ---
 title: DevOps基本术语和概念
 tags:
-  - Development
   - DevOps
 categories:
   - DevOps
   - Concept
-cover: '/assets/images/imgs20190704082616.webp'
+cover: /assets/images/imgs20190704082616.webp
 abbrlink: e47f8b8b
-date: 2019-07-04 08:25:16
+date: 2019-07-04T08:25:16.000Z
+thumbnail: /assets/thumbnail/imgs20190704082616.webp
 ---
 
 # 软件开发方法论

@@ -1,17 +1,15 @@
 ---
 title: React源码解读-事件注册
 tags:
-  - React
-  - 源码
-  - 思维导图
-  - outline
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20200103164155.webp'
+cover: /assets/images/20200103164155.webp
 abbrlink: 3f56f8e0
-date: 2020-01-03 15:48:10
+date: 2020-01-03T15:48:10.000Z
+thumbnail: /assets/thumbnail/20200103164155.webp
 ---
 
 本文主要通过OutLine和思维导图的方式展现React中事件注册的流程。

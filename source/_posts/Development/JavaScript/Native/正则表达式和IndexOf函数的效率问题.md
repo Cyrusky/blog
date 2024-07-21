@@ -1,16 +1,15 @@
 ---
 title: 正则表达式和IndexOf函数的效率问题
 tags:
-  - 正则
-  - replace
-  - LeetCode
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: e2fcfc08
-date: 2020-02-04 23:12:03
+date: 2020-02-04T23:12:03.000Z
 cover: /assets/images/20200205125342.webp
+thumbnail: /assets/thumbnail/20200205125342.webp
 ---
 
 # 事情的起因
@@ -38,12 +37,12 @@ cover: /assets/images/20200205125342.webp
  * @param {string} S
  * @return {boolean}
  */
-var isValid = function(S) {
-  while (S.indexOf('abc') >= 0) {
-    S = S.replace('abc', '')
-  }
-  return !S
-};
+var isValid = function (S) {
+    while (S.indexOf('abc') >= 0) {
+      S = S.replace('abc', '')
+    }
+    return !S
+  };
 ```
 
 排名第一的解答：
@@ -53,13 +52,13 @@ var isValid = function(S) {
  * @param {string} S
  * @return {boolean}
  */
-var isValid = function(S) {
+var isValid = function (S) {
     let t = S
-    while(/abc/.test(t)) {
-        t = t.replace(/abc/g, '')
+    while (/abc/.test(t)) {
+      t = t.replace(/abc/g, '')
     }
     return !t
-};
+  };
 ```
 
 上述两种解答的思路都是一样的，但是其中一点区别就是，我使用了`indexOf`来查找和替换字符串中的`abc`
@@ -71,14 +70,14 @@ let lengthOfABC = 1000000
  * @param {string} S
  * @return {boolean}
  */
-var isValid1 = function(S) {
+var isValid1 = function (S) {
   let t = S
   while (/abc/.test(t)) {
     t = t.replace(/abc/g, '')
   }
   return !t
 }
-var isValid2 = function(S) {
+var isValid2 = function (S) {
   while (S.indexOf('abc') >= 0) {
     S = S.replace('abc', '')
   }
@@ -167,50 +166,79 @@ Time of IndexOf function: 6.983s
 # String.IndexOf源码分析
 
 ```javascript
-public int indexOf(String str, int fromIndex) {
-    return indexOf(value, 0, value.length,
-            str.value, 0, str.value.length, fromIndex);
+public
+int
+indexOf(String
+str, int
+fromIndex
+)
+{
+  return indexOf(value, 0, value.length,
+    str.value, 0, str.value.length, fromIndex);
 }
-static int indexOf(char[] source, int sourceOffset, int sourceCount,
-        char[] target, int targetOffset, int targetCount,
-        int fromIndex) {
-    if (fromIndex >= sourceCount) {
-        return (targetCount == 0 ? sourceCount : -1);
+static
+int
+indexOf(char[]
+source, int
+sourceOffset, int
+sourceCount,
+  char[]
+target, int
+targetOffset, int
+targetCount,
+  int
+fromIndex
+)
+{
+  if (fromIndex >= sourceCount) {
+    return (targetCount == 0 ? sourceCount : -1);
+  }
+  if (fromIndex < 0) {
+    fromIndex = 0;
+  }
+  if (targetCount == 0) {
+    return fromIndex;
+  }
+
+  char
+  first = target[targetOffset];
+  //找到需要遍历的最大位置，因为我们可能不需要一直遍历到最后
+  int
+  max = sourceOffset + (sourceCount - targetCount);
+
+  for (int i = sourceOffset + fromIndex;
+  i <= max;
+  i++
+)
+  {
+    /* Look for first character. */
+    //这里我觉得写的比较好，找到第一个相等字符的位置，不相等就一直加，注意边界
+    if (source[i] != first) {
+      while (++i <= max && source[i] != first) ;
     }
-    if (fromIndex < 0) {
-        fromIndex = 0;
+
+    /* Found first character, now look at the rest of v2 */
+    //再次判断下边界，如果大于边界就可以直接返回-1了
+    if (i <= max) {
+      int
+      j = i + 1;
+      int
+      end = j + targetCount - 1;
+      //这个循环找到和目标字符串完全相等的长度
+      for (int k = targetOffset + 1;
+      j < end && source[j]
+      == target[k];
+      j++, k++
+    )
+      ;
+      //如果完全相等的长度和目标字符串长度相等，那么就认为找到了
+      if (j == end) {
+        /* Found whole string. */
+        return i - sourceOffset;
+      }
     }
-    if (targetCount == 0) {
-        return fromIndex;
-    }
- 
-    char first = target[targetOffset];
-    //找到需要遍历的最大位置，因为我们可能不需要一直遍历到最后
-    int max = sourceOffset + (sourceCount - targetCount);
- 
-    for (int i = sourceOffset + fromIndex; i <= max; i++) {
-        /* Look for first character. */
-        //这里我觉得写的比较好，找到第一个相等字符的位置，不相等就一直加，注意边界
-        if (source[i] != first) {
-            while (++i <= max && source[i] != first);
-        }
- 
-        /* Found first character, now look at the rest of v2 */
-        //再次判断下边界，如果大于边界就可以直接返回-1了
-        if (i <= max) {
-            int j = i + 1;
-            int end = j + targetCount - 1;
-            //这个循环找到和目标字符串完全相等的长度
-            for (int k = targetOffset + 1; j < end && source[j]
-                    == target[k]; j++, k++);
-           //如果完全相等的长度和目标字符串长度相等，那么就认为找到了
-            if (j == end) {
-                /* Found whole string. */
-                return i - sourceOffset;
-            }
-        }
-    }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -245,7 +273,9 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 6. If **functionalReplace** is **false**, then
      >
      >
+
 1. Set replaceValue to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(replaceValue).
+
 >
 > 7. Let global be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
      rx, "global")).
@@ -253,10 +283,12 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 8. If **global** is **true** , then
      >
      >
+
 1. Let fullUnicode
    be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(rx, "
    unicode")).
->    2. Perform ? [Set](https://tc39.es/ecma262/#sec-set-o-p-v-throw)(rx, "lastIndex", 0, true).
+
+> 2. Perform ? [Set](https://tc39.es/ecma262/#sec-set-o-p-v-throw)(rx, "lastIndex", 0, true).
 >
 > 9. Let results be a new empty [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type).
 >
@@ -265,22 +297,35 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 11. Repeat, while **done** is **false**
       >
       >
+
 1. Let result be ? [RegExpExec](https://tc39.es/ecma262/#sec-regexpexec)(rx, S).
+
 >     2. If result is null, set done to true.
 >     3. Else,
+
          >
+
 1. Append result to the end of results.
+
 >        2. If global is false, set done to true.
 >        3. Else,
+
             >
+
 1. Let matchStr be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
    result, "0")).
+
 >           2. If **matchStr** is the empty String, then
+
                >
+
 1. Let thisIndex be ? [ToLength](https://tc39.es/ecma262/#sec-tolength)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
    rx, "lastIndex")).
+
 >              2. Let nextIndex be [AdvanceStringIndex](https://tc39.es/ecma262/#sec-advancestringindex)(S, thisIndex,
+
                   fullUnicode).
+
 >              3. Perform ? [Set](https://tc39.es/ecma262/#sec-set-o-p-v-throw)(rx, "lastIndex", nextIndex, true).
 >
 > 12. Let accumulatedResult be the empty String value.
@@ -290,76 +335,108 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 14. For each **result** in **results** , do
       >
       >
+
 1. Let nCaptures be ? [LengthOfArrayLike](https://tc39.es/ecma262/#sec-lengthofarraylike)(result).
+
 >
 >     2. Set nCaptures to [max](https://tc39.es/ecma262/#eqn-max)(nCaptures - 1, 0).
 >
 >     3. Let matched
+
          be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "
          0")).
+
 >
 >     4. Let matchLength be the number of code units in matched.
 >
 >     5. Let position
+
          be ? [ToInteger](https://tc39.es/ecma262/#sec-tointeger)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
          result, "index")).
+
 >
 >     6. Set position to [max](https://tc39.es/ecma262/#eqn-max)([min](https://tc39.es/ecma262/#eqn-min)(position,
+
          lengthS), 0).
+
 >
 >     7. Let n be 1.
 >
 >     8. Let captures be a new empty [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type).
 >
 >     9. Repeat, while n ≤ nCaptures
+
          >
          >
+
 1. Let **capN** be ? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
    result, ! [ToString](https://tc39.es/ecma262/#sec-tostring)(n)).
+
 >        2. If **capN** is not **undefined** , then
+
             >
+
 1. Set capN to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(capN).
+
 >        3. Append capN as the last element of captures.
 >        4. Set n to n + 1.
 >
 >     10. Let namedCaptures be ? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "groups").
 >
 >     11. If functionalReplace is true , then
+
           >
           >
+
 1. Let replacerArgs be « matched ».
+
 >         2. Append in list order the elements of captures to the end of
+
              the [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type) replacerArgs.
+
 >         3. Append position and S to replacerArgs.
 >         4. If namedCaptures is not undefined , then
+
              >
+
 1. Append namedCaptures as the last element of replacerArgs.
+
 >         5. Let replValue be ? [Call](https://tc39.es/ecma262/#sec-call)(replaceValue, undefined, replacerArgs).
 >         6. Let replacement be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(replValue).
 >
 >     12. Else,
+
           >
           >
+
 1. If namedCaptures is not undefined
    >
    >            , then
-   >
-   >
+>
+>
 1. Set namedCaptures to ? [ToObject](https://tc39.es/ecma262/#sec-toobject)(namedCaptures).
+
 >
 >         2. Let replacement be ? [GetSubstitution](https://tc39.es/ecma262/#sec-getsubstitution)(matched, S, position,
+
              captures, namedCaptures, replaceValue).
+
 >
 >     13. If position ≥ nextSourcePosition , then
+
           >
           >
+
 1. NOTE: position should not normally move backwards. If it does, it is an indication of an ill-behaving RegExp subclass
    or use of an access triggered side-effect to change the global flag or other characteristics of rx. In such cases,
    the corresponding substitution is ignored.
+
 >         2. Set accumulatedResult to
+
              the [string-concatenation](https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type) of the
              current value of accumulatedResult, the substring of S consisting of the code units from
              nextSourcePosition (inclusive) up to position (exclusive), and replacement.
+
 >         3. Set nextSourcePosition to position + matchLength.
 >
 > 15. If nextSourcePosition ≥ lengthS, return accumulatedResult.

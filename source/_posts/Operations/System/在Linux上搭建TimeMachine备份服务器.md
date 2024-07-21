@@ -5,11 +5,11 @@ categories:
   - Operations
   - System
 tags:
-  - Linux
-  - TimeMachine
+  - DevOps
 toc: true
-cover: '/assets/images/imgs20190625084745.webp'
+cover: /assets/images/imgs20190625084745.webp
 abbrlink: f6088a4f
+thumbnail: /assets/thumbnail/imgs20190625084745.webp
 ---
 
 # First Things First

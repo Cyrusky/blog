@@ -1,16 +1,15 @@
 ---
 title: AngularJS框架简介
 tags:
-  - Front End
-  - Develop
-  - Angularjs
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/imgs20190625083120.webp'
+cover: /assets/images/imgs20190625083120.webp
 abbrlink: 5e5f1d48
-date: 2018-07-04 13:59:05
+date: 2018-07-04T13:59:05.000Z
+thumbnail: /assets/thumbnail/imgs20190625083120.webp
 ---
 
 # MVC模式
@@ -49,6 +48,7 @@ date: 2018-07-04 13:59:05
 1. 通过`script`标签将`AngularJS`引⼊到`Web`应⽤中
 
 ```html
+
 <script src=“https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js”></script>
 ```
 
@@ -56,16 +56,20 @@ date: 2018-07-04 13:59:05
 
 ```javascript
 angular.module('myApp', [])
-	.controller('myCtrl', functi**on**($scope) {
- 		$scope.hello = 'hello world';
-	});
+  .controller('myCtrl', functi ** on ** ($scope)
+{
+  $scope.hello = 'hello world';
+}
+)
+;
 ```
 
 3. 在`html`中，通过指令（`ng-app`、`ng-controller`）实例化`AngularJS`应⽤和控制器，从⽽使视图可以引⽤数据模型中的值
 
 ```html
+
 <div ng-controller="myCtrl">
- <p>{{ hello }}</p>
+    <p>{{ hello }}</p>
 </div>
 ```
 
@@ -105,32 +109,33 @@ angular.module('myApp', [])
 
 ```html
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp"> <head>
-    <title>AngularJS App</title> </head>
-    <body>
-        <div ng-controller="myCtrl">
-            <p>{{ hello }}</p>
-            <p>{{ testService }}</p>
-        </div>
-        <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
-        <script>
-            /**
-            * 通过模块将不同的业务逻辑封装在不同的命名空间中
-            * 通过依赖注⼊将模块注⼊到另⼀模块中，从⽽可以在另⼀模块中使⽤该模块中定义的服务
-            **/
-            angular.module('myApp', ['testApp'])
-                .controller('myCtrl', function($scope, testService) {
+<html lang="en" ng-app="myApp">
+<head>
+    <title>AngularJS App</title></head>
+<body>
+<div ng-controller="myCtrl">
+    <p>{{ hello }}</p>
+    <p>{{ testService }}</p>
+</div>
+<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    /**
+     * 通过模块将不同的业务逻辑封装在不同的命名空间中
+     * 通过依赖注⼊将模块注⼊到另⼀模块中，从⽽可以在另⼀模块中使⽤该模块中定义的服务
+     **/
+    angular.module('myApp', ['testApp'])
+            .controller('myCtrl', function ($scope, testService) {
                 $scope.hello = 'hello world';
                 $scope.testService = testService;
             });
-            angular.module('testApp', [])
-                .factory('testService', function() {
+    angular.module('testApp', [])
+            .factory('testService', function () {
                 return {
                     name: 'ryan'
                 };
             });
-        </script>
-    </body>
+</script>
+</body>
 </html>
 ```
 

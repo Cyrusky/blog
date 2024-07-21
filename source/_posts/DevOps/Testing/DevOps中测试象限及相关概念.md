@@ -2,15 +2,14 @@
 title: DevOps中的测试
 tags:
   - DevOps
-  - Testing
-  - Agile
 categories:
   - DevOps
   - Testing
 toc: true
-cover: '/assets/images/imgs20190710211632.webp'
+cover: /assets/images/imgs20190710211632.webp
 abbrlink: ecfab645
-date: 2019-07-10 08:50:35
+date: 2019-07-10T08:50:35.000Z
+thumbnail: /assets/thumbnail/imgs20190710211632.webp
 ---
 
 # 测试的分类

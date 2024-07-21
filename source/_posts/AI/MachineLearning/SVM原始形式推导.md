@@ -1,17 +1,16 @@
 ---
 title: SVM原始形式推导
 tags:
-  - 公式
-  - 推导
-  - SVM
-  - 间隔
+  - 数学
+  - 机器学习
 categories:
   - AI
   - 公式推导
 toc: true
 cover: /assets/images/20191023140547.webp
 abbrlink: fbf31c8a
-date: 2019-10-23 13:08:17
+date: 2019-10-23T13:08:17.000Z
+thumbnail: /assets/thumbnail/20191023140547.webp
 ---
 
 # 欧式空间平面的常见性质

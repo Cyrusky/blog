@@ -1,16 +1,15 @@
 ---
 title: Vue-Router简明教程(基础)
 tags:
-  - vue-router
-  - Vue
-  - JavaScript
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625083237.webp'
+cover: /assets/images/imgs20190625083237.webp
 reprint: 'https://router.vuejs.org/zh/'
 abbrlink: 9ff3f948
-date: 2019-06-14 21:55:43
+date: 2019-06-14T21:55:43.000Z
+thumbnail: /assets/thumbnail/imgs20190625083237.webp
 ---
 
 Vue Router 是 [Vue.js](http://cn.vuejs.org/) 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：

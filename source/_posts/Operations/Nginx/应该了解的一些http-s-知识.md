@@ -1,19 +1,15 @@
 ---
 title: '应该了解的一些http[s]知识'
 tags:
-  - http
-  - https
-  - dns
-  - url
-  - request
-  - response
+  - DevOps
 categories:
   - Operation
   - Nginx
 toc: true
 abbrlink: cf8da587
-date: 2020-03-01 12:21:08
+date: 2020-03-01T12:21:08.000Z
 cover: /assets/images/20200301231911.webp
+thumbnail: /assets/thumbnail/20200301231911.webp
 ---
 
 # 前置知识

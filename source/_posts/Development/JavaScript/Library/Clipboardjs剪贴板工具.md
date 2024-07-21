@@ -1,15 +1,15 @@
 ---
 title: ClipBoardjs.min.js
 tags:
-  - JavaScript
-  - Clipboardjs
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/imgs20190625083219.webp'
+cover: /assets/images/imgs20190625083219.webp
 abbrlink: 9c06c9cc
-date: 2017-10-30 11:50:33
+date: 2017-10-30T11:50:33.000Z
+thumbnail: /assets/thumbnail/imgs20190625083219.webp
 ---
 
 链接：https://clipboardjs.com/

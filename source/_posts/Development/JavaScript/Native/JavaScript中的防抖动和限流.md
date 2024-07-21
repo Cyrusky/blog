@@ -1,18 +1,15 @@
 ---
 title: JavaScript中的防抖动和限流
 tags:
-  - debounce
-  - throttle
-  - lodash
-  - 限流
-  - 防抖动
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 7c39d03f
-date: 2020-02-21 01:14:50
+date: 2020-02-21T01:14:50.000Z
 cover: /assets/images/20200222180809.webp
+thumbnail: /assets/thumbnail/20200222180809.webp
 ---
 
 # 防抖动(debounce)和限流函数(throttle)
@@ -33,6 +30,7 @@ interface debounceOptions {
   maxWait: number // 设置 func 允许被延迟的最大值。
   trailing: boolean // 指定在延迟结束后调用。
 }
+
 /**
  * @param {Function} [func] 需要包装的函数.
  * @param {number} [wait=0] 等待的毫秒时间. requestAnimationFrame
@@ -44,7 +42,8 @@ function debounce(
   wait: number = 0,
   options: debounceOptions
 ): Function {
-  return () => {}
+  return () => {
+  }
 }
 ```
 
@@ -76,7 +75,7 @@ jQuery(element).on(
 )
 
 // 确保 `batchLog` 调用1次之后，1秒内会被触发。
-var debounced = _.debounce(batchLog, 250, { maxWait: 1000 })
+var debounced = _.debounce(batchLog, 250, {maxWait: 1000})
 var source = new EventSource('/stream')
 jQuery(source).on('message', debounced)
 
@@ -115,6 +114,7 @@ interface throttleOptions {
   leading: boolean // 指定调用在节流开始前。
   trailing: boolean // 指定在延迟结束后调用。
 }
+
 /**
  * @param {Function} [func] 需要包装的节流函数.
  * @param {number} [wait=0] 需要节流的毫秒。
@@ -125,7 +125,8 @@ function throttle(
   func: Function,
   wait: number,
   options: throttleOptions
-): Function {}
+): Function {
+}
 ```
 
 > 创建一个节流函数，在 `wait` 秒内最多执行 `func` 一次的函数。 该函数提供一个 `cancel` 方法取消延迟的函数调用以及 `flush`
@@ -143,7 +144,7 @@ function throttle(
 window.on('scroll', _.throttle(updatePosition, 100))
 
 // 点击后就调用 `renewToken`，但5分钟内超过1次。
-var throttled = _.throttle(renewToken, 300000, { trailing: false })
+var throttled = _.throttle(renewToken, 300000, {trailing: false})
 window.on('click', throttled)
 
 // 取消一个 trailing 的节流调用。

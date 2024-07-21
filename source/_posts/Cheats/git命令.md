@@ -1,14 +1,14 @@
 ---
 title: git常用命令总结
 tags:
-  - Development
-  - Git
+  - DevOps
 categories:
   - CheatSheets
 toc: true
-cover: '/assets/images/imgs20190625083047.webp'
+cover: /assets/images/imgs20190625083047.webp
 abbrlink: acc3d3b0
-date: 2017-12-13 11:17:36
+date: 2017-12-13T11:17:36.000Z
+thumbnail: /assets/thumbnail/imgs20190625083047.webp
 ---
 
 下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。

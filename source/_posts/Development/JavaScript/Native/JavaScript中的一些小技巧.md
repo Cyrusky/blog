@@ -1,17 +1,15 @@
 ---
 title: JavaScript中的一些小技巧
 tags:
-  - CheetSheet
-  - JavaScript
-  - Tips
-  - 小技巧
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: e051982a
-date: 2020-02-26 09:43:07
+date: 2020-02-26T09:43:07.000Z
 cover: /assets/images/20200226233727.webp
+thumbnail: /assets/thumbnail/20200226233727.webp
 ---
 
 # 字符串相关
@@ -105,11 +103,17 @@ const num = OddEven(2)
 
 ```javascript
 // 将 num 二进制表示,比如`num=7` :
-    ---> 0111
+--
+->
+0111
 // 将 1 用二进制表示, 此处 1 和 num 前面都可以按需添加 0 ,保证二者位数相同
-    ---> 0001
+--
+->
+0001
 // 二者按位相与, 得到
-    ---> 0001
+--
+->
+0001
 ```
 
 > 通过上面的操作,其实获取了`num`的最后一位是否为`1`(二进制情况下,奇数的尾数为 1)
@@ -134,6 +138,7 @@ function DataType(tgt, type) {
     .toLowerCase()
   return type ? dataType === type : dataType
 }
+
 DataType('young') // "string"
 DataType(20190214) // "number"
 DataType(true) // "boolean"
@@ -256,7 +261,8 @@ arr = [0, ...arr]
 ```
 
 > 关于`Array.prototype.unshift()`方法,
-> 可以参照:[参考示例](https://www.borgor.cn/acc/algorithm/Codes/%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97.html#%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E8%A7%A3%E7%AD%94)
+>
+可以参照:[参考示例](https://www.borgor.cn/acc/algorithm/Codes/%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97.html#%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E8%A7%A3%E7%AD%94)
 
 ## 统计元素个数
 
@@ -275,7 +281,10 @@ const count = arr.reduce((t, v) => {
 > 基本语法如下:
 
 ```javascript
-arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])
+arr.reduce(callback(accumulator, currentValue[, index[, array
+]])
+[, initialValue]
+)
 ```
 
 # DOM 相关

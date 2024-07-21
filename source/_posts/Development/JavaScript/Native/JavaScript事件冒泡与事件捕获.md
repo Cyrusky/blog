@@ -1,18 +1,15 @@
 ---
 title: JavaScript事件冒泡与事件捕获
 tags:
-  - JavaScript
-  - 事件
-  - 事件冒泡
-  - 事件捕获
-  - 事件代理
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: e801510a
-date: 2019-12-04 08:35:59
+date: 2019-12-04T08:35:59.000Z
 cover: /assets/images/20191205114512.webp
+thumbnail: /assets/thumbnail/20191205114512.webp
 ---
 
 # 事件冒泡与事件捕获
@@ -22,6 +19,7 @@ cover: /assets/images/20191205114512.webp
 比如说，下面的代码：
 
 ```html
+
 <div id="outer">
     <p id="inner">Click me!</p>
 </div>
@@ -78,18 +76,19 @@ IE8 及之前版本不支持事件传播的捕获阶段，所以冒泡是唯一�
 ## 事件冒泡
 
 ```html
+
 <div id="demo_s1" style="height: 100px;padding:20px; background-color: gray;">s1.outer
     <div id="demo_s2" style="height: 60px;padding:20px; background-color: white;">s2.inner</div>
 </div>
 <script>
     var s1 = document.getElementById('demo_s1');
     var s2 = document.getElementById('demo_s2');
-    s1.addEventListener("click",function(e){
+    s1.addEventListener("click", function (e) {
         alert("s1 冒泡事件");
-    },false);
-    s2.addEventListener("click",function(e){
+    }, false);
+    s2.addEventListener("click", function (e) {
         alert("s2 冒泡事件");
-    },false);
+    }, false);
 </script>
 ```
 
@@ -112,18 +111,19 @@ IE8 及之前版本不支持事件传播的捕获阶段，所以冒泡是唯一�
 ## 事件捕获
 
 ```html
+
 <div id="demo_s3" style="height: 100px;padding:20px; background-color: gray;">s1.outer
     <div id="demo_s4" style="height: 60px;padding:20px; background-color: white;">s2.inner</div>
 </div>
 <script>
     var s3 = document.getElementById('demo_s3');
     var s4 = document.getElementById('demo_s4');
-    s3.addEventListener("click",function(e){
+    s3.addEventListener("click", function (e) {
         alert("s3 捕获事件");
-    },true);
-    s4.addEventListener("click",function(e){
+    }, true);
+    s4.addEventListener("click", function (e) {
         alert("s4 捕获事件");
-    },true);
+    }, true);
 </script>
 ```
 
@@ -148,6 +148,7 @@ IE8 及之前版本不支持事件传播的捕获阶段，所以冒泡是唯一�
 在实际的开发当中，利用事件流的特性，我们可以使用一种叫做事件代理的方法。
 
 ```html
+
 <ul id="color-list">
     <li>red</li>
     <li>yellow</li>
@@ -162,15 +163,17 @@ IE8 及之前版本不支持事件传播的捕获阶段，所以冒泡是唯一�
 
 ```javascript
 (function () {
-    var color_list = document.getElementById('color-list');
-    var colors = color_list.getElementsByTagName('li');
-    for (var i = 0; i < colors.length; i++) {
-        colors[i].addEventListener('click', showColor, false);
-    };
-    function showColor(e) {
-        var x = e.target;
-        console.log("The color is " + x.innerHTML);
-    };
+  var color_list = document.getElementById('color-list');
+  var colors = color_list.getElementsByTagName('li');
+  for (var i = 0; i < colors.length; i++) {
+    colors[i].addEventListener('click', showColor, false);
+  }
+  ;
+
+  function showColor(e) {
+    var x = e.target;
+    console.log("The color is " + x.innerHTML);
+  };
 })();
 ```
 
@@ -178,14 +181,15 @@ IE8 及之前版本不支持事件传播的捕获阶段，所以冒泡是唯一�
 
 ```javascript
 (function () {
-    var color_list = document.getElementById('color-list');
-    color_list.addEventListener('click', showColor, false);
-    function showColor(e) {
-        var x = e.target;
-        if (x.nodeName.toLowerCase() === 'li') {
-            console.log('The color is ' + x.innerHTML);
-        }
+  var color_list = document.getElementById('color-list');
+  color_list.addEventListener('click', showColor, false);
+
+  function showColor(e) {
+    var x = e.target;
+    if (x.nodeName.toLowerCase() === 'li') {
+      console.log('The color is ' + x.innerHTML);
     }
+  }
 })();
 ```
 

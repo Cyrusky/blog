@@ -1,16 +1,14 @@
 ---
 title: Babel简介
 tags:
-  - ES5
-  - ES6
-  - JavaScript
-  - babel
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625083148.webp'
+cover: /assets/images/imgs20190625083148.webp
 abbrlink: 87b1b6b1
-date: 2019-06-14 21:56:41
+date: 2019-06-14T21:56:41.000Z
+thumbnail: /assets/thumbnail/imgs20190625083148.webp
 ---
 
 为了保证代码的兼容性，可以在写代码的时候使用 es 新语法，然后使用 babel 编译成兼容性代码。那么到底该怎么做呢？

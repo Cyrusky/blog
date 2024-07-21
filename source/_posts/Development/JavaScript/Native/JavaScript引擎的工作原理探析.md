@@ -1,16 +1,15 @@
 ---
 title: JavaScript引擎的工作原理探析
 tags:
-  - JavaScript
-  - Development
-  - Engine
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20191121141128.webp'
+cover: /assets/images/20191121141128.webp
 abbrlink: 769edcc6
-date: 2019-11-21 08:30:12
+date: 2019-11-21T08:30:12.000Z
+thumbnail: /assets/thumbnail/20191121141128.webp
 ---
 
 # 主流JavaScript引擎

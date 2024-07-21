@@ -1,16 +1,16 @@
 ---
 title: Vuex的基本概念和使用方法
 tags:
-  - Vue
-  - Vuex
+  - 开发
 categories:
   - Development
   - JavaScript
 p: Development/Javascript/Vue/
-cover: '/assets/images/imgs20190625083539.webp'
+cover: /assets/images/imgs20190625083539.webp
 toc: true
 abbrlink: e9c1a7e6
-date: 2019-06-11 11:06:56
+date: 2019-06-11T11:06:56.000Z
+thumbnail: /assets/thumbnail/imgs20190625083539.webp
 ---
 
 # 什么是Vuex

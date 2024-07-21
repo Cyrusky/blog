@@ -1,15 +1,15 @@
 ---
 title: 在Django中使用migrate初始化数据库数据
 tags:
-  - Django
-  - migrate
+  - 开发
 categories:
   - Development
   - Python
-cover: '/assets/images/imgs20190710084259.webp'
+cover: /assets/images/imgs20190710084259.webp
 reprint: 'https://cloud.tencent.com/developer/article/1005694'
 abbrlink: 54af093c
-date: 2019-07-10 08:40:41
+date: 2019-07-10T08:40:41.000Z
+thumbnail: /assets/thumbnail/imgs20190710084259.webp
 ---
 
 `django` 提供了`fixtures`

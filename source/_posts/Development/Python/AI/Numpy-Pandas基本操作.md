@@ -1,17 +1,15 @@
 ---
 title: Numpy&Pandas基本操作(一)
 tags:
-  - Numpy
-  - Pandas
-  - Python
-  - 科学计算
+  - 开发
 categories:
   - Development
   - Python
 toc: true
 abbrlink: 341bf49e
-date: 2020-03-09 20:38:59
+date: 2020-03-09T20:38:59.000Z
 cover: /assets/images/20200310071132.webp
+thumbnail: /assets/thumbnail/20200310071132.webp
 ---
 
 # Numpy

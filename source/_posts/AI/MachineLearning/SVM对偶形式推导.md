@@ -1,16 +1,16 @@
 ---
 title: SVM对偶形式推导
 tags:
-  - 公式
-  - 推导
-  - SVM
+   - 数学
+   - 机器学习
 categories:
   - AI
   - 公式推导
 toc: true
-cover: '/assets/images/20191023140547.webp'
+cover: /assets/images/20191023140547.webp
 abbrlink: 63ab4995
-date: 2019-10-23 21:04:33
+date: 2019-10-23T21:04:33.000Z
+thumbnail: /assets/thumbnail/20191023140547.webp
 ---
 
 # 拉格朗日函数的介绍

@@ -1,17 +1,15 @@
 ---
 title: 深入理解JavaScript中的EventLoop原理
 tags:
-  - JavaScript
-  - 函数
-  - Native
-  - 流程
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 72ab985e
-date: 2019-12-04 08:35:29
+date: 2019-12-04T08:35:29.000Z
 cover: /assets/images/20191204101900.webp
+thumbnail: /assets/thumbnail/20191204101900.webp
 ---
 
 # 浏览器的多进程架构
@@ -35,6 +33,7 @@ cover: /assets/images/20191204101900.webp
 - JavaScript引擎线程（JS线程），也可以称为JS内核，主要负责处理Javascript脚本程序，例如V8引擎。Javascript引擎线程理所当然是负责解析Javascript脚本，运行代码。
 
 -
+
 事件触发线程（Event线程），当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待JS引擎的处理。这些事件可以是当前执行的代码块如定时任务、也可来自浏览器内核的其他线程如鼠标点击、AJAX异步请求等，但由于JS的单线程关系所有这些事件都得排队等待JS引擎处理。
 
 - 异步http请求线程（I/O线程），在XMLHttpRequest在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到
@@ -258,26 +257,26 @@ setTimeout(() => {          // callback1
     console.log(333);
   })
   process.nextTick(() => {  // callback4
-    console.log(444);  
+    console.log(444);
   })
 }, 0);
 
 setImmediate(() => {        // callback5
   console.log(555);
   process.nextTick(() => {  // callback6
-    console.log(666);  
+    console.log(666);
   })
 })
 
 setTimeout(() => {          // callback7              
   console.log(777);
   process.nextTick(() => {  // callback8
-    console.log(888);   
+    console.log(888);
   })
 }, 0);
 
 process.nextTick(() => {    // callback9
-  console.log(999);  
+  console.log(999);
 })
 
 console.log('end');

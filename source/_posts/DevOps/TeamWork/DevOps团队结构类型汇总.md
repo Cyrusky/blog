@@ -2,15 +2,15 @@
 title: DevOps团队结构类型汇总
 tags:
   - DevOps
-  - Team
 categories:
   - DevOps
   - TeamWorks
 toc: true
-cover: '/assets/images/imgs20190715153100.webp'
+cover: /assets/images/imgs20190715153100.webp
 reprint: 'https://www.infoq.cn/article/DcIUD_gi17sQjvSt5XSS'
 abbrlink: fcfa8d17
-date: 2019-07-15 15:30:06
+date: 2019-07-15T15:30:06.000Z
+thumbnail: /assets/thumbnail/imgs20190715153100.webp
 ---
 
 ## 前言

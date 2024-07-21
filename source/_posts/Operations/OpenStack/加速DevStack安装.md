@@ -1,15 +1,15 @@
 ---
 title: 加速DevStack安装
 tags:
-  - OpenStack
-  - Development
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084713.webp'
+cover: /assets/images/imgs20190625084713.webp
 abbrlink: 7a87f5ae
-date: 2017-10-30 20:32:37
+date: 2017-10-30T20:32:37.000Z
+thumbnail: /assets/thumbnail/imgs20190625084713.webp
 ---
 
 # 一、更换系统源

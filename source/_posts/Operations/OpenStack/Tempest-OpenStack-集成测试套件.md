@@ -1,16 +1,15 @@
 ---
 title: Tempest -- OpenStack 集成测试套件
 tags:
-  - Develop
-  - OpenStack
-  - Tempest
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084637.webp'
+cover: /assets/images/imgs20190625084637.webp
 abbrlink: be5e5dbe
-date: 2018-07-03 14:01:00
+date: 2018-07-03T14:01:00.000Z
+thumbnail: /assets/thumbnail/imgs20190625084637.webp
 ---
 
 ## Tempest-Openstack Integration Test Suite

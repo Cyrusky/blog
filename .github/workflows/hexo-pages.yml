@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,9 +35,12 @@ jobs:
       - name: Setup pnpm
         run: |
           corepack enable pnpm
-      - name: Build blog
+      - name: Install dependencies
         run: |
           pnpm install
+      - name: Build
+        run: |
+          node script/makeThumbnails.js
           pnpm build
           mv public _site
       - name: Upload artifacts

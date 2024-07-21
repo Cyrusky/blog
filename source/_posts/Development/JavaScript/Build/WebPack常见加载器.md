@@ -1,15 +1,15 @@
 ---
 title: WebPack常见加载器
 tags:
-  - webpack
-  - loader
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/imgs20190625083405.webp'
+cover: /assets/images/imgs20190625083405.webp
 abbrlink: 297bd48b
-date: 2019-06-13 14:08:48
+date: 2019-06-13T14:08:48.000Z
+thumbnail: /assets/thumbnail/imgs20190625083405.webp
 ---
 
 # WebPack的资源管理

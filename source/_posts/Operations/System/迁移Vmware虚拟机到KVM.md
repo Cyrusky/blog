@@ -4,13 +4,12 @@ categories:
   - Operations
   - System
 tags:
-  - Oprations
-  - Vmware
-  - KVM
+  - DevOps
 toc: true
-cover: '/assets/images/imgs20190625084802.webp'
+cover: /assets/images/imgs20190625084802.webp
 abbrlink: 16f315c1
-date: 2017-10-23 16:29:03
+date: 2017-10-23T16:29:03.000Z
+thumbnail: /assets/thumbnail/imgs20190625084802.webp
 ---
 
 ## 前言

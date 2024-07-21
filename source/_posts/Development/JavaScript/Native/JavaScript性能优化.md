@@ -1,15 +1,15 @@
 ---
 title: JavaScript性能优化
 tags:
-  - JavaScript
-  - Development
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/imgs20190625083157.webp'
+cover: /assets/images/imgs20190625083157.webp
 abbrlink: db275d8a
-date: 2018-06-27 13:58:35
+date: 2018-06-27T13:58:35.000Z
+thumbnail: /assets/thumbnail/imgs20190625083157.webp
 ---
 
 ## 循环
@@ -17,8 +17,8 @@ date: 2018-06-27 13:58:35
 1. **For循环**
 
 ```javascript
-for(var i = 0; i < 10; i ++){
-    // do something
+for (var i = 0; i < 10; i++) {
+  // do something
 }
 ```
 
@@ -26,9 +26,9 @@ for(var i = 0; i < 10; i ++){
 
 ```javascript
 // TODO 不推荐，相同的迭代次数，性能是其他三种的1/7
-var person={fname:"John",lname:"Doe",age:25};
-for (x in person){
-    txt=txt + person[x];
+var person = {fname: "John", lname: "Doe", age: 25};
+for (x in person) {
+  txt = txt + person[x];
 }
 ```
 
@@ -37,17 +37,17 @@ for (x in person){
 3. **While循环**
 
 ```javascript
-while(condition){
-    // Do something
+while (condition) {
+  // Do something
 }
 ```
 
 4. **Do/While循环**
 
 ```javascript
-do{
-    // Do something
-}while(condition)
+do {
+  // Do something
+} while (condition)
 ```
 
 > *1 & 3*为前测型循环，每次循环时，先进行条件检测。
@@ -61,19 +61,19 @@ do{
 将再循环中执行的相同语句，提到循环外执行，如：
 
 ```javascript
-var arr = [1,2,3,4,5,6,7,8,9,10];
-for(var i = 0; i < arr.length; i ++){
-    console.log(arr[i]);
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (var i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
 }
 ```
 
 可以优化为：
 
 ```javascript
-var arr = [1,2,3,4,5,6,7,8,9,10];
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var len = arr.length;
-for(var i = 0; i < len; i ++){
-    console.log(arr[i]);
+for (var i = 0; i < len; i++) {
+  console.log(arr[i]);
 }
 ```
 
@@ -82,21 +82,21 @@ for(var i = 0; i < len; i ++){
 ## 条件语句
 
 ```javascript
-if(condition){
-    // Do Something
-}else{
-    // Do something else
+if (condition) {
+  // Do Something
+} else {
+  // Do something else
 }
 ```
 
 ```javascript
-switch(foo){
-    case true:
-        break;
-    case false:
-        break;
-    default:
-        break;
+switch (foo) {
+  case true:
+    break;
+  case false:
+    break;
+  default:
+    break;
 }
 ```
 
@@ -112,12 +112,12 @@ switch(foo){
 目标：最小化到达正确分支前所需要判断的条件数量
 
 ```javascript
-if(a < 10){
-    // do something
-}else if (a > 10 && a < 20){
-    // do something
-}else{
-    // do something
+if (a < 10) {
+  // do something
+} else if (a > 10 && a < 20) {
+  // do something
+} else {
+  // do something
 }
 ```
 
@@ -125,43 +125,54 @@ if(a < 10){
 
 ```javascript
 // bad example
-if(a == 0){return 0}
-else if(a == 1){return 1}
-else if(a == 2){return 2}
-else if(a == 3){return 3}
-else if(a == 4){return 4}
-else if(a == 5){return 5}
-else if(a == 6){return 6}
-else if(a == 7){return 7}
-else if(a == 8){return 8}
-else if(a == 9){return 9}
-else{ ... }
+if (a == 0) {
+  return 0
+} else if (a == 1) {
+  return 1
+} else if (a == 2) {
+  return 2
+} else if (a == 3) {
+  return 3
+} else if (a == 4) {
+  return 4
+} else if (a == 5) {
+  return 5
+} else if (a == 6) {
+  return 6
+} else if (a == 7) {
+  return 7
+} else if (a == 8) {
+  return 8
+} else if (a == 9) {
+  return 9
+} else { ...
+}
 ```
 
 更进一步的优化可以使用**二分法**判断：
 
 ```javascript
 // good example， binary search
-if(a < 6){
-    if(a < 3){
-        if(a == 0){
-            return 0;
-        }else if(a == 1){
-            return 1;
-        }else{
-            return 2;
-        }
-    }else{
-        if(a == 3){
-            return 3;
-        }else if(a == 4){
-            return 4;
-        }else{
-            return 5;
-        }
+if (a < 6) {
+  if (a < 3) {
+    if (a == 0) {
+      return 0;
+    } else if (a == 1) {
+      return 1;
+    } else {
+      return 2;
     }
-}else{
-    // TODO other for 6.7.8.9
+  } else {
+    if (a == 3) {
+      return 3;
+    } else if (a == 4) {
+      return 4;
+    } else {
+      return 5;
+    }
+  }
+} else {
+  // TODO other for 6.7.8.9
 }
 ```
 
@@ -174,30 +185,31 @@ if(a < 6){
 
 ```javascript
 // 斐波那契额数列函数
-function fibonacci(n){
-    if (n == 1 || n == 2){
-        return 1;
-    }else{
-        return fibonacci(n-1) + fibonacci(n-2);
-    }
+function fibonacci(n) {
+  if (n == 1 || n == 2) {
+    return 1;
+  } else {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
 }
 ```
 
 递归的调用：
 
 ```javascript
-function foo(){
-    foo();
+function foo() {
+  foo();
 }
 ```
 
 ```javascript
 // 隐伏式递归
-function foo(){
-    bar()
+function foo() {
+  bar()
 }
-function bar(){
-    foo()
+
+function bar() {
+  foo()
 }
 ```
 
@@ -225,8 +237,8 @@ MyObj.age = 40
 
 // Prefer doing:
 var MyObj = {
-    name: "Bob",
-    age:40
+  name: "Bob",
+  age: 40
 }
 ```
 
@@ -237,15 +249,15 @@ var MyObj = {
 在JavaScript操作UI/DOM时，若无法在短时间内完成，最理想的方式是让出UI控制权。是UI可以更新，让出控制权意味着停止执行代码，使UI线程有机会更新。
 
 ```javascript
-var button= document.getElementByID("my-button")
-button.onclick = function(){
-    oneMethod();
-    setTimeout(function(){
-        // DOM Opration
-        document.getElementById("notice").style.color = "red"
-    }, 250);
-       // 上面的定时器会在250ms后加入队列。所以下面的anotherMethod()会立即执行。
-    anotherMethod();
+var button = document.getElementByID("my-button")
+button.onclick = function () {
+  oneMethod();
+  setTimeout(function () {
+    // DOM Opration
+    document.getElementById("notice").style.color = "red"
+  }, 250);
+  // 上面的定时器会在250ms后加入队列。所以下面的anotherMethod()会立即执行。
+  anotherMethod();
 }
 ```
 

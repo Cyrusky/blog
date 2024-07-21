@@ -1,15 +1,15 @@
 ---
 title: Hexo中的LaTeX基本教程
 tags:
-  - Hexo
-  - LaTeX
+  - 写作
 categories:
   - Reading&Writing
-  - LaTeX
+  - Hexo
 toc: true
-cover: '/assets/images/20190807105826.webp'
+cover: /assets/images/20190807105826.webp
 abbrlink: 81a83d60
-date: 2019-08-06 21:24:47
+date: 2019-08-06T21:24:47.000Z
+thumbnail: /assets/thumbnail/20190807105826.webp
 ---
 
 # 在Hexo中使用LaTeX

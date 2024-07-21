@@ -1,15 +1,15 @@
 ---
 title: Scikit-Learn中的决策树算法
 tags:
-  - scikit-learn
-  - 决策树
+  - 深度学习
 categories:
   - AI
   - Scikit-Learn
 toc: true
 abbrlink: 9711289d
-date: 2020-03-19 08:03:02
+date: 2020-03-19T08:03:02.000Z
 cover: /assets/images/reading-4330761_960_720.webp
+thumbnail: /assets/thumbnail/reading-4330761_960_720.webp
 ---
 
 # Scikit-Learn 中的决策树

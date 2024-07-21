@@ -1,15 +1,15 @@
 ---
 title: 这只是一个笔记，全局灰度CSS
 tags:
-  - 全局
-  - 灰度
+  - 开发
 categories:
   - Development
   - Styles
 toc: true
-cover: '/assets/images/20200404155118.webp'
+cover: /assets/images/20200404155118.webp
 abbrlink: ca06c9bf
-date: 2020-04-04 15:33:22
+date: 2020-04-04T15:33:22.000Z
+thumbnail: /assets/thumbnail/20200404155118.webp
 ---
 
 > 在这个特殊的日子里，沉痛悼念在灾难里逝去的同胞，以及那些英勇抗击灾难的英雄和烈士，没有你们就没有现在的胜利。

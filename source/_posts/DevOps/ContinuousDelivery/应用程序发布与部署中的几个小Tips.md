@@ -2,14 +2,14 @@
 title: 应用程序发布与部署中的几个小Tips
 tags:
   - DevOps
-  - Tips
 categories:
   - DevOps
   - Continuous Delivery
 toc: true
-cover: '/assets/images/imgs20190717083719.webp'
+cover: /assets/images/imgs20190717083719.webp
 abbrlink: 551af828
-date: 2019-07-17 08:35:12
+date: 2019-07-17T08:35:12.000Z
+thumbnail: /assets/thumbnail/imgs20190717083719.webp
 ---
 
 # 真正执行部署操作的人应该参与部署过程的创建

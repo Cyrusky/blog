@@ -1,16 +1,15 @@
 ---
 title: Babel到底对jsx做了什么？
 tags:
-  - 源码阅读
-  - React
-  - Babel
+  - 开发
 categories:
   - Development
   - React
 toc: true
 abbrlink: 655734a7
-date: 2019-11-25 16:31:21
+date: 2019-11-25T16:31:21.000Z
 cover: /assets/images/20191125204901.webp
+thumbnail: /assets/thumbnail/20191125204901.webp
 ---
 
 # JSX是个啥？
@@ -55,7 +54,8 @@ function Component() {
 我们观察一下`createElement`的源码，具体的理解已经添加到了源码的注释中了：
 
 > 以下源码包含于`packages/react/src/ReactElement.js`
-> 中，源码中没有中文注释。[源码链接]([https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312](https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312)
+>
+中，源码中没有中文注释。[源码链接]([https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312](https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312)
 
 ```javascript
 export function createElement(type, config, children) {

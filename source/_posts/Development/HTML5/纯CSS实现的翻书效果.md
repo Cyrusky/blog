@@ -1,15 +1,15 @@
 ---
 title: 纯CSS实现的翻书效果
 tags:
-  - CSS
-  - Book
+  - 开发
 categories:
   - Development
   - html5
 toc: true
-cover: '/assets/images/imgs20190625083101.webp'
+cover: /assets/images/imgs20190625083101.webp
 abbrlink: 7bdb3ae
-date: 2019-06-13 08:47:50
+date: 2019-06-13T08:47:50.000Z
+thumbnail: /assets/thumbnail/imgs20190625083101.webp
 ---
 
 分享一个纯CSS实现的翻书效果，可以用来做书架。

@@ -1,16 +1,15 @@
 ---
 title: Horizon的登录过程
 tags:
-  - Development
-  - OpenStack
-  - Horizon
+   - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084343.webp'
+cover: /assets/images/imgs20190625084343.webp
 abbrlink: 33fbe266
-date: 2018-07-02 13:59:42
+date: 2018-07-02T13:59:42.000Z
+thumbnail: /assets/thumbnail/imgs20190625084343.webp
 ---
 
 # 正常的Django访问流程

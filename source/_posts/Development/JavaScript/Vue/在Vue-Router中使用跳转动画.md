@@ -1,15 +1,15 @@
 ---
 title: 在Vue-Router中使用跳转动画
 tags:
-  - Vue
-  - Animation
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20190725114435.webp'
+cover: /assets/images/20190725114435.webp
 abbrlink: 789de642
-date: 2019-07-25 11:41:06
+date: 2019-07-25T11:41:06.000Z
+thumbnail: /assets/thumbnail/20190725114435.webp
 ---
 
 # 过渡动效

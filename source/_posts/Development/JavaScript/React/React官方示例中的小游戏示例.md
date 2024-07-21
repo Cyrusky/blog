@@ -1,15 +1,15 @@
 ---
 title: React官方示例中的小游戏示例
 tags:
-  - React
-  - 官方示例
+  - 开发
 categories:
   - Development
   - React
 toc: true
-cover: '/assets/images/20191121175758.webp'
+cover: /assets/images/20191121175758.webp
 abbrlink: c07cc943
-date: 2019-11-21 17:56:03
+date: 2019-11-21T17:56:03.000Z
+thumbnail: /assets/thumbnail/20191121175758.webp
 ---
 
 # 示例地址

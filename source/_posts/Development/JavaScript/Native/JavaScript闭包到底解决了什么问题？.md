@@ -1,17 +1,15 @@
 ---
 title: JavaScript闭包到底解决了什么问题？
 tags:
-  - 闭包
-  - 全局变量
-  - 全局对象
-  - 私有对象
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20191124220507.webp'
+cover: /assets/images/20191124220507.webp
 abbrlink: 4adcf99c
-date: 2019-11-24 20:42:13
+date: 2019-11-24T20:42:13.000Z
+thumbnail: /assets/thumbnail/20191124220507.webp
 ---
 
 # JavaScript中的闭包到底是个什么东西
@@ -60,10 +58,12 @@ var result = addToArr();
 
 ```javascript
 var arr = [];
+
 function addToArr(element) {
   arr.push(element);
   return element + " added!";
 }
+
 addToArr('a')
 // ['a']
 addToArr('b')
@@ -139,7 +139,7 @@ JS中闭包最有趣的应用程序之一是`模块模式`。在ES6之前，除�
 我们去定义一个变量，如面的Snippet：
 
 ```javascript
-var Person = (function() {
+var Person = (function () {
   var person = {
     name: "",
     age: 0

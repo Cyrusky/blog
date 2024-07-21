@@ -1,17 +1,15 @@
 ---
 title: 搭建本地React源码调试环境
 tags:
-  - React
-  - 源码
-  - 调试
-  - 本地
+  - 开发
 categories:
   - Development
   - React
 toc: true
 abbrlink: f48cc00c
-date: 2019-12-09 09:38:42
+date: 2019-12-09T09:38:42.000Z
 cover: /assets/images/20191227110243.webp
+thumbnail: /assets/thumbnail/20191227110243.webp
 ---
 
 一般来说，我们想要去学习 React 的源码的时候，可能会先`Build`一下，然后使用源码包下的`fixtures`

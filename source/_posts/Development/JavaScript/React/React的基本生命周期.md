@@ -1,15 +1,15 @@
 ---
 title: React的基本生命周期
 tags:
-  - React
-  - 生命周期
+  - 开发
 categories:
   - Development
   - React
 toc: true
-cover: '/assets/images/20191118174847.webp'
+cover: /assets/images/20191118174847.webp
 abbrlink: fb847130
-date: 2019-11-18 16:44:05
+date: 2019-11-18T16:44:05.000Z
+thumbnail: /assets/thumbnail/20191118174847.webp
 ---
 
 React中，负责生命周期的主要方法如下图所示：

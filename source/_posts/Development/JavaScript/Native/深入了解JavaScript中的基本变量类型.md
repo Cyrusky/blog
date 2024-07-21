@@ -1,17 +1,15 @@
 ---
 title: 深入了解JavaScript中的基本变量类型
 tags:
-  - JavaScript
-  - 函数
-  - 流程
-  - Native
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 290f6390
-date: 2019-11-19 12:22:33
+date: 2019-11-19T12:22:33.000Z
 cover: /assets/images/20191119100237.webp
+thumbnail: /assets/thumbnail/20191119100237.webp
 ---
 
 # JavaScript中的基本变量
@@ -49,8 +47,8 @@ var age = 33;
 在 **JavaScript** 中，可以使用 `var` 关键字将值存储在变量中，这是声明变量的最兼容方法：
 
 ```javascript
-var greet = "Hello";  
-var year = 89;  
+var greet = "Hello";
+var year = 89;
 var not = false;  
 ```
 
@@ -108,11 +106,11 @@ console.log(name); // "Bar"
 
 ```javascript
 
-const name = "Foo";  
-const name = "Bar";  
+const name = "Foo";
+const name = "Bar";
 // SyntaxError: Identifier 'name' has already been declared  
-const age = 33;  
-age = 32;  
+const age = 33;
+age = 32;
 // TypeError: Assignment to constant variable.  
 ```
 
@@ -140,28 +138,32 @@ age = 32;
 > - 基本包装类型
     >
     >
+
 - `Boolean`类型是布尔值对应的引用类型。要创建`Boolean`对象，可以像下面这样调用`Boolean`构造函数并传入 `true` 或 `false` 值.
   >
   >     ```javascript
+
 >         let a = new Boolean(true)  
 >     ```
-  >
-  >         `Number` 是数字值对应的引用类型。要创建`Number`对象，可以在调用`Number`构造函数是向其中传递相应的数值。如下：
-  >
-  >     ```javascript
+>
+>         `Number` 是数字值对应的引用类型。要创建`Number`对象，可以在调用`Number`构造函数是向其中传递相应的数值。如下：
+>
+>     ```javascript
 >         let n = new Number(10)  
 >     ```
-  >
-  >         `String`类型是字符串的对象包装类型，如下：
-  >
-  >     ```javascript
+>
+>         `String`类型是字符串的对象包装类型，如下：
+>
+>     ```javascript
 >         let s = new String('Foo')  
 >     ```
 >
 > - 内置对象
     >
     >
+
 - `Global`对象
+
 >
 >   - `Math`对象
 
@@ -249,9 +251,9 @@ widget.showModal();
 - IIFE(立即执行函数)
 
 ```javascript
-var IIFE = (function() {  
- // what happens in an IIFE stays in the IIFE  
-})();  
+var IIFE = (function () {
+  // what happens in an IIFE stays in the IIFE  
+})();
 // 函数将在定义后立即执行  
 ```
 
@@ -299,8 +301,8 @@ const fun = (a, b) => a + b + 1;
 与常规匿名函数一样，也有匿名箭头函数。这里有一个作为回调传递给另一个函数
 
 ```javascript
-const arr = [1, 2, 3];  
-const res = arr.map(element => element + 1);  
+const arr = [1, 2, 3];
+const res = arr.map(element => element + 1);
 console.log(res); // [ 2, 3, 4 ]  
 ```
 
@@ -329,7 +331,7 @@ widget.showModal(); // undefined
 - IIFE 箭头函数
 
 ```javascript
-(() => {  
- console.log("Foo");  
+(() => {
+  console.log("Foo");
 })();
 ```

@@ -1,15 +1,15 @@
 ---
 title: OpenStack组件介绍
 tags:
-  - OpenStack
-  - Develop
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084623.webp'
+cover: /assets/images/imgs20190625084623.webp
 abbrlink: 85ee5d93
-date: 2018-07-10 15:55:59
+date: 2018-07-10T15:55:59.000Z
+thumbnail: /assets/thumbnail/imgs20190625084623.webp
 ---
 
 # KeyStone (OpenStack Identity Service)
@@ -268,6 +268,7 @@ $ nova delete
 具体的，`REST API`的体现就是一个`URI`，而在`glance`中通过一个`URI`地址来唯一标示一个镜像的形式如 下：
 
 ```xml
+
 <Glance Server Location>/V1/images/</ID>
 ```
 

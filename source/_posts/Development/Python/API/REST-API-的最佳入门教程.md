@@ -1,15 +1,15 @@
 ---
 title: REST API 的最佳入门教程
 tags:
-  - Restful
-  - 入门
+  - 开发
 categories:
   - Development
   - Python
 toc: true
-cover: '/assets/images/imgs20190625084421.webp'
+cover: /assets/images/imgs20190625084421.webp
 abbrlink: 254d391e
-date: 2019-06-12 09:04:34
+date: 2019-06-12T09:04:34.000Z
+thumbnail: /assets/thumbnail/imgs20190625084421.webp
 ---
 
 如果你看到这里，你以前可能听说过API 和REST,然后你就会想:

@@ -1,15 +1,15 @@
 ---
 title: 通过一个小例子理解JavaScript中的函数调用过程
-tags: 
-  - 变量类型
-  - JavaScript
-categories: 
+tags:
+  - 开发
+categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 5b57bf1a
-date: 2019-11-19 12:17:41
+date: 2019-11-19T12:17:41.000Z
 cover: /assets/images/20191119111938.webp
+thumbnail: /assets/thumbnail/20191119111938.webp
 ---
 
 # 函数调用栈
@@ -29,18 +29,18 @@ cover: /assets/images/20191119111938.webp
 ```js
 var myOtherVar = 10;
 
-function a() {  
- console.log('myVar', myVar);  
- b();  
+function a() {
+  console.log('myVar', myVar);
+  b();
 }
 
-function b() {  
- console.log('myOtherVar', myOtherVar);  
- c();  
+function b() {
+  console.log('myOtherVar', myOtherVar);
+  c();
 }
 
-function c() {  
- console.log('Hello world!');  
+function c() {
+  console.log('Hello world!');
 }
 
 a();
@@ -61,8 +61,10 @@ var myVar = 5;
 当它被执行时你期望发生什么？ 是否发生错误，因为`b`在`a`之后声明或者一切正常？ `console.log` 打印的变量又是怎么样？
 
 ```js
-"myVar" undefined  
-"myOtherVar" 10  
+"myVar"
+undefined
+"myOtherVar"
+10
 "Hello world!"
 ```
 
@@ -80,13 +82,18 @@ var myVar = 5;
 ```js
 var myOtherVar = undefined
 
-function a() {...}  
-function b() {...}  
-function c() {...}
+function a() {...
+}
+
+function b() {...
+}
+
+function c() {...
+}
 
 // 下面才是具体的执行过程  
-var myOtherVar = 10;  
-a();  
+var myOtherVar = 10;
+a();
 var myVar = 5;
 ```
 
@@ -111,8 +118,8 @@ var myVar = 5;
 
 ```js
 function a() {
- console.log('myVar', myVar)
- b()
+  console.log('myVar', myVar)
+  b()
 }
 ```
 

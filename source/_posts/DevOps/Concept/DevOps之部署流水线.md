@@ -2,14 +2,14 @@
 title: DevOps之部署流水线
 tags:
   - DevOps
-  - Pipline
 categories:
   - DevOps
   - Concept
 toc: true
-cover: '/assets/images/imgs20190712081253.webp'
+cover: /assets/images/imgs20190712081253.webp
 abbrlink: 5f93a57a
-date: 2019-07-12 08:10:55
+date: 2019-07-12T08:10:55.000Z
+thumbnail: /assets/thumbnail/imgs20190712081253.webp
 ---
 
 # 什么是部署流水线

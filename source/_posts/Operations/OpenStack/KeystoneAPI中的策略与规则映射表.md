@@ -1,16 +1,15 @@
 ---
 title: "\_Keystone=API中的策略与规则映射表"
 tags:
-  - Department
-  - OpenStack
-  - keystone
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084500.webp'
+cover: /assets/images/imgs20190625084500.webp
 abbrlink: 2bb48a1b
-date: 2017-09-14 15:57:14
+date: 2017-09-14T15:57:14.000Z
+thumbnail: /assets/thumbnail/imgs20190625084500.webp
 ---
 
 # 下面的表格中展示了Api与策略的对应关系

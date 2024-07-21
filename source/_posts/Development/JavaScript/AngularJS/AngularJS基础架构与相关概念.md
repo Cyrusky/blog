@@ -1,18 +1,15 @@
 ---
 title: AngularJS的基本架构与相关概念
 tags:
-  - Angularjs
-  - Directive
-  - Filter
-  - Module
-  - Application
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/imgs20190625083120.webp'
+cover: /assets/images/imgs20190625083120.webp
 abbrlink: 124bd80f
-date: 2018-06-21 11:37:35
+date: 2018-06-21T11:37:35.000Z
+thumbnail: /assets/thumbnail/imgs20190625083120.webp
 ---
 
 # Base Architecture of AngularJS

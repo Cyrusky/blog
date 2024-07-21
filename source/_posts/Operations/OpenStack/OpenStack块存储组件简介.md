@@ -1,16 +1,15 @@
 ---
 title: OpenStack-Cinder简介
 tags:
-  - Cinder
-  - Development
-  - OpenStack
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084547.webp'
+cover: /assets/images/imgs20190625084547.webp
 abbrlink: 4c004735
-date: 2017-11-08 10:18:51
+date: 2017-11-08T10:18:51.000Z
+thumbnail: /assets/thumbnail/imgs20190625084547.webp
 ---
 
 ## 简介

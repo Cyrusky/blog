@@ -1,13 +1,14 @@
 ---
 title: 今天分享一个纯CSS的3D旋转效果
 tags:
-  - null
+  - 开发
 categories:
   - null
 toc: true
 abbrlink: da4d9ec6
-date: 2020-04-05 20:58:47
+date: 2020-04-05T20:58:47.000Z
 cover: /assets/images/20200405210411.webp
+thumbnail: /assets/thumbnail/20200405210411.webp
 ---
 
 为了不影响首页效果，就不在首页上放了，点进来看呗。

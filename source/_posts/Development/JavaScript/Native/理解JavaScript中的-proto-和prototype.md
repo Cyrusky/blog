@@ -1,15 +1,15 @@
 ---
 title: 理解JavaScript中的__proto__和prototype
 tags:
-  - proto
-  - prototype
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 30319b7d
-date: 2020-03-24 10:35:38
+date: 2020-03-24T10:35:38.000Z
 cover: /assets/images/norderney-4890873_960_720.webp
+thumbnail: /assets/thumbnail/norderney-4890873_960_720.webp
 ---
 
 # 需要理解的一些概念
@@ -30,7 +30,8 @@ cover: /assets/images/norderney-4890873_960_720.webp
 constructor，这个属性包含了一个指针，指回原构造函数，比如：
 
 ```javascript
-b = function() {}
+b = function () {
+}
 b.prototype.constructor == b // true
 ```
 
@@ -61,14 +62,18 @@ b.prototype.constructor == b // true
 ### 1. `function foo()`
 
 ```javascript
-function Foo(){}
+function Foo() {
+}
+
 Foo.prototype.constructor == Foo // true
 ```
 
 ### 2. `new`一个函数
 
 ```javascript
-function Foo(){}
+function Foo() {
+}
+
 let a = new Foo()  // Important
 a.__proto__ == Foo.prototype // true
 ```
@@ -98,11 +103,16 @@ o2.__proto__ == Object.prototype
 // true
 
 // 使用构造方法创建一个空对象
-let f1 = new Function(){}
+let f1 = new Function()
+{
+}
 // 使用箭头函数
-let f2 = () => {}
+let f2 = () => {
+}
 // 使用传统的语法创建一个函数
-let f3 = functon(){}
+let f3 = functon()
+{
+}
 
 f1.__proto__ == Function.prototype
 // true
@@ -117,7 +127,8 @@ f3.__proto__ == Function.prototype
 创建函数的三种方式如下：
 
 ```javascript
-let a = function(){}
+let a = function () {
+}
 let b = Function()
 let c = new Function()
 ```
@@ -176,7 +187,7 @@ c.prototype
 对于普通对象来说，我们可以使用`Object.create`来实现继承。
 
 ```javascript
-a = { parm_a: 'a' }
+a = {parm_a: 'a'}
 b = Object.create(a, {
   parm_b: {
     value: 'b',

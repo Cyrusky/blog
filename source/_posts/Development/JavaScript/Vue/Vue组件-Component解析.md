@@ -1,15 +1,15 @@
 ---
 title: Vue组件-Component解析
 tags:
-  - JavaScript
-  - Vue
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625083339.webp'
+cover: /assets/images/imgs20190625083339.webp
 toc: true
 abbrlink: 33f3a505
-date: 2019-06-10 22:16:24
+date: 2019-06-10T22:16:24.000Z
+thumbnail: /assets/thumbnail/imgs20190625083339.webp
 ---
 
 ## 基本示例

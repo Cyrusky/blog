@@ -1,16 +1,15 @@
 ---
 title: Vue-Router简明教程(进阶)
 tags:
-  - vue-router
-  - Vue
-  - Javascript
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625083249.webp'
+cover: /assets/images/imgs20190625083249.webp
 reprint: 'https://router.vuejs.org/zh/'
 abbrlink: 4750a353
-date: 2019-06-14 21:55:43
+date: 2019-06-14T21:55:43.000Z
+thumbnail: /assets/thumbnail/imgs20190625083249.webp
 ---
 
 # 导航守卫

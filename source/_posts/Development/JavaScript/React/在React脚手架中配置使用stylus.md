@@ -1,18 +1,15 @@
 ---
 title: 在React脚手架中配置使用stylus
 tags:
-  - React
-  - 脚手架
-  - stylus
-  - webpack
-  - eject
+  - 开发
 categories:
   - Development
   - React
 toc: true
-cover: '/assets/images/20200127104429.webp'
+cover: /assets/images/20200127104429.webp
 abbrlink: 1180e59c
-date: 2020-01-27 10:13:43
+date: 2020-01-27T10:13:43.000Z
+thumbnail: /assets/thumbnail/20200127104429.webp
 ---
 
 # 创建一个项目

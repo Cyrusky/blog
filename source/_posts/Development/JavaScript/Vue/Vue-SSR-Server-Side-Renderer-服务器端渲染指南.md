@@ -1,16 +1,15 @@
 ---
 title: Vue-SSR(Server-Side-Renderer)服务器端渲染指南
 tags:
-  - vue-ssr
-  - Vue
-  - Javascript
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625083301.webp'
+cover: /assets/images/imgs20190625083301.webp
 reprint: 'https://ssr.vuejs.org/zh/'
 abbrlink: 92f6ccbc
-date: 2019-06-14 22:26:55
+date: 2019-06-14T22:26:55.000Z
+thumbnail: /assets/thumbnail/imgs20190625083301.webp
 ---
 
 # 介绍

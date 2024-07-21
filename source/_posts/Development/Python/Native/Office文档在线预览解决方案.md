@@ -1,17 +1,15 @@
 ---
 title: Office文档在线预览解决方案
 tags:
-  - LibreOffice
-  - PDF
-  - Document
-  - pdf2html
+  - 开发
 categories:
   - Development
   - Python
 toc: true
-cover: '/assets/images/20190820174141.webp'
+cover: /assets/images/20190820174141.webp
 abbrlink: 80238b93
-date: 2019-08-20 16:47:34
+date: 2019-08-20T16:47:34.000Z
+thumbnail: /assets/thumbnail/20190820174141.webp
 ---
 
 > 注： 由于这个点是在开发Python项目的时候需要的，所以将其分类到Python下，但是，本文中的方法适用于大多数浏览器环境。

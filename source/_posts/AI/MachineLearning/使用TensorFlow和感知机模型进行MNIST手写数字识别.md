@@ -1,14 +1,16 @@
 ---
 title: 使用TensorFlow和感知机模型进行MNIST手写数字识别
 tags:
-  - TensorFlow
+  - 开发
+  - Python
 categories:
   - AI
   - TensorFlow
 toc: true
-cover: '/assets/images/20191128223601.webp'
+cover: /assets/images/20191128223601.webp
 abbrlink: bcea28f0
-date: 2019-11-28 16:50:14
+date: 2019-11-28T16:50:14.000Z
+thumbnail: /assets/thumbnail/20191128223601.webp
 ---
 
 # MNIST数据集

@@ -1,16 +1,15 @@
 ---
 title: 使用Django+Vue.js快速构建项目
 tags:
-  - Django
-  - Vue
-  - 全栈
+  - 开发
 categories:
   - Development
   - Integrated
-cover: '/assets/images/imgs20190625083622.webp'
+cover: /assets/images/imgs20190625083622.webp
 toc: true
 abbrlink: 168aa3b1
-date: 2019-06-11 14:33:30
+date: 2019-06-11T14:33:30.000Z
+thumbnail: /assets/thumbnail/imgs20190625083622.webp
 ---
 
 # 安装Django
@@ -223,7 +222,9 @@ dist
 TEMPLATES = [
 {
 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
 ## 在此处配置frontend项目的构建目录
+
 ​        'DIRS': ['frontend/dist'],
 ​        'APP_DIRS': True,
 ​        'OPTIONS': {
@@ -240,11 +241,15 @@ TEMPLATES = [
 ## 配置静态文件搜索路径
 
 {% codeblock django_vue_manager/settings.py lang:python %}
+
 ## ------------ 以下为新增内容 ------------
+
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "frontend/dist/static"),
 ]
+
 ## --------------------------------------
+
 {% endcodeblock %}
 
 ## 关闭Django自带的`Csrf`校验中间件
@@ -254,7 +259,9 @@ MIDDLEWARE = [
 'django.middleware.security.SecurityMiddleware',
 'django.contrib.sessions.middleware.SessionMiddleware',
 'django.middleware.common.CommonMiddleware',
+
 # 'django.middleware.csrf.CsrfViewMiddleware',
+
 'django.contrib.auth.middleware.AuthenticationMiddleware',
 'django.contrib.messages.middleware.MessageMiddleware',
 'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -286,7 +293,9 @@ re_path(r'^api/', include('backend.urls'))
 from django.urls import path, re_path
 
 urlpatterns = [
+
 # Api的相关route需要写在这个地方
+
 ]
 {% endcodeblock %}
 

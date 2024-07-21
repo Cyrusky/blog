@@ -1,14 +1,15 @@
 ---
 title: 写一个脚本一键发布你的Hexo网站
 tags:
-  - Hexo
+  - 写作
 categories:
   - Reading&Writing
   - Hexo
 toc: true
-cover: '/assets/images/20190805091629.webp'
+cover: /assets/images/20190805091629.webp
 abbrlink: 134e037a
-date: 2019-08-05 09:14:36
+date: 2019-08-05T09:14:36.000Z
+thumbnail: /assets/thumbnail/20190805091629.webp
 ---
 
 # 安装Git部署插件

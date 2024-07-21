@@ -1,16 +1,16 @@
 ---
 title: 几种使用Python绘制的HTML动态图表
 tags:
-  - Python
-  - Bokeh
+  - 开发
 categories:
   - Development
   - Python
 toc: true
-cover: '/assets/images/20190825211138.webp'
+cover: /assets/images/20190825211138.webp
 graphic: true
 abbrlink: 65c8031f
-date: 2019-08-25 20:54:26
+date: 2019-08-25T20:54:26.000Z
+thumbnail: /assets/thumbnail/20190825211138.webp
 ---
 
 # 图形类别

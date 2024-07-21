@@ -3,12 +3,12 @@ title: Windows 与 Mac 添加静态路由
 categories:
   - CheatSheets
 tags:
-  - Network
-  - Route
+  - DevOps
 toc: true
-cover: '/assets/images/20190816084726.webp'
+cover: /assets/images/20190816084726.webp
 abbrlink: 9b4e21b8
-date: 2017-12-10 10:18:51
+date: 2017-12-10T10:18:51.000Z
+thumbnail: /assets/thumbnail/20190816084726.webp
 ---
 
 为了解决多个网卡同时配置网关时部分内网不能访问的问题，可以通过配置静态路由来解决：

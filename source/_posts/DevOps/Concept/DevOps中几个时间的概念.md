@@ -2,14 +2,13 @@
 title: DevOps中几个时间的概念
 tags:
   - DevOps
-  - 概念
-  - Time
 categories:
   - DevOps
   - Concept
-cover: '/assets/images/imgs20190709084925.webp'
+cover: /assets/images/imgs20190709084925.webp
 abbrlink: 269b3b63
-date: 2019-07-06 10:22:57
+date: 2019-07-06T10:22:57.000Z
+thumbnail: /assets/thumbnail/imgs20190709084925.webp
 ---
 
 此处所说的DevOps主要是指基于精益方法（Lean）的DevOps，所以，几个时间的概念如下：

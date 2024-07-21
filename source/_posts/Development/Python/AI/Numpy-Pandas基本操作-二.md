@@ -1,17 +1,15 @@
 ---
 title: Numpy&Pandas基本操作(二)
 tags:
-  - Numpy
-  - Pandas
-  - Python
-  - 科学计算
+  - 开发
 categories:
   - Development
   - Python
 toc: true
-cover: '/assets/images/20200310114635.webp'
+cover: /assets/images/20200310114635.webp
 abbrlink: bfa8d6bd
-date: 2020-03-10 11:45:29
+date: 2020-03-10T11:45:29.000Z
+thumbnail: /assets/thumbnail/20200310114635.webp
 ---
 
 # Pandas

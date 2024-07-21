@@ -1,15 +1,15 @@
 ---
 title: ES6中的模板字符串
 tags:
-  - 模板字符串
-  - 标签模板
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20200317105552.webp'
+cover: /assets/images/20200317105552.webp
 abbrlink: 7a553f23
-date: 2020-03-16 17:22:37
+date: 2020-03-16T17:22:37.000Z
+thumbnail: /assets/thumbnail/20200317105552.webp
 ---
 
 前两天在看教程的时候，突然发现了一个语法，具体如下：

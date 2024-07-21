@@ -1,8 +1,7 @@
 ---
 title: 使用Python编写的生命游戏
 tags:
-  - Development
-  - Python
+  - 开发
 categories:
   - Development
   - Python
@@ -23,6 +22,7 @@ start date : 2012-Jan-18
 '''
 from Tkinter import *
 ```
+
 <!-- more -->
 
 ```python

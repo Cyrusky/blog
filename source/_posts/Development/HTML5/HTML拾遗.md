@@ -1,21 +1,15 @@
 ---
 title: HTML拾遗
 tags:
-  - html5
-  - ruby
-  - rp
-  - rt
-  - section
-  - header
-  - footer
-  - nav
+  - 开发
 categories:
   - Development
   - html5
 toc: true
 abbrlink: 612cf31e
-date: 2020-02-23 20:28:31
+date: 2020-02-23T20:28:31.000Z
 cover: /assets/images/20200223210222.webp
+thumbnail: /assets/thumbnail/20200223210222.webp
 ---
 
 # Ruby 标签

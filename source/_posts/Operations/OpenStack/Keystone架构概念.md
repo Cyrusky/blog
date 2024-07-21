@@ -1,16 +1,15 @@
 ---
 title: KeyStone架构相关概念
 tags:
-  - Department
-  - OpenStack
-  - keystone
+  - DevOps
 categories:
   - Operations
   - OpenStack
 toc: true
-cover: '/assets/images/imgs20190625084529.webp'
+cover: /assets/images/imgs20190625084529.webp
 abbrlink: ff1ba62b
-date: 2017-09-12 11:20:08
+date: 2017-09-12T11:20:08.000Z
+thumbnail: /assets/thumbnail/imgs20190625084529.webp
 ---
 
 # 服务(Services)
@@ -85,8 +84,8 @@ keyStone是在一个或多个端点(`Endpoint`)上对外开放的已租内部服
 `Keystone`是一个使用Http作为前端的服务。就像其他OpenStack应用一样，使用Python-Paste模块配置的WSGI接口与应用。应用中的Http端点使用WSGI的pipelines组成，如：
 
 ```yaml
-[pipeline:api_v3]
-pipeline = healthcheck cors sizelimit http_proxy_to_wsgi osprofiler url_normalize request_id build_auth_context token_auth json_body ec2_extension_v3 s3_extension service_v3
+[ pipeline:api_v3 ]
+  pipeline = healthcheck cors sizelimit http_proxy_to_wsgi osprofiler url_normalize request_id build_auth_context token_auth json_body ec2_extension_v3 s3_extension service_v3
 ```
 
 使用 [`keystone.common.wsgi.ComposingRouter`](https://docs.openstack.org/keystone/pike/api/keystone.common.html#keystone.common.wsgi.ComposingRouter)

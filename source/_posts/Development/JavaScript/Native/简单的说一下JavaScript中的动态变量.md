@@ -1,15 +1,15 @@
 ---
 title: 简单的说一下JavaScript中的动态变量
 tags:
-  - JavaScript
-  - 动态变量
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 1c00caef
-date: 2020-03-31 22:45:56
+date: 2020-03-31T22:45:56.000Z
 cover: /assets/images/20200331224805.webp
+thumbnail: /assets/thumbnail/20200331224805.webp
 ---
 
 # 我们从一个很简单的示例开始说起
@@ -17,11 +17,15 @@ cover: /assets/images/20200331224805.webp
 ```javascript
 [] + {}
 // '[object Object]'
-{} + []
+{
+}
++[]
 // 0
-{} + {}
+{
+}
++{}
 // NaN
-[] + []
+  [] + []
 // ''
 ```
 

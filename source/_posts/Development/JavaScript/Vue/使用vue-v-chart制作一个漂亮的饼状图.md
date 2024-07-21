@@ -1,14 +1,14 @@
 ---
 title: 使用vue+v-chart制作一个漂亮的饼状图
 tags:
-  - Vue
-  - Echarts
+  - 开发
 categories:
   - Development
   - JavaScript
-cover: '/assets/images/imgs20190625143130.webp'
+cover: /assets/images/imgs20190625143130.webp
 abbrlink: cbd6d728
-date: 2019-06-25 14:17:33
+date: 2019-06-25T14:17:33.000Z
+thumbnail: /assets/thumbnail/imgs20190625143130.webp
 ---
 
 # 废话不说直接上代码

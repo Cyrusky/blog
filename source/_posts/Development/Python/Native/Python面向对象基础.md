@@ -5,11 +5,11 @@ categories:
   - Development
   - Python
 tags:
-  - Python
-  - OOP
+  - 开发
 toc: true
-cover: '/assets/images/imgs20190625084015.webp'
+cover: /assets/images/imgs20190625084015.webp
 abbrlink: c0566d40
+thumbnail: /assets/thumbnail/imgs20190625084015.webp
 ---
 
 # 类的定义

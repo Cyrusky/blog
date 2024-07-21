@@ -1,16 +1,15 @@
 ---
 title: 加速HomeBrew
 tags:
-  - 加速
-  - homebrew
-  - aliyun
+  - DevOps
 categories:
   - CheatSheets
 toc: true
-cover: '/assets/images/20191008135626.webp'
+cover: /assets/images/20191008135626.webp
 Reprint: 'https://opsx.alibaba.com/mirror'
 abbrlink: c599cf9c
-date: 2019-10-08 13:53:06
+date: 2019-10-08T13:53:06.000Z
+thumbnail: /assets/thumbnail/20191008135626.webp
 ---
 
 # 快速配置Alibaba的Homebrew

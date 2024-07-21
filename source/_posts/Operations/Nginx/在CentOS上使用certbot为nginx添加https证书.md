@@ -1,16 +1,15 @@
 ---
 title: 在CentOS上使用certbot为nginx添加https证书
 tags:
-  - certbot
-  - Nginx
-  - CentOS
+  - DevOps
 categories:
   - Operations
   - Nginx
 toc: true
-cover: '/assets/images/20190725163724.webp'
+cover: /assets/images/20190725163724.webp
 abbrlink: 81eae861
-date: 2019-07-25 16:28:56
+date: 2019-07-25T16:28:56.000Z
+thumbnail: /assets/thumbnail/20190725163724.webp
 ---
 
 # 安装CertBot

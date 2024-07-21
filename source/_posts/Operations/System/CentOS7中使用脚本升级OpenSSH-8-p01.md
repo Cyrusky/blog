@@ -1,15 +1,15 @@
 ---
 title: CentOS7中使用脚本升级OpenSSH-8.p01
 tags:
-  - CentOS
-  - OpenSSH
+  - DevOps
 categories:
   - Operations
   - System
 toc: true
-cover: '/assets/images/20200116101404.webp'
+cover: /assets/images/20200116101404.webp
 abbrlink: fb6c5a26
-date: 2020-01-16 10:10:35
+date: 2020-01-16T10:10:35.000Z
+thumbnail: /assets/thumbnail/20200116101404.webp
 ---
 
 # 废话不多说，直接上脚本

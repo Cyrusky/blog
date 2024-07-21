@@ -1,18 +1,16 @@
 ---
 title: React和Vue中的数据绑定
 tags:
-  - Vue
-  - React
-  - 数据绑定
-  - 双向绑定
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
 abbrlink: 2b18f777
-date: 2019-12-04 21:10:25
+date: 2019-12-04T21:10:25.000Z
 cover: /assets/images/20191205190545.webp
-reprint: 
+reprint: null
+thumbnail: /assets/thumbnail/20191205190545.webp
 ---
 
 # 数据的单向绑定

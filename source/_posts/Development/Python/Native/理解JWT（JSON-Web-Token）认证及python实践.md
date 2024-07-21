@@ -1,15 +1,15 @@
 ---
 title: 理解JWT（JSON Web Token）认证及python实践
 tags:
-  - jwt
-  - auth
+  - 开发
 categories:
   - Development
   - Python
-cover: '/assets/images/imgs20190709084601.webp'
+cover: /assets/images/imgs20190709084601.webp
 reprint: 'https://segmentfault.com/a/1190000010312468'
 abbrlink: aa2e3afb
-date: 2019-07-09 08:44:18
+date: 2019-07-09T08:44:18.000Z
+thumbnail: /assets/thumbnail/imgs20190709084601.webp
 ---
 
 ## JWT 认证

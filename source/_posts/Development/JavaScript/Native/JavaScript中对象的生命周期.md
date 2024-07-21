@@ -1,18 +1,15 @@
 ---
 title: JavaScript中对象的生命周期
 tags:
-  - JavaScript
-  - Development
-  - 原型链
-  - 对象
-  - 类
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20191122161153.webp'
+cover: /assets/images/20191122161153.webp
 abbrlink: f971e187
-date: 2019-11-22 14:04:32
+date: 2019-11-22T14:04:32.000Z
+thumbnail: /assets/thumbnail/20191122161153.webp
 ---
 
 # 一切皆对象
@@ -34,7 +31,8 @@ typeof a
 方法。
 
 ```javascript
-let b = function(){}
+let b = function () {
+}
 b.toString()
 // "function(){}"
 ```
@@ -99,7 +97,7 @@ JavaScript中的对象是互相有关系的，就像Python中的`Object`一样�
 var Person = {
   name: "noname",
   age: 0,
-  greet: function() {
+  greet: function () {
     console.log(`Hello ${this.name}`);
   }
 };
@@ -119,8 +117,8 @@ console.log(`${tomAge} ${tomName}`);
 我们可以继续为`Tom`对象添加新的属性：
 
 ```javascript
-Tom.sayHi = function(){
-    console.log('Hi');
+Tom.sayHi = function () {
+  console.log('Hi');
 }
 Tom.gender = "Male"
 Tom.sayHi()
@@ -132,7 +130,7 @@ console.log(Tom.gender)
 上面的这种方法创建的对象，继承了所有父对象的属性和值，为`Object.create()`方法添加额外的参数，就可以为其返回的新对象初始化数据了。但是，我们先做一个实验：
 
 ```javascript
-for(const key in Tom){
+for (const key in Tom) {
   console.log(key)
 }
 // "sayHi"
@@ -155,7 +153,7 @@ var Tom = Object.create(Person, {
     value: 66
   }
 })
-for(const key in Tom){
+for (const key in Tom) {
   console.log(key)
 }
 console.log(Tom.age)
@@ -170,16 +168,21 @@ console.log(Tom.age)
 > * 可枚举（迭代）性（enumerable）：
     >
     >
+
 * 可枚举意味着属性会在 `for...in` 循环中显示，或者会被遍历，但是该属性还是可以被直接访问到，就是俗称的点出来如：`Tom.age`
+
 >
 > * 可配置性（configurable）：
     >
     >
+
 * 意味着能修改属性的行为，让该对象的属性都是不可迭代的、不可修改的和不可配置的. 只有可配置的属性才能通过 `delete` 被删除。
+
 >
 > * 可修改（写）性（writable）：
     >
     >
+
 * 意味着我能修改该对象的所有属性的值，通过为这些属性赋予一个新值就能修改: `Tom.age = 1000;`.
 
 所以我们可以修改上面的创建方式来对上面的三个属性使能：
@@ -199,7 +202,7 @@ var Tom = Object.create(Person, {
     configurable: true
   }
 });
-for(const key in Tom){
+for (const key in Tom) {
   console.log(key)
 }
 // "age"
@@ -212,7 +215,7 @@ for(const key in Tom){
 
 ```javascript
 var personMethods = {
-  greet: function() {
+  greet: function () {
     console.log("Hello " + this.name);
   }
 };
@@ -245,7 +248,7 @@ me.greet();
 当然我们也可以直接使用`Person`的原型为模板创建这个`newPerson`对象，这样的话，我们就可以直接为原型添加方法，如下：
 
 ```javascript
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log("Hello " + this.name);
 };
 ```
@@ -281,7 +284,7 @@ function Person(name, age) {
   this.age = age;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log("Hello " + this.name);
 };
 
@@ -325,7 +328,7 @@ me.greet();
 var Person = {
   name: "noname",
   age: 0,
-  greet: function() {
+  greet: function () {
     console.log(`Hello ${this.name}`);
   }
 };
@@ -352,7 +355,7 @@ function Person(name, age) {
   this.age = age;
 }
 
-Person.prototype.greet = function() {
+Person.prototype.greet = function () {
   console.log("Hello " + this.name);
 };
 
@@ -388,8 +391,8 @@ isinstance(tom, object)
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 ```
 
@@ -397,8 +400,8 @@ var superImportantObject = {
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 
 superImportantObject.anotherProperty = "Hei!";
@@ -410,8 +413,8 @@ console.log(superImportantObject.anotherProperty); // Hei!
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 Object.preventExtensions(superImportantObject);
 superImportantObject.anotherProperty = "Hei!";
@@ -426,9 +429,9 @@ console.log(superImportantObject.anotherProperty); // undefined
 var request = new XMLHttpRequest();
 request.open("GET", "https://jsonplaceholder.typicode.com/posts");
 request.send();
-request.onload = function() {
- this.response.arbitraryProp = "我是新添加的属性";
- console.log(this.response.arbitraryProp); // undefined
+request.onload = function () {
+  this.response.arbitraryProp = "我是新添加的属性";
+  console.log(this.response.arbitraryProp); // undefined
 };
 ```
 
@@ -437,8 +440,8 @@ request.onload = function() {
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 
 Object.isExtensible(superImportantObject) && console.log("我是可扩展的");
@@ -448,8 +451,8 @@ Object.isExtensible(superImportantObject) && console.log("我是可扩展的");
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 
 Object.preventExtensions(superImportantObject);
@@ -461,8 +464,8 @@ Object.isExtensible(superImportantObject) || console.log("我是不可扩展的!
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 
 Object.preventExtensions(superImportantObject);
@@ -480,18 +483,12 @@ console.log(superImportantObject); // { property2: 'yeees' }
 var superImportantObject = {};
 
 Object.defineProperties(superImportantObject, {
- property1: {
-     configurable: false,
-     writable: false,
-     enumerable: true,
-     value: "some string"
- },
- property2: {
-     configurable: false,
-     writable: false,
-     enumerable: true,
-     value: "some other string"
- }
+  property1: {
+    configurable: false, writable: false, enumerable: true, value: "some string"
+  },
+  property2: {
+    configurable: false, writable: false, enumerable: true, value: "some other string"
+  }
 });
 ```
 
@@ -499,8 +496,8 @@ Object.defineProperties(superImportantObject, {
 
 ```javascript
 var superImportantObject = {
- property1: "some string",
- property2: "some other string"
+  property1: "some string",
+  property2: "some other string"
 };
 
 Object.freeze(superImportantObject);
@@ -515,13 +512,13 @@ Object.freeze(superImportantObject);
 
 ```javascript
 class Person {
- constructor(name) {
- this.name = name;
- }
+  constructor(name) {
+    this.name = name;
+  }
 
-greet() {
- console.log(`Hello ${this.name}`);
- }
+  greet() {
+    console.log(`Hello ${this.name}`);
+  }
 }
 ```
 

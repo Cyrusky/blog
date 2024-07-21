@@ -1,15 +1,15 @@
 ---
 title: 使用pm2管理你的nodejs进程
 tags:
-  - NodeJS
-  - pm2
+  - 开发
 categories:
   - Development
   - JavaScript
 toc: true
-cover: '/assets/images/20190802093130.webp'
+cover: /assets/images/20190802093130.webp
 abbrlink: b32780d9
-date: 2019-08-02 09:29:30
+date: 2019-08-02T09:29:30.000Z
+thumbnail: /assets/thumbnail/20190802093130.webp
 ---
 
 > PM2 是一个具有内置负载均衡功能的 Node.js 应用程序的进程管理器。 它可以使 Node.js

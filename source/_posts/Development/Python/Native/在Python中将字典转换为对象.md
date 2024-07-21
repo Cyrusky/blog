@@ -1,14 +1,14 @@
 ---
 title: 在Python中将字典转换为对象
 tags:
-  - Development
-  - Python
+  - 开发
 categories:
   - Development
   - Python
-cover: '/assets/images/imgs20190705153652.webp'
+cover: /assets/images/imgs20190705153652.webp
 abbrlink: 8761a3c5
-date: 2019-07-05 15:33:15
+date: 2019-07-05T15:33:15.000Z
+thumbnail: /assets/thumbnail/imgs20190705153652.webp
 ---
 
 # 起因

@@ -1,16 +1,15 @@
 ---
 title: 写一个脚本自动发布你的GitBook
 tags:
-  - Hexo
-  - 发布
-  - git
+  - 写作
 categories:
   - Reading&Writing
   - GitBook
 toc: true
 abbrlink: dbe45b51
-date: 2019-12-02 12:58:16
+date: 2019-12-02T12:58:16.000Z
 cover: /assets/images/20190725163724.webp
+thumbnail: /assets/thumbnail/20190725163724.webp
 ---
 
 `GitBook`在`Build`以后,会产生一个`_book`的目录,里面存放着整个`html`

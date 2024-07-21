@@ -1,15 +1,14 @@
 ---
 title: 从零开始搭建CentOS+Python+nodejs开发环境
 tags:
-  - Python
-  - NodeJS
-  - CentOS
+  - DevOps
 categories:
   - CheatSheets
 toc: true
-cover: '/assets/images/20190725145223.webp'
+cover: /assets/images/20190725145223.webp
 abbrlink: 29fa0dd5
-date: 2019-07-25 14:50:46
+date: 2019-07-25T14:50:46.000Z
+thumbnail: /assets/thumbnail/20190725145223.webp
 ---
 
 # 配置CentOS7的环境

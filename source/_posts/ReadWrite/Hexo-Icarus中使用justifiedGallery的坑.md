@@ -1,16 +1,15 @@
 ---
 title: Hexo-Icarus中使用justifiedGallery的坑
 tags:
-  - Hexo
-  - Icarus
-  - Gallery
+  - 写作
 categories:
   - Reading&Writing
   - Hexo
-cover: '/assets/images/imgs20190703143844.webp'
+cover: /assets/images/imgs20190703143844.webp
 toc: true
 abbrlink: 579ed25a
-date: 2019-07-03 14:37:02
+date: 2019-07-03T14:37:02.000Z
+thumbnail: /assets/thumbnail/imgs20190703143844.webp
 ---
 
 # 起因

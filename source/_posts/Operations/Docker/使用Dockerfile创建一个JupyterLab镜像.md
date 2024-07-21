@@ -1,17 +1,15 @@
 ---
 title: 使用Dockerfile创建一个JupyterLab镜像
 tags:
-  - jupyter
-  - lab
-  - docker
-  - dockerfile
+  - 开发
 categories:
   - Operations
   - Docker
 toc: true
-cover: '/assets/images/20200201205554.webp'
+cover: /assets/images/20200201205554.webp
 abbrlink: 8e6f1be4
-date: 2020-02-01 16:32:32
+date: 2020-02-01T16:32:32.000Z
+thumbnail: /assets/thumbnail/20200201205554.webp
 ---
 
 # Dockerfile中的一些常用命令
@@ -207,8 +205,11 @@ ENV设置参数的有效期为整个构建期内。**
 格式为：
 
 ```xml
-VOLUME ["<路径1>", "<路径2>"...]
-VOLUME <路径>
+VOLUME ["
+<路径1>", "
+    <路径2>"...]
+        VOLUME
+        <路径>
 ```
 
 **Docker**
@@ -247,7 +248,9 @@ CMD [ "exec", "gosu", "redis", "redis-server" ]
 句法：
 
 ```xml
-EXPOSE <端口1> [<端口2>...]
+EXPOSE
+<端口1>[
+    <端口2>...]
 ```
 
 > `EXPOSE` 指令是声明运行时容器提供服务端口，这只是一个声明，在运行时并不会因为这个声明应用就会开启这个端口的服务。在
