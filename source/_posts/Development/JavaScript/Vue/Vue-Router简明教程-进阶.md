@@ -7,7 +7,7 @@ tags:
 categories:
   - Development
   - JavaScript
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083249.png'
+cover: '/assets/images/imgs20190625083249.webp'
 reprint: 'https://router.vuejs.org/zh/'
 abbrlink: 4750a353
 date: 2019-06-14 21:55:43
@@ -19,9 +19,12 @@ date: 2019-06-14 21:55:43
 
 “导航”表示路由正在发生改变。
 
-正如其名，`vue-router` 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。
+正如其名，`vue-router` 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的,
+或者组件级的。
 
-记住**参数或查询的改变并不会触发进入/离开的导航守卫**。你可以通过[观察 `$route` 对象](https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#响应路由参数的变化)来应对这些变化，或使用 `beforeRouteUpdate` 的组件内守卫。
+记住**参数或查询的改变并不会触发进入/离开的导航守卫**
+。你可以通过[观察 `$route` 对象](https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#响应路由参数的变化)
+来应对这些变化，或使用 `beforeRouteUpdate` 的组件内守卫。
 
 <!-- more -->
 
@@ -44,10 +47,16 @@ router.beforeEach((to, from, next) => {
 - **to: Route**: 即将要进入的目标 [路由对象](https://router.vuejs.org/zh/api/#路由对象)
 - **from: Route**: 当前导航正要离开的路由
 - **next: Function**: 一定要调用该方法来 **resolve** 这个钩子。执行效果依赖 `next` 方法的调用参数。
-  - **next()**: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 **confirmed** (确认的)。
-  - **next(false)**: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 `from` 路由对应的地址。
-  - **next('/') 或者 next({ path: '/' })**: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 `next` 传递任意位置对象，且允许设置诸如 `replace: true`、`name: 'home'` 之类的选项以及任何用在 [`router-link` 的 `to` prop](https://router.vuejs.org/zh/api/#to) 或 [`router.push`](https://router.vuejs.org/zh/api/#router-push) 中的选项。
-  - **next(error)**: (2.4.0+) 如果传入 `next` 的参数是一个 `Error` 实例，则导航会被终止且该错误会被传递给 [`router.onError()`](https://router.vuejs.org/zh/api/#router-onerror) 注册过的回调。
+    - **next()**: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 **confirmed** (确认的)。
+    - **next(false)**: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL
+      地址会重置到 `from` 路由对应的地址。
+    - **next('/') 或者 next({ path: '/' })**: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 `next`
+      传递任意位置对象，且允许设置诸如 `replace: true`、`name: 'home'`
+      之类的选项以及任何用在 [`router-link` 的 `to` prop](https://router.vuejs.org/zh/api/#to)
+      或 [`router.push`](https://router.vuejs.org/zh/api/#router-push) 中的选项。
+    - **next(error)**: (2.4.0+) 如果传入 `next` 的参数是一个 `Error`
+      实例，则导航会被终止且该错误会被传递给 [`router.onError()`](https://router.vuejs.org/zh/api/#router-onerror)
+      注册过的回调。
 
 **确保要调用 next 方法，否则钩子就不会被 resolved。**
 
@@ -55,7 +64,8 @@ router.beforeEach((to, from, next) => {
 
 > 2.5.0 新增
 
-在 2.5.0+ 你可以用 `router.beforeResolve` 注册一个全局守卫。这和 `router.beforeEach` 类似，区别是在导航被确认之前，**同时在所有组件内守卫和异步路由组件被解析之后**，解析守卫就被调用。
+在 2.5.0+ 你可以用 `router.beforeResolve` 注册一个全局守卫。这和 `router.beforeEach` 类似，区别是在导航被确认之前，*
+*同时在所有组件内守卫和异步路由组件被解析之后**，解析守卫就被调用。
 
 ## 全局后置钩子
 
@@ -128,7 +138,8 @@ beforeRouteEnter (to, from, next) {
 }
 ```
 
-注意 `beforeRouteEnter` 是支持给 `next` 传递回调的唯一守卫。对于 `beforeRouteUpdate` 和 `beforeRouteLeave` 来说，`this` 已经可用了，所以**不支持**传递回调，因为没有必要了。
+注意 `beforeRouteEnter` 是支持给 `next` 传递回调的唯一守卫。对于 `beforeRouteUpdate` 和 `beforeRouteLeave` 来说，`this`
+已经可用了，所以**不支持**传递回调，因为没有必要了。
 
 ```js
 beforeRouteUpdate (to, from, next) {
@@ -166,8 +177,6 @@ beforeRouteLeave (to, from , next) {
 11. 触发 DOM 更新。
 12. 用创建好的实例调用 `beforeRouteEnter` 守卫中传给 `next` 的回调函数。
 
-
-
 # 路由元信息
 
 定义路由的时候可以配置 `meta` 字段：
@@ -197,7 +206,8 @@ const router = new VueRouter({
 
 例如，根据上面的路由配置，`/foo/bar` 这个 URL 将会匹配父路由记录以及子路由记录。
 
-一个路由匹配到的所有路由记录会暴露为 `$route` 对象 (还有在导航守卫中的路由对象) 的 `$route.matched` 数组。因此，我们需要遍历 `$route.matched` 来检查路由记录中的 `meta` 字段。
+一个路由匹配到的所有路由记录会暴露为 `$route` 对象 (还有在导航守卫中的路由对象) 的 `$route.matched`
+数组。因此，我们需要遍历 `$route.matched` 来检查路由记录中的 `meta` 字段。
 
 下面例子展示在全局导航守卫中检查元字段：
 
@@ -234,7 +244,8 @@ router.beforeEach((to, from, next) => {
 
 ## 单个路由的过渡
 
-上面的用法会给所有路由设置一样的过渡效果，如果你想让每个路由组件有各自的过渡效果，可以在各路由组件内使用 `<transition>` 并设置不同的 name。
+上面的用法会给所有路由设置一样的过渡效果，如果你想让每个路由组件有各自的过渡效果，可以在各路由组件内使用 `<transition>`
+并设置不同的 name。
 
 ```js
 const Foo = {
@@ -285,7 +296,8 @@ watch: {
 
 ## 导航完成后获取数据
 
-当你使用这种方式时，我们会马上导航和渲染组件，然后在组件的 `created` 钩子中获取数据。这让我们有机会在数据获取期间展示一个 loading 状态，还可以在不同视图间展示不同的 loading 状态。
+当你使用这种方式时，我们会马上导航和渲染组件，然后在组件的 `created` 钩子中获取数据。这让我们有机会在数据获取期间展示一个
+loading 状态，还可以在不同视图间展示不同的 loading 状态。
 
 假设我们有一个 `Post` 组件，需要基于 `$route.params.id` 获取文章数据：
 
@@ -343,7 +355,8 @@ export default {
 
 ## 在导航完成前获取数据
 
-通过这种方式，我们在导航转入新的路由前获取数据。我们可以在接下来的组件的 `beforeRouteEnter`守卫中获取数据，当数据获取成功后只调用 `next` 方法。
+通过这种方式，我们在导航转入新的路由前获取数据。我们可以在接下来的组件的 `beforeRouteEnter`
+守卫中获取数据，当数据获取成功后只调用 `next` 方法。
 
 ```js
 export default {
@@ -383,7 +396,8 @@ export default {
 
 # 滚动行为
 
-使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 `vue-router` 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。
+使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 `vue-router`
+能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。
 
 **注意: 这个功能只在支持 history.pushState 的浏览器中可用。**
 
@@ -398,14 +412,16 @@ const router = new VueRouter({
 })
 ```
 
-`scrollBehavior` 方法接收 `to` 和 `from` 路由对象。第三个参数 `savedPosition` 当且仅当 `popstate` 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。
+`scrollBehavior` 方法接收 `to` 和 `from` 路由对象。第三个参数 `savedPosition` 当且仅当 `popstate` 导航 (通过浏览器的
+前进/后退 按钮触发) 时才可用。
 
 这个方法返回滚动位置的对象信息，长这样：
 
 - `{ x: number, y: number }`
 - `{ selector: string, offset? : { x: number, y: number }}` (offset 只在 2.6.0+ 支持)
 
-如果返回一个 falsy (译者注：falsy 不是 `false`，[参考这里](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy))的值，或者是一个空对象，那么不会发生滚动。
+如果返回一个 falsy (译者注：falsy 不是 `false`，[参考这里](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy))
+的值，或者是一个空对象，那么不会发生滚动。
 
 举例：
 
@@ -441,7 +457,8 @@ scrollBehavior (to, from, savedPosition) {
 }
 ```
 
-我们还可以利用[路由元信息](https://router.vuejs.org/zh/guide/advanced/meta.html)更细颗粒度地控制滚动。查看完整例子请[移步这里](https://github.com/vuejs/vue-router/blob/dev/examples/scroll-behavior/app.js)。
+我们还可以利用[路由元信息](https://router.vuejs.org/zh/guide/advanced/meta.html)
+更细颗粒度地控制滚动。查看完整例子请[移步这里](https://github.com/vuejs/vue-router/blob/dev/examples/scroll-behavior/app.js)。
 
 ## 异步滚动
 
@@ -465,7 +482,8 @@ scrollBehavior (to, from, savedPosition) {
 
 当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。
 
-结合 Vue 的[异步组件](https://cn.vuejs.org/v2/guide/components-dynamic-async.html#异步组件)和 Webpack 的[代码分割功能](https://doc.webpack-china.org/guides/code-splitting-async/#require-ensure-/)，轻松实现路由组件的懒加载。
+结合 Vue 的[异步组件](https://cn.vuejs.org/v2/guide/components-dynamic-async.html#异步组件)和 Webpack
+的[代码分割功能](https://doc.webpack-china.org/guides/code-splitting-async/#require-ensure-/)，轻松实现路由组件的懒加载。
 
 首先，可以将异步组件定义为返回一个 Promise 的工厂函数 (该函数返回的 Promise 应该 resolve 组件本身)：
 
@@ -473,7 +491,8 @@ scrollBehavior (to, from, savedPosition) {
 const Foo = () => Promise.resolve({ /* 组件定义对象 */ })
 ```
 
-第二，在 Webpack 2 中，我们可以使用[动态 import](https://github.com/tc39/proposal-dynamic-import)语法来定义代码分块点 (split point)：
+第二，在 Webpack 2 中，我们可以使用[动态 import](https://github.com/tc39/proposal-dynamic-import)语法来定义代码分块点 (
+split point)：
 
 ```js
 import('./Foo.vue') // 返回 Promise
@@ -481,7 +500,8 @@ import('./Foo.vue') // 返回 Promise
 
 注意
 
-如果您使用的是 Babel，你将需要添加 [`syntax-dynamic-import`](https://babeljs.io/docs/plugins/syntax-dynamic-import/) 插件，才能使 Babel 可以正确地解析语法。
+如果您使用的是 Babel，你将需要添加 [`syntax-dynamic-import`](https://babeljs.io/docs/plugins/syntax-dynamic-import/)
+插件，才能使 Babel 可以正确地解析语法。
 
 结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。
 
@@ -501,7 +521,9 @@ const router = new VueRouter({
 
 ## 把组件按组分块
 
-有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中。只需要使用 [命名 chunk](https://webpack.js.org/guides/code-splitting-require/#chunkname)，一个特殊的注释语法来提供 chunk name (需要 Webpack > 2.4)。
+有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk)
+中。只需要使用 [命名 chunk](https://webpack.js.org/guides/code-splitting-require/#chunkname)，一个特殊的注释语法来提供
+chunk name (需要 Webpack > 2.4)。
 
 ```js
 const Foo = () => import(/* webpackChunkName: "group-foo" */ './Foo.vue')

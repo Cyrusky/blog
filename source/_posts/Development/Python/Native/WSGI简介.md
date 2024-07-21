@@ -8,7 +8,7 @@ tags:
   - WSGI
 keywords: 'Web,Development,WSGI,RESTFul'
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084441.png'
+cover: '/assets/images/imgs20190625084441.webp'
 abbrlink: fbe99afb
 date: 2017-09-01 16:57:41
 ---
@@ -17,7 +17,10 @@ date: 2017-09-01 16:57:41
 
 ## WSGI是什么
 
-WSGI的全称是*Web Server Gateway Interface*，翻译过来就是*Web服务器网关接口*。具体的来说，**WSGI是一个规范，定义了Web服务器如何与Python应用程序进行交互，使得使用Python写的Web应用程序可以和Web服务器对接起来**。WSGI一开始是在[PEP-0333](https://www.python.org/dev/peps/pep-0333/)中定义的，最新版本是在Python的[PEP-3333](https://www.python.org/dev/peps/pep-3333/)定义的。
+WSGI的全称是*Web Server Gateway Interface*，翻译过来就是*Web服务器网关接口*。具体的来说，*
+*WSGI是一个规范，定义了Web服务器如何与Python应用程序进行交互，使得使用Python写的Web应用程序可以和Web服务器对接起来**
+。WSGI一开始是在[PEP-0333](https://www.python.org/dev/peps/pep-0333/)
+中定义的，最新版本是在Python的[PEP-3333](https://www.python.org/dev/peps/pep-3333/)定义的。
 
 对于初学者来说，上面那段就是废话，说了跟没说一样。本文的主要内容就是说清楚，WSGI到底是如何工作的。
 
@@ -30,7 +33,9 @@ WSGI的全称是*Web Server Gateway Interface*，翻译过来就是*Web服务器
 - 首先，部署一个Web服务器专门用来处理HTTP协议层面相关的事情，比如如何在一个物理机上提供多个不同的Web服务（单IP多域名，单IP多端口等）这种事情。
 - 然后，部署一个用各种语言编写（Java, PHP, Python, Ruby等）的应用程序，这个应用程序会从Web服务器上接收客户端的请求，处理完成后，再返回响应给Web服务器，最后由Web服务器返回给客户端。
 
-那么，要采用这种方案，Web服务器和应用程序之间就要知道如何进行交互。为了定义Web服务器和应用程序之间的交互过程，就形成了很多不同的规范。这种规范里最早的一个是[CGI\][3]()，1993年开发的。后来又出现了很多这样的规范。比如改进CGI性能的FasgCGI，Java专用的Servlet规范，还有Python专用的WSGI规范等。提出这些规范的目的就是为了定义统一的标准，提升程序的可移植性。在WSGI规范的最开始的PEP-333中一开始就描述了为什么需要WSGI规范。
+那么，要采用这种方案，Web服务器和应用程序之间就要知道如何进行交互。为了定义Web服务器和应用程序之间的交互过程，就形成了很多不同的规范。这种规范里最早的一个是[
+CGI\][3]()
+，1993年开发的。后来又出现了很多这样的规范。比如改进CGI性能的FasgCGI，Java专用的Servlet规范，还有Python专用的WSGI规范等。提出这些规范的目的就是为了定义统一的标准，提升程序的可移植性。在WSGI规范的最开始的PEP-333中一开始就描述了为什么需要WSGI规范。
 
 # WSGI如何工作
 
@@ -41,12 +46,12 @@ WSGI的全称是*Web Server Gateway Interface*，翻译过来就是*Web服务器
 
 ## WSGI中的角色
 
-在WSGI中定义了两个角色，Web服务器端称为**server**或者**gateway**，应用程序端称为**application**或者**framework**（因为WSGI的应用程序端的规范一般都是由具体的框架来实现的）。我们下面统一使用server和application这两个术语。
+在WSGI中定义了两个角色，Web服务器端称为**server**或者**gateway**，应用程序端称为**application**或者**framework**
+（因为WSGI的应用程序端的规范一般都是由具体的框架来实现的）。我们下面统一使用server和application这两个术语。
 
 server端会先收到用户的请求，然后会根据规范的要求调用application端，如下图所示：
 
-![](https://imgs.borgor.cn/imgs/imgs-WSGI简介-2019-6-25-11-1-56.png)
-
+![](/assets/images/imgs-WSGI简介-2019-6-25-11-1-56.webp)
 
 调用的结果会被封装成HTTP响应后再发送给客户端。
 
@@ -54,7 +59,9 @@ server端会先收到用户的请求，然后会根据规范的要求调用appli
 
 首先，每个application的入口只有一个，也就是所有的客户端请求都同一个入口进入到应用程序。
 
-接下来，server端需要知道去哪里找application的入口。这个需要在server端指定一个Python模块，也就是Python应用中的一个文件，并且这个模块中需要包含一个名称为**application**的可调用对象（函数和类都可以），这个**application**对象就是这个应用程序的唯一入口了。WSGI还定义了**application**对象的形式：
+接下来，server端需要知道去哪里找application的入口。这个需要在server端指定一个Python模块，也就是Python应用中的一个文件，并且这个模块中需要包含一个名称为
+**application**的可调用对象（函数和类都可以），这个**application**对象就是这个应用程序的唯一入口了。WSGI还定义了*
+*application**对象的形式：
 
 ```python
 def simple_app(environ, start_response):
@@ -63,13 +70,15 @@ def simple_app(environ, start_response):
 
 上面代码中的`environ`和`start_response`就是server端调用**application**对象时传递的两个参数。
 
-我们来看具体的例子。假设我们的应用程序的入口文件是`/var/www/index.py`，那么我们就需要在server端配置好这个路径（如何配置取决于server端的实现），然后在`index.py`中的代码如下所示：
+我们来看具体的例子。假设我们的应用程序的入口文件是`/var/www/index.py`
+，那么我们就需要在server端配置好这个路径（如何配置取决于server端的实现），然后在`index.py`中的代码如下所示：
 
 使用标准库（这个只是demo）
 
 上面代码中的`environ`和`start_response`就是server端调用**application**对象时传递的两个参数。
 
-我们来看具体的例子。假设我们的应用程序的入口文件是`/var/www/index.py`，那么我们就需要在server端配置好这个路径（如何配置取决于server端的实现），然后在`index.py`中的代码如下所示：
+我们来看具体的例子。假设我们的应用程序的入口文件是`/var/www/index.py`
+，那么我们就需要在server端配置好这个路径（如何配置取决于server端的实现），然后在`index.py`中的代码如下所示：
 
 使用标准库（这个只是demo）
 
@@ -95,7 +104,8 @@ class hello(object):
 application = web.application(urls, globals()).wsgifunc()
 ```
 
-你可以看到，文件中都需要有一个**application**对象，server端会找到这个文件，然后调用这个对象。所以支持WSGI的Python框架最终都会有这么一个application对象，不过框架的使用者不需要关心这个application对象内部是如何工作的，只需要关心路由定义、请求处理等具体的业务逻辑。
+你可以看到，文件中都需要有一个**application**
+对象，server端会找到这个文件，然后调用这个对象。所以支持WSGI的Python框架最终都会有这么一个application对象，不过框架的使用者不需要关心这个application对象内部是如何工作的，只需要关心路由定义、请求处理等具体的业务逻辑。
 
 因为application对象是唯一的入口，所以不管客户端请求的路径和数据是什么，server都是调用这个application对象，具体的客户端请求的处理有application对象完成。
 
@@ -117,7 +127,8 @@ environ参数是一个Python的字典，里面存放了所有和客户端相关�
 首先是CGI规范中要求的变量：
 
 - **REQUEST_METHOD**： 请求方法，是个字符串，'GET', 'POST'等
-- **SCRIPT_NAME**： HTTP请求的path中的用于查找到application对象的部分，比如Web服务器可以根据path的一部分来决定请求由哪个virtual host处理
+- **SCRIPT_NAME**： HTTP请求的path中的用于查找到application对象的部分，比如Web服务器可以根据path的一部分来决定请求由哪个virtual
+  host处理
 - **PATH_INFO**： HTTP请求的path中剩余的部分，也就是application要处理的部分
 - **QUERY_STRING**： HTTP请求中的查询字符串，URL中**?**后面的内容
 - **CONTENT_TYPE**： HTTP headers中的content-type内容
@@ -146,7 +157,8 @@ start_response是一个可调用对象，接收两个必选参数和一个可选
 - **response_headers**: 一个列表，包含有如下形式的元组：(header_name, header_value)，用来表示HTTP响应的headers
 - **exc_info**（可选）: 用于出错时，server需要返回给浏览器的信息
 
-当application对象根据environ参数的内容执行完业务逻辑后，就需要返回结果给server端。我们知道HTTP的响应需要包含status，headers和body，所以在application对象将body作为返回值return之前，需要先调用`start_response()`，将status和headers的内容返回给server，这同时也是告诉server，application对象要开始返回body了。
+当application对象根据environ参数的内容执行完业务逻辑后，就需要返回结果给server端。我们知道HTTP的响应需要包含status，headers和body，所以在application对象将body作为返回值return之前，需要先调用`start_response()`
+，将status和headers的内容返回给server，这同时也是告诉server，application对象要开始返回body了。
 
 ### application对象的返回值
 
@@ -168,24 +180,28 @@ def simple_app(environ, start_response):
 
 ## 再谈server如何调用application
 
-前面已经知道server如何定位到application的入口了，也知道了application的入口的形式以及application对象内部需要完成的工作。那么，我们还需要再说一下，`environ`和`start_response()`是需要在server端的生成和定义的，其中关于`start_response()`的部分在规范中也有明确的要求。这部分内容太长了，不适合放在本文中，有兴趣的读者可以去看下PEP-3333，里面有一段server端的demo实现。
+前面已经知道server如何定位到application的入口了，也知道了application的入口的形式以及application对象内部需要完成的工作。那么，我们还需要再说一下，`environ`
+和`start_response()`是需要在server端的生成和定义的，其中关于`start_response()`
+的部分在规范中也有明确的要求。这部分内容太长了，不适合放在本文中，有兴趣的读者可以去看下PEP-3333，里面有一段server端的demo实现。
 
 # WSGI中间件
 
-**WSGI Middleware**（中间件）也是WSGI规范的一部分。上一章我们已经说明了WSGI的两个角色：server和application。那么middleware是一种运行在server和application中间的应用（一般都是Python应用）。middleware同时具备server和application角色，对于server来说，它是一个application；对于application来说，它是一个server。middleware并不修改server端和application端的规范，只是同时实现了这两个角色的功能而已。
+**WSGI Middleware**
+（中间件）也是WSGI规范的一部分。上一章我们已经说明了WSGI的两个角色：server和application。那么middleware是一种运行在server和application中间的应用（一般都是Python应用）。middleware同时具备server和application角色，对于server来说，它是一个application；对于application来说，它是一个server。middleware并不修改server端和application端的规范，只是同时实现了这两个角色的功能而已。
 
 我们可以通过下图来说明middleware是如何工作的：
 
-![](https://imgs.borgor.cn/imgs/imgs-WSGI简介-2019-6-25-11-2-3.png)
-
+![](/assets/images/imgs-WSGI简介-2019-6-25-11-2-3.webp)
 
 上图中最上面的三个彩色框表示角色，中间的白色框表示操作，操作的发生顺序按照1 ~ 5进行了排序，我们直接对着上图来说明middleware是如何工作的：
 
 1. Server收到客户端的HTTP请求后，生成了`environ_s`，并且已经定义了`start_response_s`。
 2. Server调用Middleware的application对象，传递的参数是`environ_s`和`start_response_s`。
 3. Middleware会根据`environ`执行业务逻辑，生成`environ_m`，并且已经定义了`start_response_m`。
-4. Middleware决定调用Application的application对象，传递参数是`environ_m`和`start_response_m`。Application的application对象处理完成后，会调用`start_response_m`并且返回结果给Middleware，存放在`result_m`中。
-5. Middleware处理`result_m`，然后生成`result_s`，接着调用`start_response_s`，并返回结果`result_s`给Server端。Server端获取到result_s后就可以发送结果给客户端了。
+4. Middleware决定调用Application的application对象，传递参数是`environ_m`和`start_response_m`
+   。Application的application对象处理完成后，会调用`start_response_m`并且返回结果给Middleware，存放在`result_m`中。
+5. Middleware处理`result_m`，然后生成`result_s`，接着调用`start_response_s`，并返回结果`result_s`
+   给Server端。Server端获取到result_s后就可以发送结果给客户端了。
 
 从上面的流程可以看出middleware应用的几个特点：
 
@@ -193,12 +209,14 @@ def simple_app(environ, start_response):
 2. Application认为middleware是一个server。
 3. Middleware可以有多层。
 
-因为Middleware能过处理所有经过的request和response，所以要做什么都可以，没有限制。比如可以检查request是否有非法内容，检查response是否有非法内容，为request加上特定的HTTP header等，这些都是可以的。
+因为Middleware能过处理所有经过的request和response，所以要做什么都可以，没有限制。比如可以检查request是否有非法内容，检查response是否有非法内容，为request加上特定的HTTP
+header等，这些都是可以的。
 
 # WSGI的实现和部署
 
 要使用WSGI，需要分别实现server角色和application角色。
 
-Application端的实现一般是由Python的各种框架来实现的，比如Django, web.py等，一般开发者不需要关心WSGI的实现，框架会会提供接口让开发者获取HTTP请求的内容以及发送HTTP响应。
+Application端的实现一般是由Python的各种框架来实现的，比如Django,
+web.py等，一般开发者不需要关心WSGI的实现，框架会会提供接口让开发者获取HTTP请求的内容以及发送HTTP响应。
 
 Server端的实现会比较复杂一点，这个主要是因为软件架构的原因。一般常用的Web服务器，如Apache和nginx，都不会内置WSGI的支持，而是通过扩展来完成。比如Apache服务器，会通过扩展模块mod_wsgi来支持WSGI。Apache和mod_wsgi之间通过程序内部接口传递信息，mod_wsgi会实现WSGI的server端、进程管理以及对application的调用。Nginx上一般是用proxy的方式，用nginx的协议将请求封装好，发送给应用服务器，比如uWSGI，应用服务器会实现WSGI的服务端、进程管理以及对application的调用。

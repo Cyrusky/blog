@@ -7,7 +7,7 @@ tags:
 categories:
   - Reading&Writing
   - Hexo
-thumbnail: 'https://imgs.borgor.cn/imgs20190703143844.png'
+cover: '/assets/images/imgs20190703143844.webp'
 toc: true
 abbrlink: 579ed25a
 date: 2019-07-03 14:37:02
@@ -15,16 +15,17 @@ date: 2019-07-03 14:37:02
 
 # 起因
 
-在使用`Icarus`的过程中，需要制作一个阅读列表，我的想法是，在列出图书列表之后，使用`Icarus`自带的相册功能将书籍封面列出来，所以，我按照官方的示例，写了如下代码：
+在使用`Icarus`的过程中，需要制作一个阅读列表，我的想法是，在列出图书列表之后，使用`Icarus`
+自带的相册功能将书籍封面列出来，所以，我按照官方的示例，写了如下代码：
 
 <!-- more -->
 
 ```html
 <div class="justified-gallery">
-![数学之美 （第二版）](https://imgs.borgor.cn/imgs20190625155731.png)
-![Effective DevOps](https://imgs.borgor.cn/imgs20190625111409.png)
-![持续交付：发布可靠软件的系统方法](https://imgs.borgor.cn/imgs20190625111423.png)
-![图解TCP IP(第5版)](https://imgs.borgor.cn/imgs20190625111452.png)
+![数学之美 （第二版）](/assets/images/imgs20190625155731.webp)
+![Effective DevOps](/assets/images/imgs20190625111409.webp)
+![持续交付：发布可靠软件的系统方法](/assets/images/imgs20190625111423.webp)
+![图解TCP IP(第5版)](/assets/images/imgs20190625111452.webp)
 </div>
 ```
 
@@ -32,7 +33,7 @@ date: 2019-07-03 14:37:02
 
 发现，hexo渲染出来的内容如下：
 
-> `![数学之美 （第二版）](https://imgs.borgor.cn/imgs20190625155731.png) ![Effective DevOps](https://imgs.borgor.cn/imgs20190625111409.png) ![持续交付：发布可靠软件的系统方法](https://imgs.borgor.cn/imgs20190625111423.png) ![图解TCP IP(第5版)](https://imgs.borgor.cn/imgs20190625111452.png)`
+> `![数学之美 （第二版）](/assets/images/imgs20190625111409.webp) ![持续交付：发布可靠软件的系统方法](/assets/images/imgs20190625111452.webp)`
 
 # 问题
 
@@ -44,10 +45,10 @@ date: 2019-07-03 14:37:02
 // markdown的html内容中，上下添加空行
 <div class="justified-gallery">
 
-![数学之美 （第二版）](https://imgs.borgor.cn/imgs20190625155731.png)
-![Effective DevOps](https://imgs.borgor.cn/imgs20190625111409.png)
-![持续交付：发布可靠软件的系统方法](https://imgs.borgor.cn/imgs20190625111423.png)
-![图解TCP IP(第5版)](https://imgs.borgor.cn/imgs20190625111452.png)
+![数学之美 （第二版）](/assets/images/imgs20190625155731.webp)
+![Effective DevOps](/assets/images/imgs20190625111409.webp)
+![持续交付：发布可靠软件的系统方法](/assets/images/imgs20190625111423.webp)
+![图解TCP IP(第5版)](/assets/images/imgs20190625111452.webp)
 
 </div>
 ```
@@ -59,15 +60,15 @@ date: 2019-07-03 14:37:02
 ```html
 <div class="justified-gallery">
 	<p>  <!-- <=== 就这里  -->
-		<img src="https://imgs.borgor.cn/imgs20190625111151.png" alt="人类简史：从动物到上帝">
+		<img src="/assets/images/imgs20190625111151.webp="人类简史：从动物到上帝">
 		<br>
-		<img src="https://imgs.borgor.cn/imgs20190625111220.png" alt="三体全集">
+		<img src="/assets/images/imgs20190625111220.webp="三体全集">
 		<br>
-		<img src="https://imgs.borgor.cn/imgs20190625111101.png" alt="哲学家们都干了些什么?">
+		<img src="/assets/images/imgs20190625111101.webp="哲学家们都干了些什么?">
 		<br>
-		<img src="https://imgs.borgor.cn/imgs20190625111325.png" alt="星空的琴弦">
+		<img src="/assets/images/imgs20190625111325.webp="星空的琴弦">
 		<br>
-		<img src="https://imgs.borgor.cn/imgs20190625111310.png" alt="《时间的形状:相对论史话》(彩图升级版)">
+		<img src="/assets/images/imgs20190625111310.webp="《时间的形状:相对论史话》(彩图升级版)">
 	</p> <!-- <=== 和这里  -->
 </div>
 ```

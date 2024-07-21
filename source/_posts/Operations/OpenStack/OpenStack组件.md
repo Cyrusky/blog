@@ -7,31 +7,33 @@ categories:
   - Operations
   - OpenStack
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084623.png'
+cover: '/assets/images/imgs20190625084623.webp'
 abbrlink: 85ee5d93
 date: 2018-07-10 15:55:59
 ---
 
 # KeyStone (OpenStack Identity Service)
 
-Keystone(OpenStackIdentity Service)是OpenStack框架中，负责身份验证、服务规则和服务 令牌的功能，它实现了OpenStack的Identity API。 
+Keystone(OpenStackIdentity Service)是OpenStack框架中，负责身份验证、服务规则和服务 令牌的功能，它实现了OpenStack的Identity
+API。
 
 <!-- more -->
 
-Keystone可以分解为两个核心功能，单点登录和服务发现。Keystone类似一个服务总线，或者说是 整个Openstack框架的注册表，其他服务通过Keystone来注册其服务的Endpoint(服务访问的 URL)，任何服务之间相互的调用，都需要经过Keystone的身份验证，以获得目标服务的Endpoint 来找到目标服务。 
+Keystone可以分解为两个核心功能，单点登录和服务发现。Keystone类似一个服务总线，或者说是
+整个Openstack框架的注册表，其他服务通过Keystone来注册其服务的Endpoint(服务访问的 URL)
+，任何服务之间相互的调用，都需要经过Keystone的身份验证，以获得目标服务的Endpoint 来找到目标服务。
 
-## keystone组件基本概念 
+## keystone组件基本概念
 
 > * `User `
 > * `Tenant`
 > * `Role`
 > * `Service`(`nova`,`glance`,`swift`等服务需要在`keystone`上注册) `Endpoint`(`service`暴露出来的访问地址)
-> * `Token`(访问资源的令牌，具有时效性) 
+> * `Token`(访问资源的令牌，具有时效性)
 
-## keystone在创建vm访问流程示例 
+## keystone在创建vm访问流程示例
 
-![](https://imgs.borgor.cn/imgs/imgs-OpenStack组件-2019-6-25-11-2-18.png)
-
+![](/assets/images/imgs-OpenStack组件-2019-6-25-11-2-18.webp)
 
 ## keystone常用命令介绍
 
@@ -65,7 +67,8 @@ Keystone可以分解为两个核心功能，单点登录和服务发现。Keysto
   $ keystone role-create --name $RoleName
   ```
 
-* 将指定用户`$UserName`以指定的角色`$RoleName`(通过`$ keystone role-list`获得)， 加入指定`$ TenantName` (通过`keystone tenant-list`获得) 
+* 将指定用户`$UserName`以指定的角色`$RoleName`(通过`$ keystone role-list`获得)， 加入指定`$ TenantName` (
+  通过`keystone tenant-list`获得)
 
   ```shell
   $ keystone user-role-add --user $UserName --role $RoleName --tenant $TenantName 
@@ -108,7 +111,7 @@ Keystone可以分解为两个核心功能，单点登录和服务发现。Keysto
   $ keystone endpoint-list 
   ```
 
-## keystone服务及日志 
+## keystone服务及日志
 
 启动`KeyStone`服务
 
@@ -126,65 +129,77 @@ $ systemctl status openstack-keystone
 
 ## 组件基本概念介绍
 
-> `server`(`instance`) 
+> `server`(`instance`)
 >
 > `Flavor`
 >
 > `Image`
 >
-> `rebuild`: remove all data on the server and replace it with the specified image.the server id and ip address remain the same
+> `rebuild`: remove all data on the server and replace it with the specified image.the server id and ip address remain
+> the same
 >
-> `resize`: converts an existing server to a different flavor 
+> `resize`: converts an existing server to a different flavor
 
-## nova相关服务介绍 
+## nova相关服务介绍
 
-* ***nova-api***: 负责接受和响应终端用户有关虚拟机和云硬盘的请求，`nova-api`是整个`nova`的入口。它 接受用户请求，将指令发送至消息队列，由相应的服务执行相关的指令消息。 
-* ***nova-conductor***: 提供数据库访问和其他`Openstack`服务方法，处理不同版本的服务的兼容性问题， 同时处理需要长时间处理的情况，如`instance`在线迁移等。 
-* ***nova-scheduler***: 通过追踪资源使用情况，提供完成`request`的最佳的`host`。*( This service provides compute request scheduling by tracking available resources, and finding the host that can best fulfill the request)* 
-* ***nova-compute***: 是主要的执行守护进程，职责是基于各种虚拟化技术`Hyperivisor`实现创建和终止 虚拟机。`nova-compute`有两个工作，接受消息队列中的执行指令，并执行相关指令，如部署虚拟机。 维护数据库相关模型的状态数据。 
+* ***nova-api***: 负责接受和响应终端用户有关虚拟机和云硬盘的请求，`nova-api`是整个`nova`的入口。它
+  接受用户请求，将指令发送至消息队列，由相应的服务执行相关的指令消息。
+* ***nova-conductor***: 提供数据库访问和其他`Openstack`服务方法，处理不同版本的服务的兼容性问题，
+  同时处理需要长时间处理的情况，如`instance`在线迁移等。
+* ***nova-scheduler***: 通过追踪资源使用情况，提供完成`request`的最佳的`host`。*( This service provides compute request
+  scheduling by tracking available resources, and finding the host that can best fulfill the request)*
+* ***nova-compute***: 是主要的执行守护进程，职责是基于各种虚拟化技术`Hyperivisor`实现创建和终止 虚拟机。`nova-compute`
+  有两个工作，接受消息队列中的执行指令，并执行相关指令，如部署虚拟机。 维护数据库相关模型的状态数据。
 
 ## `Nova`架构
 
-![](https://imgs.borgor.cn/imgs/imgs-OpenStack组件-2019-6-25-11-2-24.png)
-
+![](/assets/images/imgs-OpenStack组件-2019-6-25-11-2-24.webp)
 
 ## 虚拟机创建过程
 
-`nova-api`对外统一提供标准化接口，各子模块，如计算资源，存储资源和网络资源子模块通过相应的`API`接口服务对外提供服务。 
+`nova-api`对外统一提供标准化接口，各子模块，如计算资源，存储资源和网络资源子模块通过相应的`API`接口服务对外提供服务。
 
 > [参考资料](https://blog.csdn.net/u010305706/article/details/52206175)
 
-![](https://imgs.borgor.cn/imgs/imgs-OpenStack组件-2019-6-25-11-2-35.png)
+![](/assets/images/imgs-OpenStack组件-2019-6-25-11-2-35.webp)
 
 
 > 1. **Dashboard** or **CLI** gets the user credential and does the REST call to **Keystone** for authentication.
-> 2. **Keystone** authenticate the credentials and generate & send back auth-token which will be used for sending request to other Components through REST-call.
-> 3. **Dashboard** or **CLI** convert the new instance request specified in  ‘launch instance’ or ‘nova-boot’ form to REST API request and send it to **nova-api.**
-> 4. **nova-api** receive the request and sends the request for validation auth-token and access permission to **keystone**.
+> 2. **Keystone** authenticate the credentials and generate & send back auth-token which will be used for sending
+     request to other Components through REST-call.
+> 3. **Dashboard** or **CLI** convert the new instance request specified in ‘launch instance’ or ‘nova-boot’ form to
+     REST API request and send it to **nova-api.**
+> 4. **nova-api** receive the request and sends the request for validation auth-token and access permission to *
+     *keystone**.
 > 5. **Keystone** validates the token and sends updated auth headers with roles and permissions.
 > 6. **nova-api** interacts with **nova-database**.
 > 7. Creates initial db entry for new instance.
-> 8.  **nova-api** sends the *rpc.call* request to **nova-scheduler** excepting to get  updated instance entry with host ID specified.
+> 8. **nova-api** sends the *rpc.call* request to **nova-scheduler** excepting to get updated instance entry with host
+     ID specified.
 > 9. **nova-scheduler** picks the request from the **queue**.
 > 10. **nova-scheduler** interacts with **nova-database** to find an appropriate host via filtering and weighing.
 > 11. Returns the updated instance entry with appropriate host ID after filtering and weighing.
 > 12. **nova-scheduler** sends the *rpc.cast* request to **nova-compute** for ‘launching instance’ on appropriate host .
 > 13. **nova-compute** picks the request from the **queue**.
-> 14. **nova-compute** send the *rpc.call* request to **nova-conductor** to fetch the instance information such as host ID and flavor( Ram , CPU ,Disk).
+> 14. **nova-compute** send the *rpc.call* request to **nova-conductor** to fetch the instance information such as host
+      ID and flavor( Ram , CPU ,Disk).
 > 15. **nova-conductor** picks the request from the **queue**.
 > 16. **nova-conductor** interacts with **nova-database.**
 > 17. Return the instance information.
 > 18. **nova-compute** picks the instance information from the **queue**.
-> 19. **nova-compute** does the REST call by passing auth-token to **glance-api**  to get the Image URI by Image ID from glance and upload image from image storage.
-> 20. **glance-api** validates the auth-token with **keystone.** 
+> 19. **nova-compute** does the REST call by passing auth-token to **glance-api**  to get the Image URI by Image ID from
+      glance and upload image from image storage.
+> 20. **glance-api** validates the auth-token with **keystone.**
 > 21. **nova-compute** get the image metadata.
-> 22. **nova-compute** does the REST-call by passing auth-token to **Network API** to allocate and configure the network such that instance gets the IP address. 
+> 22. **nova-compute** does the REST-call by passing auth-token to **Network API** to allocate and configure the network
+      such that instance gets the IP address.
 > 23. **quantum-server** validates the auth-token with **keystone**.
 > 24. **nova-compute** get the network info.
 > 25. **nova-compute** does the REST call by passing auth-token to **Volume API** to attach volumes to instance.
 > 26. **cinder-api** validates the auth-token with **keystone**.
 > 27. **nova-compute** gets the block storage info.
-> 28. **nova-compute** generates data for hypervisor driver and executes request on Hypervisor( via **libvirt** or **api**).
+> 28. **nova-compute** generates data for hypervisor driver and executes request on Hypervisor( via **libvirt** or **api
+      **).
 >
 > The table represents the Instance state at various steps during the provisioning :
 >
@@ -196,14 +211,14 @@ $ systemctl status openstack-keystone
 > | Build      | spawing              | None            | 28        |
 > | Active     | none                 | Running         |           |
 
-##  vm状态的介绍 
+## vm状态的介绍
 
 * `Initialized(building)`:初始化，虚拟机在准备创建
 * `active`:虚拟机运行中
 * `Paused`:虚拟机暂停，依然占用计算和内存资源
 * `Suspended`:虚拟机挂起，不占用计算和内存资源
-* `Stop`: 虚拟机停止运行 
-* `Resized`: 虚拟机在源节点停止，在目标结点运行 
+* `Stop`: 虚拟机停止运行
+* `Resized`: 虚拟机在源节点停止，在目标结点运行
 
 ## nova命令行介绍
 
@@ -256,7 +271,7 @@ $ nova delete
 <Glance Server Location>/V1/images/</ID>
 ```
 
-## glance命令介绍 
+## glance命令介绍
 
 ```shell
 # 创建一个镜像
@@ -288,19 +303,22 @@ $ glance image-update
 
 ## neutron基本概念介绍
 
-​	传统的网络管理方式很大程度上依赖于管理员手工配置和维护各种网络硬件设备；而云环境下的网络 已经变得非常复杂，特别是在多租户场景里，用户随时都可能需要创建、修改和删除网络，网络的连 通性和隔离已经不太可能通过手工配置来保证了。
+​ 传统的网络管理方式很大程度上依赖于管理员手工配置和维护各种网络硬件设备；而云环境下的网络
+已经变得非常复杂，特别是在多租户场景里，用户随时都可能需要创建、修改和删除网络，网络的连 通性和隔离已经不太可能通过手工配置来保证了。
 
-​	如何快速响应业务的需求对网络管理提出了更高的要求。传统的网络管理方式已经很难胜任这项工作， 而“软件定义网络（`software-defined networking`, `SDN`）”所具有的灵活性和自动化优势使其成为 云时代网络管理的主流。
+​ 如何快速响应业务的需求对网络管理提出了更高的要求。传统的网络管理方式已经很难胜任这项工作，
+而“软件定义网络（`software-defined networking`, `SDN`）”所具有的灵活性和自动化优势使其成为 云时代网络管理的主流。
 
-​	网络服务`Neutron`的设计目标是实现“网络即服务（`Networking as a Service`）”。为了达到这一目标，在设 计上遵循了基于 `SDN` 实现网络虚拟化的原则，在实现上充分利用了`Linux`系统上的各种网络相关的技术。
+​ 网络服务`Neutron`的设计目标是实现“网络即服务（`Networking as a Service`）”。为了达到这一目标，在设 计上遵循了基于 `SDN`
+实现网络虚拟化的原则，在实现上充分利用了`Linux`系统上的各种网络相关的技术。
 
-​	网络服务`Neutron`为整个`OpenStack`环境提供网络支持，包括
+​ 网络服务`Neutron`为整个`OpenStack`环境提供网络支持，包括
 
 * 二层交换
 * 三层路由
 * 负载均衡
 * 防火墙
-* VPN 
+* VPN
 * etc...
 
 ## Neutorn的常用命令
@@ -330,7 +348,7 @@ $ neutron subnet-create public_net_32 10.192.32.0/24 \
 $ neutron agent-list
 ```
 
-## neutron查看日志 
+## neutron查看日志
 
 网络服务Neutron的日志默认存放在/var/log/neutron目录中
 

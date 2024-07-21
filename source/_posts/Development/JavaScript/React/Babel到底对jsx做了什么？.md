@@ -10,12 +10,13 @@ categories:
 toc: true
 abbrlink: 655734a7
 date: 2019-11-25 16:31:21
-thumbnail: https://imgs.borgor.cn/imgs/20191125204901.png
+cover: /assets/images/20191125204901.webp
 ---
 
 # JSX是个啥？
 
-`jsx`其实不是个新鲜东西，就是`react`的一个语法糖。他提供了一种方式，让我们可以在`JavaScript`代码中编写类似于`html`标签的内容，并且会在最终编译的过程中自动将这些`HTML`标签转换为`React`可以处理的代码。
+`jsx`其实不是个新鲜东西，就是`react`的一个语法糖。他提供了一种方式，让我们可以在`JavaScript`代码中编写类似于`html`
+标签的内容，并且会在最终编译的过程中自动将这些`HTML`标签转换为`React`可以处理的代码。
 
 <!-- more -->
 
@@ -53,7 +54,8 @@ function Component() {
 
 我们观察一下`createElement`的源码，具体的理解已经添加到了源码的注释中了：
 
-> 以下源码包含于`packages/react/src/ReactElement.js`中，源码中没有中文注释。[源码链接]([https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312](https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312)
+> 以下源码包含于`packages/react/src/ReactElement.js`
+> 中，源码中没有中文注释。[源码链接]([https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312](https://github.com/facebook/react/blob/54f66731c84e3f141a1c0bc5d32be7cc5d4b9bbf/packages/react/src/ReactElement.js#L312)
 
 ```javascript
 export function createElement(type, config, children) {
@@ -160,7 +162,8 @@ const element = {
   };
 ```
 
-上面混入了一个比较奇怪的东西`$$typeof`，他是一个`ES6`新增的`Symbel`类型，具体的作用可以参考这篇文章：[https://overreacted.io/why-do-react-elements-have-typeof-property/](https://overreacted.io/why-do-react-elements-have-typeof-property/)
+上面混入了一个比较奇怪的东西`$$typeof`，他是一个`ES6`新增的`Symbel`
+类型，具体的作用可以参考这篇文章：[https://overreacted.io/why-do-react-elements-have-typeof-property/](https://overreacted.io/why-do-react-elements-have-typeof-property/)
 
 而其他的几个属性具体如下：
 
@@ -222,4 +225,7 @@ function Component2() {
 }
 ```
 
-区别在什么地方？区别在于`Component1`中，`createElement`中，第一个参数是一个字符串，`Component2`中，第一个参数是一个组件。这样的区别意味着，`Component1`中，React会将`div`识别成一个`HTML`原生组件，`Component2`中会在上下文中去寻找一个自定义的`Div`组件，必然是找不到的，就会抛出异常，报错。这种规定是源自于`Babel`的，原因就是`Babel`会将大写字母开头的组件当做是自定义组件，所以我们约定，所有自定组件都要首字母大写，而原生组件则必须首字母小写。
+区别在什么地方？区别在于`Component1`中，`createElement`中，第一个参数是一个字符串，`Component2`
+中，第一个参数是一个组件。这样的区别意味着，`Component1`中，React会将`div`识别成一个`HTML`原生组件，`Component2`
+中会在上下文中去寻找一个自定义的`Div`组件，必然是找不到的，就会抛出异常，报错。这种规定是源自于`Babel`的，原因就是`Babel`
+会将大写字母开头的组件当做是自定义组件，所以我们约定，所有自定组件都要首字母大写，而原生组件则必须首字母小写。

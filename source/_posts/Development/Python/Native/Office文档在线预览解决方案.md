@@ -9,7 +9,7 @@ categories:
   - Development
   - Python
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190820174141.png'
+cover: '/assets/images/20190820174141.webp'
 abbrlink: 80238b93
 date: 2019-08-20 16:47:34
 ---
@@ -109,15 +109,15 @@ See also "/root/pdf2htmlEX/CMakeFiles/CMakeOutput.log".
 ```
 
 > 1. 首先去下载作者指定的fotforge-devel版本：https://github.com/coolwanglu/fontforge/tree/pdf2htmlEX
->
->    `git clone https://github.com/coolwanglu/fontforge.git -b pdf2htmlEX `
+     >
+     >    `git clone https://github.com/coolwanglu/fontforge.git -b pdf2htmlEX `
 >
 > 2. 根据INSTALL-git.md中的说明安装
->
->    > 先是使用命令**./autogen.sh**
->    > 然后使用命令**./configure** 
->    > 使用**make**命令
->    > 使用**make install**命令
+     >
+     >    > 先是使用命令**./autogen.sh**
+     > > 然后使用命令**./configure**
+     > > 使用**make**命令
+     > > 使用**make install**命令
 
 ```
 # fontforge的依赖：
@@ -151,8 +151,6 @@ cd LibreOffice_6.3.0_Linux_x86-64_rpm
 cd RPMS
 yum install *.rpm
 ```
-
-
 
 ## 使用
 

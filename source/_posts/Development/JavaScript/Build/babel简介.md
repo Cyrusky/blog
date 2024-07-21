@@ -8,7 +8,7 @@ tags:
 categories:
   - Development
   - JavaScript
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083148.png'
+cover: '/assets/images/imgs20190625083148.webp'
 abbrlink: 87b1b6b1
 date: 2019-06-14 21:56:41
 ---

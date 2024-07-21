@@ -8,7 +8,7 @@ categories:
   - AI
   - 公式推导
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191023140547.png'
+cover: '/assets/images/20191023140547.webp'
 abbrlink: 63ab4995
 date: 2019-10-23 21:04:33
 ---
@@ -22,7 +22,7 @@ $$
 \begin{align}
 \min_x \quad & f_0(x) \\\\
 s.t.\quad & f_i(x) \le 0 , \quad i = 1,\dots,m \\\\
-& h_i(x) = 0,  \quad i = 1,\dots,p
+& h_i(x) = 0, \quad i = 1,\dots,p
 \end{align}
 \tag{1}
 $$
@@ -34,7 +34,7 @@ $$
 \begin{align}
 \min_x \quad & f_0(x) \\\\
 s.t.\quad & f_i(x) \ge 0 , \quad i = 1,\dots,m \\\\
-& h_i(x) = 0,  \quad i = 1,\dots,p
+& h_i(x) = 0, \quad i = 1,\dots,p
 \end{align}
 \tag{2}
 $$
@@ -46,7 +46,7 @@ $$
 \begin{align}
 \max_x \quad & f_0(x) \\\\
 s.t.\quad & f_i(x) \le 0 , \quad i = 1,\dots,m \\\\
-& h_i(x) = 0,  \quad i = 1,\dots,p 
+& h_i(x) = 0, \quad i = 1,\dots,p
 \end{align}
 \tag{3}
 $$
@@ -88,8 +88,8 @@ $$
 
 $$
 \theta_p(x) = \max_{\lambda, \mathcal{v}} \mathcal{L} (x, \lambda, \mathcal{v}) \\\\
- s.t. \quad \lambda_i \ge 0, \quad i = 1,\dots,m
- \tag{7}
+s.t. \quad \lambda_i \ge 0, \quad i = 1,\dots,m
+\tag{7}
 $$
 
 则有:
@@ -97,7 +97,7 @@ $$
 $$
 \theta_p(x) = \left \lbrace
 \begin{align}
-f_0(x) ;\quad &  for\ x\ that\ satisfied\ the\ origin\ constraint
+f_0(x) ;\quad & for\ x\ that\ satisfied\ the\ origin\ constraint
 \\\\ + \infty; \quad & otherwise
 \end{align}
 \right .
@@ -105,19 +105,19 @@ f_0(x) ;\quad &  for\ x\ that\ satisfied\ the\ origin\ constraint
 $$
 
 > 关于以上$(8)$式的证明:
-> 
+>
 > 1. 若存在$x$是的某个$f_i(x) \gt 0$ 则我们可令$0 \le \lambda_i \to + \infty$, 进而有$\theta_p(x) = + \infty$.
 > 2. 若存在$x$是的某个$h_i(x) \ne 0$ 则我们可令$\mathcal{v}_i h_i(x) \to + \infty$, 进而有$\theta_p(x) = + \infty$.
 > 3. 若存在:
-> 
+>
 > $$
 > x \in \lbrace x | \forall i, \mathcal{v}_i, \lambda_i \ge 0 , \lambda_i f_i(x) \le 0, \mathcal{v}_i h_i(x) = 0 \rbrace
-> $$ 
-> 
-> 则有: 
-> 
 > $$
-> 
+>
+> 则有:
+>
+> $$
+>
 > \max\_{\lambda,\mathcal{v}} \mathcal{L}(x, \lambda, \mathcal{v}) = f_0 (x)
 > $$
 
@@ -127,14 +127,14 @@ $$
 
 $$
 \min_{\omega, b} = \frac{1}{2} ||\omega||^2 \\\\
-s.t. \quad y_i (\omega^T x_i + b) \ge 1, \quad i = 1,\dots,m 
+s.t. \quad y_i (\omega^T x_i + b) \ge 1, \quad i = 1,\dots,m
 $$
 
 转换成一般形式的拉格朗日函数
 
 $$
 \min_{\omega, b} = \frac{1}{2} ||\omega||^2 \\\\
-s.t. \quad 1 - y_i (\omega^T x_i + b) \le 1, \quad i = 1,\dots,m 
+s.t. \quad 1 - y_i (\omega^T x_i + b) \le 1, \quad i = 1,\dots,m
 \tag{9,6.6}
 $$
 
@@ -159,7 +159,7 @@ $$
 对于SVM问题来说,队友就是将原来的问题$(11)$式形式,转换为下面的形式:
 
 $$
-\max_\alpha \min_{\omega, b}  \mathcal{L} (\omega, b, \alpha) \\\\
+\max_\alpha \min_{\omega, b} \mathcal{L} (\omega, b, \alpha) \\\\
 s.t. \quad \alpha \ge 0 \quad i = 1,\dots,m
 \tag{11}
 $$
@@ -213,9 +213,9 @@ KKT条件就是一组方程,用于部分最优化问题的求解.
 
 $$
 \begin{align}
- opetimize & \quad f_0(x)  \\\\
- s.t.& \quad g_i(x) \le 0 \\\\
- & \quad h_j(x)
+opetimize & \quad f_0(x)  \\\\
+s.t.& \quad g_i(x) \le 0 \\\\
+& \quad h_j(x)
 \end{align}
 \tag{15}
 $$
@@ -224,7 +224,7 @@ $$
 
 $$
 \begin{align}
-\nabla_x \mathcal{L} = 0 & \qquad stationary\ equation \\\\ 
+\nabla_x \mathcal{L} = 0 & \qquad stationary\ equation \\\\
 g_j(x) = 0, \quad j = 1,\dots,m & \qquad primal\ feasibility\\\\
 h_k(x) \le 0 &\qquad primal\ feasibility \\\\
 \lambda_k \ge 0 & \qquad dual\ feasibility\\\\
@@ -234,12 +234,14 @@ $$
 
 ## 使用方法如下:
 
-1. 假设待优化的函数为$f: \mathbb{R}^n \to \mathbb{R}$,其约束为$g_i:\mathbb{R}^n \to \mathbb{R}$, 并且优化问题满足regularity condition.那么,若$x^\star$是局部最优值,其必然满足KKT条件(必要性)
+1. 假设待优化的函数为$f: \mathbb{R}^n \to \mathbb{R}$,其约束为$g_i:\mathbb{R}^n \to \mathbb{R}$, 并且优化问题满足regularity
+   condition.那么,若$x^\star$是局部最优值,其必然满足KKT条件(必要性)
 
-2. 假设待优化的函数$f(x)$和不等式约束$g_i(x)$是凸函数,等式约束$h_i(x)$是仿射函数,且不等式约束等号能够成立(Slater条件,严格可行),那么满足KKT条件的$x$点就是全局最优解(充分条件).
+2. 假设待优化的函数$f(x)$和不等式约束$g_i(x)$是凸函数,等式约束$h_i(x)$是仿射函数,且不等式约束等号能够成立(
+   Slater条件,严格可行),那么满足KKT条件的$x$点就是全局最优解(充分条件).
 
 > 正则条件（regularity condition）是指在陈述某一个定理时，常常需要限定这些定理的使用范围。如果超出这个范围，则会导致定理所描述的内容不成立。用于限定这个使用范围的限定条件被称为“正则条件”。
-> 
+>
 > 仿射函数: 能够写成$\mathit{Ax}+b$形式的函数.
 
 # 参考资料

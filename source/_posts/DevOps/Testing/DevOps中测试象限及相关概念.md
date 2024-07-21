@@ -8,7 +8,7 @@ categories:
   - DevOps
   - Testing
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190710211632.png'
+cover: '/assets/images/imgs20190710211632.webp'
 abbrlink: ecfab645
 date: 2019-07-10 08:50:35
 ---
@@ -17,7 +17,7 @@ date: 2019-07-10 08:50:35
 
 测试象限图：
 
-![](https://imgs.borgor.cn/imgs20190710223924.png)
+![](/assets/images/imgs20190710223924.webp)
 
 <!-- more -->
 
@@ -36,8 +36,10 @@ date: 2019-07-10 08:50:35
 
 ### 功能测试
 
-**Functional testing（功能测试）**，也称为**behavioral testing（行为测试）**，根据产品特性、操作描述和用户方案，测试一个产品的特性和可操作行为以确定它们满足设计需求。本地化软件的功能测试，用于验证应用程序或网站对目标用户能正确工作。使用适当的平台、浏览器和测试脚本，以保证目标用户的体验将足够好，就像应用程序是专门为该市场开发的一样。功能测试是为了确保程序以期望的方式运行而按功能要求对软件进行的测试，通过对一个系统的所有的特性和功能都进行测试确保符合需求和规范。
-功能测试也叫**黑盒**测试或数据驱动测试，只需考虑需要测试的各个功能，不需要考虑整个软件的内部结构及代码.一般从软件产品的界面、架构出发，按照需求编写出来的测试用例，输入数据在预期结果和实际结果之间进行评测，进而提出更加使产品达到用户使用的要求。
+**Functional testing（功能测试）**，也称为**behavioral testing（行为测试）**
+，根据产品特性、操作描述和用户方案，测试一个产品的特性和可操作行为以确定它们满足设计需求。本地化软件的功能测试，用于验证应用程序或网站对目标用户能正确工作。使用适当的平台、浏览器和测试脚本，以保证目标用户的体验将足够好，就像应用程序是专门为该市场开发的一样。功能测试是为了确保程序以期望的方式运行而按功能要求对软件进行的测试，通过对一个系统的所有的特性和功能都进行测试确保符合需求和规范。
+功能测试也叫**黑盒**
+测试或数据驱动测试，只需考虑需要测试的各个功能，不需要考虑整个软件的内部结构及代码.一般从软件产品的界面、架构出发，按照需求编写出来的测试用例，输入数据在预期结果和实际结果之间进行评测，进而提出更加使产品达到用户使用的要求。
 
 ### 回归测试
 
@@ -49,15 +51,11 @@ date: 2019-07-10 08:50:35
 
 ---
 
-
-
 ## 业务导向且评价项目的测试
 
 > 包括：**演示**（`Demonstration`）、**易用性测试**（`Usability`）、**探索性测试**（`Exploratory`）等
 
 这类手工测试可以验证我们实际交付给用户的应用软件是否符合其期望。这并不只是验证应用是否满足需求规格说明，还验证需求规格说明的正确性。
-
-
 
 ### 演示
 
@@ -69,11 +67,10 @@ date: 2019-07-10 08:50:35
 
 ### 探索性测试
 
-探索性测试被James Bach描述为一种手工测试，他说：“执行测试的同事，测试人员会积极地控制测试的设计，并利用测试时获得的信息设计新的更好的测试。”探索性测试是一个创造新的学习过程，并不只是发现缺陷，他还会导致创建新的自动化测试集合，并可以用于覆盖哪些新的需求。
+探索性测试被James
+Bach描述为一种手工测试，他说：“执行测试的同事，测试人员会积极地控制测试的设计，并利用测试时获得的信息设计新的更好的测试。”探索性测试是一个创造新的学习过程，并不只是发现缺陷，他还会导致创建新的自动化测试集合，并可以用于覆盖哪些新的需求。
 
 ---
-
-
 
 ## 技术向导且支持开发过程的测试
 
@@ -81,7 +78,8 @@ date: 2019-07-10 08:50:35
 
 ### 单元测试
 
-单元测试（`unit testing`），是指对软件中的最小可测试单元进行检查和验证。对于单元测试中单元的含义，一般来说，要根据实际情况去判定其具体含义，如C语言中单元指一个函数，Java里单元指一个类，图形化的软件中可以指一个窗口或一个菜单等。总的来说，单元就是人为规定的最小的被测功能模块。单元测试是在软件开发过程中要进行的最低级别的测试活动，软件的独立单元将在与程序的其他部分相隔离的情况下进行测试。
+单元测试（`unit testing`
+），是指对软件中的最小可测试单元进行检查和验证。对于单元测试中单元的含义，一般来说，要根据实际情况去判定其具体含义，如C语言中单元指一个函数，Java里单元指一个类，图形化的软件中可以指一个窗口或一个菜单等。总的来说，单元就是人为规定的最小的被测功能模块。单元测试是在软件开发过程中要进行的最低级别的测试活动，软件的独立单元将在与程序的其他部分相隔离的情况下进行测试。
 
 单元测试不应该有组件之间的交互，这会让单元测试运行非常快，因此可以得到更早的反馈，了解自己的修改是否破坏了现有的任何功能。
 
@@ -97,7 +95,7 @@ date: 2019-07-10 08:50:35
 
 单元测试常常依赖于用`测试替身`(Test Double)模拟系统的其他部分。
 
-测试用户场景时，单元与单元之间是有关联的，你测某一单元的功能时，可能需要别的单元提供数据，也有可能这单元会有返回结果，而结果会影响到别的单元，也就是测试的单元可能会有输入输出数据，这些数据是会影响被测单元的功能的。 
+测试用户场景时，单元与单元之间是有关联的，你测某一单元的功能时，可能需要别的单元提供数据，也有可能这单元会有返回结果，而结果会影响到别的单元，也就是测试的单元可能会有输入输出数据，这些数据是会影响被测单元的功能的。
 当我们在测试这样的单元时，一般有两种方法，第一种是，将依赖单元放一起测试，但是这种方法实现比较复杂，困难，有时需要花费大量时间。第二种就是将测试单元独立出来，提供它需要的数据，用一些假的比较简单的数据，但是行为是一样的东西来代替，由此降低复杂度和测试可行性，这些假单元借鉴电影中替身的概念，称为测试替身。
 
 > 测试替身主要的两项功能：*为被测单元提供输入数据*和*记录被测单元的输出结果*。
@@ -112,7 +110,7 @@ date: 2019-07-10 08:50:35
 
 > 【百度百科】也被叫做**配置测试**:
 >
-> >  在很多情况下，软件必须在多种平台及操作系统环境中运行
+> > 在很多情况下，软件必须在多种平台及操作系统环境中运行
 >>
 > > 配置测试主要是针对硬件而言，其测试过程]是测试目标软件在具体硬件配置情况下，出不出现问题，为的是发现硬件配置可能出现的问题。
 
@@ -126,7 +124,8 @@ date: 2019-07-10 08:50:35
 
 #### 容量测试（Capacity Testing）
 
-通过性能测试，如果找到了系统的极限或苛刻的环境中系统的**性能表现**，在一定的程度上，就完成了**负载测试**和**容量测试**。容量还可以看作系统性能指标中一个特定环境下的一个**特定性能指标**，即设定的界限或极限值。
+通过性能测试，如果找到了系统的极限或苛刻的环境中系统的**性能表现**，在一定的程度上，就完成了**负载测试**和**容量测试**
+。容量还可以看作系统性能指标中一个特定环境下的一个**特定性能指标**，即设定的界限或极限值。
 容量测试的目的是通过测试预先分析出反映软件系统应用特征的某项指标的极限值（如最大并发用户数、数据库记录数等），系统在其极限状态下没有出现任何软件故障或还能保持主要功能正常运行。容量测试还将确定测试对象在给定时间内能够持续处理的最大负载或工作量。软件容量的测试能让软件开发商或用户了解该软件系统的承载能力或提供服务的能力，如某个电子商务网站所能承受的、同时进行交易或结算的在线用户数。知道了系统的实际容量，如是不能满足设计要求，就应该寻求新的技术解决方案，以提高系统的容量。有了对软件负载的准确预测，不仅能对软件系统在实际使用中的性能状况充满信心，同时也可以帮助用户经济地规划应用系统，优化系统的部署。
 
 #### 安全性测试（Security Testing）
@@ -158,7 +157,8 @@ date: 2019-07-10 08:50:35
 
 在`IS0-9241-11`中对于可用性做出了明确的解释：
 
-> Extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.
+> Extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and
+> satisfaction in a specified context of use.
 
 ---
 
@@ -171,12 +171,12 @@ date: 2019-07-10 08:50:35
 * 选择技术平台和测试工具
 * 建立简单的自动化构建
 * 指定遵守**INVEST**原则指定用户故事，并且考虑其验收条件
-  * **独立的**（`Independent`）
-  * **可协商的**（`Negotiable`）
-  * **有价值的**（`Valuable`）
-  * **可估计的**（`Estimable`）
-  * **小的**（`Small`）
-  * **可测试的**（`Testable`）
+    * **独立的**（`Independent`）
+    * **可协商的**（`Negotiable`）
+    * **有价值的**（`Valuable`）
+    * **可估计的**（`Estimable`）
+    * **小的**（`Small`）
+    * **可测试的**（`Testable`）
 
 然后需要遵守以下流程：
 
@@ -189,7 +189,7 @@ date: 2019-07-10 08:50:35
 
 * 需要同客户沟通，清楚的识别客户真正的业务价值是什么，延后使用测试来做回归，以防止功能被破坏。
 * 基于这些沟通，先将Happy Path的测试自动化，用于覆盖高价值的场景。
-  * 让这些测试尽可能覆盖更多的选项是有用的，即让测试覆盖的范围少少宽裕通常用户故事级别的验收测试，步入尽可能多填充一些字段、多点击一些按钮来满足测试需要。
+    * 让这些测试尽可能覆盖更多的选项是有用的，即让测试覆盖的范围少少宽裕通常用户故事级别的验收测试，步入尽可能多填充一些字段、多点击一些按钮来满足测试需要。
 
 ## 在遗留系统中
 
@@ -203,9 +203,11 @@ date: 2019-07-10 08:50:35
 
 ## Happy Path
 
-> **Happy path testing** is a well-defined test case that uses known input, that executes without exception and that produces an expected output.
+> **Happy path testing** is a well-defined test case that uses known input, that executes without exception and that
+> produces an expected output.
 
-> A test case which results you in a positive result is a **Happy path**, for e.g. entering proper username and password on login page. 
+> A test case which results you in a positive result is a **Happy path**, for e.g. entering proper username and password
+> on login page.
 
 **Happy Path**就是按照用户正常使用的流程对系统进行输入，并且最终产生业务价值的系统使用过程。
 
@@ -220,11 +222,10 @@ date: 2019-07-10 08:50:35
 							退出APP
 ```
 
+## Alternate Path
 
-
-## Alternate Path 
-
-**Alternate Path**，用户使用一个不常见的流程对系统进行输入，其过程有可能有反复、或者循环等曲折方式，最终产生了业务价值，这个过程叫做**Alternate Path**。
+**Alternate Path**，用户使用一个不常见的流程对系统进行输入，其过程有可能有反复、或者循环等曲折方式，最终产生了业务价值，这个过程叫做
+**Alternate Path**。
 
 ```test
 打开APP->
@@ -243,13 +244,15 @@ date: 2019-07-10 08:50:35
 
 ## Sad Path
 
-> A test case which yields no result like entering invalid username and invalid password on a login screen is **Sad path**. 
+> A test case which yields no result like entering invalid username and invalid password on a login screen is **Sad path
+**.
 
 系统没有对用户错误的输入进行正确的反映，被称作**Sad Path**.比如，进行操作时，系统没有响应，或者系统产生错误等。
 
 ## Bad Path
 
-> “**Bad path**” which is like entering junk characters in username field or some 70 characters in username field and will expect system to handle it and show some messages to the user.
+> “**Bad path**” which is like entering junk characters in username field or some 70 characters in username field and
+> will expect system to handle it and show some messages to the user.
 
 当用户有意或者无意的进行错误的输入时，系统应该做出正确的相应，如：提示用户名或者密码错误，提示密码长度不正确等。
 

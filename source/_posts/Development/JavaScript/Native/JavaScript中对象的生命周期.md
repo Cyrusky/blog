@@ -10,14 +10,15 @@ categories:
   - Development
   - JavaScript
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191122161153.png'
+cover: '/assets/images/20191122161153.webp'
 abbrlink: f971e187
 date: 2019-11-22 14:04:32
 ---
 
 # 一切皆对象
 
-其实，我们已经了解到了，JavaScript中，所有的东西都是对象，也就是所谓的`“Object”`类型，但是，在JavaScript中，并没有真正的类的概念，所以，此处的对象并不像是Java或者Python中的那样，是由类实例化而来的，而是由键和值来组成的，对象其实就是以键命名的值的容器。
+其实，我们已经了解到了，JavaScript中，所有的东西都是对象，也就是所谓的`“Object”`
+类型，但是，在JavaScript中，并没有真正的类的概念，所以，此处的对象并不像是Java或者Python中的那样，是由类实例化而来的，而是由键和值来组成的，对象其实就是以键命名的值的容器。
 
 比如，我们使用`typeof`来检查一个数组的类型，会发现，其实数组也是一个`Object`
 
@@ -29,7 +30,8 @@ typeof a
 
 <!-- more -->
 
-其他的一些类型也可以这么验证，比如说function类型，如果说，创建一个function类型的话，JavaScript引擎会自动为这个function添加一些额外的属性，就像给对象添加属性一样，比如说`toString()`方法。
+其他的一些类型也可以这么验证，比如说function类型，如果说，创建一个function类型的话，JavaScript引擎会自动为这个function添加一些额外的属性，就像给对象添加属性一样，比如说`toString()`
+方法。
 
 ```javascript
 let b = function(){}
@@ -82,13 +84,16 @@ typeof Error.prototype // 'object'
 
 可以看得出来，真的是一切皆对象。
 
-那么什么是一个对象的`ProtoType`呢？简单的来说，`prototype`就是一个父对象（可以参考父类）的镜像或者链接，通过`prototype`我们可以访问父对象中的一些方法。
+那么什么是一个对象的`ProtoType`呢？简单的来说，`prototype`就是一个父对象（可以参考父类）的镜像或者链接，通过`prototype`
+我们可以访问父对象中的一些方法。
 
-就像，我们本来定义一个`function`的时候是没有`toString()`这个方法的，这个方法是哪里来的呢？其实就是我们调用了`prototype`中的`toString()`方法，这个方法来自于其父对象，也就是`Object`。
+就像，我们本来定义一个`function`的时候是没有`toString()`这个方法的，这个方法是哪里来的呢？其实就是我们调用了`prototype`
+中的`toString()`方法，这个方法来自于其父对象，也就是`Object`。
 
 # 对象的创建和连接
 
-JavaScript中的对象是互相有关系的，就像Python中的`Object`一样，所有的对象，都是`object`对象的子对象，我们创建一个对象的时候其实是创建了一个Object的副本，然后向这个副本中添加别的一些属性，并且重命名成为我们想要的对象，当然这个过程还是会进行一些别的操作的。
+JavaScript中的对象是互相有关系的，就像Python中的`Object`一样，所有的对象，都是`object`
+对象的子对象，我们创建一个对象的时候其实是创建了一个Object的副本，然后向这个副本中添加别的一些属性，并且重命名成为我们想要的对象，当然这个过程还是会进行一些别的操作的。
 
 ```javascript
 var Person = {
@@ -108,7 +113,8 @@ console.log(`${tomAge} ${tomName}`);
 // Output: 0 noname
 ```
 
-在上面的例子中，我们定义了一个`Person`对象作为父对象，然后，我们通过这个父对象，创建了一个`Tom`子对象，这个子对象就继承了`Person`对象的所有属性。包括：`name`、`age`，以及`greet`方法。
+在上面的例子中，我们定义了一个`Person`对象作为父对象，然后，我们通过这个父对象，创建了一个`Tom`
+子对象，这个子对象就继承了`Person`对象的所有属性。包括：`name`、`age`，以及`greet`方法。
 
 我们可以继续为`Tom`对象添加新的属性：
 
@@ -160,18 +166,21 @@ console.log(Tom.age)
 我们可以看出，我们使用在`Object.create()`方法中添加参数的方法来初始化对象的话，初始化的对象都不能被枚举了。
 
 > 我们在JavaScript引擎的工作原理中提到过这些概念，现在复习一下这几个概念:
-> 
+>
 > * 可枚举（迭代）性（enumerable）：
->   
->   * 可枚举意味着属性会在 `for...in` 循环中显示，或者会被遍历，但是该属性还是可以被直接访问到，就是俗称的点出来如：`Tom.age`
-> 
+    >
+    >
+* 可枚举意味着属性会在 `for...in` 循环中显示，或者会被遍历，但是该属性还是可以被直接访问到，就是俗称的点出来如：`Tom.age`
+>
 > * 可配置性（configurable）：
->   
->   * 意味着能修改属性的行为，让该对象的属性都是不可迭代的、不可修改的和不可配置的. 只有可配置的属性才能通过 `delete` 被删除。
-> 
+    >
+    >
+* 意味着能修改属性的行为，让该对象的属性都是不可迭代的、不可修改的和不可配置的. 只有可配置的属性才能通过 `delete` 被删除。
+>
 > * 可修改（写）性（writable）：
->   
->   * 意味着我能修改该对象的所有属性的值，通过为这些属性赋予一个新值就能修改: `Tom.age = 1000;`.
+    >
+    >
+* 意味着我能修改该对象的所有属性的值，通过为这些属性赋予一个新值就能修改: `Tom.age = 1000;`.
 
 所以我们可以修改上面的创建方式来对上面的三个属性使能：
 
@@ -230,7 +239,8 @@ me.greet();
 
 * `Person`执行的过程中，还对创建的`personMethods`的这个子对象添加了一些自己的属性：`age`、`name`
 
-~~当然，我们也可以不单独定义`personMethods`对象，也就是父对象。而是将这个方法直接挂载到我们新创建的`newPerson`对象的原型上，具体如下~~（理解错误了）：
+~~当然，我们也可以不单独定义`personMethods`对象，也就是父对象。而是将这个方法直接挂载到我们新创建的`newPerson`
+对象的原型上，具体如下~~（理解错误了）：
 
 当然我们也可以直接使用`Person`的原型为模板创建这个`newPerson`对象，这样的话，我们就可以直接为原型添加方法，如下：
 
@@ -286,8 +296,9 @@ me.greet();
 * 创建一个空对象
 
 * 将空对象的`__proto__`指向构造函数的`prototype`
+
 - 使用空对象作为上下文的调用构造函数
-  
+
   ```javascript
   function Person(name, age) {
    this.name = name;
@@ -305,7 +316,8 @@ me.greet();
 
 原型链其实简单地说就是一个对象之间的依赖关系。类似于父类到子类的继承关系。
 
-对于`JavaScript`的原型链检查，可以使用`Object.getPrototypeOf()`方法来实现，还有一种方法就是判断一个对象的父对象是否为另一个对象，使用`Object.isPrototypeOf()`方法来实现。
+对于`JavaScript`的原型链检查，可以使用`Object.getPrototypeOf()`
+方法来实现，还有一种方法就是判断一个对象的父对象是否为另一个对象，使用`Object.isPrototypeOf()`方法来实现。
 
 比如：
 
@@ -352,7 +364,8 @@ console.log(mePrototype === Person.prototype);
 // Output: true
 ```
 
-还有一种检查原型链的方法，就是`[Object].prototype.isPrototypeOf()`方法，该方法用于测试一个对象是否存在于另一个对象的原型链上，如下所示，检查 `me` 是否在 `Person.prototype` 上：
+还有一种检查原型链的方法，就是`[Object].prototype.isPrototypeOf()`
+方法，该方法用于测试一个对象是否存在于另一个对象的原型链上，如下所示，检查 `me` 是否在 `Person.prototype` 上：
 
 ```javascript
 Person.prototype.isPrototypeOf(me) && console.log('Yes I am!')
@@ -405,7 +418,9 @@ superImportantObject.anotherProperty = "Hei!";
 console.log(superImportantObject.anotherProperty); // undefined
 ```
 
-这种技术对于“保护”代码中的关键对象非常方便。JS 中还有许多预先创建的对象，它们都是为扩展而关闭的，从而阻止开发人员在这些对象上添加新属性。这就是“重要”对象的情况，比如`XMLHttpRequest`的响应。浏览器供应商禁止在响应对象上添加新属性
+这种技术对于“保护”代码中的关键对象非常方便。JS
+中还有许多预先创建的对象，它们都是为扩展而关闭的，从而阻止开发人员在这些对象上添加新属性。这就是“重要”对象的情况，比如`XMLHttpRequest`
+的响应。浏览器供应商禁止在响应对象上添加新属性
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -417,7 +432,8 @@ request.onload = function() {
 };
 ```
 
-这是通过在“response”对象上内部调用`Object.preventExtensions`来完成的。 您还可以使用`Object.isExtensible`方法检查对象是否受到保护。 如果对象是可扩展的，它将返回`true`：
+这是通过在“response”对象上内部调用`Object.preventExtensions`来完成的。 您还可以使用`Object.isExtensible`方法检查对象是否受到保护。
+如果对象是可扩展的，它将返回`true`：
 
 ```javascript
 var superImportantObject = {
@@ -490,7 +506,8 @@ var superImportantObject = {
 Object.freeze(superImportantObject);
 ```
 
-`Object.freeze`工作方式与`Object.preventExtensions`相同，并且它使所有对象的属性不可写且不可配置。 唯一的缺点是“`Object.freeze`”仅适用于对象的第一级：嵌套对象不受操作的影响。
+`Object.freeze`工作方式与`Object.preventExtensions`相同，并且它使所有对象的属性不可写且不可配置。
+唯一的缺点是“`Object.freeze`”仅适用于对象的第一级：嵌套对象不受操作的影响。
 
 # 类
 
@@ -508,10 +525,14 @@ greet() {
 }
 ```
 
-ES6中引入了类。但是在这一点上，咱们应该清楚JS中没有“`真正的`”类。 一切都只是一个对象，尽管有关键字`class`，“原型系统”仍然存在。 新的JS版本是向后兼容的，这意味着在现有功能的基础上添加了新功能，这些新功能中的大多数都是遗留代码的语法糖。
+ES6中引入了类。但是在这一点上，咱们应该清楚JS中没有“`真正的`”类。 一切都只是一个对象，尽管有关键字`class`，“原型系统”仍然存在。
+新的JS版本是向后兼容的，这意味着在现有功能的基础上添加了新功能，这些新功能中的大多数都是遗留代码的语法糖。
 
 # 总结
 
-JS中的几乎所有东西都是一个对象。 从字面上看。 JS对象是键和值的容器，也可能包含函数。 `Object`是JS中的基本构建块：因此可以从共同的祖先开始创建其他自定义对象。 然后咱们可以通过语言的内在特征将对象链接在一起：原型系统。
+JS中的几乎所有东西都是一个对象。 从字面上看。 JS对象是键和值的容器，也可能包含函数。 `Object`
+是JS中的基本构建块：因此可以从共同的祖先开始创建其他自定义对象。 然后咱们可以通过语言的内在特征将对象链接在一起：原型系统。
 
-从公共对象开始，可以创建共享原始“父”的相同属性和方法的其他对象。 但是它的工作方式不是通过将方法和属性复制到每个孩子，就像OOP语言那样。 在JS中，每个派生对象都保持与父对象的连接。 使用`Object.create`或使用所谓的构造函数创建新的自定义对象。 与`new`关键字配对，构造函数类似于模仿传统的OOP类。
+从公共对象开始，可以创建共享原始“父”的相同属性和方法的其他对象。 但是它的工作方式不是通过将方法和属性复制到每个孩子，就像OOP语言那样。
+在JS中，每个派生对象都保持与父对象的连接。 使用`Object.create`或使用所谓的构造函数创建新的自定义对象。 与`new`
+关键字配对，构造函数类似于模仿传统的OOP类。

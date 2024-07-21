@@ -6,7 +6,7 @@ tags:
 categories:
   - CheatSheets
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083047.png'
+cover: '/assets/images/imgs20190625083047.webp'
 abbrlink: acc3d3b0
 date: 2017-12-13 11:17:36
 ---
@@ -20,7 +20,7 @@ date: 2017-12-13 11:17:36
 
 一般来说，只需要记住六个命令就行了：
 
-![](https://imgs.borgor.cn/imgs-git命令-2019-6-25-10-57-15.png)
+![](/assets/images/imgs-git命令-2019-6-25-10-57-15.webp)
 
 
 <!-- more -->

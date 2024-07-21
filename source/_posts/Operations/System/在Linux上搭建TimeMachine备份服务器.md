@@ -8,7 +8,7 @@ tags:
   - Linux
   - TimeMachine
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084745.png'
+cover: '/assets/images/imgs20190625084745.webp'
 abbrlink: f6088a4f
 ---
 
@@ -19,7 +19,9 @@ abbrlink: f6088a4f
 - Time Machine 使用的 AFP 协议__没有加密__。因此，如果你的服务器暴露在公网：有必要新建一个账户单独用于 Time Machine 使用。
 - 这个账户应当使用__随机密码__，以避免撞库。
 - 有必要__禁用这个账户任何不必要的权限__。换言之，**不要赋予任何不需要的权限**（尤其 ssh 登录）。
-- AFP 使用 TCP 548 端口。在服务商面板／`iptables`／`ufw` **限制这个端口传入连接的 IP 地址**。如果你的 IP 地址并不是固定的，那么请复习一下 [IP 地址段表示法](http://vod.sjtu.edu.cn/help/Article_Print.asp?ArticleID=631)，限制为你可能被分配到的 IP 地址范围。
+- AFP 使用 TCP 548 端口。在服务商面板／`iptables`／`ufw` **限制这个端口传入连接的 IP 地址**。如果你的 IP
+  地址并不是固定的，那么请复习一下 [IP 地址段表示法](http://vod.sjtu.edu.cn/help/Article_Print.asp?ArticleID=631)
+  ，限制为你可能被分配到的 IP 地址范围。
 - 即便如此，Time Machine 开启加密的捆绑稀疏镜像依然是安全的。所以务必加密。
 
 <!-- more -->
@@ -135,11 +137,14 @@ sudo service netatalk restart
 
 在互联网上广为流传的一个说法是，除非使用 Time Capsule，否则不能在 Recovery System 里进行恢复。然而这并不是真的。
 
-在 Time Machine 恢复界面里，看不到任何连接是正常的，因为电脑才不知道你的服务器是什么鬼。手动添加一下，地址还是一样，不过要加上一开始在 `AppleVolumes.default` 里设定的名字。比如：`afp://ip_adress/TimeMachine`。如果使用了特殊字符，要按照一般处理 URL 的方法转义。
+在 Time Machine
+恢复界面里，看不到任何连接是正常的，因为电脑才不知道你的服务器是什么鬼。手动添加一下，地址还是一样，不过要加上一开始在 `AppleVolumes.default`
+里设定的名字。比如：`afp://ip_adress/TimeMachine`。如果使用了特殊字符，要按照一般处理 URL 的方法转义。
 
 # 后记
 
-折腾这玩意的主要原因还是因为，条件所限没有办法布置 NAS。再加上本来电脑就只有两个 USB，插着移动硬盘是在不便。再加上一直使用的 SSD 移动硬盘送人了（又是一个凄惨的故事，心里苦），所以干脆备份到云端。
+折腾这玩意的主要原因还是因为，条件所限没有办法布置 NAS。再加上本来电脑就只有两个 USB，插着移动硬盘是在不便。再加上一直使用的
+SSD 移动硬盘送人了（又是一个凄惨的故事，心里苦），所以干脆备份到云端。
 
 说来惭愧，折腾这个在 Final 前浪费了不少时间，至少两三天花在这上面了。以下是得出的一点经验，供后来者参考：
 

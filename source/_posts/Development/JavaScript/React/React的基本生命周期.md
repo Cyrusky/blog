@@ -7,17 +7,18 @@ categories:
   - Development
   - React
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191118174847.png'
+cover: '/assets/images/20191118174847.webp'
 abbrlink: fb847130
 date: 2019-11-18 16:44:05
 ---
 
 React中，负责生命周期的主要方法如下图所示：
 
-![](https://imgs.borgor.cn/imgs/20191118174805.png)
+![](/assets/images/20191118174805.webp)
 
-> 图片来自于：[http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
-> 
+>
+图片来自于：[http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+>
 > 话说这么出名的网站竟然不是HTTPs
 
 <!-- more -->
@@ -30,7 +31,9 @@ React中，负责生命周期的主要方法如下图所示：
 
 ## constructor
 
-用于创建组件，组件再被使用之前，必须要先被创建出来。这是一个标准的JavaScript构造函数，在这个方法中，可以直接调用**this.state**来直接对其进行修改，这是唯一一个能够对state进行直接修改的方法，因为State在其中是刚初始化出来的，不存在State污染（自己起的名字，为了方便理解）之类的事情，在其他方法中，则需要使用**this.setState**方法来对state进行修改。但是，一般情况下我们不会再**constructor**中直接做初始化操作，而是在其他的方法中。
+用于创建组件，组件再被使用之前，必须要先被创建出来。这是一个标准的JavaScript构造函数，在这个方法中，可以直接调用**this.state
+**来直接对其进行修改，这是唯一一个能够对state进行直接修改的方法，因为State在其中是刚初始化出来的，不存在State污染（自己起的名字，为了方便理解）之类的事情，在其他方法中，则需要使用
+**this.setState**方法来对state进行修改。但是，一般情况下我们不会再**constructor**中直接做初始化操作，而是在其他的方法中。
 
 ## getDerivedStateFromProps
 

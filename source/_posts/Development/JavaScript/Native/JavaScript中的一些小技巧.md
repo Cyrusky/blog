@@ -11,7 +11,7 @@ categories:
 toc: true
 abbrlink: e051982a
 date: 2020-02-26 09:43:07
-thumbnail: https://imgs.borgor.cn/imgs/20200226233727.png
+cover: /assets/images/20200226233727.webp
 ---
 
 # 字符串相关
@@ -242,7 +242,8 @@ arr[i] = [arr[j], (arr[j] = arr[i])][0]
 const arr = [undefined, null, '', 0, false, NaN, 1, 2].filter(Boolean)
 ```
 
-> `filter`中本应该填入一个回调函数, 数组中的每一个值按照回调函数的真假来决定留取,此处将`Boolean`对象构造函数作为回调函数,传入空值和 0,及返回假,否则返回真,以达到过滤的效果
+> `filter`中本应该填入一个回调函数, 数组中的每一个值按照回调函数的真假来决定留取,此处将`Boolean`对象构造函数作为回调函数,传入空值和
+> 0,及返回假,否则返回真,以达到过滤的效果
 
 ## 数组首部插入元素
 
@@ -254,7 +255,8 @@ arr = [0, ...arr]
 // arr => [0, 1, 2]
 ```
 
-> 关于`Array.prototype.unshift()`方法, 可以参照:[参考示例](https://www.borgor.cn/acc/algorithm/Codes/%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97.html#%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E8%A7%A3%E7%AD%94)
+> 关于`Array.prototype.unshift()`方法,
+> 可以参照:[参考示例](https://www.borgor.cn/acc/algorithm/Codes/%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97.html#%E6%8E%92%E5%90%8D%E7%AC%AC%E4%B8%80%E7%9A%84%E8%A7%A3%E7%AD%94)
 
 ## 统计元素个数
 
@@ -267,7 +269,8 @@ const count = arr.reduce((t, v) => {
 // count => { 0: 1, 1: 2, 2: 3 }
 ```
 
-> 关于`Array.prototype.reduce()`的相关内容,请查阅:[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+> 关于`Array.prototype.reduce()`
+> 的相关内容,请查阅:[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
 > 基本语法如下:
 

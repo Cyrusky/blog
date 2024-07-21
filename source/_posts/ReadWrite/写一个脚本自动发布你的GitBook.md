@@ -10,17 +10,17 @@ categories:
 toc: true
 abbrlink: dbe45b51
 date: 2019-12-02 12:58:16
-thumbnail: https://imgs.borgor.cn/imgs/20190725163724.png
+cover: /assets/images/20190725163724.webp
 ---
 
-`GitBook`在`Build`以后,会产生一个`_book`的目录,里面存放着整个`html`目录.只要将这个目录发布到你的Page中,就可以实现`GitPage`了.
+`GitBook`在`Build`以后,会产生一个`_book`的目录,里面存放着整个`html`
+目录.只要将这个目录发布到你的Page中,就可以实现`GitPage`了.
 
 # 前提
 
 * 先创建一个空的`GitRepo`.
 * 在`Repo`中创建两个`Branch`, 一个为书写`Branch`,在本例中为`write`,另一个为发布`branch`,在本例中为`master`.
 * 将下面的脚本加入书写`branch`中.
-
 
 <!-- more -->
 
@@ -61,7 +61,8 @@ git push origin master
 git checkout write
 ```
 
-> 因为我的GitPage是发布在Coding上的,Coding不支持将除`master`分支之外的分支发布到`page`上,所以上面的脚本中, 书写分支为`write`,发布分支为`master`.
+> 因为我的GitPage是发布在Coding上的,Coding不支持将除`master`分支之外的分支发布到`page`上,所以上面的脚本中,
+> 书写分支为`write`,发布分支为`master`.
 
 # 注:
 

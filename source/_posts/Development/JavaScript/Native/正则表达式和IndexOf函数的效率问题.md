@@ -10,7 +10,7 @@ categories:
 toc: true
 abbrlink: e2fcfc08
 date: 2020-02-04 23:12:03
-thumbnail: https://imgs.borgor.cn/imgs/20200205125342.png
+cover: /assets/images/20200205125342.webp
 ---
 
 # 事情的起因
@@ -21,9 +21,11 @@ thumbnail: https://imgs.borgor.cn/imgs/20200205125342.png
 
 > 给定有效字符串 "abc"。
 >
-> 对于任何有效的字符串 V，我们可以将 V 分成两个部分 X 和 Y，使得 X + Y（X 与 Y 连接）等于 V。（X 或 Y 可以为空。）那么，X + "abc" + Y 也同样是有效的。
+> 对于任何有效的字符串 V，我们可以将 V 分成两个部分 X 和 Y，使得 X + Y（X 与 Y 连接）等于 V。（X 或 Y 可以为空。）那么，X + "
+> abc" + Y 也同样是有效的。
 >
-> 例如，如果 S = "abc"，则有效字符串的示例是："abc"，"aabcbc"，"abcabc"，"abcabcababcc"。无效字符串的示例是："abccba"，"ab"，"cababc"，"bac"。
+> 例如，如果 S = "abc"，则有效字符串的示例是："abc"，"aabcbc"，"abcabc"，"abcabcababcc"。无效字符串的示例是："abccba"，"ab"，"
+> cababc"，"bac"。
 >
 > 如果给定字符串 S 有效，则返回 true；否则，返回 false。
 
@@ -60,7 +62,8 @@ var isValid = function(S) {
 };
 ```
 
-上述两种解答的思路都是一样的，但是其中一点区别就是，我使用了`indexOf`来查找和替换字符串中的`abc`，但是他用了正则表达式，导致的结果在时间上差了`4`倍。为了防止个例，我自己编写了一个测试用例来测试了一下，具体如下：
+上述两种解答的思路都是一样的，但是其中一点区别就是，我使用了`indexOf`来查找和替换字符串中的`abc`
+，但是他用了正则表达式，导致的结果在时间上差了`4`倍。为了防止个例，我自己编写了一个测试用例来测试了一下，具体如下：
 
 ```javascript
 let lengthOfABC = 1000000
@@ -124,7 +127,7 @@ Time of IndexOf function: 6.983s
 
 在使用贪婪匹配或者惰性匹配或者或匹配进入到匹配路径选择的时候，遇到失败的匹配路径，尝试走另外一个匹配路径的这种行为，称作回溯。
 
-![](https://imgs.borgor.cn/imgs/20200205114638.png)
+![](/assets/images/20200205114638.webp)
 
 > 图片来自：https://juejin.im/post/5d2bf92ef265da1b7c6148ca
 
@@ -141,11 +144,11 @@ Time of IndexOf function: 6.983s
 
 > **对于给定的任意一个状态和输入字符，DFA只会转移到一个确定的状态。并且DFA不允许出现没有输入字符的状态转移。**
 
-![](https://imgs.borgor.cn/imgs/20200205115521.png)
+![](/assets/images/20200205115521.webp)
 
 正则里面的DFA引擎实际上就是把正则表达式转换成一个图的邻接表，然后通过跳表的形式判断一个字符串是否匹配该正则。
 
->  **优点：不管正则表达式写的再烂，匹配速度都很快**
+> **优点：不管正则表达式写的再烂，匹配速度都很快**
 >
 > **缺点：高级功能比如捕获组和断言都不支持**
 
@@ -153,7 +156,7 @@ Time of IndexOf function: 6.983s
 
 **对于任意一个状态和输入字符，NFA所能转移的状态是一个非空集合。**
 
-![](https://imgs.borgor.cn/imgs/20200205115556.png)
+![](/assets/images/20200205115556.webp)
 
 **优点：功能强大，可以拿到匹配的上下文信息，支持各种断言捕获组环视之类的功能**
 
@@ -210,6 +213,7 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
     return -1;
 }
 ```
+
 ### [ECMA 262 -String.Prototype.indexOf]( https://tc39.es/ecma262/#sec-string.prototype.indexof)
 
 > 1. Let O be ? [RequireObjectCoercible](https://tc39.es/ecma262/#sec-requireobjectcoercible)(this value).
@@ -220,13 +224,17 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 6. Let len be the length of S.
 > 7. Let start be [min](https://tc39.es/ecma262/#eqn-min)([max](https://tc39.es/ecma262/#eqn-max)(pos, 0), len).
 > 8. Let searchLen be the length of searchStr.
-> 9. Return the smallest possible [integer](https://tc39.es/ecma262/#integer) k not smaller than start such that k + searchLen is not greater than len, and for all nonnegative integers j less than searchLen, the code unit at index k + j within S is the same as the code unit at index j within searchStr; but if there is no such [integer](https://tc39.es/ecma262/#integer) k, return the value -1.
+> 9. Return the smallest possible [integer](https://tc39.es/ecma262/#integer) k not smaller than start such that k +
+     searchLen is not greater than len, and for all nonnegative integers j less than searchLen, the code unit at index
+     k + j within S is the same as the code unit at index j within searchStr; but if there is no
+     such [integer](https://tc39.es/ecma262/#integer) k, return the value -1.
 
 ### [RegExp.prototype [ @@replace ] ( string, replaceValue )](https://tc39.es/ecma262/#sec-regexp.prototype-@@replace)
 
 > 1. Let rx be the this value.
 >
-> 2. If [Type](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)(rx) is not Object, throw a TypeError exception.
+> 2. If [Type](https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values)(rx) is not Object, throw a TypeError
+     exception.
 >
 > 3. Let S be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(string).
 >
@@ -235,14 +243,19 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 5. Let functionalReplace be [IsCallable](https://tc39.es/ecma262/#sec-iscallable)(replaceValue).
 >
 > 6. If **functionalReplace** is **false**, then
+     >
+     >
+1. Set replaceValue to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(replaceValue).
 >
->    1. Set replaceValue to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(replaceValue).
->
-> 7. Let global be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(rx, "global")).
+> 7. Let global be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
+     rx, "global")).
 >
 > 8. If **global** is **true** , then
->
->    1. Let fullUnicode be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(rx, "unicode")).
+     >
+     >
+1. Let fullUnicode
+   be ! [ToBoolean](https://tc39.es/ecma262/#sec-toboolean)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(rx, "
+   unicode")).
 >    2. Perform ? [Set](https://tc39.es/ecma262/#sec-set-o-p-v-throw)(rx, "lastIndex", 0, true).
 >
 > 9. Let results be a new empty [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type).
@@ -250,17 +263,24 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 10. Let done be false.
 >
 > 11. Repeat, while **done** is **false**
->
->     1. Let result be ? [RegExpExec](https://tc39.es/ecma262/#sec-regexpexec)(rx, S).
+      >
+      >
+1. Let result be ? [RegExpExec](https://tc39.es/ecma262/#sec-regexpexec)(rx, S).
 >     2. If result is null, set done to true.
 >     3. Else,
->        1. Append result to the end of results.
+         >
+1. Append result to the end of results.
 >        2. If global is false, set done to true.
 >        3. Else,
->           1. Let matchStr be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "0")).
+            >
+1. Let matchStr be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
+   result, "0")).
 >           2. If **matchStr** is the empty String, then
->              1. Let thisIndex be ? [ToLength](https://tc39.es/ecma262/#sec-tolength)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(rx, "lastIndex")).
->              2. Let nextIndex be [AdvanceStringIndex](https://tc39.es/ecma262/#sec-advancestringindex)(S, thisIndex, fullUnicode).
+               >
+1. Let thisIndex be ? [ToLength](https://tc39.es/ecma262/#sec-tolength)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
+   rx, "lastIndex")).
+>              2. Let nextIndex be [AdvanceStringIndex](https://tc39.es/ecma262/#sec-advancestringindex)(S, thisIndex,
+                  fullUnicode).
 >              3. Perform ? [Set](https://tc39.es/ecma262/#sec-set-o-p-v-throw)(rx, "lastIndex", nextIndex, true).
 >
 > 12. Let accumulatedResult be the empty String value.
@@ -268,62 +288,85 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount,
 > 13. Let nextSourcePosition be 0.
 >
 > 14. For each **result** in **results** , do
->
->     1. Let nCaptures be ? [LengthOfArrayLike](https://tc39.es/ecma262/#sec-lengthofarraylike)(result).
+      >
+      >
+1. Let nCaptures be ? [LengthOfArrayLike](https://tc39.es/ecma262/#sec-lengthofarraylike)(result).
 >
 >     2. Set nCaptures to [max](https://tc39.es/ecma262/#eqn-max)(nCaptures - 1, 0).
 >
->     3. Let matched be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "0")).
+>     3. Let matched
+         be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "
+         0")).
 >
 >     4. Let matchLength be the number of code units in matched.
 >
->     5. Let position be ? [ToInteger](https://tc39.es/ecma262/#sec-tointeger)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "index")).
+>     5. Let position
+         be ? [ToInteger](https://tc39.es/ecma262/#sec-tointeger)(? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
+         result, "index")).
 >
->     6. Set position to [max](https://tc39.es/ecma262/#eqn-max)([min](https://tc39.es/ecma262/#eqn-min)(position, lengthS), 0).
+>     6. Set position to [max](https://tc39.es/ecma262/#eqn-max)([min](https://tc39.es/ecma262/#eqn-min)(position,
+         lengthS), 0).
 >
 >     7. Let n be 1.
 >
 >     8. Let captures be a new empty [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type).
 >
 >     9. Repeat, while n ≤ nCaptures
->
->        1. Let **capN** be ? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, ! [ToString](https://tc39.es/ecma262/#sec-tostring)(n)).
+         >
+         >
+1. Let **capN** be ? [Get](https://tc39.es/ecma262/#sec-get-o-p)(
+   result, ! [ToString](https://tc39.es/ecma262/#sec-tostring)(n)).
 >        2. If **capN** is not **undefined** , then
->           1. Set capN to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(capN).
+            >
+1. Set capN to ? [ToString](https://tc39.es/ecma262/#sec-tostring)(capN).
 >        3. Append capN as the last element of captures.
 >        4. Set n to n + 1.
 >
 >     10. Let namedCaptures be ? [Get](https://tc39.es/ecma262/#sec-get-o-p)(result, "groups").
 >
 >     11. If functionalReplace is true , then
->
->         1. Let replacerArgs be « matched ».
->         2. Append in list order the elements of captures to the end of the [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type) replacerArgs.
+          >
+          >
+1. Let replacerArgs be « matched ».
+>         2. Append in list order the elements of captures to the end of
+             the [List](https://tc39.es/ecma262/#sec-list-and-record-specification-type) replacerArgs.
 >         3. Append position and S to replacerArgs.
 >         4. If namedCaptures is not undefined , then
->            1. Append namedCaptures as the last element of replacerArgs.
+             >
+1. Append namedCaptures as the last element of replacerArgs.
 >         5. Let replValue be ? [Call](https://tc39.es/ecma262/#sec-call)(replaceValue, undefined, replacerArgs).
 >         6. Let replacement be ? [ToString](https://tc39.es/ecma262/#sec-tostring)(replValue).
 >
 >     12. Else,
+          >
+          >
+1. If namedCaptures is not undefined
+   >
+   >            , then
+   >
+   >
+1. Set namedCaptures to ? [ToObject](https://tc39.es/ecma262/#sec-toobject)(namedCaptures).
 >
->         1. If namedCaptures is not undefined
->
->            , then
->
->            1. Set namedCaptures to ? [ToObject](https://tc39.es/ecma262/#sec-toobject)(namedCaptures).
->
->         2. Let replacement be ? [GetSubstitution](https://tc39.es/ecma262/#sec-getsubstitution)(matched, S, position, captures, namedCaptures, replaceValue).
+>         2. Let replacement be ? [GetSubstitution](https://tc39.es/ecma262/#sec-getsubstitution)(matched, S, position,
+             captures, namedCaptures, replaceValue).
 >
 >     13. If position ≥ nextSourcePosition , then
->
->         1. NOTE: position should not normally move backwards. If it does, it is an indication of an ill-behaving RegExp subclass or use of an access triggered side-effect to change the global flag or other characteristics of rx. In such cases, the corresponding substitution is ignored.
->         2. Set accumulatedResult to the [string-concatenation](https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type) of the current value of accumulatedResult, the substring of S consisting of the code units from nextSourcePosition (inclusive) up to position (exclusive), and replacement.
+          >
+          >
+1. NOTE: position should not normally move backwards. If it does, it is an indication of an ill-behaving RegExp subclass
+   or use of an access triggered side-effect to change the global flag or other characteristics of rx. In such cases,
+   the corresponding substitution is ignored.
+>         2. Set accumulatedResult to
+             the [string-concatenation](https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type) of the
+             current value of accumulatedResult, the substring of S consisting of the code units from
+             nextSourcePosition (inclusive) up to position (exclusive), and replacement.
 >         3. Set nextSourcePosition to position + matchLength.
 >
 > 15. If nextSourcePosition ≥ lengthS, return accumulatedResult.
 >
-> 16. Return the [string-concatenation](https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type) of accumulatedResult and the substring of S consisting of the code units from nextSourcePosition (inclusive) up through the final code unit of S (inclusive).
+> 16. Return the [string-concatenation](https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type) of
+      accumulatedResult and the substring of S consisting of the code units from nextSourcePosition (inclusive) up
+      through the final code unit of S (inclusive).
 
 # 总结
 

@@ -10,7 +10,7 @@ categories:
   - Development
   - React
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20200127104429.png'
+cover: '/assets/images/20200127104429.webp'
 abbrlink: 1180e59c
 date: 2020-01-27 10:13:43
 ---
@@ -44,7 +44,8 @@ $ yarn eject
 
 > 修改的文件为：`config/webpack.config.js` 此目录只有在执行过`eject`之后才会出现。
 
-1. 先将`styl`文件添加到`file-loader`的`exclude`列表中，也就是说，我们不直接用`fileloader`去解析`styl`文件，而是需要继续往下找到对应的`loader`。
+1. 先将`styl`文件添加到`file-loader`的`exclude`列表中，也就是说，我们不直接用`fileloader`去解析`styl`
+   文件，而是需要继续往下找到对应的`loader`。
 
 ```js
 {
@@ -114,4 +115,4 @@ export default App
 
 ## 最终效果
 
-![](https://imgs.borgor.cn/imgs/20200127104159.png)```
+![](/assets/images/20200127104159.webp)```

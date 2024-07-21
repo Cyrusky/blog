@@ -8,7 +8,7 @@ categories:
   - Operations
   - Nginx
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190725163724.png'
+cover: '/assets/images/20190725163724.webp'
 abbrlink: 81eae861
 date: 2019-07-25 16:28:56
 ---

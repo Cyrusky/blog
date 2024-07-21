@@ -7,7 +7,7 @@ tags:
 categories:
   - Development
   - JavaScript
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083301.png'
+cover: '/assets/images/imgs20190625083301.webp'
 reprint: 'https://ssr.vuejs.org/zh/'
 abbrlink: 92f6ccbc
 date: 2019-06-14 22:26:55
@@ -17,7 +17,8 @@ date: 2019-06-14 22:26:55
 
 ## 什么是服务器端渲染 (SSR)？
 
-Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将这些静态标记"激活"为客户端上完全可交互的应用程序。
+Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的
+HTML 字符串，将它们直接发送到浏览器，最后将这些静态标记"激活"为客户端上完全可交互的应用程序。
 
 服务器渲染的 Vue.js 应用程序也可以被认为是"同构"或"通用"，因为应用程序的大部分代码都可以在**服务器**和**客户端**上运行。
 
@@ -29,7 +30,10 @@ Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏�
 > - vue & vue-server-renderer 2.3.0+
 > - vue-router 2.5.0+
 > - vue-loader 12.0.0+ & vue-style-loader 3.0.0+
-> 如果先前已经使用过 Vue 2.2 的服务器端渲染 (SSR)，你应该注意到，推荐的代码结构现在[略有不同](https://ssr.vuejs.org/zh/guide/structure.html)（使用新的 [runInNewContext](https://ssr.vuejs.org/zh/api/#runinnewcontext) 选项，并设置为 `false`）。现有的应用程序可以继续运行，但建议你迁移到新的推荐规范。
+    > 如果先前已经使用过 Vue 2.2 的服务器端渲染 (SSR)
+    ，你应该注意到，推荐的代码结构现在[略有不同](https://ssr.vuejs.org/zh/guide/structure.html)
+    （使用新的 [runInNewContext](https://ssr.vuejs.org/zh/api/#runinnewcontext) 选项，并设置为 `false`
+    ）。现有的应用程序可以继续运行，但建议你迁移到新的推荐规范。
 
 ## 为什么使用服务器端渲染 (SSR)？
 
@@ -37,29 +41,47 @@ Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏�
 
 - 更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。
 
-  请注意，截至目前，Google 和 Bing 可以很好对同步 JavaScript 应用程序进行索引。在这里，同步是关键。如果你的应用程序初始展示 loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再行抓取页面内容。也就是说，如果 SEO 对你的站点至关重要，而你的页面又是异步获取内容，则你可能需要服务器端渲染(SSR)解决此问题。
+  请注意，截至目前，Google 和 Bing 可以很好对同步 JavaScript 应用程序进行索引。在这里，同步是关键。如果你的应用程序初始展示
+  loading 菊花图，然后通过 Ajax 获取内容，抓取工具并不会等待异步完成后再行抓取页面内容。也就是说，如果 SEO
+  对你的站点至关重要，而你的页面又是异步获取内容，则你可能需要服务器端渲染(SSR)解决此问题。
 
-- 更快的内容到达时间 (time-to-content)，特别是对于缓慢的网络情况或运行缓慢的设备。无需等待所有的 JavaScript 都完成下载并执行，才显示服务器渲染的标记，所以你的用户将会更快速地看到完整渲染的页面。通常可以产生更好的用户体验，并且对于那些「内容到达时间(time-to-content) 与转化率直接相关」的应用程序而言，服务器端渲染 (SSR) 至关重要。
+- 更快的内容到达时间 (time-to-content)，特别是对于缓慢的网络情况或运行缓慢的设备。无需等待所有的 JavaScript
+  都完成下载并执行，才显示服务器渲染的标记，所以你的用户将会更快速地看到完整渲染的页面。通常可以产生更好的用户体验，并且对于那些「内容到达时间(
+  time-to-content) 与转化率直接相关」的应用程序而言，服务器端渲染 (SSR) 至关重要。
 
 使用服务器端渲染 (SSR) 时还需要有一些权衡之处：
 
-- 开发条件所限。浏览器特定的代码，只能在某些生命周期钩子函数 (lifecycle hook) 中使用；一些外部扩展库 (external library) 可能需要特殊处理，才能在服务器渲染应用程序中运行。
-- 涉及构建设置和部署的更多要求。与可以部署在任何静态文件服务器上的完全静态单页面应用程序 (SPA) 不同，服务器渲染应用程序，需要处于 Node.js server 运行环境。
-- 更多的服务器端负载。在 Node.js 中渲染完整的应用程序，显然会比仅仅提供静态文件的 server 更加大量占用 CPU 资源 (CPU-intensive - CPU 密集)，因此如果你预料在高流量环境 (high traffic) 下使用，请准备相应的服务器负载，并明智地采用缓存策略。
+- 开发条件所限。浏览器特定的代码，只能在某些生命周期钩子函数 (lifecycle hook) 中使用；一些外部扩展库 (external library)
+  可能需要特殊处理，才能在服务器渲染应用程序中运行。
+- 涉及构建设置和部署的更多要求。与可以部署在任何静态文件服务器上的完全静态单页面应用程序 (SPA) 不同，服务器渲染应用程序，需要处于
+  Node.js server 运行环境。
+- 更多的服务器端负载。在 Node.js 中渲染完整的应用程序，显然会比仅仅提供静态文件的 server 更加大量占用 CPU 资源 (
+  CPU-intensive - CPU 密集)，因此如果你预料在高流量环境 (high traffic) 下使用，请准备相应的服务器负载，并明智地采用缓存策略。
 
-在对你的应用程序使用服务器端渲染 (SSR) 之前，你应该问的第一个问题是，是否真的需要它。这主要取决于内容到达时间 (time-to-content) 对应用程序的重要程度。例如，如果你正在构建一个内部仪表盘，初始加载时的额外几百毫秒并不重要，这种情况下去使用服务器端渲染 (SSR) 将是一个小题大作之举。然而，内容到达时间 (time-to-content) 要求是绝对关键的指标，在这种情况下，服务器端渲染 (SSR) 可以帮助你实现最佳的初始加载性能。
+在对你的应用程序使用服务器端渲染 (SSR) 之前，你应该问的第一个问题是，是否真的需要它。这主要取决于内容到达时间 (
+time-to-content)
+对应用程序的重要程度。例如，如果你正在构建一个内部仪表盘，初始加载时的额外几百毫秒并不重要，这种情况下去使用服务器端渲染 (
+SSR) 将是一个小题大作之举。然而，内容到达时间 (time-to-content) 要求是绝对关键的指标，在这种情况下，服务器端渲染 (SSR)
+可以帮助你实现最佳的初始加载性能。
 
 ## 服务器端渲染 vs 预渲染 (SSR vs Prerendering)
 
-如果你调研服务器端渲染 (SSR) 只是用来改善少数营销页面（例如 `/`, `/about`, `/contact` 等）的 SEO，那么你可能需要**预渲染**。无需使用 web 服务器实时动态编译 HTML，而是使用预渲染方式，在构建时 (build time) 简单地生成针对特定路由的静态 HTML 文件。优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点。
+如果你调研服务器端渲染 (SSR) 只是用来改善少数营销页面（例如 `/`, `/about`, `/contact` 等）的 SEO，那么你可能需要**预渲染**
+。无需使用 web 服务器实时动态编译 HTML，而是使用预渲染方式，在构建时 (build time) 简单地生成针对特定路由的静态 HTML
+文件。优点是设置预渲染更简单，并可以将你的前端作为一个完全静态的站点。
 
-如果你使用 webpack，你可以使用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 轻松地添加预渲染。它已经被 Vue 应用程序广泛测试 - 事实上，[作者](https://github.com/chrisvfritz)是 Vue 核心团队的成员。
+如果你使用 webpack，你可以使用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 轻松地添加预渲染。它已经被
+Vue 应用程序广泛测试 - 事实上，[作者](https://github.com/chrisvfritz)是 Vue 核心团队的成员。
 
 ## 关于此指南
 
-本指南专注于，使用 Node.js server 的服务器端单页面应用程序渲染。将 Vue 服务器端渲染 (SSR) 与其他后端设置进行混合使用，是后端自身集成 SSR 的话题，我们会在 **后续章节**中进行简要讨论。
+本指南专注于，使用 Node.js server 的服务器端单页面应用程序渲染。将 Vue 服务器端渲染 (SSR) 与其他后端设置进行混合使用，是后端自身集成
+SSR 的话题，我们会在 **后续章节**中进行简要讨论。
 
-本指南将会非常深入，并且假设你已经熟悉 Vue.js 本身，并且具有 Node.js 和 webpack 的相当不错的应用经验。如果你倾向于使用提供了平滑开箱即用体验的更高层次解决方案，你应该去尝试使用 [Nuxt.js](https://nuxtjs.org/)。它建立在同等的 Vue 技术栈之上，但抽象出很多模板，并提供了一些额外的功能，例如静态站点生成。但是，如果你需要更直接地控制应用程序的结构，Nuxt.js 并不适合这种使用场景。无论如何，阅读本指南将更有助于更好地了解一切如何运行。
+本指南将会非常深入，并且假设你已经熟悉 Vue.js 本身，并且具有 Node.js 和 webpack
+的相当不错的应用经验。如果你倾向于使用提供了平滑开箱即用体验的更高层次解决方案，你应该去尝试使用 [Nuxt.js](https://nuxtjs.org/)
+。它建立在同等的 Vue 技术栈之上，但抽象出很多模板，并提供了一些额外的功能，例如静态站点生成。但是，如果你需要更直接地控制应用程序的结构，Nuxt.js
+并不适合这种使用场景。无论如何，阅读本指南将更有助于更好地了解一切如何运行。
 
 # 基本用法
 
@@ -75,7 +97,8 @@ npm install vue vue-server-renderer --save
 
 - 推荐使用 Node.js 版本 6+。
 - `vue-server-renderer` 和 `vue` 必须匹配版本。
-- `vue-server-renderer` 依赖一些 Node.js 原生模块，因此只能在 Node.js 中使用。我们可能会提供一个更简单的构建，可以在将来在其他「JavaScript 运行时(runtime)」运行。
+- `vue-server-renderer` 依赖一些 Node.js 原生模块，因此只能在 Node.js 中使用。我们可能会提供一个更简单的构建，可以在将来在其他「JavaScript
+  运行时(runtime)」运行。
 
 ## 渲染一个 Vue 实例
 
@@ -147,9 +170,11 @@ server.listen(8080)
 
 ## 使用一个页面模板
 
-当你在渲染 Vue 应用程序时，renderer 只从应用程序生成 HTML 标记 (markup)。在这个示例中，我们必须用一个额外的 HTML 页面包裹容器，来包裹生成的 HTML 标记。
+当你在渲染 Vue 应用程序时，renderer 只从应用程序生成 HTML 标记 (markup)。在这个示例中，我们必须用一个额外的 HTML
+页面包裹容器，来包裹生成的 HTML 标记。
 
-为了简化这些，你可以直接在创建 renderer 时提供一个页面模板。多数时候，我们会将页面模板放在特有的文件中，例如 `index.template.html`：
+为了简化这些，你可以直接在创建 renderer
+时提供一个页面模板。多数时候，我们会将页面模板放在特有的文件中，例如 `index.template.html`：
 
 ```html
 <!DOCTYPE html>
@@ -223,44 +248,59 @@ renderer.renderToString(app, context, (err, html) => {
 
 # 编写通用代码
 
-在进一步介绍之前，让我们花点时间来讨论编写"通用"代码时的约束条件 - 即运行在服务器和客户端的代码。由于用例和平台 API 的差异，当运行在不同环境中时，我们的代码将不会完全相同。所以这里我们将会阐述你需要理解的关键事项。
+在进一步介绍之前，让我们花点时间来讨论编写"通用"代码时的约束条件 - 即运行在服务器和客户端的代码。由于用例和平台 API
+的差异，当运行在不同环境中时，我们的代码将不会完全相同。所以这里我们将会阐述你需要理解的关键事项。
 
 ## 服务器上的数据响应
 
-在纯客户端应用程序 (client-only app) 中，每个用户会在他们各自的浏览器中使用新的应用程序实例。对于服务器端渲染，我们也希望如此：每个请求应该都是全新的、独立的应用程序实例，以便不会有交叉请求造成的状态污染 (cross-request state pollution)。
+在纯客户端应用程序 (client-only app)
+中，每个用户会在他们各自的浏览器中使用新的应用程序实例。对于服务器端渲染，我们也希望如此：每个请求应该都是全新的、独立的应用程序实例，以便不会有交叉请求造成的状态污染 (
+cross-request state pollution)。
 
-因为实际的渲染过程需要确定性，所以我们也将在服务器上“预取”数据 ("pre-fetching" data) - 这意味着在我们开始渲染时，我们的应用程序就已经解析完成其状态。也就是说，将数据进行响应式的过程在服务器上是多余的，所以默认情况下禁用。禁用响应式数据，还可以避免将「数据」转换为「响应式对象」的性能开销。
+因为实际的渲染过程需要确定性，所以我们也将在服务器上“预取”数据 ("pre-fetching" data) -
+这意味着在我们开始渲染时，我们的应用程序就已经解析完成其状态。也就是说，将数据进行响应式的过程在服务器上是多余的，所以默认情况下禁用。禁用响应式数据，还可以避免将「数据」转换为「响应式对象」的性能开销。
 
 ## 组件生命周期钩子函数
 
-由于没有动态更新，所有的生命周期钩子函数中，只有 `beforeCreate` 和 `created` 会在服务器端渲染 (SSR) 过程中被调用。这就是说任何其他生命周期钩子函数中的代码（例如 `beforeMount` 或 `mounted`），只会在客户端执行。
+由于没有动态更新，所有的生命周期钩子函数中，只有 `beforeCreate` 和 `created` 会在服务器端渲染 (SSR)
+过程中被调用。这就是说任何其他生命周期钩子函数中的代码（例如 `beforeMount` 或 `mounted`），只会在客户端执行。
 
-此外还需要注意的是，你应该避免在 `beforeCreate` 和 `created` 生命周期时产生全局副作用的代码，例如在其中使用 `setInterval` 设置 timer。在纯客户端 (client-side only) 的代码中，我们可以设置一个 timer，然后在 `beforeDestroy` 或 `destroyed` 生命周期时将其销毁。但是，由于在 SSR 期间并不会调用销毁钩子函数，所以 timer 将永远保留下来。为了避免这种情况，请将副作用代码移动到 `beforeMount` 或 `mounted` 生命周期中。
+此外还需要注意的是，你应该避免在 `beforeCreate` 和 `created` 生命周期时产生全局副作用的代码，例如在其中使用 `setInterval`
+设置 timer。在纯客户端 (client-side only) 的代码中，我们可以设置一个 timer，然后在 `beforeDestroy` 或 `destroyed`
+生命周期时将其销毁。但是，由于在 SSR 期间并不会调用销毁钩子函数，所以 timer
+将永远保留下来。为了避免这种情况，请将副作用代码移动到 `beforeMount` 或 `mounted` 生命周期中。
 
 ## 访问特定平台(Platform-Specific) API
 
-通用代码不可接受特定平台的 API，因此如果你的代码中，直接使用了像 `window` 或 `document`，这种仅浏览器可用的全局变量，则会在 Node.js 中执行时抛出错误，反之也是如此。
+通用代码不可接受特定平台的 API，因此如果你的代码中，直接使用了像 `window` 或 `document`，这种仅浏览器可用的全局变量，则会在
+Node.js 中执行时抛出错误，反之也是如此。
 
-对于共享于服务器和客户端，但用于不同平台 API 的任务(task)，建议将平台特定实现包含在通用 API 中，或者使用为你执行此操作的 library。例如，[axios](https://github.com/axios/axios) 是一个 HTTP 客户端，可以向服务器和客户端都暴露相同的 API。
+对于共享于服务器和客户端，但用于不同平台 API 的任务(task)，建议将平台特定实现包含在通用 API 中，或者使用为你执行此操作的
+library。例如，[axios](https://github.com/axios/axios) 是一个 HTTP 客户端，可以向服务器和客户端都暴露相同的 API。
 
 对于仅浏览器可用的 API，通常方式是，在「纯客户端 (client-only)」的生命周期钩子函数中惰性访问 (lazily access) 它们。
 
-请注意，考虑到如果第三方 library 不是以上面的通用用法编写，则将其集成到服务器渲染的应用程序中，可能会很棘手。你*可能*要通过模拟 (mock) 一些全局变量来使其正常运行，但这只是 hack 的做法，并且可能会干扰到其他 library 的环境检测代码。
+请注意，考虑到如果第三方 library 不是以上面的通用用法编写，则将其集成到服务器渲染的应用程序中，可能会很棘手。你*可能*
+要通过模拟 (mock) 一些全局变量来使其正常运行，但这只是 hack 的做法，并且可能会干扰到其他 library 的环境检测代码。
 
 ## 自定义指令
 
 大多数自定义指令直接操作 DOM，因此会在服务器端渲染 (SSR) 过程中导致错误。有两种方法可以解决这个问题：
 
 1. 推荐使用组件作为抽象机制，并运行在「虚拟 DOM 层级(Virtual-DOM level)」（例如，使用渲染函数(render function)）。
-2. 如果你有一个自定义指令，但是不是很容易替换为组件，则可以在创建服务器 renderer 时，使用 [`directives`](https://ssr.vuejs.org/zh/api/#directives) 选项所提供"服务器端版本(server-side version)"。
+2. 如果你有一个自定义指令，但是不是很容易替换为组件，则可以在创建服务器 renderer
+   时，使用 [`directives`](https://ssr.vuejs.org/zh/api/#directives) 选项所提供"服务器端版本(server-side version)"。
 
 # 源码结构
 
 ## 避免状态单例
 
-当编写纯客户端 (client-only) 代码时，我们习惯于每次在新的上下文中对代码进行取值。但是，Node.js 服务器是一个长期运行的进程。当我们的代码进入该进程时，它将进行一次取值并留存在内存中。这意味着如果创建一个单例对象，它将在每个传入的请求之间共享。
+当编写纯客户端 (client-only) 代码时，我们习惯于每次在新的上下文中对代码进行取值。但是，Node.js
+服务器是一个长期运行的进程。当我们的代码进入该进程时，它将进行一次取值并留存在内存中。这意味着如果创建一个单例对象，它将在每个传入的请求之间共享。
 
-如基本示例所示，我们**为每个请求创建一个新的根 Vue 实例**。这与每个用户在自己的浏览器中使用新应用程序的实例类似。如果我们在多个请求之间使用一个共享的实例，很容易导致交叉请求状态污染 (cross-request state pollution)。
+如基本示例所示，我们**为每个请求创建一个新的根 Vue 实例**
+。这与每个用户在自己的浏览器中使用新应用程序的实例类似。如果我们在多个请求之间使用一个共享的实例，很容易导致交叉请求状态污染 (
+cross-request state pollution)。
 
 因此，我们不应该直接创建一个应用程序实例，而是应该暴露一个可以重复执行的工厂函数，为每个请求创建新的应用程序实例：
 
@@ -295,26 +335,33 @@ server.get('*', (req, res) => {
 })
 ```
 
-同样的规则也适用于 router、store 和 event bus 实例。你不应该直接从模块导出并将其导入到应用程序中，而是需要在 `createApp` 中创建一个新的实例，并从根 Vue 实例注入。
+同样的规则也适用于 router、store 和 event bus 实例。你不应该直接从模块导出并将其导入到应用程序中，而是需要在 `createApp`
+中创建一个新的实例，并从根 Vue 实例注入。
 
-> 在使用带有 `{ runInNewContext: true }` 的 bundle renderer 时，可以消除此约束，但是由于需要为每个请求创建一个新的 vm 上下文，因此伴随有一些显著性能开销。
+> 在使用带有 `{ runInNewContext: true }` 的 bundle renderer 时，可以消除此约束，但是由于需要为每个请求创建一个新的 vm
+> 上下文，因此伴随有一些显著性能开销。
 
 ## 介绍构建步骤
 
-到目前为止，我们还没有讨论过如何将相同的 Vue 应用程序提供给客户端。为了做到这一点，我们需要使用 webpack 来打包我们的 Vue 应用程序。事实上，我们可能需要在服务器上使用 webpack 打包 Vue 应用程序，因为：
+到目前为止，我们还没有讨论过如何将相同的 Vue 应用程序提供给客户端。为了做到这一点，我们需要使用 webpack 来打包我们的 Vue
+应用程序。事实上，我们可能需要在服务器上使用 webpack 打包 Vue 应用程序，因为：
 
-- 通常 Vue 应用程序是由 webpack 和 `vue-loader` 构建，并且许多 webpack 特定功能不能直接在 Node.js 中运行（例如通过 `file-loader` 导入文件，通过 `css-loader` 导入 CSS）。
+- 通常 Vue 应用程序是由 webpack 和 `vue-loader` 构建，并且许多 webpack 特定功能不能直接在 Node.js
+  中运行（例如通过 `file-loader` 导入文件，通过 `css-loader` 导入 CSS）。
 - 尽管 Node.js 最新版本能够完全支持 ES2015 特性，我们还是需要转译客户端代码以适应老版浏览器。这也会涉及到构建步骤。
 
-所以基本看法是，对于客户端应用程序和服务器应用程序，我们都要使用 webpack 打包 - 服务器需要「服务器 bundle」然后用于服务器端渲染(SSR)，而「客户端 bundle」会发送给浏览器，用于混合静态标记。
+所以基本看法是，对于客户端应用程序和服务器应用程序，我们都要使用 webpack 打包 - 服务器需要「服务器
+bundle」然后用于服务器端渲染(SSR)，而「客户端 bundle」会发送给浏览器，用于混合静态标记。
 
 ![](https://img-bed-1251517122.file.myqcloud.com/imgs20190620155202.png)
 
-我们将在后面的章节讨论规划结构的细节 - 现在，先假设我们已经将构建过程的规划都弄清楚了，我们可以在启用 webpack 的情况下编写我们的 Vue 应用程序代码。
+我们将在后面的章节讨论规划结构的细节 - 现在，先假设我们已经将构建过程的规划都弄清楚了，我们可以在启用 webpack 的情况下编写我们的
+Vue 应用程序代码。
 
 ## 使用 webpack 的源码结构
 
-现在我们正在使用 webpack 来处理服务器和客户端的应用程序，大部分源码可以使用通用方式编写，可以使用 webpack 支持的所有功能。同时，在编写通用代码时，有一些[事项](https://ssr.vuejs.org/zh/guide/universal.html)要牢记在心。
+现在我们正在使用 webpack 来处理服务器和客户端的应用程序，大部分源码可以使用通用方式编写，可以使用 webpack
+支持的所有功能。同时，在编写通用代码时，有一些[事项](https://ssr.vuejs.org/zh/guide/universal.html)要牢记在心。
 
 一个基本项目可能像是这样：
 
@@ -332,7 +379,8 @@ src
 
 ### `app.js`
 
-`app.js` 是我们应用程序的「通用 entry」。在纯客户端应用程序中，我们将在此文件中创建根 Vue 实例，并直接挂载到 DOM。但是，对于服务器端渲染(SSR)，责任转移到纯客户端 entry 文件。`app.js`简单地使用 export 导出一个 `createApp` 函数：
+`app.js` 是我们应用程序的「通用 entry」。在纯客户端应用程序中，我们将在此文件中创建根 Vue 实例，并直接挂载到
+DOM。但是，对于服务器端渲染(SSR)，责任转移到纯客户端 entry 文件。`app.js`简单地使用 export 导出一个 `createApp` 函数：
 
 ```js
 import Vue from 'vue'
@@ -366,7 +414,9 @@ app.$mount('#app')
 
 ### `entry-server.js`:
 
-服务器 entry 使用 default export 导出函数，并在每次渲染中重复调用此函数。此时，除了创建和返回应用程序实例之外，它不会做太多事情 - 但是稍后我们将在此执行服务器端路由匹配 (server-side route matching) 和数据预取逻辑 (data pre-fetching logic)。
+服务器 entry 使用 default export
+导出函数，并在每次渲染中重复调用此函数。此时，除了创建和返回应用程序实例之外，它不会做太多事情 -
+但是稍后我们将在此执行服务器端路由匹配 (server-side route matching) 和数据预取逻辑 (data pre-fetching logic)。
 
 ```js
 import { createApp } from './app'
@@ -381,9 +431,11 @@ export default context => {
 
 ## 使用 `vue-router` 的路由
 
-你可能已经注意到，我们的服务器代码使用了一个 `*` 处理程序，它接受任意 URL。这允许我们将访问的 URL 传递到我们的 Vue 应用程序中，然后对客户端和服务器复用相同的路由配置！
+你可能已经注意到，我们的服务器代码使用了一个 `*` 处理程序，它接受任意 URL。这允许我们将访问的 URL 传递到我们的 Vue
+应用程序中，然后对客户端和服务器复用相同的路由配置！
 
-为此，建议使用官方提供的 `vue-router`。我们首先创建一个文件，在其中创建 router。注意，类似于 `createApp`，我们也需要给每个请求一个新的 router 实例，所以文件导出一个 `createRouter` 函数：
+为此，建议使用官方提供的 `vue-router`。我们首先创建一个文件，在其中创建 router。注意，类似于 `createApp`，我们也需要给每个请求一个新的
+router 实例，所以文件导出一个 `createRouter` 函数：
 
 ```js
 // router.js
@@ -483,9 +535,12 @@ server.get('*', (req, res) => {
 
 ## 代码分割
 
-应用程序的代码分割或惰性加载，有助于减少浏览器在初始渲染中下载的资源体积，可以极大地改善大体积 bundle 的可交互时间(TTI - time-to-interactive)。这里的关键在于，对初始首屏而言，"只加载所需"。
+应用程序的代码分割或惰性加载，有助于减少浏览器在初始渲染中下载的资源体积，可以极大地改善大体积 bundle 的可交互时间(TTI -
+time-to-interactive)。这里的关键在于，对初始首屏而言，"只加载所需"。
 
-Vue 提供异步组件作为第一类的概念，将其与 [webpack 2 所支持的使用动态导入作为代码分割点](https://webpack.js.org/guides/code-splitting-async/)相结合，你需要做的是：
+Vue
+提供异步组件作为第一类的概念，将其与 [webpack 2 所支持的使用动态导入作为代码分割点](https://webpack.js.org/guides/code-splitting-async/)
+相结合，你需要做的是：
 
 ```js
 // 这里进行修改……
@@ -497,7 +552,9 @@ const Foo = () => import('./Foo.vue')
 
 在 Vue 2.5 以下的版本中，服务端渲染时异步组件只能用在路由组件上。然而在 2.5+ 的版本中，得益于核心算法的升级，异步组件现在可以在应用中的任何地方使用。
 
-需要注意的是，你仍然需要在挂载 app 之前调用 `router.onReady`，因为路由器必须要提前解析路由配置中的异步组件，才能正确地调用组件中可能存在的路由钩子。这一步我们已经在我们的服务器入口 (server entry) 中实现过了，现在我们只需要更新客户端入口 (client entry)：
+需要注意的是，你仍然需要在挂载 app 之前调用 `router.onReady`
+，因为路由器必须要提前解析路由配置中的异步组件，才能正确地调用组件中可能存在的路由钩子。这一步我们已经在我们的服务器入口 (
+server entry) 中实现过了，现在我们只需要更新客户端入口 (client entry)：
 
 ```js
 // entry-client.js
@@ -535,13 +592,18 @@ export function createRouter () {
 
 ## 数据预取存储容器 (Data Store)
 
-在服务器端渲染(SSR)期间，我们本质上是在渲染我们应用程序的"快照"，所以如果应用程序依赖于一些异步数据，**那么在开始渲染过程之前，需要先预取和解析好这些数据**。
+在服务器端渲染(SSR)期间，我们本质上是在渲染我们应用程序的"快照"，所以如果应用程序依赖于一些异步数据，*
+*那么在开始渲染过程之前，需要先预取和解析好这些数据**。
 
-另一个需要关注的问题是在客户端，在挂载 (mount) 到客户端应用程序之前，需要获取到与服务器端应用程序完全相同的数据 - 否则，客户端应用程序会因为使用与服务器端应用程序不同的状态，然后导致混合失败。
+另一个需要关注的问题是在客户端，在挂载 (mount) 到客户端应用程序之前，需要获取到与服务器端应用程序完全相同的数据 -
+否则，客户端应用程序会因为使用与服务器端应用程序不同的状态，然后导致混合失败。
 
-为了解决这个问题，获取的数据需要位于视图组件之外，即放置在专门的数据预取存储容器(data store)或"状态容器(state container)）"中。首先，在服务器端，我们可以在渲染之前预取数据，并将数据填充到 store 中。此外，我们将在 HTML 中序列化(serialize)和内联预置(inline)状态。这样，在挂载(mount)到客户端应用程序之前，可以直接从 store 获取到内联预置(inline)状态。
+为了解决这个问题，获取的数据需要位于视图组件之外，即放置在专门的数据预取存储容器(data store)或"状态容器(state container)）"
+中。首先，在服务器端，我们可以在渲染之前预取数据，并将数据填充到 store 中。此外，我们将在 HTML 中序列化(serialize)和内联预置(
+inline)状态。这样，在挂载(mount)到客户端应用程序之前，可以直接从 store 获取到内联预置(inline)状态。
 
-为此，我们将使用官方状态管理库 [Vuex](https://github.com/vuejs/vuex/)。我们先创建一个 `store.js` 文件，里面会模拟一些根据 id 获取 item 的逻辑：
+为此，我们将使用官方状态管理库 [Vuex](https://github.com/vuejs/vuex/)。我们先创建一个 `store.js` 文件，里面会模拟一些根据
+id 获取 item 的逻辑：
 
 ```js
 // store.js
@@ -613,7 +675,8 @@ export function createApp () {
 
 我们需要通过访问路由，来决定获取哪部分数据 - 这也决定了哪些组件需要渲染。事实上，给定路由所需的数据，也是在该路由上渲染组件时所需的数据。所以在路由组件中放置数据预取逻辑，是很自然的事情。
 
-我们将在路由组件上暴露出一个自定义静态函数 `asyncData`。注意，由于此函数会在组件实例化之前调用，所以它无法访问 `this`。需要将 store 和路由信息作为参数传递进去：
+我们将在路由组件上暴露出一个自定义静态函数 `asyncData`。注意，由于此函数会在组件实例化之前调用，所以它无法访问 `this`。需要将
+store 和路由信息作为参数传递进去：
 
 ```html
 <!-- Item.vue -->
@@ -639,7 +702,8 @@ export default {
 
 ## 服务器端数据预取 (Server Data Fetching)
 
-在 `entry-server.js` 中，我们可以通过路由获得与 `router.getMatchedComponents()` 相匹配的组件，如果组件暴露出 `asyncData`，我们就调用这个方法。然后我们需要将解析完成的状态，附加到渲染上下文(render context)中。
+在 `entry-server.js` 中，我们可以通过路由获得与 `router.getMatchedComponents()` 相匹配的组件，如果组件暴露出 `asyncData`
+，我们就调用这个方法。然后我们需要将解析完成的状态，附加到渲染上下文(render context)中。
 
 ```js
 // entry-server.js
@@ -680,7 +744,8 @@ export default context => {
 }
 ```
 
-当使用 `template` 时，`context.state` 将作为 `window.__INITIAL_STATE__` 状态，自动嵌入到最终的 HTML 中。而在客户端，在挂载到应用程序之前，store 就应该获取到状态：
+当使用 `template` 时，`context.state` 将作为 `window.__INITIAL_STATE__` 状态，自动嵌入到最终的 HTML
+中。而在客户端，在挂载到应用程序之前，store 就应该获取到状态：
 
 ```js
 // entry-client.js
@@ -698,9 +763,11 @@ if (window.__INITIAL_STATE__) {
 
 1. **在路由导航之前解析数据：**
 
-使用此策略，应用程序会等待视图所需数据全部解析之后，再传入数据并处理当前视图。好处在于，可以直接在数据准备就绪时，传入视图渲染完整内容，但是如果数据预取需要很长时间，用户在当前视图会感受到"明显卡顿"。因此，如果使用此策略，建议提供一个数据加载指示器 (data loading indicator)。
+使用此策略，应用程序会等待视图所需数据全部解析之后，再传入数据并处理当前视图。好处在于，可以直接在数据准备就绪时，传入视图渲染完整内容，但是如果数据预取需要很长时间，用户在当前视图会感受到"
+明显卡顿"。因此，如果使用此策略，建议提供一个数据加载指示器 (data loading indicator)。
 
-我们可以通过检查匹配的组件，并在全局路由钩子函数中执行 `asyncData` 函数，来在客户端实现此策略。注意，在初始路由准备就绪之后，我们应该注册此钩子，这样我们就不必再次获取服务器提取的数据。
+我们可以通过检查匹配的组件，并在全局路由钩子函数中执行 `asyncData`
+函数，来在客户端实现此策略。注意，在初始路由准备就绪之后，我们应该注册此钩子，这样我们就不必再次获取服务器提取的数据。
 
 ```js
 // entry-client.js
@@ -747,7 +814,8 @@ router.onReady(() => {
 
 1. **匹配要渲染的视图后，再获取数据：**
 
-此策略将客户端数据预取逻辑，放在视图组件的 `beforeMount` 函数中。当路由导航被触发时，可以立即切换视图，因此应用程序具有更快的响应速度。然而，传入视图在渲染时不会有完整的可用数据。因此，对于使用此策略的每个视图组件，都需要具有条件加载状态。
+此策略将客户端数据预取逻辑，放在视图组件的 `beforeMount`
+函数中。当路由导航被触发时，可以立即切换视图，因此应用程序具有更快的响应速度。然而，传入视图在渲染时不会有完整的可用数据。因此，对于使用此策略的每个视图组件，都需要具有条件加载状态。
 
 这可以通过纯客户端 (client-only) 的全局 mixin 来实现：
 
@@ -768,7 +836,9 @@ Vue.mixin({
 })
 ```
 
-这两种策略是根本上不同的用户体验决策，应该根据你创建的应用程序的实际使用场景进行挑选。但是无论你选择哪种策略，当路由组件重用（同一路由，但是 params 或 query 已更改，例如，从 `user/1` 到 `user/2`）时，也应该调用 `asyncData` 函数。我们也可以通过纯客户端 (client-only) 的全局 mixin 来处理这个问题：
+这两种策略是根本上不同的用户体验决策，应该根据你创建的应用程序的实际使用场景进行挑选。但是无论你选择哪种策略，当路由组件重用（同一路由，但是
+params 或 query 已更改，例如，从 `user/1` 到 `user/2`）时，也应该调用 `asyncData` 函数。我们也可以通过纯客户端 (client-only)
+的全局 mixin 来处理这个问题：
 
 ```js
 Vue.mixin({
@@ -788,7 +858,8 @@ Vue.mixin({
 
 ## Store 代码拆分 (Store Code Splitting)
 
-在大型应用程序中，我们的 Vuex store 可能会分为多个模块。当然，也可以将这些模块代码，分割到相应的路由组件 chunk 中。假设我们有以下 store 模块：
+在大型应用程序中，我们的 Vuex store 可能会分为多个模块。当然，也可以将这些模块代码，分割到相应的路由组件 chunk 中。假设我们有以下
+store 模块：
 
 ```js
 // store/modules/foo.js
@@ -854,7 +925,8 @@ export default {
 app.$mount('#app')
 ```
 
-由于服务器已经渲染好了 HTML，我们显然无需将其丢弃再重新创建所有的 DOM 元素。相反，我们需要"激活"这些静态的 HTML，然后使他们成为动态的（能够响应后续的数据变化）。
+由于服务器已经渲染好了 HTML，我们显然无需将其丢弃再重新创建所有的 DOM 元素。相反，我们需要"激活"这些静态的
+HTML，然后使他们成为动态的（能够响应后续的数据变化）。
 
 如果你检查服务器渲染的输出结果，你会注意到应用程序的根元素上添加了一个特殊的属性：
 
@@ -862,16 +934,20 @@ app.$mount('#app')
 <div id="app" data-server-rendered="true">
 ```
 
-`data-server-rendered` 特殊属性，让客户端 Vue 知道这部分 HTML 是由 Vue 在服务端渲染的，并且应该以激活模式进行挂载。注意，这里并没有添加 `id="app"`，而是添加 `data-server-rendered` 属性：你需要自行添加 ID 或其他能够选取到应用程序根元素的选择器，否则应用程序将无法正常激活。
+`data-server-rendered` 特殊属性，让客户端 Vue 知道这部分 HTML 是由 Vue
+在服务端渲染的，并且应该以激活模式进行挂载。注意，这里并没有添加 `id="app"`，而是添加 `data-server-rendered` 属性：你需要自行添加
+ID 或其他能够选取到应用程序根元素的选择器，否则应用程序将无法正常激活。
 
-注意，在没有 `data-server-rendered` 属性的元素上，还可以向 `$mount` 函数的 `hydrating` 参数位置传入 `true`，来强制使用激活模式(hydration)：
+注意，在没有 `data-server-rendered` 属性的元素上，还可以向 `$mount` 函数的 `hydrating` 参数位置传入 `true`
+，来强制使用激活模式(hydration)：
 
 ```js
 // 强制使用应用程序的激活模式
 app.$mount('#app', true)
 ```
 
-在开发模式下，Vue 将推断客户端生成的虚拟 DOM 树 (virtual DOM tree)，是否与从服务器渲染的 DOM 结构 (DOM structure) 匹配。如果无法匹配，它将退出混合模式，丢弃现有的 DOM 并从头开始渲染。**在生产模式下，此检测会被跳过，以避免性能损耗。**
+在开发模式下，Vue 将推断客户端生成的虚拟 DOM 树 (virtual DOM tree)，是否与从服务器渲染的 DOM 结构 (DOM structure)
+匹配。如果无法匹配，它将退出混合模式，丢弃现有的 DOM 并从头开始渲染。**在生产模式下，此检测会被跳过，以避免性能损耗。**
 
 ### 一些需要注意的坑
 
@@ -883,7 +959,8 @@ app.$mount('#app', true)
 </table>
 ```
 
-浏览器会在 `<table>` 内部自动注入 `<tbody>`，然而，由于 Vue 生成的虚拟 DOM (virtual DOM) 不包含 `<tbody>`，所以会导致无法匹配。为能够正确匹配，请确保在模板中写入有效的 HTML。
+浏览器会在 `<table>` 内部自动注入 `<tbody>`，然而，由于 Vue 生成的虚拟 DOM (virtual DOM) 不包含 `<tbody>`
+，所以会导致无法匹配。为能够正确匹配，请确保在模板中写入有效的 HTML。
 
 # Bundle Renderer 指引
 
@@ -895,20 +972,26 @@ app.$mount('#app', true)
 const createApp = require('/path/to/built-server-bundle.js')
 ```
 
-这是理所应当的，然而在每次编辑过应用程序源代码之后，都必须停止并重启服务。这在开发过程中会影响开发效率。此外，Node.js 本身不支持 source map。
+这是理所应当的，然而在每次编辑过应用程序源代码之后，都必须停止并重启服务。这在开发过程中会影响开发效率。此外，Node.js 本身不支持
+source map。
 
 ## 传入 BundleRenderer
 
-`vue-server-renderer` 提供一个名为 `createBundleRenderer` 的 API，用于处理此问题，通过使用 webpack 的自定义插件，server bundle 将生成为可传递到 bundle renderer 的特殊 JSON 文件。所创建的 bundle renderer，用法和普通 renderer 相同，但是 bundle renderer 提供以下优点：
+`vue-server-renderer` 提供一个名为 `createBundleRenderer` 的 API，用于处理此问题，通过使用 webpack 的自定义插件，server
+bundle 将生成为可传递到 bundle renderer 的特殊 JSON 文件。所创建的 bundle renderer，用法和普通 renderer 相同，但是 bundle
+renderer 提供以下优点：
 
 - 内置的 source map 支持（在 webpack 配置中使用 `devtool: 'source-map'`）
 - 在开发环境甚至部署过程中热重载（通过读取更新后的 bundle，然后重新创建 renderer 实例）
-- 关键 CSS(critical CSS) 注入（在使用 `*.vue` 文件时）：自动内联在渲染过程中用到的组件所需的CSS。更多细节请查看 [CSS](https://ssr.vuejs.org/zh/guide/css.html) 章节。
-- 使用 [clientManifest](https://ssr.vuejs.org/zh/api/#clientmanifest) 进行资源注入：自动推断出最佳的预加载(preload)和预取(prefetch)指令，以及初始渲染所需的代码分割 chunk。
+- 关键 CSS(critical CSS) 注入（在使用 `*.vue`
+  文件时）：自动内联在渲染过程中用到的组件所需的CSS。更多细节请查看 [CSS](https://ssr.vuejs.org/zh/guide/css.html) 章节。
+- 使用 [clientManifest](https://ssr.vuejs.org/zh/api/#clientmanifest) 进行资源注入：自动推断出最佳的预加载(preload)
+  和预取(prefetch)指令，以及初始渲染所需的代码分割 chunk。
 
 ------
 
-在下一章节中，我们将讨论如何配置 webpack，以生成 bundle renderer 所需的构建工件 (build artifact)，但现在假设我们已经有了这些需要的构建工件，以下就是创建和使用 bundle renderer 的方法：
+在下一章节中，我们将讨论如何配置 webpack，以生成 bundle renderer 所需的构建工件 (build artifact)
+，但现在假设我们已经有了这些需要的构建工件，以下就是创建和使用 bundle renderer 的方法：
 
 ```js
 const { createBundleRenderer } = require('vue-server-renderer')
@@ -931,13 +1014,17 @@ server.get('*', (req, res) => {
 })
 ```
 
-bundle renderer 在调用 `renderToString` 时，它将自动执行「由 bundle 创建的应用程序实例」所导出的函数（传入`上下文`作为参数），然后渲染它。
+bundle renderer 在调用 `renderToString` 时，它将自动执行「由 bundle 创建的应用程序实例」所导出的函数（传入`上下文`
+作为参数），然后渲染它。
 
 注意，推荐将 `runInNewContext` 选项设置为 `false` 或 `'once'`。
 
 # 构建配置
 
-我们假设你已经知道，如何为纯客户端 (client-only) 项目配置 webpack。服务器端渲染 (SSR) 项目的配置大体上与纯客户端项目类似，但是我们建议将配置分为三个文件：*base*, *client* 和 *server*。基本配置 (base config) 包含在两个环境共享的配置，例如，输出路径 (output path)，别名 (alias) 和 loader。服务器配置 (server config) 和客户端配置 (client config)，可以通过使用 [webpack-merge](https://github.com/survivejs/webpack-merge) 来简单地扩展基本配置。
+我们假设你已经知道，如何为纯客户端 (client-only) 项目配置 webpack。服务器端渲染 (SSR) 项目的配置大体上与纯客户端项目类似，但是我们建议将配置分为三个文件：
+*base*, *client* 和 *server*。基本配置 (base config) 包含在两个环境共享的配置，例如，输出路径 (output path)，别名 (alias) 和
+loader。服务器配置 (server config) 和客户端配置 (client config)
+，可以通过使用 [webpack-merge](https://github.com/survivejs/webpack-merge) 来简单地扩展基本配置。
 
 ## 服务器配置 (Server Config)
 
@@ -995,28 +1082,39 @@ const renderer = createBundleRenderer('/path/to/vue-ssr-server-bundle.json', {
 })
 ```
 
-又或者，你还可以将 bundle 作为对象传递给 `createBundleRenderer`。这对开发过程中的热重载是很有用的 - 具体请查看 HackerNews demo 的[参考设置](https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js)。
+又或者，你还可以将 bundle 作为对象传递给 `createBundleRenderer`。这对开发过程中的热重载是很有用的 - 具体请查看 HackerNews
+demo 的[参考设置](https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js)。
 
 ### 扩展说明 (Externals Caveats)
 
-请注意，在 `externals` 选项中，我们将 CSS 文件列入白名单。这是因为从依赖模块导入的 CSS 还应该由 webpack 处理。如果你导入依赖于 webpack 的任何其他类型的文件（例如 `*.vue`, `*.sass`），那么你也应该将它们添加到白名单中。
+请注意，在 `externals` 选项中，我们将 CSS 文件列入白名单。这是因为从依赖模块导入的 CSS 还应该由 webpack 处理。如果你导入依赖于
+webpack 的任何其他类型的文件（例如 `*.vue`, `*.sass`），那么你也应该将它们添加到白名单中。
 
-如果你使用 `runInNewContext: 'once'` 或 `runInNewContext: true`，那么你还应该将修改 `global`的 polyfill 列入白名单，例如 `babel-polyfill`。这是因为当使用新的上下文模式时，**server bundle 中的代码具有自己的 `global` 对象。**由于在使用 Node 7.6+ 时，在服务器并不真正需要它，所以实际上只需在客户端 entry 导入它。
+如果你使用 `runInNewContext: 'once'` 或 `runInNewContext: true`，那么你还应该将修改 `global`的 polyfill
+列入白名单，例如 `babel-polyfill`。这是因为当使用新的上下文模式时，**server bundle 中的代码具有自己的 `global` 对象。**由于在使用
+Node 7.6+ 时，在服务器并不真正需要它，所以实际上只需在客户端 entry 导入它。
 
 ## 客户端配置 (Client Config)
 
-客户端配置 (client config) 和基本配置 (base config) 大体上相同。显然你需要把 `entry` 指向你的客户端入口文件。除此之外，如果你使用 `CommonsChunkPlugin`，请确保仅在客户端配置 (client config) 中使用，因为服务器包需要单独的入口 chunk。
+客户端配置 (client config) 和基本配置 (base config) 大体上相同。显然你需要把 `entry`
+指向你的客户端入口文件。除此之外，如果你使用 `CommonsChunkPlugin`，请确保仅在客户端配置 (client config) 中使用，因为服务器包需要单独的入口
+chunk。
 
 ### 生成 `clientManifest`
 
 > 需要版本 2.3.0+
 
-除了 server bundle 之外，我们还可以生成客户端构建清单 (client build manifest)。使用客户端清单 (client manifest) 和服务器 bundle(server bundle)，renderer 现在具有了*服务器和客户端*的构建信息，因此它可以自动推断和注入[资源预加载 / 数据预取指令(preload / prefetch directive)](https://css-tricks.com/prefetching-preloading-prebrowsing/)，以及 css 链接 / script 标签到所渲染的 HTML。
+除了 server bundle 之外，我们还可以生成客户端构建清单 (client build manifest)。使用客户端清单 (client manifest) 和服务器
+bundle(server bundle)，renderer 现在具有了*服务器和客户端*
+的构建信息，因此它可以自动推断和注入[资源预加载 / 数据预取指令(preload / prefetch directive)](https://css-tricks.com/prefetching-preloading-prebrowsing/)
+，以及 css 链接 / script 标签到所渲染的 HTML。
 
 好处是双重的：
 
 1. 在生成的文件名中有哈希时，可以取代 `html-webpack-plugin` 来注入正确的资源 URL。
-2. 在通过 webpack 的按需代码分割特性渲染 bundle 时，我们可以确保对 chunk 进行最优化的资源预加载/数据预取，并且还可以将所需的异步 chunk 智能地注入为 `<script>` 标签，以避免客户端的瀑布式请求 (waterfall request)，以及改善可交互时间 (TTI - time-to-interactive)。
+2. 在通过 webpack 的按需代码分割特性渲染 bundle 时，我们可以确保对 chunk 进行最优化的资源预加载/数据预取，并且还可以将所需的异步
+   chunk 智能地注入为 `<script>` 标签，以避免客户端的瀑布式请求 (waterfall request)，以及改善可交互时间 (TTI -
+   time-to-interactive)。
 
 要使用客户端清单 (client manifest)，客户端配置 (client config) 将如下所示：
 
@@ -1084,15 +1182,18 @@ const renderer = createBundleRenderer(serverBundle, {
 
 ### 手动资源注入(Manual Asset Injection)
 
-默认情况下，当提供 `template` 渲染选项时，资源注入是自动执行的。但是有时候，你可能需要对资源注入的模板进行更细粒度 (finer-grained) 的控制，或者你根本不使用模板。在这种情况下，你可以在创建 renderer 并手动执行资源注入时，传入 `inject: false`。
+默认情况下，当提供 `template` 渲染选项时，资源注入是自动执行的。但是有时候，你可能需要对资源注入的模板进行更细粒度 (
+finer-grained) 的控制，或者你根本不使用模板。在这种情况下，你可以在创建 renderer 并手动执行资源注入时，传入 `inject: false`。
 
 在 `renderToString` 回调函数中，你传入的 `context` 对象会暴露以下方法：
 
 - `context.renderStyles()`
 
-  这将返回内联 `<style>` 标签包含所有关键 CSS(critical CSS) ，其中关键 CSS 是在要用到的 `*.vue`组件的渲染过程中收集的。有关更多详细信息，请查看 [CSS 管理](https://ssr.vuejs.org/zh/guide/css.html)。
+  这将返回内联 `<style>` 标签包含所有关键 CSS(critical CSS) ，其中关键 CSS 是在要用到的 `*.vue`
+  组件的渲染过程中收集的。有关更多详细信息，请查看 [CSS 管理](https://ssr.vuejs.org/zh/guide/css.html)。
 
-  如果提供了 `clientManifest`，返回的字符串中，也将包含着 `<link rel="stylesheet">` 标签内由 webpack 输出(webpack-emitted)的 CSS 文件（例如，使用 `extract-text-webpack-plugin` 提取的 CSS，或使用 `file-loader` 导入的 CSS）
+  如果提供了 `clientManifest`，返回的字符串中，也将包含着 `<link rel="stylesheet">` 标签内由 webpack 输出(webpack-emitted)
+  的 CSS 文件（例如，使用 `extract-text-webpack-plugin` 提取的 CSS，或使用 `file-loader` 导入的 CSS）
 
 - `context.renderState(options?: Object)`
 
@@ -1111,28 +1212,31 @@ const renderer = createBundleRenderer(serverBundle, {
 
 - `context.renderScripts()`
 
-  - 需要 `clientManifest`
+    - 需要 `clientManifest`
 
-  此方法返回引导客户端应用程序所需的 `<script>` 标签。当在应用程序代码中使用异步代码分割 (async code-splitting) 时，此方法将智能地正确的推断需要引入的那些异步 chunk。
+  此方法返回引导客户端应用程序所需的 `<script>` 标签。当在应用程序代码中使用异步代码分割 (async code-splitting)
+  时，此方法将智能地正确的推断需要引入的那些异步 chunk。
 
 - `context.renderResourceHints()`
 
-  - 需要 `clientManifest`
+    - 需要 `clientManifest`
 
   此方法返回当前要渲染的页面，所需的 `<link rel="preload/prefetch">` 资源提示 (resource hint)。默认情况下会：
 
-  - 预加载页面所需的 JavaScript 和 CSS 文件
-  - 预取异步 JavaScript chunk，之后可能会用于渲染
+    - 预加载页面所需的 JavaScript 和 CSS 文件
+    - 预取异步 JavaScript chunk，之后可能会用于渲染
 
   使用 [`shouldPreload`](https://ssr.vuejs.org/zh/api/#shouldpreload) 选项可以进一步自定义要预加载的文件。
 
 - `context.getPreloadFiles()`
 
-  - 需要 `clientManifest`
+    - 需要 `clientManifest`
 
-  此方法不返回字符串 - 相反，它返回一个数组，此数组是由要预加载的资源文件对象所组成。这可以用在以编程方式 (programmatically) 执行 HTTP/2 服务器推送 (HTTP/2 server push)。
+  此方法不返回字符串 - 相反，它返回一个数组，此数组是由要预加载的资源文件对象所组成。这可以用在以编程方式 (
+  programmatically) 执行 HTTP/2 服务器推送 (HTTP/2 server push)。
 
-由于传递给 `createBundleRenderer` 的 `template` 将会使用 `context` 对象进行插值，你可以（通过传入 `inject: false`）在模板中使用这些方法：
+由于传递给 `createBundleRenderer` 的 `template` 将会使用 `context` 对象进行插值，你可以（通过传入 `inject: false`
+）在模板中使用这些方法：
 
 ```html
 <html>
@@ -1165,11 +1269,15 @@ const renderer = createBundleRenderer(serverBundle, {
 
 - 在使用 `bundleRenderer` 时，自动注入关键 CSS(critical CSS)。
 
-  如果在服务器端渲染期间使用，可以在 HTML 中收集和内联（使用 `template` 选项时自动处理）组件的 CSS。在客户端，当第一次使用该组件时，`vue-style-loader` 会检查这个组件是否已经具有服务器内联(server-inlined)的 CSS - 如果没有，CSS 将通过 `<style>` 标签动态注入。
+  如果在服务器端渲染期间使用，可以在 HTML 中收集和内联（使用 `template` 选项时自动处理）组件的
+  CSS。在客户端，当第一次使用该组件时，`vue-style-loader` 会检查这个组件是否已经具有服务器内联(server-inlined)的 CSS -
+  如果没有，CSS 将通过 `<style>` 标签动态注入。
 
 - 通用 CSS 提取。
 
-  此设置支持使用 [`extract-text-webpack-plugin`](https://github.com/webpack-contrib/extract-text-webpack-plugin) 将主 chunk(main chunk) 中的 CSS 提取到单独的 CSS 文件中（使用 `template` 自动注入），这样可以将文件分开缓存。建议用于存在很多公用 CSS 时。
+  此设置支持使用 [`extract-text-webpack-plugin`](https://github.com/webpack-contrib/extract-text-webpack-plugin) 将主
+  chunk(main chunk) 中的 CSS 提取到单独的 CSS 文件中（使用 `template` 自动注入），这样可以将文件分开缓存。建议用于存在很多公用
+  CSS 时。
 
   内部异步组件中的 CSS 将内联为 JavaScript 字符串，并由 `vue-style-loader` 处理。
 
@@ -1237,7 +1345,9 @@ module.exports = {
 从 NPM 依赖模块导入 CSS 时需要注意的几点：
 
 1. 在服务器端构建过程中，不应该外置化提取。
-2. 在使用 CSS 提取 + 使用 `CommonsChunkPlugin` 插件提取 vendor 时，如果提取的 CSS 位于提取的 vendor chunk 之中，`extract-text-webpack-plugin` 会遇到问题。为了解决这个问题，请避免在 vendor chunk 中包含 CSS 文件。客户端 webpack 配置示例如下：
+2. 在使用 CSS 提取 + 使用 `CommonsChunkPlugin` 插件提取 vendor 时，如果提取的 CSS 位于提取的 vendor chunk
+   之中，`extract-text-webpack-plugin` 会遇到问题。为了解决这个问题，请避免在 vendor chunk 中包含 CSS 文件。客户端 webpack
+   配置示例如下：
 
 ```js
 module.exports = {
@@ -1267,9 +1377,12 @@ module.exports = {
 
 # Head 管理
 
-类似于资源注入，Head 管理遵循相同的理念：我们可以在组件的生命周期中，将数据动态地追加到渲染`上下文` (render `context`)，然后在`模板`中的占位符替换为这些数据。
+类似于资源注入，Head 管理遵循相同的理念：我们可以在组件的生命周期中，将数据动态地追加到渲染`上下文` (render `context`)
+，然后在`模板`中的占位符替换为这些数据。
 
-> 在 2.3.2+ 的版本，你可以通过 `this.$ssrContext` 来直接访问组件中的服务器端渲染上下文(SSR context)。在旧版本中，你必须通过将其传递给 `createApp()` 并将其暴露于根实例的 `$options` 上，才能手动注入服务器端渲染上下文(SSR context) - 然后子组件可以通过 `this.$root.$options.ssrContext` 来访问它。
+> 在 2.3.2+ 的版本，你可以通过 `this.$ssrContext` 来直接访问组件中的服务器端渲染上下文(SSR context)
+> 。在旧版本中，你必须通过将其传递给 `createApp()` 并将其暴露于根实例的 `$options` 上，才能手动注入服务器端渲染上下文(SSR
+> context) - 然后子组件可以通过 `this.$root.$options.ssrContext` 来访问它。
 
 我们可以编写一个简单的 mixin 来完成标题管理：
 
@@ -1357,11 +1470,15 @@ export default {
 
 # 缓存
 
-虽然 Vue 的服务器端渲染 (SSR) 相当快速，但是由于创建组件实例和虚拟 DOM 节点的开销，无法与纯基于字符串拼接 (pure string-based) 的模板的性能相当。在 SSR 性能至关重要的情况下，明智地利用缓存策略，可以极大改善响应时间并减少服务器负载。
+虽然 Vue 的服务器端渲染 (SSR) 相当快速，但是由于创建组件实例和虚拟 DOM 节点的开销，无法与纯基于字符串拼接 (pure
+string-based) 的模板的性能相当。在 SSR 性能至关重要的情况下，明智地利用缓存策略，可以极大改善响应时间并减少服务器负载。
 
 ## 页面级别缓存 (Page-level Caching)
 
-在大多数情况下，服务器渲染的应用程序依赖于外部数据，因此本质上页面内容是动态的，不能持续长时间缓存。然而，如果内容不是用户特定 (user-specific)（即对于相同的 URL，总是为所有用户渲染相同的内容），我们可以利用名为 [micro-caching](https://www.nginx.com/blog/benefits-of-microcaching-nginx/) 的缓存策略，来大幅度提高应用程序处理高流量的能力。
+在大多数情况下，服务器渲染的应用程序依赖于外部数据，因此本质上页面内容是动态的，不能持续长时间缓存。然而，如果内容不是用户特定 (
+user-specific)（即对于相同的
+URL，总是为所有用户渲染相同的内容），我们可以利用名为 [micro-caching](https://www.nginx.com/blog/benefits-of-microcaching-nginx/)
+的缓存策略，来大幅度提高应用程序处理高流量的能力。
 
 这通常在 Nginx 层完成，但是我们也可以在 Node.js 中实现它：
 
@@ -1398,7 +1515,9 @@ server.get('*', (req, res) => {
 
 ## 组件级别缓存 (Component-level Caching)
 
-`vue-server-renderer` 内置支持组件级别缓存 (component-level caching)。要启用组件级别缓存，你需要在创建 renderer 时提供[具体缓存实现方式(cache implementation)](https://ssr.vuejs.org/zh/api/#cache)。典型做法是传入 [lru-cache](https://github.com/isaacs/node-lru-cache)：
+`vue-server-renderer` 内置支持组件级别缓存 (component-level caching)。要启用组件级别缓存，你需要在创建 renderer
+时提供[具体缓存实现方式(cache implementation)](https://ssr.vuejs.org/zh/api/#cache)
+。典型做法是传入 [lru-cache](https://github.com/isaacs/node-lru-cache)：
 
 ```js
 const LRU = require('lru-cache')
@@ -1424,9 +1543,12 @@ export default {
 }
 ```
 
-请注意，可缓存组件**还必须定义一个唯一的 name 选项**。通过使用唯一的名称，每个缓存键 (cache key) 对应一个组件：你无需担心两个组件返回同一个 key。
+请注意，可缓存组件**还必须定义一个唯一的 name 选项**。通过使用唯一的名称，每个缓存键 (cache key) 对应一个组件：你无需担心两个组件返回同一个
+key。
 
-`serverCacheKey` 返回的 key 应该包含足够的信息，来表示渲染结果的具体情况。如果渲染结果仅由 `props.item.id` 决定，则上述是一个很好的实现。但是，如果具有相同 id 的 item 可能会随时间而变化，或者如果渲染结果依赖于其他 prop，则需要修改 `serverCacheKey` 的实现，以考虑其他变量。
+`serverCacheKey` 返回的 key 应该包含足够的信息，来表示渲染结果的具体情况。如果渲染结果仅由 `props.item.id`
+决定，则上述是一个很好的实现。但是，如果具有相同 id 的 item 可能会随时间而变化，或者如果渲染结果依赖于其他
+prop，则需要修改 `serverCacheKey` 的实现，以考虑其他变量。
 
 返回常量将导致组件始终被缓存，这对纯静态组件是有好处的。
 
@@ -1437,7 +1559,9 @@ export default {
 - 它具有可能依赖于全局状态的子组件。
 - 它具有对渲染`上下文`产生副作用(side effect)的子组件。
 
-因此，应该小心使用组件缓存来解决性能瓶颈。在大多数情况下，你不应该也不需要缓存单一实例组件。适用于缓存的最常见类型的组件，是在大的 `v-for` 列表中重复出现的组件。由于这些组件通常由数据库集合(database collection)中的对象驱动，它们可以使用简单的缓存策略：使用其唯一 id，再加上最后更新的时间戳，来生成其缓存键(cache key)：
+因此，应该小心使用组件缓存来解决性能瓶颈。在大多数情况下，你不应该也不需要缓存单一实例组件。适用于缓存的最常见类型的组件，是在大的 `v-for`
+列表中重复出现的组件。由于这些组件通常由数据库集合(database collection)中的对象驱动，它们可以使用简单的缓存策略：使用其唯一
+id，再加上最后更新的时间戳，来生成其缓存键(cache key)：
 
 ```js
 serverCacheKey: props => props.item.id + '::' + props.item.last_updated
@@ -1445,7 +1569,8 @@ serverCacheKey: props => props.item.id + '::' + props.item.last_updated
 
 # 流式渲染 (Streaming)
 
-对于 `vue-server-renderer` 的基本 renderer 和 bundle renderer 都提供开箱即用的流式渲染功能。所有你需要做的就是，用 `renderToStream` 替代 `renderToString`：
+对于 `vue-server-renderer` 的基本 renderer 和 bundle renderer
+都提供开箱即用的流式渲染功能。所有你需要做的就是，用 `renderToStream` 替代 `renderToString`：
 
 ```js
 const stream = renderer.renderToStream(context)
@@ -1471,17 +1596,26 @@ stream.on('error', err => {
 
 ## 流式传输说明 (Streaming Caveats)
 
-在流式渲染模式下，当 renderer 遍历虚拟 DOM 树 (virtual DOM tree) 时，会尽快发送数据。这意味着我们可以尽快获得"第一个 chunk"，并开始更快地将其发送给客户端。
+在流式渲染模式下，当 renderer 遍历虚拟 DOM 树 (virtual DOM tree) 时，会尽快发送数据。这意味着我们可以尽快获得"第一个 chunk"
+，并开始更快地将其发送给客户端。
 
-然而，当第一个数据 chunk 被发出时，子组件甚至可能不被实例化，它们的生命周期钩子也不会被调用。这意味着，如果子组件需要在其生命周期钩子函数中，将数据附加到渲染上下文 (render context)，当流 (stream) 启动时，这些数据将不可用。这是因为，大量上下文信息 (context information)（如头信息 (head information) 或内联关键 CSS(inline critical CSS)）需要在应用程序标记 (markup) 之前出现，我们基本上必须等待流(stream)完成后，才能开始使用这些上下文数据。
+然而，当第一个数据 chunk
+被发出时，子组件甚至可能不被实例化，它们的生命周期钩子也不会被调用。这意味着，如果子组件需要在其生命周期钩子函数中，将数据附加到渲染上下文 (
+render context)，当流 (stream) 启动时，这些数据将不可用。这是因为，大量上下文信息 (context information)（如头信息 (head
+information) 或内联关键 CSS(inline critical CSS)）需要在应用程序标记 (markup) 之前出现，我们基本上必须等待流(stream)
+完成后，才能开始使用这些上下文数据。
 
 因此，如果你依赖由组件生命周期钩子函数填充的上下文数据，则**不建议**使用流式传输模式。
 
 # 在非 Node.js 环境中使用
 
-`vue-server-renderer` 在默认构建时，会预先假定有一个 Node.js 环境，这使得它在其他 JavaScript 环境（如 [PHP V8Js](https://github.com/phpv8/v8js) 或 [Oracle Nashorn](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/nashorn/) 中无法使用。在 2.5+ 版本中，我们把那些基本上与环境无关的构建，编译到 `vue-server-renderer/basic.js` 中，这使得它可以在上述环境中使用。
+`vue-server-renderer` 在默认构建时，会预先假定有一个 Node.js 环境，这使得它在其他 JavaScript
+环境（如 [PHP V8Js](https://github.com/phpv8/v8js)
+或 [Oracle Nashorn](https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/nashorn/) 中无法使用。在 2.5+
+版本中，我们把那些基本上与环境无关的构建，编译到 `vue-server-renderer/basic.js` 中，这使得它可以在上述环境中使用。
 
-对于所有环境，必须要预先在环境中模拟 `global` 和 `process` 对象，以及将 `process.env.VUE_ENV`设置为 `"server"` 和将 `process.env.NODE_ENV` 设置为 `"development"` 或 `"production"`。
+对于所有环境，必须要预先在环境中模拟 `global` 和 `process` 对象，以及将 `process.env.VUE_ENV`设置为 `"server"`
+和将 `process.env.NODE_ENV` 设置为 `"development"` 或 `"production"`。
 
 在 Nashorn 环境下，可能还需要使用 Java 原生定时器，来为 `Promise` 或 `setTimeout` 提供 polyfill。
 

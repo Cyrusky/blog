@@ -7,7 +7,7 @@ categories:
   - Operations
   - System
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20200116101404.png'
+cover: '/assets/images/20200116101404.webp'
 abbrlink: fb6c5a26
 date: 2020-01-16 10:10:35
 ---

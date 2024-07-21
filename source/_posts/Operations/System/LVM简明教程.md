@@ -7,7 +7,7 @@ categories:
   - Operations
   - System
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084727.png'
+cover: '/assets/images/imgs20190625084727.webp'
 abbrlink: c07c409f
 date: 2017-11-02 16:13:44
 ---
@@ -18,14 +18,14 @@ date: 2017-11-02 16:13:44
 
 LVM使用分层结构，如下图所示。
 
-![](https://imgs.borgor.cn/imgs/imgs-LVM简明教程-2019-6-25-11-2-41.png)
-
+![](/assets/images/imgs-LVM简明教程-2019-6-25-11-2-41.webp)
 
 图中顶部，首先是实际的物理磁盘及其划分的分区和其上的物理卷（PV）。一个或多个物理卷可以用来创建卷组（VG）。然后基于卷组可以创建逻辑卷（LV）。只要在卷组中有可用空间，就可以随心所欲的创建逻辑卷。文件系统就是在逻辑卷上创建的，然后可以在操作系统挂载和访问。
 
 ### LVM测试说明
 
-本文将介绍**怎么在linux中创建和管理LVM卷**。我们将会分成两个部分。第一个部分，我们首先要在一个硬盘上创建多个逻辑卷，然后将它们挂载在/lvm-mount目录。然后我们将要对创建好的卷调整大小。而第二部分，我们将会从另外一块硬盘增加额外的卷到LVM中。
+本文将介绍**怎么在linux中创建和管理LVM卷**
+。我们将会分成两个部分。第一个部分，我们首先要在一个硬盘上创建多个逻辑卷，然后将它们挂载在/lvm-mount目录。然后我们将要对创建好的卷调整大小。而第二部分，我们将会从另外一块硬盘增加额外的卷到LVM中。
 
 ### 准备磁盘分区
 
@@ -202,7 +202,8 @@ Changed system type of partition 1 to 8e (Linux LVM)
 
 调整逻辑卷大小的功能是LVM最有用的功能。这个部分会讨论我们怎么样扩展一个存在的逻辑卷。下面，我们将会扩展先前创建的逻辑卷‘lv1’扩大到200MB。
 
-注意，调整逻辑卷大小之后，也需要对文件系统调整大小进行匹配。这个额外的步骤各不相同，取决于创建文件系统的类型。在本文中，我们使用'lv1'创建了ext4类型的文件系统，所以这里的操作是针对ext4文件系统的。（ext2/3文件系统也类同）。命令的执行顺序是很重要的。
+注意，调整逻辑卷大小之后，也需要对文件系统调整大小进行匹配。这个额外的步骤各不相同，取决于创建文件系统的类型。在本文中，我们使用'lv1'
+创建了ext4类型的文件系统，所以这里的操作是针对ext4文件系统的。（ext2/3文件系统也类同）。命令的执行顺序是很重要的。
 
 首先，我们卸载掉lv1卷
 
@@ -266,7 +267,8 @@ Changed system type of partition 1 to 8e (Linux LVM)
 # lvresize -L 100M /dev/volume-group1/lv1 
 ```
 
-> WARNING: Reducing active logical volume to 100.00 MiB THIS MAY DESTROY YOUR DATA (filesystem etc.) Do you really want to reduce lv1? [y/n]: y Reducing logical volume lv1 to 100.00 MiB Logical volume lv1 successfully resized
+> WARNING: Reducing active logical volume to 100.00 MiB THIS MAY DESTROY YOUR DATA (filesystem etc.) Do you really want
+> to reduce lv1? [y/n]: y Reducing logical volume lv1 to 100.00 MiB Logical volume lv1 successfully resized
 
 最后，验证调整后的逻辑卷大小。
 
@@ -295,7 +297,8 @@ Changed system type of partition 1 to 8e (Linux LVM)
 
 ### 扩展一个卷组
 
-本节将讨论扩展卷组的方法，将一个物理卷添加到卷组。让我们假设我们的卷组'volume-group1'已经满了，需要扩大。手上的硬盘（sdb）已经没有其他空闲分区，我们添加了另外一个硬盘（sdc）。我们将看到如何把sdc的分区添加到卷组以扩展。
+本节将讨论扩展卷组的方法，将一个物理卷添加到卷组。让我们假设我们的卷组'volume-group1'
+已经满了，需要扩大。手上的硬盘（sdb）已经没有其他空闲分区，我们添加了另外一个硬盘（sdc）。我们将看到如何把sdc的分区添加到卷组以扩展。
 
 检测现在卷组状态
 

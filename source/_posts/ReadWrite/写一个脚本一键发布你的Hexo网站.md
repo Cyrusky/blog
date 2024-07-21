@@ -6,7 +6,7 @@ categories:
   - Reading&Writing
   - Hexo
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190805091629.png'
+cover: '/assets/images/20190805091629.webp'
 abbrlink: 134e037a
 date: 2019-08-05 09:14:36
 ---
@@ -19,7 +19,8 @@ npm install hexo-deployer-git --save
 
 官方的解释如下：
 
-> Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your servers.
+> Hexo provides a fast and easy deployment strategy. You only need one single command to deploy your site to your
+> servers.
 
 你可以在这里看到：https://hexo.io/docs/deployment.html
 

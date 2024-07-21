@@ -7,7 +7,7 @@ categories:
   - Development
   - React
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191121175758.png'
+cover: '/assets/images/20191121175758.webp'
 abbrlink: c07cc943
 date: 2019-11-21 17:56:03
 ---

@@ -15,7 +15,7 @@ categories:
 toc: true
 abbrlink: 612cf31e
 date: 2020-02-23 20:28:31
-thumbnail: https://imgs.borgor.cn/imgs/20200223210222.png
+cover: /assets/images/20200223210222.webp
 ---
 
 # Ruby 标签
@@ -23,7 +23,8 @@ thumbnail: https://imgs.borgor.cn/imgs/20200223210222.png
 ## 定义和用法
 
 `<ruby>` 标签定义 `ruby` 注释（中文注音或字符）。在东亚使用，显示的是东亚字符的发音。与 `<ruby>` 以及 `<rt>` 标签一同使用：
-`ruby` 元素由一个或多个字符（需要一个解释/发音）和一个提供该信息的 `rt` 元素组成，还包括可选的 `rp` 元素，定义当浏览器不支持 "`ruby`" 元素时显示的内容,类似于`noscript`标签
+`ruby` 元素由一个或多个字符（需要一个解释/发音）和一个提供该信息的 `rt` 元素组成，还包括可选的 `rp`
+元素，定义当浏览器不支持 "`ruby`" 元素时显示的内容,类似于`noscript`标签
 
 <!-- more -->
 
@@ -96,11 +97,14 @@ thumbnail: https://imgs.borgor.cn/imgs/20200223210222.png
 1. `header`，如其名，通常出现在前部，表示导航或者介绍性的内容。
 2. `footer`，通常出现在尾部，包含一些作者信息、相关链接、版权信息等。
 
-> `header` 和 `footer` 一般都是放在 `article` 或者 `body` 的直接子元素，但是标准中并没有明确规定，`footer` 也可以和 `aside`，`nav`，`section` 相关联（`header` 不存在关联问题）。
+> `header` 和 `footer` 一般都是放在 `article` 或者 `body` 的直接子元素，但是标准中并没有明确规定，`footer`
+> 也可以和 `aside`，`nav`，`section` 相关联（`header` 不存在关联问题）。
 
 `aside` 表示跟文章主体不那么相关的部分，它可能包含导航、广告等工具性质的内容。
 `aside` 很容易被理解为侧边栏，实际上二者是包含关系，侧边栏是 `aside`，`aside` 不一定是侧边栏。
 
-`aside` 和 `header` 中都可能出现导航（`nav` 标签），二者的区别是，`header` 中的导航多数是到文章自己的目录，而 `aside` 中的导航多数是到关联页面或者是整站地图。
+`aside` 和 `header` 中都可能出现导航（`nav` 标签），二者的区别是，`header` 中的导航多数是到文章自己的目录，而 `aside`
+中的导航多数是到关联页面或者是整站地图。
 
-最后 `footer` 中包含 `address`，这是个非常容易被误用的标签。`address` 并非像 `date` 一样，表示一个给机器阅读的地址，而是表示“文章（作者）的联系方式”，`address` 明确地只关联到 `article` 和 `body`。
+最后 `footer` 中包含 `address`，这是个非常容易被误用的标签。`address` 并非像 `date`
+一样，表示一个给机器阅读的地址，而是表示“文章（作者）的联系方式”，`address` 明确地只关联到 `article` 和 `body`。

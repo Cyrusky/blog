@@ -6,7 +6,7 @@ tags:
 categories:
   - Development
   - JavaScript
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083339.png'
+cover: '/assets/images/imgs20190625083339.webp'
 toc: true
 abbrlink: 33f3a505
 date: 2019-06-10 22:16:24
@@ -30,7 +30,8 @@ Vue.component('button-counter', {
 
 <!-- more -->
 
-组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 `<button-counter>`。我们可以在一个通过 `new Vue` 创建的 Vue 根实例中，把这个组件作为自定义元素来使用：
+组件是可复用的 Vue 实例，且带有一个名字：在这个例子中是 `<button-counter>`。我们可以在一个通过 `new Vue` 创建的 Vue
+根实例中，把这个组件作为自定义元素来使用：
 
 ```html
 <div id="components-demo">
@@ -41,7 +42,8 @@ new Vue({ el: '#components-demo' })
 
 You clicked me 0 times.
 
-因为组件是可复用的 Vue 实例，所以它们与 `new Vue` 接收相同的选项，例如 `data`、`computed`、`watch`、`methods` 以及生命周期钩子等。仅有的例外是像 `el`这样根实例特有的选项。
+因为组件是可复用的 Vue 实例，所以它们与 `new Vue` 接收相同的选项，例如 `data`、`computed`、`watch`、`methods`
+以及生命周期钩子等。仅有的例外是像 `el`这样根实例特有的选项。
 
 ## 组件的复用
 
@@ -85,12 +87,12 @@ data: function () {
 
 通常一个应用会以一棵嵌套的组件树的形式来组织：
 
-![Component Tree](https://imgs.borgor.cn/imgs/imgs-Vue组件-Component解析-2019-6-25-11-1-35.png)
-
+![Component Tree](/assets/images/imgs-Vue组件-Component解析-2019-6-25-11-1-35.webp)
 
 例如，你可能会有页头、侧边栏、内容区等组件，每个组件又包含了其它的像导航链接、博文之类的组件。
 
-为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。这里有两种组件的注册类型：**全局注册**和**局部注册**。至此，我们的组件都只是通过 `Vue.component` 全局注册的：
+为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。这里有两种组件的注册类型：**全局注册**和**局部注册**
+。至此，我们的组件都只是通过 `Vue.component` 全局注册的：
 
 ```javascript
 Vue.component('my-component-name', {
@@ -100,13 +102,17 @@ Vue.component('my-component-name', {
 
 全局注册的组件可以用在其被注册之后的任何 (通过 `new Vue`) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。
 
-到目前为止，关于组件注册你需要了解的就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[组件注册](https://cn.vuejs.org/v2/guide/components-registration.html)读完。
+到目前为止，关于组件注册你需要了解的就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[组件注册](https://cn.vuejs.org/v2/guide/components-registration.html)
+读完。
 
 ## 通过 Prop 向子组件传递数据
 
-早些时候，我们提到了创建一个博文组件的事情。问题是如果你不能向这个组件传递某一篇博文的标题或内容之类的我们想展示的数据的话，它是没有办法使用的。这也正是 prop 的由来。
+早些时候，我们提到了创建一个博文组件的事情。问题是如果你不能向这个组件传递某一篇博文的标题或内容之类的我们想展示的数据的话，它是没有办法使用的。这也正是
+prop 的由来。
 
-Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个 prop 特性的时候，它就变成了那个组件实例的一个属性。为了给博文组件传递一个标题，我们可以用一个 `props` 选项将其包含在该组件可接受的 prop 列表中：
+Prop 是你可以在组件上注册的一些自定义特性。当一个值传递给一个 prop
+特性的时候，它就变成了那个组件实例的一个属性。为了给博文组件传递一个标题，我们可以用一个 `props` 选项将其包含在该组件可接受的
+prop 列表中：
 
 ```javascript
 Vue.component('blog-post', {
@@ -115,7 +121,8 @@ Vue.component('blog-post', {
 })
 ```
 
-一个组件默认可以拥有任意数量的 prop，任何值都可以传递给任何 prop。在上述模板中，你会发现我们能够在组件实例中访问这个值，就像访问 `data` 中的值一样。
+一个组件默认可以拥有任意数量的 prop，任何值都可以传递给任何
+prop。在上述模板中，你会发现我们能够在组件实例中访问这个值，就像访问 `data` 中的值一样。
 
 一个 prop 被注册之后，你就可以像这样把数据作为一个自定义特性传递进来：
 
@@ -150,9 +157,12 @@ new Vue({
 ></blog-post>
 ```
 
-如上所示，你会发现我们可以使用 `v-bind` 来动态传递 prop。这在你一开始不清楚要渲染的具体内容，比如***从一个 API 获取博文列表***的时候，是非常有用的。
+如上所示，你会发现我们可以使用 `v-bind` 来动态传递 prop。这在你一开始不清楚要渲染的具体内容，比如
+***从一个 API 获取博文列表***的时候，是非常有用的。
 
-到目前为止，关于 prop 你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [prop](https://cn.vuejs.org/v2/guide/components-props.html) 读完。
+到目前为止，关于 prop
+你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把 [prop](https://cn.vuejs.org/v2/guide/components-props.html)
+读完。
 
 ## 单个根元素
 
@@ -169,7 +179,8 @@ new Vue({
 <div v-html="content"></div>
 ```
 
-然而如果你在模板中尝试这样写，Vue 会显示一个错误，并解释道 **every component must have a single root element (每个组件必须只有一个根元素)**。你可以将模板的内容包裹在一个父元素内，来修复这个问题，例如：
+然而如果你在模板中尝试这样写，Vue 会显示一个错误，并解释道 **every component must have a single root element (
+每个组件必须只有一个根元素)**。你可以将模板的内容包裹在一个父元素内，来修复这个问题，例如：
 
 ```html
 <div class="blog-post">
@@ -178,7 +189,8 @@ new Vue({
 </div>
 ```
 
-看起来当组件变得越来越复杂的时候，我们的博文不只需要标题和内容，还需要发布日期、评论等等。为每个相关的信息定义一个 prop 会变得很麻烦：
+看起来当组件变得越来越复杂的时候，我们的博文不只需要标题和内容，还需要发布日期、评论等等。为每个相关的信息定义一个 prop
+会变得很麻烦：
 
 ```html
 <blog-post
@@ -210,7 +222,10 @@ Vue.component('blog-post', {
 })
 ```
 
-上述的这个和一些接下来的示例使用了 JavaScript 的[模板字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)来让多行的模板更易读。它们在 IE 下并没有被支持，所以如果你需要在不 (经过 Babel 或 TypeScript 之类的工具) 编译的情况下支持 IE，请使用[折行转义字符](https://css-tricks.com/snippets/javascript/multiline-string-variables-in-javascript/)取而代之。
+上述的这个和一些接下来的示例使用了 JavaScript
+的[模板字符串](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)来让多行的模板更易读。它们在
+IE 下并没有被支持，所以如果你需要在不 (经过 Babel 或 TypeScript 之类的工具) 编译的情况下支持
+IE，请使用[折行转义字符](https://css-tricks.com/snippets/javascript/multiline-string-variables-in-javascript/)取而代之。
 
 现在，不论何时为 `post` 对象添加一个新的属性，它都会自动地在 `<blog-post>` 内可用。
 
@@ -269,7 +284,8 @@ Vue.component('blog-post', {
 </button>
 ```
 
-当点击这个按钮时，我们需要告诉父级组件放大所有博文的文本。幸好 Vue 实例提供了一个自定义事件的系统来解决这个问题。父级组件可以像处理 native DOM 事件一样通过 `v-on` 监听子组件实例的任意事件：
+当点击这个按钮时，我们需要告诉父级组件放大所有博文的文本。幸好 Vue 实例提供了一个自定义事件的系统来解决这个问题。父级组件可以像处理
+native DOM 事件一样通过 `v-on` 监听子组件实例的任意事件：
 
 ```html
 <blog-post
@@ -290,7 +306,8 @@ Vue.component('blog-post', {
 
 ### 使用事件抛出一个值
 
-有的时候用一个事件来抛出一个特定的值是非常有用的。例如我们可能想让 `<blog-post>` 组件决定它的文本要放大多少。这时可以使用 `$emit` 的第二个参数来提供这个值：
+有的时候用一个事件来抛出一个特定的值是非常有用的。例如我们可能想让 `<blog-post>`
+组件决定它的文本要放大多少。这时可以使用 `$emit` 的第二个参数来提供这个值：
 
 ```html
 <button v-on:click="$emit('enlarge-text', 0.1)">
@@ -377,7 +394,8 @@ Vue.component('custom-input', {
 <custom-input v-model="searchText"></custom-input>
 ```
 
-到目前为止，关于组件自定义事件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[自定义事件](https://cn.vuejs.org/v2/guide/components-custom-events.html)读完。
+到目前为止，关于组件自定义事件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[自定义事件](https://cn.vuejs.org/v2/guide/components-custom-events.html)
+读完。
 
 ## 通过插槽分发内容
 
@@ -391,8 +409,7 @@ Vue.component('custom-input', {
 
 可能会渲染出这样的东西：
 
-![](https://imgs.borgor.cn/imgs/imgs-Vue组件-Component解析-2019-6-25-11-1-41.png)
-
+![](/assets/images/imgs-Vue组件-Component解析-2019-6-25-11-1-41.webp)
 
 幸好，Vue 自定义的 `<slot>` 元素让这变得非常简单：
 
@@ -409,7 +426,8 @@ Vue.component('alert-box', {
 
 如你所见，我们只要在需要的地方加入插槽就行了——就这么简单！
 
-到目前为止，关于插槽你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[插槽](https://cn.vuejs.org/v2/guide/components-slots.html)读完。
+到目前为止，关于插槽你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[插槽](https://cn.vuejs.org/v2/guide/components-slots.html)
+读完。
 
 ## 动态组件
 
@@ -429,13 +447,16 @@ Home component
 - 已注册组件的名字，或
 - 一个组件的选项对象
 
-你可以在[这里](https://jsfiddle.net/chrisvfritz/o3nycadu/)查阅并体验完整的代码，或在[这个版本](https://jsfiddle.net/chrisvfritz/b2qj69o1/)了解绑定组件选项对象，而不是已注册组件名的示例。
+你可以在[这里](https://jsfiddle.net/chrisvfritz/o3nycadu/)
+查阅并体验完整的代码，或在[这个版本](https://jsfiddle.net/chrisvfritz/b2qj69o1/)了解绑定组件选项对象，而不是已注册组件名的示例。
 
-到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[动态和异步组件](https://cn.vuejs.org/v2/guide/components-dynamic-async.html)读完。
+到目前为止，关于动态组件你需要了解的大概就这些了，如果你阅读完本页内容并掌握了它的内容，我们会推荐你再回来把[动态和异步组件](https://cn.vuejs.org/v2/guide/components-dynamic-async.html)
+读完。
 
 ## 解析 DOM 模板时的注意事项
 
-有些 HTML 元素，诸如 `<ul>`、`<ol>`、`<table>` 和 `<select>`，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 `<li>`、`<tr>` 和 `<option>`，只能出现在其它某些特定的元素内部。
+有些 HTML 元素，诸如 `<ul>`、`<ol>`、`<table>` 和 `<select>`
+，对于哪些元素可以出现在其内部是有严格限制的。而有些元素，诸如 `<li>`、`<tr>` 和 `<option>`，只能出现在其它某些特定的元素内部。
 
 这会导致我们使用这些有约束条件的元素时遇到一些问题。例如：
 
@@ -459,6 +480,7 @@ Home component
 - [单文件组件 (`.vue`)](https://cn.vuejs.org/v2/guide/single-file-components.html)
 - [`<script type="text/x-template">`](https://cn.vuejs.org/v2/guide/components-edge-cases.html#X-Templates)
 
-到这里，你需要了解的解析 DOM 模板时的注意事项——实际上也是 Vue 的全部*必要内容*，大概就是这些了。恭喜你！接下来还有很多东西要去学习，不过首先，我们推荐你先休息一下，试用一下 Vue，自己随意做些好玩的东西。
+到这里，你需要了解的解析 DOM 模板时的注意事项——实际上也是 Vue 的全部*必要内容*
+，大概就是这些了。恭喜你！接下来还有很多东西要去学习，不过首先，我们推荐你先休息一下，试用一下 Vue，自己随意做些好玩的东西。
 
 如果你感觉已经掌握了这些知识，我们推荐你再回来把完整的组件指南，包括侧边栏中组件深入章节的所有页面读完。

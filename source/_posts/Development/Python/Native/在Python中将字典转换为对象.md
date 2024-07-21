@@ -6,7 +6,7 @@ tags:
 categories:
   - Development
   - Python
-thumbnail: 'https://imgs.borgor.cn/imgs20190705153652.png'
+cover: '/assets/images/imgs20190705153652.webp'
 abbrlink: 8761a3c5
 date: 2019-07-05 15:33:15
 ---
@@ -51,7 +51,7 @@ config.属性名
 
 ## python：self.\_\_dict\_\_
 
->  `__dict__`是一个字典，键为属性名，值为属性值；
+> `__dict__`是一个字典，键为属性名，值为属性值；
 
 所有对象中的成员方法、成员变量等，都可以在这个地方找到。
 

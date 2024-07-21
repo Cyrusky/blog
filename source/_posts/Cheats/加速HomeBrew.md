@@ -7,7 +7,7 @@ tags:
 categories:
   - CheatSheets
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191008135626.png'
+cover: '/assets/images/20191008135626.webp'
 Reprint: 'https://opsx.alibaba.com/mirror'
 abbrlink: c599cf9c
 date: 2019-10-08 13:53:06

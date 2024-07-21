@@ -6,14 +6,16 @@ categories:
   - AI
   - TensorFlow
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20191128223601.png'
+cover: '/assets/images/20191128223601.webp'
 abbrlink: bcea28f0
 date: 2019-11-28 16:50:14
 ---
 
 # MNIST数据集
 
-`MNIST` 数据集来自美国国家标准与技术研究所, `National Institute of Standards and Technology (NIST)`. 训练集 (`training set`) 由来自 `250` 个不同人手写的数字构成, 其中 `50%` 是高中学生, `50%` 来自人口普查局 (`the Census Bureau`) 的工作人员. 测试集(`test set`) 也是同样比例的手写数字数据.
+`MNIST` 数据集来自美国国家标准与技术研究所, `National Institute of Standards and Technology (NIST)`.
+训练集 (`training set`) 由来自 `250` 个不同人手写的数字构成, 其中 `50%` 是高中学生, `50%`
+来自人口普查局 (`the Census Bureau`) 的工作人员. 测试集(`test set`) 也是同样比例的手写数字数据.
 
 ## 数据集的划分
 
@@ -44,11 +46,11 @@ print("labels Shape:", mnist.train.labels.shape)
 
 图像大概就长这个样子：
 
-![](https://imgs.borgor.cn/imgs/20191128205844.png)
+![](/assets/images/20191128205844.webp)
 
-![](https://imgs.borgor.cn/imgs/20191128205833.png)
+![](/assets/images/20191128205833.webp)
 
-![](https://imgs.borgor.cn/imgs/20191128205823.png)
+![](/assets/images/20191128205823.webp)
 
 标签大概长这个样子：
 
@@ -67,7 +69,7 @@ print("labels Shape:", mnist.train.labels.shape)
 
 # 感知机模型
 
-![](https://imgs.borgor.cn/imgs/20191128213016.png)
+![](/assets/images/20191128213016.webp)
 
 感知机模型的模型公式为：
 
@@ -91,7 +93,7 @@ $$
 
 平方损失函数在带入$Sigmoid$函数之后，会变成一个非凸的函数，不好优化，所以我们在改该例中选择对数损失函数。
 
-![](https://imgs.borgor.cn/imgs/20191128220707.png)
+![](/assets/images/20191128220707.webp)
 
 ## 对数损失函数
 

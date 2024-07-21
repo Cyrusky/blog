@@ -8,7 +8,7 @@ categories:
   - Operations
   - OpenStack
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084547.png'
+cover: '/assets/images/imgs20190625084547.webp'
 abbrlink: 4c004735
 date: 2017-11-08 10:18:51
 ---
@@ -27,21 +27,26 @@ date: 2017-11-08 10:18:51
 
 **Cinder组件主要包括如下组件**：
 
-- **API service**：Cinder-api 是主要服务接口, 负责接受和处理外界的API请求，并将请求放入RabbitMQ队列，交由后端执行。 Cinder目前提供Volume API V2
-- **Scheduler service**: 处理任务队列的任务，并根据预定策略选择合适的Volume Service节点来执行任务。目前版本的cinder仅仅提供了一个Simple Scheduler, 该调度器选择卷数量最少的一个活跃节点来创建卷。
-- **Volume service**: 该服务运行在存储节点上，管理存储空间，塔处理cinder数据库的维护状态的读写请求，通过消息队列和直接在块存储设备或软件上与其他进程交互。每个存储节点都有一个Volume Service，若干个这样的存储节点联合起来可以构成一个存储资源池。
+- **API service**：Cinder-api 是主要服务接口, 负责接受和处理外界的API请求，并将请求放入RabbitMQ队列，交由后端执行。
+  Cinder目前提供Volume API V2
+- **Scheduler service**: 处理任务队列的任务，并根据预定策略选择合适的Volume Service节点来执行任务。目前版本的cinder仅仅提供了一个Simple
+  Scheduler, 该调度器选择卷数量最少的一个活跃节点来创建卷。
+- **Volume service**: 该服务运行在存储节点上，管理存储空间，塔处理cinder数据库的维护状态的读写请求，通过消息队列和直接在块存储设备或软件上与其他进程交互。每个存储节点都有一个Volume
+  Service，若干个这样的存储节点联合起来可以构成一个存储资源池。
 - **cinder-backup** – Provides a means to back up a Cinder Volume to various backup targets.
-- 为了支持不同类型和型号的存储，当前版本的Cinder为Volume Service如下drivers。当然在Cinder的blueprints当中还有一些其它的drivers，以后的版本可能会添加进来。
-  - **本地存储** ： *LVM, Sheepdog*
-  - **网络存储** ： *NFS, RBD (RADOS)*
-  - **IBM** : *XIV, Storwize V7000， SVC storage systems*
-  - **Netapp** : *NFS存储；ISCSI存储则需要OnCommand 5.0和Data ONTAP 7-mode storage systems with installed iSCSI licenses*
-  - **EMC** : *VNX, VMAX/VMAXe*
-  - **Solidfire** : *Solidfire cluster*
+- 为了支持不同类型和型号的存储，当前版本的Cinder为Volume
+  Service如下drivers。当然在Cinder的blueprints当中还有一些其它的drivers，以后的版本可能会添加进来。
+    - **本地存储** ： *LVM, Sheepdog*
+    - **网络存储** ： *NFS, RBD (RADOS)*
+    - **IBM** : *XIV, Storwize V7000， SVC storage systems*
+    - **Netapp** : *NFS存储；ISCSI存储则需要OnCommand 5.0和Data ONTAP 7-mode storage systems with installed iSCSI
+      licenses*
+    - **EMC** : *VNX, VMAX/VMAXe*
+    - **Solidfire** : *Solidfire cluster*
 
 ## Cinder 架构
 
-![](https://imgs.borgor.cn/imgs/imgs-OpenStack块存储组件简介-2019-6-25-11-2-10.png)
+![](/assets/images/imgs-OpenStack块存储组件简介-2019-6-25-11-2-10.webp)
 
 * **Cinder-api**
 
@@ -49,12 +54,13 @@ date: 2017-11-08 10:18:51
 
 * **Cinder-scheduler**
 
-  负责cinder请求调度，其核心部分就是scheduler_driver, 作为scheduler manager的driver，负责具体的调度处理，grizzly版本的cinder-scheduler部分提供了三个scheduler driver分别是：
+  负责cinder请求调度，其核心部分就是scheduler_driver, 作为scheduler
+  manager的driver，负责具体的调度处理，grizzly版本的cinder-scheduler部分提供了三个scheduler driver分别是：
 
-  * ChanceScheduler： 随机选取cinder-volume service创建cinder volume
-  * SimpleScheduler： 根据availability zone 和 cinder-volume service的capacity进行选择
-  * FilterScheduler： 可以选择具体的filter规则，满足filter规则的cinder-volume service将会通过筛选，创建cinder volume
-  * CapacityWeigher：cinder-vloume service 的可用Capacity越多，weight之越大。
+    * ChanceScheduler： 随机选取cinder-volume service创建cinder volume
+    * SimpleScheduler： 根据availability zone 和 cinder-volume service的capacity进行选择
+    * FilterScheduler： 可以选择具体的filter规则，满足filter规则的cinder-volume service将会通过筛选，创建cinder volume
+    * CapacityWeigher：cinder-vloume service 的可用Capacity越多，weight之越大。
 
 > 默认Cinder-Scheduler使用FilterScheduler作为调度volume service的driver。
 >
@@ -72,7 +78,8 @@ date: 2017-11-08 10:18:51
 >
 > * JsonFilter：支持Json语法自定义filter规则，选择cinder-volume service
 >
-> * AvailabilityZoneFilter：根据cinder-volume属性AvailabilityZone选择指定Zone的cinder-volume service。 Cinder-volume service的AvailabilityZone是通过配置文件storage_availability_zone进行指定。
+> * AvailabilityZoneFilter：根据cinder-volume属性AvailabilityZone选择指定Zone的cinder-volume service。 Cinder-volume
+    service的AvailabilityZone是通过配置文件storage_availability_zone进行指定。
 >
 > 使用cinder service-list可以查看cinder service所在的AvailabilityZone
 >
@@ -94,14 +101,14 @@ cinder-volume支持的后端驱动可见：https://wiki.openstack.org/wiki/Cinde
 
 ### 代码详解
 
-
 Cinder创建卷的过程是整个Cinder过程中代码覆盖量最高的，点击上图或者下载可以查改高清图。从上图可以看出，创建卷的主要过程分为Api、Scheduler、Volume三个阶段。
 
 ####Cinder-Api过程
 
 1. **cinder\api\v2\volumes.py**
 
-   *VolumeController. create*函数对创建请求进行响应，首先函数对**volume_type**、**metadata**、**snapshot**等信息进行检查，然后调用*Volume API*的*create*进行创建。
+   *VolumeController. create*函数对创建请求进行响应，首先函数对**volume_type**、**metadata**、**snapshot**等信息进行检查，然后调用
+   *Volume API*的*create*进行创建。
 
    ```python
        @wsgi.response(http_client.ACCEPTED)
@@ -364,7 +371,8 @@ Cinder创建卷的过程是整个Cinder过程中代码覆盖量最高的，点�
 
    *VolumeCastTask.excute*函数会调用VoumeCastTask._cast_create_volume_
 
-   *VolumeCastTask.cast_create_volume*函数，如果未传入host，则会经过调度进行创建卷，通过*scheduler_rpcapi.create_volume*创建卷；如果未传入host则直接交由Volume Manager去创建卷。 
+   *VolumeCastTask.cast_create_volume*函数，如果未传入host，则会经过调度进行创建卷，通过*scheduler_rpcapi.create_volume*
+   创建卷；如果未传入host则直接交由Volume Manager去创建卷。
 
 ```python
 def get_flow(db_api, image_service_api, availability_zones, create_what,
@@ -407,7 +415,6 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
 
 1. **cinder\scheduler\rpcapi.py（此步还属于cinder-api）**
 
-
 ```python
     def create_volume(self, ctxt, volume, snapshot_id=None, image_id=None,
                       request_spec=None, filter_properties=None):
@@ -419,10 +426,9 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
         return cctxt.cast(ctxt, 'create_volume', **msg_args)
 ```
 
-   SchedulerAPI.create_volume函数会通过消息异步调用SchedulerManager.create_volume函数。
+SchedulerAPI.create_volume函数会通过消息异步调用SchedulerManager.create_volume函数。
 
 2. **cinder\scheduler\manager.py**
-
 
  ```python
     @objects.Volume.set_workers
@@ -447,10 +453,9 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
             flow_engine.run()
  ```
 
-   SchedulerManager.create_volume函数，使用自己的flow来创建volume，其中还传入了Driver。
+SchedulerManager.create_volume函数，使用自己的flow来创建volume，其中还传入了Driver。
 
 3. **cinder\scheduler\flows\create_volume.py**
-
 
 ```python
     def execute(self, context, request_spec, filter_properties, volume):
@@ -475,12 +480,11 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
                     common.error_out(volume, reason=e)
 ```
 
-   get_flow函数，创建ScheduleCreateVolumeTask
+get_flow函数，创建ScheduleCreateVolumeTask
 
-   ScheduleCreateVolumeTask.execute函数，会调用driver_api.schedule_create_volume
+ScheduleCreateVolumeTask.execute函数，会调用driver_api.schedule_create_volume
 
 4. **cinder\scheduler\filter_scheduler.py**
-
 
 ```python
     def schedule_create_volume(self, context, request_spec, filter_properties):
@@ -507,7 +511,7 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
                                          allow_reschedule=True)
 ```
 
-   FilterScheduler. schedule_create_volume函数，更新数据库，最后通过消息队列请求调用volume_rpcapi.create_volume。
+FilterScheduler. schedule_create_volume函数，更新数据库，最后通过消息队列请求调用volume_rpcapi.create_volume。
 
 #### Cinder-Volume过程
 
@@ -524,9 +528,9 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
                    volume=volume)
 ```
 
-   VolumeAPI.create_volume会通过消息队列远程调用VolumeManager.create_volume
+VolumeAPI.create_volume会通过消息队列远程调用VolumeManager.create_volume
 
-2.  **/cinder/volume/manager.py**
+2. **/cinder/volume/manager.py**
 
 ```python
         def _run_flow():
@@ -538,11 +542,9 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
                 flow_engine.run()
 ```
 
-​    VolumeManager函数也使用flow来创建volume，执行CreateVolumeFromSpecTask这个任务
+​ VolumeManager函数也使用flow来创建volume，执行CreateVolumeFromSpecTask这个任务
 
-
-3.  **/cinder/volume/flows/manager/create_volume.py**
-
+3. **/cinder/volume/flows/manager/create_volume.py**
 
 ```python
     def execute(self, context, volume, volume_spec):
@@ -573,10 +575,10 @@ def get_flow(db_api, image_service_api, availability_zones, create_what,
                   'volume_id': volume.id})
 ```
 
-​    CreateVolumeFromSpecTask.excute，这个函数会根据创建的不同类别，去创建卷，例如调用create_raw_volume，最终会调用具体的driver进行卷的创建。
+​ CreateVolumeFromSpecTask.excute，这个函数会根据创建的不同类别，去创建卷，例如调用create_raw_volume，最终会调用具体的driver进行卷的创建。
 
-​    在完成创卷后，CreateVolumeOnFinishTask这个任务，启动更新数据库，将卷更新为available状态。
+​ 在完成创卷后，CreateVolumeOnFinishTask这个任务，启动更新数据库，将卷更新为available状态。
 
-​    我们可以看到在创建卷的过程中盘的状态会从“creating”状态变为“available”状态。
+​ 我们可以看到在创建卷的过程中盘的状态会从“creating”状态变为“available”状态。
 
 

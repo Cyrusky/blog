@@ -8,7 +8,7 @@ categories:
   - Operations
   - OpenStack
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084343.png'
+cover: '/assets/images/imgs20190625084343.webp'
 abbrlink: 33fbe266
 date: 2018-07-02 13:59:42
 ---
@@ -47,45 +47,43 @@ auth(no)->response_302->response_redirect->login->record(right)->auth
 auth(yes)->user_view->e
 ```
 
-
-
 ## Django的身份验证系统
 
 1. `auth`模块是`Django`提供的标准权限管理系统，并可拓展性
 
-2. `auth`身份验证系统包括: 
+2. `auth`身份验证系统包括:
 
-   * `user`
+    * `user`
 
    > user对象是身份验证系统的核心(`django.contrib.auth.models.User`类)
 
-   * `permission`
+    * `permission`
 
    > 为指定的用户和用户组指定权限(`django.contrib.auth.models.ModelAdmin`类)
 
-   * `group`
+    * `group`
 
    > 一个分组中的用户可自动获得该分组的权限(`django.contrib.auth.models.Group`类)
 
-   * `可配置的密码哈希系统`
+    * `可配置的密码哈希系统`
 
-   > `django`不在用户模型中存储原始密码，只存储密码的哈希值 
+   > `django`不在用户模型中存储原始密码，只存储密码的哈希值
 
-3. 可集成第三方认证系统 
+3. 可集成第三方认证系统
 
 ### django.contrib.auth
 
 1. 在`settings.py`文件中的`INSTALLED_APPS`中
 
-   > 添加`django.contrib.auth`以激活认证系统 
+   > 添加`django.contrib.auth`以激活认证系统
 
 2. 在`settings.py`文件中的`MIDDLEWARE_CLASSES`中
 
-   > 添加`django.contrib.auth.middleware.AuthenticationMiddleware`以在中间件处理`request`请求时完成身份认证 
+   > 添加`django.contrib.auth.middleware.AuthenticationMiddleware`以在中间件处理`request`请求时完成身份认证
 
 3. 在`settings.py`文件中的`AUTHENTICATION_BACKENDS`中
 
-   > 添加`openstack_auth.backend.KeystoneBackend`以指定`keystone`进行用户认证 
+   > 添加`openstack_auth.backend.KeystoneBackend`以指定`keystone`进行用户认证
 
 ### 自定义认证后端
 
@@ -95,17 +93,19 @@ auth(yes)->user_view->e
 
 1. **authenticate()**
 
-   `authenticate()`检查传入的用户凭据，并在通过检查时返回对应的`User`对象，否则返回`None`当调用`authenticate()`方法时，`Django`会在`AUTHENTICATION_BACKENDS`指定的所有身份认证后端中一一尝试认 证(第一个后端认证失败，尝试使用第二个认证后端，**依次类推**) 
+   `authenticate()`检查传入的用户凭据，并在通过检查时返回对应的`User`对象，否则返回`None`当调用`authenticate()`
+   方法时，`Django`会在`AUTHENTICATION_BACKENDS`指定的所有身份认证后端中一一尝试认 证(第一个后端认证失败，尝试使用第二个认证后端，
+   **依次类推**)
 
 2. **get_user(user_id)**
 
-   参数`user_id`可以是用户名或数据库中的`ID`等，但必须是`User`对象的主键`get_user()`返回一个`User`对象 
+   参数`user_id`可以是用户名或数据库中的`ID`等，但必须是`User`对象的主键`get_user()`返回一个`User`对象
 
 ## 使用django身份验证系统
 
 1. `Django`使用会话和中间件把身份验证系统插入`request`对象，为每个请求提供`request.user` 属性，表示当前用户
 2. 未认证用户是一个`AnonymousUser`实例，已认证用户是一个`User`实例
-3. `request.user`提供了一个方法`is_authenticated()`判断当前用户是否登陆 
+3. `request.user`提供了一个方法`is_authenticated()`判断当前用户是否登陆
 
 # Horizon登录验证流程
 

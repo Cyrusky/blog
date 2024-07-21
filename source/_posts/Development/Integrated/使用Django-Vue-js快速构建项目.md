@@ -7,7 +7,7 @@ tags:
 categories:
   - Development
   - Integrated
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083622.png'
+cover: '/assets/images/imgs20190625083622.webp'
 toc: true
 abbrlink: 168aa3b1
 date: 2019-06-11 14:33:30
@@ -28,8 +28,6 @@ virtualenv venv -p/usr/local/bin/python3
 <!-- more -->
 
 # 创建Django项目
-
-
 
 ```shell
 django-admin startproject django_vue_manager
@@ -219,14 +217,13 @@ dist
 
 # 项目配置
 
-
 ## 配置Django项目的模板搜索路径
 
 {% codeblock django_vue_manager/settings.py lang:python %}
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        ## 在此处配置frontend项目的构建目录
+{
+'BACKEND': 'django.template.backends.django.DjangoTemplates',
+## 在此处配置frontend项目的构建目录
 ​        'DIRS': ['frontend/dist'],
 ​        'APP_DIRS': True,
 ​        'OPTIONS': {
@@ -236,31 +233,31 @@ TEMPLATES = [
 ​                'django.contrib.auth.context_processors.auth',
 ​                'django.contrib.messages.context_processors.messages',
 ​            ],
-​        },
-​    }
+​ },
+​ }
 {% endcodeblock %}
 
 ## 配置静态文件搜索路径
 
 {% codeblock django_vue_manager/settings.py lang:python %}
-	## ------------ 以下为新增内容 ------------
+## ------------ 以下为新增内容 ------------
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "frontend/dist/static"),
+os.path.join(BASE_DIR, "frontend/dist/static"),
 ]
-	## --------------------------------------
+## --------------------------------------
 {% endcodeblock %}
 
 ## 关闭Django自带的`Csrf`校验中间件
 
 {% codeblock django_vue_manager/settings.py lang:python %}
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+'django.middleware.security.SecurityMiddleware',
+'django.contrib.sessions.middleware.SessionMiddleware',
+'django.middleware.common.CommonMiddleware',
+# 'django.middleware.csrf.CsrfViewMiddleware',
+'django.contrib.auth.middleware.AuthenticationMiddleware',
+'django.contrib.messages.middleware.MessageMiddleware',
+'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 {% endcodeblock %}
 
@@ -276,10 +273,10 @@ from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path(r'^admin/', admin.site.urls),
-    re_path(r'^$', TemplateView.as_view(template_name="index.html")),
-    re_path(r'^api/', include('backend.urls'))
+path('admin/', admin.site.urls),
+re_path(r'^admin/', admin.site.urls),
+re_path(r'^$', TemplateView.as_view(template_name="index.html")),
+re_path(r'^api/', include('backend.urls'))
 ]
 {% endcodeblock %}
 
@@ -289,7 +286,7 @@ urlpatterns = [
 from django.urls import path, re_path
 
 urlpatterns = [
-    # Api的相关route需要写在这个地方
+# Api的相关route需要写在这个地方
 ]
 {% endcodeblock %}
 
@@ -317,23 +314,21 @@ $ yarn run dev
  I  Your application is running here: http://localhost:8080
 ```
 
-
-
 ## 调试配置
 
 由于前后端运行在不同的端口上，所以需要使用webpack的代理服务进行代理，具体配置方法：
 
-{% codeblock frontend/build/webpack.dev.conf.js  lang:javascript %}
+{% codeblock frontend/build/webpack.dev.conf.js lang:javascript %}
 
 dev: {
-    // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    // -----------------------------主要修改proxyTable，具体如下
-    proxyTable: {
-    	'/api': 'http://localhost:8000'
-    },
-    // ------------------------------------------------------
+// Paths
+assetsSubDirectory: 'static',
+assetsPublicPath: '/',
+// -----------------------------主要修改proxyTable，具体如下
+proxyTable: {
+'/api': 'http://localhost:8000'
+},
+// ------------------------------------------------------
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -364,11 +359,13 @@ dev: {
     cacheBusting: true,
     
     cssSourceMap: true
-  },
+
+},
 
 {% endcodeblock %}
 
-> 请求到 `/api/xxx` 现在会被代理到请求 `http://localhost:3000/api/xxx`, 例如 `/api/user` 现在会被代理到请求 `http://localhost:8000/api/user`
+> 请求到 `/api/xxx` 现在会被代理到请求 `http://localhost:3000/api/xxx`, 例如 `/api/user`
+> 现在会被代理到请求 `http://localhost:8000/api/user`
 
 # 部署
 

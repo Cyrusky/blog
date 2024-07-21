@@ -6,7 +6,7 @@ tags:
 categories:
   - Development
   - Python
-thumbnail: 'https://imgs.borgor.cn/imgs20190709084601.png'
+cover: '/assets/images/imgs20190709084601.webp'
 reprint: 'https://segmentfault.com/a/1190000010312468'
 abbrlink: aa2e3afb
 date: 2019-07-09 08:44:18
@@ -14,7 +14,10 @@ date: 2019-07-09 08:44:18
 
 ## JWT 认证
 
-> `Json web token (JWT)`, 根据官网的定义，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（(RFC 7519).该 token 被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该 token 也可直接被用于认证，也可被加密。
+> `Json web token (JWT)`, 根据官网的定义，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（(RFC 7519).该
+> token 被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT
+> 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该
+> token 也可直接被用于认证，也可被加密。
 
 <!-- more -->
 
@@ -22,7 +25,8 @@ date: 2019-07-09 08:44:18
 
 - 体积小，因而传输速度快
 - 传输方式多样，可以通过 URL/POST 参数/HTTP 头部等方式传输
-- 严格的结构化。它自身（在 payload 中）就包含了所有与用户相关的验证消息，如用户可访问路由、访问有效期等信息，服务器无需再去连接数据库验证信息的有效性，并且 payload 支持为你的应用而定制化。
+- 严格的结构化。它自身（在 payload 中）就包含了所有与用户相关的验证消息，如用户可访问路由、访问有效期等信息，服务器无需再去连接数据库验证信息的有效性，并且
+  payload 支持为你的应用而定制化。
 - 支持跨域验证，可以应用于单点登录。
 
 ### JWT 原理
@@ -128,7 +132,8 @@ jwt 的第三部分是一个签证信息，这个签证信息由三部分组成�
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2huIFd1IEpXVCIsImlhdCI6MTQ0MTU5MzUwMiwiZXhwIjoxNDQxNTk0NzIyLCJhdWQiOiJ3d3cuZXhhbXBsZS5jb20iLCJzdWIiOiJqcm9ja2V0QGV4YW1wbGUuY29tIiwiZnJvbV91c2VyIjoiQiIsInRhcmdldF91c2VyIjoiQSJ9
 ```
 
-最后，我们将上面拼接完的字符串用 HS256 算法进行加密。在加密的时候，我们还需要提供一个密钥（secret）。如果我们用 `secret` 作为密钥的话，那么就可以得到我们加密后的内容:
+最后，我们将上面拼接完的字符串用 HS256 算法进行加密。在加密的时候，我们还需要提供一个密钥（secret）。如果我们用 `secret`
+作为密钥的话，那么就可以得到我们加密后的内容:
 
 ```
 pq5IDv-yaktw6XEa5GEv07SzS9ehe6AcVSdTj0Ini4o
@@ -140,16 +145,19 @@ pq5IDv-yaktw6XEa5GEv07SzS9ehe6AcVSdTj0Ini4o
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE0MTY3OTc0MTksImV4cCI6MTQ0ODMzMzQxOSwiYXVkIjoid3d3Lmd1c2liaS5jb20iLCJzdWIiOiIwMTIzNDU2Nzg5Iiwibmlja25hbWUiOiJnb29kc3BlZWQiLCJ1c2VybmFtZSI6Imdvb2RzcGVlZCIsInNjb3BlcyI6WyJhZG1pbiIsInVzZXIiXX0.pq5IDv-yaktw6XEa5GEv07SzS9ehe6AcVSdTj0Ini4o
 ```
 
-> `签名的目的`：签名实际上是对头部以及载荷内容进行签名。所以，如果有人对头部以及载荷的内容解码之后进行修改，再进行编码的话，那么新的头部和载荷的签名和之前的签名就将是不一样的。而且，如果不知道服务器加密的时候用的密钥的话，得出来的签名也一定会是不一样的。
+> `签名的目的`
+>
+：签名实际上是对头部以及载荷内容进行签名。所以，如果有人对头部以及载荷的内容解码之后进行修改，再进行编码的话，那么新的头部和载荷的签名和之前的签名就将是不一样的。而且，如果不知道服务器加密的时候用的密钥的话，得出来的签名也一定会是不一样的。
 > 这样就能保证 token 不会被篡改。
 
 token 生成好之后，接下来就可以用 token 来和服务器进行通讯了。
 
 下图是 client 使用 JWT 与 server 交互过程:
 
-![](https://imgs.borgor.cn/imgs20190709084721.png)
+![](/assets/images/imgs20190709084721.webp)
 
-这里在第三步我们得到 JWT 之后，需要将 JWT 存放在 client，之后的每次需要认证的请求都要把 JWT 发送过来。（请求时可以放到 header 的 Authorization ）
+这里在第三步我们得到 JWT 之后，需要将 JWT 存放在 client，之后的每次需要认证的请求都要把 JWT 发送过来。（请求时可以放到
+header 的 Authorization ）
 
 ### JWT 使用场景
 
@@ -177,7 +185,8 @@ Token 不能撤销
 
 ## python 使用 JWT 实践
 
-我基本是使用 python 作为服务端语言，我们可以使用 [pyjwt：https://github.com/jpadilla/pyjwt/](https://github.com/jpadilla/pyjwt/)
+我基本是使用 python
+作为服务端语言，我们可以使用 [pyjwt：https://github.com/jpadilla/pyjwt/](https://github.com/jpadilla/pyjwt/)
 
 使用比较方便，下边是我在应用中使用的例子：
 

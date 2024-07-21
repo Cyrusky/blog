@@ -7,7 +7,7 @@ categories:
   - Development
   - JavaScript
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20200317105552.png'
+cover: '/assets/images/20200317105552.webp'
 abbrlink: 7a553f23
 date: 2020-03-16 17:22:37
 ---

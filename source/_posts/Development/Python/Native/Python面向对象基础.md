@@ -8,7 +8,7 @@ tags:
   - Python
   - OOP
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084015.png'
+cover: '/assets/images/imgs20190625084015.webp'
 abbrlink: c0566d40
 ---
 
@@ -736,7 +736,8 @@ mro(G) -> [G] + merge(mro(A), mro(E), [A, E, O])
 1. [廖雪峰-多重继承与MixIn](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318680104044a55f4a9dbf8452caf71e8dc68b75a18000)
 2. [知乎-Mixin是什么概念?](https://www.zhihu.com/question/20778853)
 
-在编程中，mixin是指为继承自它的class提供额外的功能, 但它自身却是不单独使用的类.。在具有多继承能力的编程语言中， mixin可以为类增加额外功能或方法。
+在编程中，mixin是指为继承自它的class提供额外的功能, 但它自身却是不单独使用的类.。在具有多继承能力的编程语言中，
+mixin可以为类增加额外功能或方法。
 
 因此，MixIn模式的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。
 
@@ -756,8 +757,9 @@ class ThreadingTCPServer(ThreadingMixIn, TCPServer): pass
 - ForkingMixIn：Mix-in class to handle each request in a new process.
 - ThreadingMixIn：Mix-in class to handle each request in a new thread.
 
-Python自带了`TCPServer`和`UDPServer`这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由`ForkingMixIn`和`ThreadingMixIn`提供。通过组合，就可以得到以上四个类。
-
+Python自带了`TCPServer`和`UDPServer`
+这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由`ForkingMixIn`和`ThreadingMixIn`
+提供。通过组合，就可以得到以上四个类。
 
 可以看到，从BaseServer开始逐层继承的过程中，混入(MixIn)了ForkingMixIn类和ThreadingMixIn类。
 
@@ -765,7 +767,8 @@ Python自带了`TCPServer`和`UDPServer`这两类网络服务，而要同时服�
 
 如果不采用MixIn技术，而是采用层次复杂的单继承实现，则类的数量会呈指数增长。
 
-具体不采用MixIn技术设计的继承层次关系参见：[廖雪峰-多重继承与MixIn](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318680104044a55f4a9dbf8452caf71e8dc68b75a18000)中的Animal类的设计思路。
+具体不采用MixIn技术设计的继承层次关系参见：[廖雪峰-多重继承与MixIn](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318680104044a55f4a9dbf8452caf71e8dc68b75a18000)
+中的Animal类的设计思路。
 
 **MixIn总结**
 

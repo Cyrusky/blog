@@ -7,12 +7,13 @@ categories:
   - Development
   - JavaScript
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190802093130.png'
+cover: '/assets/images/20190802093130.webp'
 abbrlink: b32780d9
 date: 2019-08-02 09:29:30
 ---
 
-> PM2 是一个具有内置负载均衡功能的 Node.js 应用程序的进程管理器。 它可以使 Node.js 应用程序永久保持运行状态，无需停机即可重新加载它们，并且很容易进行系统任务管理
+> PM2 是一个具有内置负载均衡功能的 Node.js 应用程序的进程管理器。 它可以使 Node.js
+> 应用程序永久保持运行状态，无需停机即可重新加载它们，并且很容易进行系统任务管理
 
 <!-- more -->
 

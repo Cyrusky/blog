@@ -7,7 +7,7 @@ tags:
 categories:
   - CheatSheets
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190725145223.png'
+cover: '/assets/images/20190725145223.webp'
 abbrlink: 29fa0dd5
 date: 2019-07-25 14:50:46
 ---

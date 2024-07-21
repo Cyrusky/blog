@@ -11,13 +11,14 @@ categories:
 toc: true
 abbrlink: 2b18f777
 date: 2019-12-04 21:10:25
-thumbnail: https://imgs.borgor.cn/imgs/20191205190545.png
+cover: /assets/images/20191205190545.webp
 reprint: 
 ---
 
 # 数据的单向绑定
 
-我们在做原生页面开发的时候，如果涉及到前端的数据动态展现，是如何做的呢？（这里排除了后端直接返回嵌入数据的`HTML`页面的模式，比如说`PHP`中的模式），比如下面的例子：
+我们在做原生页面开发的时候，如果涉及到前端的数据动态展现，是如何做的呢？（这里排除了后端直接返回嵌入数据的`HTML`
+页面的模式，比如说`PHP`中的模式），比如下面的例子：
 
 ```html
 <p></p>
@@ -49,7 +50,8 @@ const change = e => {               // 更新输入值
 }
 ```
 
-我们将与单向绑定的区别是，数据与模板是相互影响的，一方发生变化，另一方立即做出更新。在这个简单的例子中，我们认识了双向绑定，`Vue`便是在此概念下进行模块化抽象封装。
+我们将与单向绑定的区别是，数据与模板是相互影响的，一方发生变化，另一方立即做出更新。在这个简单的例子中，我们认识了双向绑定，`Vue`
+便是在此概念下进行模块化抽象封装。
 
 # 双向绑定的原理
 
@@ -111,7 +113,9 @@ const change = e => {               // 更新输入值
 
 其实，就数据监听来说，观察者就已经满足了需求。但是，为什么和Vue不一样呢？因为 `Vue` 进行了优化，添加了数据劫持。
 
-2009 年发布的 `ECMAScript 5` 中新增了一个 `Object.definePropotype` 的特性（具体使用不在此文章讲解范围内，请自行了解 [developer.mozilla.org/zh-CN/docs/…](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) ），能够定义对象属性的 getter 和 setter ，这可就厉害了，要知道 JavaScript 中一切皆对象。
+2009 年发布的 `ECMAScript 5` 中新增了一个 `Object.definePropotype`
+的特性（具体使用不在此文章讲解范围内，请自行了解 [developer.mozilla.org/zh-CN/docs/…](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+），能够定义对象属性的 getter 和 setter ，这可就厉害了，要知道 JavaScript 中一切皆对象。
 
 那么我们的 `setData(myData, 'value', 100);` 就可以替换成 `myData.value = 100;` 的编写方式。从语法和使用上都变的更简单。
 
@@ -127,9 +131,11 @@ const change = e => {               // 更新输入值
 - 将`DOM`转换为`Virtual DOM`，然后进行对比与更新；
 - 使用原生的`Web Component`技术；
 
-以上三种的差异与性能等，之后有机会再单独分享。在`Vue`中使用的是 `Virtual DOM` 的方式，因为它比直接操作 `DOM` 所消耗的性能要少很多，也不存在 `Web Component` 的兼容性。
+以上三种的差异与性能等，之后有机会再单独分享。在`Vue`中使用的是 `Virtual DOM` 的方式，因为它比直接操作 `DOM`
+所消耗的性能要少很多，也不存在 `Web Component` 的兼容性。
 
-这三中方式的本质都是更新 `DOM` 的展示效果，只是方式不同而已，为了更简单的说明双向绑定的原理，我们就采用第一种方式。虚拟`DOM`是有很多独立的第三方库，如果有兴趣同学可以去研究哦。
+这三中方式的本质都是更新 `DOM` 的展示效果，只是方式不同而已，为了更简单的说明双向绑定的原理，我们就采用第一种方式。虚拟`DOM`
+是有很多独立的第三方库，如果有兴趣同学可以去研究哦。
 
 ## 解析器与DOM操作
 
@@ -141,16 +147,17 @@ const change = e => {               // 更新输入值
 
 # React中的数据绑定
 
-在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。当然，这可以通过`shouldComponentUpdate`这个生命周期方法来进行控制`purerender`，但`Vue`将此视为默认的优化。所以说，`React`其实是一个单项数据流的。
+在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。当然，这可以通过`shouldComponentUpdate`
+这个生命周期方法来进行控制`purerender`，但`Vue`将此视为默认的优化。所以说，`React`其实是一个单项数据流的。
 
 > ### 虚拟DOM
-> 
+>
 > `vue`和`react`的虚拟`DOM`的`Diff`算法大致相同：
-> 
+>
 > 1. `tree diff` 只对同一层级节点比较
 > 2. `component diff` 比较组件类型
 > 3. `element diff` 同一层级子节点通过id区分
-> 
+>
 > 基于以上这三个约束，使得虚拟`DOM`的`Diff`算法的复杂度从$O(n^3)$降到了$O(n)$。
 
 # 总结

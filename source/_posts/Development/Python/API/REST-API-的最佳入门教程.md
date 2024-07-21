@@ -7,22 +7,27 @@ categories:
   - Development
   - Python
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084421.png'
+cover: '/assets/images/imgs20190625084421.webp'
 abbrlink: 254d391e
 date: 2019-06-12 09:04:34
 ---
 
-如果你看到这里，你以前可能听说过API 和REST,然后你就会想:“这些都是什么东西？”。也许你已经了解过一些这方面的知识，但却不知道从何入手。在这个教程中，我将会诠释REST的基础以及如何给应用创建一个API（包括认证授权）
+如果你看到这里，你以前可能听说过API 和REST,然后你就会想:
+“这些都是什么东西？”。也许你已经了解过一些这方面的知识，但却不知道从何入手。在这个教程中，我将会诠释REST的基础以及如何给应用创建一个API（包括认证授权）
 
 <!-- more -->
 
 ## 什么是API?
 
-API是Application Programming Interface（应用程序界面）的缩写，它是拿来描述一个类库的特征或是如何去运用它。你个人收藏的类库也许包含有可用功能的“API文档”，那些必需的参数我们该怎么称呼它们？诸如此类等等。
+API是Application Programming
+Interface（应用程序界面）的缩写，它是拿来描述一个类库的特征或是如何去运用它。你个人收藏的类库也许包含有可用功能的“API文档”，那些必需的参数我们该怎么称呼它们？诸如此类等等。
 
-然而，如今很多人参考API文档时，他们常常参考一种可能会通过网络分享你的应用数据HTTP API，例如，Twitter提供一个API能让用户在特定的格式下请求推文，以便用户方便导入到自己的应用程序中。这就是HTTP API的真正强大之处。它能够从多个应用程序中混搭数据到混合应用程序中，或是创建一个能增强使用他人应用体验的应用程序。
+然而，如今很多人参考API文档时，他们常常参考一种可能会通过网络分享你的应用数据HTTP
+API，例如，Twitter提供一个API能让用户在特定的格式下请求推文，以便用户方便导入到自己的应用程序中。这就是HTTP
+API的真正强大之处。它能够从多个应用程序中混搭数据到混合应用程序中，或是创建一个能增强使用他人应用体验的应用程序。
 
-这样说吧，比如说我们有一个可以允许我们查看（view），创建（create），编辑（edit）以及删除（delete）部件的应用程序。我们可以创建一个可以让我们执行这些功能的HTTP API:
+这样说吧，比如说我们有一个可以允许我们查看（view），创建（create），编辑（edit）以及删除（delete）部件的应用程序。我们可以创建一个可以让我们执行这些功能的HTTP
+API:
 
 ```bash
 http://example.com/view_widgets
@@ -37,7 +42,9 @@ http://example.com/delete_widget?id=123
 
 ## 什么是REST呢?
 
-> REST是Representational State Transfer的缩写，它是由罗伊·菲尔丁(Roy Fielding)t提出的，是用来描述创建HTTP API的标准方法的，他发现这四种常用的行为（查看（view），创建(create)，编辑(edit)和删除(delete)）都可以直接映射到HTTP 中已实现的GET,POST,PUT和DELETE方法。
+> REST是Representational State Transfer的缩写，它是由罗伊·菲尔丁(Roy Fielding)t提出的，是用来描述创建HTTP
+> API的标准方法的，他发现这四种常用的行为（查看（view），创建(create)，编辑(edit)和删除(delete)）都可以直接映射到HTTP
+> 中已实现的GET,POST,PUT和DELETE方法。
 
 **HTTP 中的8中不同的方法：**
 
@@ -56,8 +63,7 @@ CONNECT
 
 常用的方法：
 
-![](https://imgs.borgor.cn/imgs/imgs-REST-API-的最佳入门教程-2019-6-25-11-1-50.png)
-
+![](/assets/images/imgs-REST-API-的最佳入门教程-2019-6-25-11-1-50.webp)
 
 ### REST例子：
 
@@ -100,13 +106,15 @@ DELETE http://example.com/widgets/123
 
 **解剖REST URL：**
 
-你可能已经注意的前面的几个例子，REST URL使用着一套一致的命名方法。当你跟API交互时，你几乎经常操作一些对象。在我们的例子中，我们讲的是部件。在REST中，我们称之为Resource。URL的第一部分经常是这个资源的复数形式：
+你可能已经注意的前面的几个例子，REST
+URL使用着一套一致的命名方法。当你跟API交互时，你几乎经常操作一些对象。在我们的例子中，我们讲的是部件。在REST中，我们称之为Resource。URL的第一部分经常是这个资源的复数形式：
 
 ```
 /widgets
 ```
 
-当我们参考收集的资源时（list all：列出所有 和add one：新增一个），这将会经常用到。当你用到一些特殊的资源的时候，你就会给URL增加一个id，这个URL在你想要“view”，“edit”和“delete”特殊资源的时候会被使用。
+当我们参考收集的资源时（list all：列出所有 和add
+one：新增一个），这将会经常用到。当你用到一些特殊的资源的时候，你就会给URL增加一个id，这个URL在你想要“view”，“edit”和“delete”特殊资源的时候会被使用。
 
 **嵌套资源：**
 

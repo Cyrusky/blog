@@ -8,7 +8,7 @@ categories:
   - Operations
   - OpenStack
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625084529.png'
+cover: '/assets/images/imgs20190625084529.webp'
 abbrlink: ff1ba62b
 date: 2017-09-12 11:20:08
 ---
@@ -43,7 +43,8 @@ keyStone是在一个或多个端点(`Endpoint`)上对外开放的已租内部服
 
 ### 域（Domains）
 
-域是一个项目、用户和用户组的高级容器。每种资源都被包含在某个域中。每个域都有一个命名空间，命名空间中有一个API可见的`name`属性。KeyStone在部署时提供了一个默认的域，名字为`Default`。
+域是一个项目、用户和用户组的高级容器。每种资源都被包含在某个域中。每个域都有一个命名空间，命名空间中有一个API可见的`name`
+属性。KeyStone在部署时提供了一个默认的域，名字为`Default`。
 
 在身份认证服务v3 版本的API中，名称属性的唯一性如下：
 
@@ -88,7 +89,11 @@ keyStone是在一个或多个端点(`Endpoint`)上对外开放的已租内部服
 pipeline = healthcheck cors sizelimit http_proxy_to_wsgi osprofiler url_normalize request_id build_auth_context token_auth json_body ec2_extension_v3 s3_extension service_v3
 ```
 
-使用 [`keystone.common.wsgi.ComposingRouter`](https://docs.openstack.org/keystone/pike/api/keystone.common.html#keystone.common.wsgi.ComposingRouter)的子类的返回结果生成Urls链接到控制端（一个[`keystone.common.wsgi.Application`](https://docs.openstack.org/keystone/pike/api/keystone.common.html#keystone.common.wsgi.Application)的子类)。每个控制端会加载一个或者多个管理器（例如：[`keystone.catalog.core.Manager`](https://docs.openstack.org/keystone/pike/api/keystone.catalog.html#keystone.catalog.core.Manager)），这是一个浅层的包装类，它根据关键配置加载适当的服务驱动程序。
+使用 [`keystone.common.wsgi.ComposingRouter`](https://docs.openstack.org/keystone/pike/api/keystone.common.html#keystone.common.wsgi.ComposingRouter)
+的子类的返回结果生成Urls链接到控制端（一个[`keystone.common.wsgi.Application`](https://docs.openstack.org/keystone/pike/api/keystone.common.html#keystone.common.wsgi.Application)
+的子类)
+。每个控制端会加载一个或者多个管理器（例如：[`keystone.catalog.core.Manager`](https://docs.openstack.org/keystone/pike/api/keystone.catalog.html#keystone.catalog.core.Manager)
+），这是一个浅层的包装类，它根据关键配置加载适当的服务驱动程序。
 
 - 分配
 
@@ -152,9 +157,11 @@ pipeline = healthcheck cors sizelimit http_proxy_to_wsgi osprofiler url_normaliz
 
 # 服务后端（Service Backends）
 
-后端服务可以通过配置允许Keystone适应不同的环境与需求。每个服务的后端驱动可以在`keystone.conf`配置文件中相应服务的分组中使用关键字`driver`定义。
+后端服务可以通过配置允许Keystone适应不同的环境与需求。每个服务的后端驱动可以在`keystone.conf`
+配置文件中相应服务的分组中使用关键字`driver`定义。
 
-每个后端都存在一个通用类，为任何实现提供一个抽象基类，并标识预期的服务实现。抽象基类存储在服务的后端目录中，如`base.py`。相应的服务驱动程序是:
+每个后端都存在一个通用类，为任何实现提供一个抽象基类，并标识预期的服务实现。抽象基类存储在服务的后端目录中，如`base.py`
+。相应的服务驱动程序是:
 
 - [`keystone.assignment.backends.base.AssignmentDriverBase`](https://docs.openstack.org/keystone/pike/api/keystone.assignment.backends.html#keystone.assignment.backends.base.AssignmentDriverBase)
 - [`keystone.assignment.role_backends.base.RoleDriverBase`](https://docs.openstack.org/keystone/pike/api/keystone.assignment.role_backends.html#keystone.assignment.role_backends.base.RoleDriverBase)
@@ -193,8 +200,6 @@ catalog.RegionOne.identity.name = 'Identity Service'
 
 # 数据模型（Data Model）
 
-
-
 Keystone的设计初衷是为了满足多种不同类型的后端。因此，许多方法和数据类型更倾向于接受数据并将这些数据传递到后端，而不是直接处理数据。
 
 下面是一些主要的数据类型：
@@ -214,7 +219,8 @@ Keystone的设计初衷是为了满足多种不同类型的后端。因此，许
 
 虽然在大型公司的生产环境中会使用自身的用户与用户组，但是为了开发和测试，Keystone还是体用的关于用户与用户在的CURD操作方法。
 
-CURD操作应该被当做一种针对核心功能的扩展或者附加功能，因为它不需要后台的支持。如果后端不需要CURD操作，会提升[`keystone.exception.NotImplemented`](https://docs.openstack.org/keystone/pike/api/keystone.html#keystone.exception.NotImplemented)的性能。
+CURD操作应该被当做一种针对核心功能的扩展或者附加功能，因为它不需要后台的支持。如果后端不需要CURD操作，会提升[`keystone.exception.NotImplemented`](https://docs.openstack.org/keystone/pike/api/keystone.html#keystone.exception.NotImplemented)
+的性能。
 
 # 鉴权方法（Approach to Authorization/Policy)
 
@@ -265,7 +271,8 @@ policy_api.enforce(('action:nova:add_network',), credentials)
 
 # 认证方法（Approach to Authentication）
 
-keystone使用 [`keystone.auth.plugins.base`](https://docs.openstack.org/keystone/pike/api/keystone.auth.plugins.html#module-keystone.auth.plugins.base)提供了几种鉴权插件，如下：
+keystone使用 [`keystone.auth.plugins.base`](https://docs.openstack.org/keystone/pike/api/keystone.auth.plugins.html#module-keystone.auth.plugins.base)
+提供了几种鉴权插件，如下：
 
 - [`keystone.auth.plugins.external.Base`](https://docs.openstack.org/keystone/pike/api/keystone.auth.plugins.html#keystone.auth.plugins.external.Base)
 - [`keystone.auth.plugins.mapped.Mapped`](https://docs.openstack.org/keystone/pike/api/keystone.auth.plugins.html#keystone.auth.plugins.mapped.Mapped)
@@ -275,8 +282,6 @@ keystone使用 [`keystone.auth.plugins.base`](https://docs.openstack.org/keyston
 - [`keystone.auth.plugins.totp.TOTP`](https://docs.openstack.org/keystone/pike/api/keystone.auth.plugins.html#keystone.auth.plugins.totp.TOTP)
 
 最基础的插件是`password`，需要提供两块内容： `Resource`和`Identity`信息。
-
-
 
 如果使用下列信息作为认证凭据提交（Post方式）：
 

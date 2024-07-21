@@ -12,7 +12,7 @@ categories:
 toc: true
 abbrlink: 7c39d03f
 date: 2020-02-21 01:14:50
-thumbnail: https://imgs.borgor.cn/imgs/20200222180809.png
+cover: /assets/images/20200222180809.webp
 ---
 
 # 防抖动(debounce)和限流函数(throttle)
@@ -50,7 +50,11 @@ function debounce(
 
 官方说明: 创建一个防抖动的函数,其主要目是, 延迟调用某个函数
 
-> 创建一个 `debounced`（防抖动）函数，该函数会从上一次被调用后，延迟 wait 毫秒后调用 `func` 方法。 `debounced`（防抖动）函数提供一个 `cancel` 方法取消延迟的函数调用以及 `flush` 方法立即调用。 可以提供一个 `options`（选项） 对象决定如何调用 `func` 方法，`options.leading` 与|或 `options.trailing` 决定延迟前后如何触发（是 先调用后等待 还是 先等待后调用）。 `func` 调用时会传入最后一次提供给 `debounced`（防抖动）函数 的参数。 后续调用的 `debounced`（防抖动）函数返回是最后一次 `func` 调用的结果。
+> 创建一个 `debounced`（防抖动）函数，该函数会从上一次被调用后，延迟 wait 毫秒后调用 `func` 方法。 `debounced`
+> （防抖动）函数提供一个 `cancel` 方法取消延迟的函数调用以及 `flush` 方法立即调用。 可以提供一个 `options`（选项）
+> 对象决定如何调用 `func` 方法，`options.leading` 与|或 `options.trailing` 决定延迟前后如何触发（是 先调用后等待 还是
+> 先等待后调用）。 `func` 调用时会传入最后一次提供给 `debounced`（防抖动）函数 的参数。 后续调用的 `debounced`
+> （防抖动）函数返回是最后一次 `func` 调用的结果。
 
 > 注意: 如果 `leading` 和 `trailing` 选项为 `true`, 则 `func` 允许 `trailing` 方式调用的条件为: 在 `wait` 期间多次调用防抖方法。
 
@@ -84,7 +88,7 @@ window.on('popstate', debounced.cancel)
 
 > 搬运及汉化自: https://css-tricks.com/debouncing-throttling-explained-examples/
 
-![防挂图,不怕示例挂掉](https://imgs.borgor.cn/imgs/20200222170839.png)
+![防挂图,不怕示例挂掉](/assets/images/20200222170839.webp)
 
 <p class="codepen" data-height="465" data-theme-id="dark" data-default-tab="result" data-user="BoJin" data-slug-hash="YzXpYVY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="YzXpYVY">
   <span>See the Pen <a href="https://codepen.io/BoJin/pen/YzXpYVY">
@@ -124,7 +128,9 @@ function throttle(
 ): Function {}
 ```
 
-> 创建一个节流函数，在 `wait` 秒内最多执行 `func` 一次的函数。 该函数提供一个 `cancel` 方法取消延迟的函数调用以及 `flush` 方法立即调用。 可以提供一个 `options` 对象决定如何调用 `func` 方法， `options.leading` 与|或 `options.trailing` 决定 `wait` 前后如何触发。 `func` 会传入最后一次传入的参数给这个函数。 随后调用的函数返回是最后一次 `func` 调用的结果。
+> 创建一个节流函数，在 `wait` 秒内最多执行 `func` 一次的函数。 该函数提供一个 `cancel` 方法取消延迟的函数调用以及 `flush`
+> 方法立即调用。 可以提供一个 `options` 对象决定如何调用 `func` 方法， `options.leading` 与|或 `options.trailing`
+> 决定 `wait` 前后如何触发。 `func` 会传入最后一次传入的参数给这个函数。 随后调用的函数返回是最后一次 `func` 调用的结果。
 
 > 注意: 如果 `leading` 和 `trailing` 都设定为 `true` 则 `func` 允许 `trailing` 方式调用的条件为: 在 `wait` 期间多次调用。
 
@@ -146,7 +152,9 @@ window.on('popstate', throttled.cancel)
 
 # requestAnimationFrame (rAF)
 
-无论是`Debounce`还是`throttle`,都提供了一种机制,就是`requestAnimationFrame (rAF)`,他会产生一种类似于: `_.throttle(fn, 16)`的效果,因为: $\frac{1000ms}{60Hz} = 16ms$,这是在 60Hz 的刷新率下的,如果改成了 47Hz,或者更高的刷新率,这个事件会相应的改变.
+无论是`Debounce`还是`throttle`,都提供了一种机制,就是`requestAnimationFrame (rAF)`
+,他会产生一种类似于: `_.throttle(fn, 16)`的效果,因为: $\frac{1000ms}{60Hz} = 16ms$,这是在 60Hz 的刷新率下的,如果改成了
+47Hz,或者更高的刷新率,这个事件会相应的改变.
 
 这样做有一个好处,就是处理关于动画的防抖动时,比如`scroll, resize`等,不会超过刷新率,因为,这类防抖动,没有意义.
 
@@ -163,7 +171,8 @@ window.on('popstate', throttled.cancel)
 
 > 1. 在上面的示例中, 可以看出,如果你的屏幕刷新率是 `60Hz`, 你将无法感觉出使用 `rAF` 和 `throttle-16ms` 之间的区别.
 > 2. 但是 `throttle-50ms` 你却可以看出明显的卡顿.
-> 3. 如果你的屏幕分辨率是 `20Hz`($\frac{1000ms}{50ms} = 20Hz$), 你将会感觉不到三者之间的区别,因为`throttle-16ms`对于你来说没有意义,硬件性能达不到,而`rAF`其实使用的就是`50ms`.
+> 3. 如果你的屏幕分辨率是 `20Hz`($\frac{1000ms}{50ms} = 20Hz$), 你将会感觉不到三者之间的区别,因为`throttle-16ms`
+     对于你来说没有意义,硬件性能达不到,而`rAF`其实使用的就是`50ms`.
 
 # 参考资料
 

@@ -6,7 +6,7 @@ tags:
 categories:
   - Development
   - JavaScript
-thumbnail: 'https://imgs.borgor.cn/imgs20190625143130.png'
+cover: '/assets/images/imgs20190625143130.webp'
 abbrlink: cbd6d728
 date: 2019-06-25 14:17:33
 ---
@@ -139,11 +139,12 @@ new Vue({
   }
 })
 ```
+
 # 关键点
 
 1. 制作外框
 
-  使用`extend`中的`series`手动添加一个宽度为1%~2%的饼图
+使用`extend`中的`series`手动添加一个宽度为1%~2%的饼图
 
 2. `legend`在左侧显示
 
@@ -151,7 +152,7 @@ new Vue({
 
 # 效果
 
-![](https://imgs.borgor.cn/imgs20190625143604.png)
+![](/assets/images/imgs20190625143604.webp)
 
 # 链接
 

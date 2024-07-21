@@ -7,7 +7,7 @@ categories:
   - Development
   - html5
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083101.png'
+cover: '/assets/images/imgs20190625083101.webp'
 abbrlink: 7bdb3ae
 date: 2019-06-13 08:47:50
 ---

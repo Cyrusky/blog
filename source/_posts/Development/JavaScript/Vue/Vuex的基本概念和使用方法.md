@@ -7,7 +7,7 @@ categories:
   - Development
   - JavaScript
 p: Development/Javascript/Vue/
-thumbnail: 'https://imgs.borgor.cn/imgs20190625083539.png'
+cover: '/assets/images/imgs20190625083539.webp'
 toc: true
 abbrlink: e9c1a7e6
 date: 2019-06-11 11:06:56
@@ -21,8 +21,7 @@ date: 2019-06-11 11:06:56
 
 <!-- more -->
 
-![](https://imgs.borgor.cn/imgs/imgs-Vuex的基本概念和使用方法-2019-6-25-11-1-27.png)
-
+![](/assets/images/imgs-Vuex的基本概念和使用方法-2019-6-25-11-1-27.webp)
 
 # Vuex的安装
 
@@ -60,13 +59,16 @@ Vue.use(Vuex)
 
 ## State — 状态
 
-Vuex 使用**单一状态树**——是的，用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源 ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth))”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。
+Vuex 使用**单一状态树**
+——是的，用一个对象就包含了全部的应用层级状态。至此它便作为一个“唯一数据源 ([SSOT](https://en.wikipedia.org/wiki/Single_source_of_truth))
+”而存在。这也意味着，每个应用将仅仅包含一个 store 实例。单一状态树让我们能够直接地定位任一特定的状态片段，在调试的过程中也能轻易地取得整个当前应用状态的快照。
 
 单状态树和模块化并不冲突——在后面的章节里我们会讨论如何将状态和状态变更事件分布到各个子模块中。
 
-###  在 Vue 组件中获得 Vuex 状态
+### 在 Vue 组件中获得 Vuex 状态
 
-那么我们如何在 Vue 组件中展示状态呢？由于 Vuex 的状态存储是响应式的，从 store 实例中读取状态最简单的方法就是在[计算属性](https://cn.vuejs.org/guide/computed.html)中返回某个状态：
+那么我们如何在 Vue 组件中展示状态呢？由于 Vuex 的状态存储是响应式的，从 store
+实例中读取状态最简单的方法就是在[计算属性](https://cn.vuejs.org/guide/computed.html)中返回某个状态：
 
 ```js
 // 创建一个 Counter 组件
@@ -100,11 +102,13 @@ const app = new Vue({
 })
 ```
 
-通过在根实例中注册 `store` 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 `this.$store` 访问到。让我们更新下 `Counter` 的实现：
+通过在根实例中注册 `store` 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 `this.$store`
+访问到。让我们更新下 `Counter` 的实现：
 
 ### `mapState` 辅助函数
 
-当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。为了解决这个问题，我们可以使用 `mapState` 辅助函数帮助我们生成计算属性，让你少按几次键：
+当一个组件需要获取多个状态时候，将这些状态都声明为计算属性会有些重复和冗余。为了解决这个问题，我们可以使用 `mapState`
+辅助函数帮助我们生成计算属性，让你少按几次键：
 
 ```js
 // 在单独构建的版本中辅助函数为 Vuex.mapState
@@ -138,7 +142,10 @@ computed: mapState([
 
 ### 对象展开运算符
 
-`mapState` 函数返回的是一个对象。我们如何将它与局部计算属性混合使用呢？通常，我们需要使用一个工具函数将多个对象合并为一个，以使我们可以将最终对象传给 `computed` 属性。但是自从有了[对象展开运算符](https://github.com/sebmarkbage/ecmascript-rest-spread)（现处于 ECMAScript 提案 stage-4 阶段），我们可以极大地简化写法：
+`mapState`
+函数返回的是一个对象。我们如何将它与局部计算属性混合使用呢？通常，我们需要使用一个工具函数将多个对象合并为一个，以使我们可以将最终对象传给 `computed`
+属性。但是自从有了[对象展开运算符](https://github.com/sebmarkbage/ecmascript-rest-spread)（现处于 ECMAScript 提案 stage-4
+阶段），我们可以极大地简化写法：
 
 ```js
 computed: {
@@ -152,7 +159,8 @@ computed: {
 
 ### 组件仍然保有局部状态
 
-使用 Vuex 并不意味着你需要将**所有的**状态放入 Vuex。虽然将所有的状态放到 Vuex 会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。
+使用 Vuex 并不意味着你需要将**所有的**状态放入 Vuex。虽然将所有的状态放到 Vuex
+会使状态变化更显式和易调试，但也会使代码变得冗长和不直观。如果有些状态严格属于单个组件，最好还是作为组件的局部状态。你应该根据你的应用开发需要进行权衡和确定。
 
 ## Getters — 获取器
 
@@ -168,7 +176,8 @@ computed: {
 
 如果有多个组件需要用到此属性，我们要么复制这个函数，或者抽取到一个共享函数然后在多处导入它——无论哪种方式都不是很理想。
 
-Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
+Vuex 允许我们在 store 中定义“getter”（可以认为是 store 的计算属性）。就像计算属性一样，getter
+的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
 
 Getter 接受 state 作为其第一个参数：
 
@@ -267,7 +276,8 @@ mapGetters({
 
 ## Mutations — 修改器
 
-更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 **事件类型 (type)** 和 一个 **回调函数 (handler)**。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
+更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。Vuex 中的 mutation 非常类似于事件：每个 mutation 都有一个字符串的 *
+*事件类型 (type)** 和 一个 **回调函数 (handler)**。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数：
 
 ```js
 const store = new Vuex.Store({
@@ -283,7 +293,8 @@ const store = new Vuex.Store({
 })
 ```
 
-你不能直接调用一个 mutation handler。这个选项更像是事件注册：“当触发一个类型为 `increment` 的 mutation 时，调用此函数。”要唤醒一个 mutation handler，你需要以相应的 type 调用 **store.commit** 方法：
+你不能直接调用一个 mutation handler。这个选项更像是事件注册：“当触发一个类型为 `increment` 的 mutation 时，调用此函数。”要唤醒一个
+mutation handler，你需要以相应的 type 调用 **store.commit** 方法：
 
 ```js
 store.commit('increment')
@@ -340,7 +351,8 @@ mutations: {
 
 ### Mutation 需遵守 Vue 的响应规则
 
-既然 Vuex 的 store 中的状态是响应式的，那么当我们变更状态时，监视状态的 Vue 组件也会自动更新。这也意味着 Vuex 中的 mutation 也需要与使用 Vue 一样遵守一些注意事项：
+既然 Vuex 的 store 中的状态是响应式的，那么当我们变更状态时，监视状态的 Vue 组件也会自动更新。这也意味着 Vuex 中的 mutation
+也需要与使用 Vue 一样遵守一些注意事项：
 
 1. 最好提前在你的 store 中初始化好所有所需属性。
 2. 当需要在对象上添加新属性时，你应该
@@ -355,7 +367,8 @@ mutations: {
 
 ### 使用常量替代 Mutation 事件类型
 
-使用常量替代 mutation 事件类型在各种 Flux 实现中是很常见的模式。这样可以使 linter 之类的工具发挥作用，同时把这些常量放在单独的文件中可以让你的代码合作者对整个 app 包含的 mutation 一目了然：
+使用常量替代 mutation 事件类型在各种 Flux 实现中是很常见的模式。这样可以使 linter 之类的工具发挥作用，同时把这些常量放在单独的文件中可以让你的代码合作者对整个
+app 包含的 mutation 一目了然：
 
 ```js
 // mutation-types.js
@@ -391,11 +404,14 @@ mutations: {
 }
 ```
 
-现在想象，我们正在 debug 一个 app 并且观察 devtool 中的 mutation 日志。每一条 mutation 被记录，devtools 都需要捕捉到前一状态和后一状态的快照。然而，在上面的例子中 mutation 中的异步函数中的回调让这不可能完成：因为当 mutation 触发的时候，回调函数还没有被调用，devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。
+现在想象，我们正在 debug 一个 app 并且观察 devtool 中的 mutation 日志。每一条 mutation 被记录，devtools
+都需要捕捉到前一状态和后一状态的快照。然而，在上面的例子中 mutation 中的异步函数中的回调让这不可能完成：因为当 mutation
+触发的时候，回调函数还没有被调用，devtools 不知道什么时候回调函数实际上被调用——实质上任何在回调函数中进行的状态的改变都是不可追踪的。
 
 ### 在组件中提交 Mutation
 
-你可以在组件中使用 `this.$store.commit('xxx')` 提交 mutation，或者使用 `mapMutations` 辅助函数将组件中的 methods 映射为 `store.commit` 调用（需要在根节点注入 `store`）。
+你可以在组件中使用 `this.$store.commit('xxx')` 提交 mutation，或者使用 `mapMutations` 辅助函数将组件中的 methods
+映射为 `store.commit` 调用（需要在根节点注入 `store`）。
 
 ```js
 import { mapMutations } from 'vuex'
@@ -443,9 +459,13 @@ const store = new Vuex.Store({
 })
 ```
 
-Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 `context.commit` 提交一个 mutation，或者通过 `context.state` 和 `context.getters` 来获取 state 和 getters。当我们在之后介绍到 [Modules](https://vuex.vuejs.org/zh/guide/modules.html) 时，你就知道 context 对象为什么不是 store 实例本身了。
+Action 函数接受一个与 store 实例具有相同方法和属性的 context 对象，因此你可以调用 `context.commit` 提交一个
+mutation，或者通过 `context.state` 和 `context.getters` 来获取 state 和
+getters。当我们在之后介绍到 [Modules](https://vuex.vuejs.org/zh/guide/modules.html) 时，你就知道 context 对象为什么不是
+store 实例本身了。
 
-实践中，我们会经常用到 ES2015 的 [参数解构](https://github.com/lukehoban/es6features#destructuring) 来简化代码（特别是我们需要调用 `commit` 很多次的时候）：
+实践中，我们会经常用到 ES2015 的 [参数解构](https://github.com/lukehoban/es6features#destructuring)
+来简化代码（特别是我们需要调用 `commit` 很多次的时候）：
 
 ```js
 actions: {
@@ -463,7 +483,8 @@ Action 通过 `store.dispatch` 方法触发：
 store.dispatch('increment')
 ```
 
-乍一眼看上去感觉多此一举，我们直接分发 mutation 岂不更方便？实际上并非如此，还记得 **mutation 必须同步执行**这个限制么？Action 就不受约束！我们可以在 action 内部执行**异步**操作：
+乍一眼看上去感觉多此一举，我们直接分发 mutation 岂不更方便？实际上并非如此，还记得 **mutation 必须同步执行**这个限制么？Action
+就不受约束！我们可以在 action 内部执行**异步**操作：
 
 ```js
 actions: {
@@ -515,7 +536,8 @@ actions: {
 
 ### 在组件中分发 Action
 
-你在组件中使用 `this.$store.dispatch('xxx')` 分发 action，或者使用 `mapActions` 辅助函数将组件的 methods 映射为 `store.dispatch` 调用（需要先在根节点注入 `store`）：
+你在组件中使用 `this.$store.dispatch('xxx')` 分发 action，或者使用 `mapActions` 辅助函数将组件的 methods
+映射为 `store.dispatch` 调用（需要先在根节点注入 `store`）：
 
 ```js
 import { mapActions } from 'vuex'
@@ -540,7 +562,8 @@ export default {
 
 Action 通常是异步的，那么如何知道 action 什么时候结束呢？更重要的是，我们如何才能组合多个 action，以处理更加复杂的异步流程？
 
-首先，你需要明白 `store.dispatch` 可以处理被触发的 action 的处理函数返回的 Promise，并且 `store.dispatch` 仍旧返回 Promise：
+首先，你需要明白 `store.dispatch` 可以处理被触发的 action 的处理函数返回的 Promise，并且 `store.dispatch` 仍旧返回
+Promise：
 
 ```js
 actions: {
@@ -598,7 +621,8 @@ actions: {
 
 由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
 
-为了解决以上问题，Vuex 允许我们将 store 分割成**模块（module）**。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：
+为了解决以上问题，Vuex 允许我们将 store 分割成**模块（module）**。每个模块拥有自己的
+state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割：
 
 ```js
 const moduleA = {
@@ -677,9 +701,11 @@ const moduleA = {
 
 ### 命名空间
 
-默认情况下，模块内部的 action、mutation 和 getter 是注册在**全局命名空间**的——这样使得多个模块能够对同一 mutation 或 action 作出响应。
+默认情况下，模块内部的 action、mutation 和 getter 是注册在**全局命名空间**的——这样使得多个模块能够对同一 mutation 或
+action 作出响应。
 
-如果希望你的模块具有更高的封装度和复用性，你可以通过添加 `namespaced: true` 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。例如：
+如果希望你的模块具有更高的封装度和复用性，你可以通过添加 `namespaced: true` 的方式使其成为带命名空间的模块。当模块被注册后，它的所有
+getter、action 及 mutation 都会自动根据模块注册的路径调整命名。例如：
 
 ```js
 const store = new Vuex.Store({
@@ -724,11 +750,13 @@ const store = new Vuex.Store({
 })
 ```
 
-启用了命名空间的 getter 和 action 会收到局部化的 `getter`，`dispatch` 和 `commit`。换言之，你在使用模块内容（module assets）时不需要在同一模块内额外添加空间名前缀。更改 `namespaced` 属性后不需要修改模块内的代码。
+启用了命名空间的 getter 和 action 会收到局部化的 `getter`，`dispatch` 和 `commit`。换言之，你在使用模块内容（module
+assets）时不需要在同一模块内额外添加空间名前缀。更改 `namespaced` 属性后不需要修改模块内的代码。
 
 #### 在带命名空间的模块内访问全局内容（Global Assets）
 
-如果你希望使用全局 state 和 getter，`rootState` 和 `rootGetter` 会作为第三和第四参数传入 getter，也会通过 `context` 对象的属性传入 action。
+如果你希望使用全局 state 和 getter，`rootState` 和 `rootGetter` 会作为第三和第四参数传入 getter，也会通过 `context`
+对象的属性传入 action。
 
 若需要在全局命名空间内分发 action 或提交 mutation，将 `{ root: true }` 作为第三参数传给 `dispatch` 或 `commit` 即可。
 
@@ -855,7 +883,8 @@ export default {
 
 #### 给插件开发者的注意事项
 
-如果你开发的[插件（Plugin）](https://vuex.vuejs.org/zh/guide/plugins.html)提供了模块并允许用户将其添加到 Vuex store，可能需要考虑模块的空间名称问题。对于这种情况，你可以通过插件的参数对象来允许用户指定空间名称：
+如果你开发的[插件（Plugin）](https://vuex.vuejs.org/zh/guide/plugins.html)提供了模块并允许用户将其添加到 Vuex
+store，可能需要考虑模块的空间名称问题。对于这种情况，你可以通过插件的参数对象来允许用户指定空间名称：
 
 ```js
 // 通过插件的参数对象得到空间名称
@@ -886,21 +915,26 @@ store.registerModule(['nested', 'myModule'], {
 
 之后就可以通过 `store.state.myModule` 和 `store.state.nested.myModule` 访问模块的状态。
 
-模块动态注册功能使得其他 Vue 插件可以通过在 store 中附加新模块的方式来使用 Vuex 管理状态。例如，[`vuex-router-sync`](https://github.com/vuejs/vuex-router-sync) 插件就是通过动态注册模块将 vue-router 和 vuex 结合在一起，实现应用的路由状态管理。
+模块动态注册功能使得其他 Vue 插件可以通过在 store 中附加新模块的方式来使用 Vuex
+管理状态。例如，[`vuex-router-sync`](https://github.com/vuejs/vuex-router-sync) 插件就是通过动态注册模块将 vue-router 和
+vuex 结合在一起，实现应用的路由状态管理。
 
 你也可以使用 `store.unregisterModule(moduleName)` 来动态卸载模块。注意，你不能使用此方法卸载静态模块（即创建 store 时声明的模块）。
 
 #### 保留 state
 
-在注册一个新 module 时，你很有可能想保留过去的 state，例如从一个服务端渲染的应用保留 state。你可以通过 `preserveState` 选项将其归档：`store.registerModule('a', module, { preserveState: true })`。
+在注册一个新 module 时，你很有可能想保留过去的 state，例如从一个服务端渲染的应用保留 state。你可以通过 `preserveState`
+选项将其归档：`store.registerModule('a', module, { preserveState: true })`。
 
-当你设置 `preserveState: true` 时，该模块会被注册，action、mutation 和 getter 会被添加到 store 中，但是 state 不会。这里假设 store 的 state 已经包含了这个 module 的 state 并且你不希望将其覆写。
+当你设置 `preserveState: true` 时，该模块会被注册，action、mutation 和 getter 会被添加到 store 中，但是 state 不会。这里假设
+store 的 state 已经包含了这个 module 的 state 并且你不希望将其覆写。
 
 ### 模块重用
 
 有时我们可能需要创建一个模块的多个实例，例如：
 
-- 创建多个 store，他们公用同一个模块 (例如当 `runInNewContext` 选项是 `false` 或 `'once'` 时，为了[在服务端渲染中避免有状态的单例](https://ssr.vuejs.org/en/structure.html#avoid-stateful-singletons))
+- 创建多个 store，他们公用同一个模块 (例如当 `runInNewContext` 选项是 `false` 或 `'once'`
+  时，为了[在服务端渲染中避免有状态的单例](https://ssr.vuejs.org/en/structure.html#avoid-stateful-singletons))
 - 在一个 store 中多次注册同一个模块
 
 如果我们使用一个纯对象来声明模块的状态，那么这个状态对象会通过引用被共享，导致状态对象被修改时 store 或模块间数据互相污染的问题。
@@ -974,7 +1008,8 @@ const store = new Vuex.Store({
 
 在插件中不允许直接修改状态——类似于组件，只能通过提交 mutation 来触发变化。
 
-通过提交 mutation，插件可以用来同步数据源到 store。例如，同步 websocket 数据源到 store（下面是个大概例子，实际上 `createPlugin` 方法可以有更多选项来完成复杂任务）：
+通过提交 mutation，插件可以用来同步数据源到 store。例如，同步 websocket 数据源到
+store（下面是个大概例子，实际上 `createPlugin` 方法可以有更多选项来完成复杂任务）：
 
 ```js
 export default function createWebSocketPlugin (socket) {
@@ -1027,7 +1062,8 @@ const store = new Vuex.Store({
 })
 ```
 
-上面插件会默认启用。在发布阶段，你需要使用 webpack 的 [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) 或者是 Browserify 的 [envify](https://github.com/hughsk/envify) 使 `process.env.NODE_ENV !== 'production'` 为 `false`。
+上面插件会默认启用。在发布阶段，你需要使用 webpack 的 [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) 或者是
+Browserify 的 [envify](https://github.com/hughsk/envify) 使 `process.env.NODE_ENV !== 'production'` 为 `false`。
 
 ### 内置 Logger 插件
 
@@ -1105,9 +1141,11 @@ const store = new Vuex.Store({
 <input v-model="obj.message">
 ```
 
-假设这里的 `obj` 是在计算属性中返回的一个属于 Vuex store 的对象，在用户输入时，`v-model` 会试图直接修改 `obj.message`。在严格模式中，由于这个修改不是在 mutation 函数中执行的, 这里会抛出一个错误。
+假设这里的 `obj` 是在计算属性中返回的一个属于 Vuex store 的对象，在用户输入时，`v-model` 会试图直接修改 `obj.message`
+。在严格模式中，由于这个修改不是在 mutation 函数中执行的, 这里会抛出一个错误。
 
-用“Vuex 的思维”去解决这个问题的方法是：给 `<input>` 中绑定 value，然后侦听 `input` 或者 `change` 事件，在事件回调中调用 action:
+用“Vuex 的思维”去解决这个问题的方法是：给 `<input>` 中绑定 value，然后侦听 `input` 或者 `change` 事件，在事件回调中调用
+action:
 
 ```html
 <input :value="message" @input="updateMessage">
@@ -1137,7 +1175,8 @@ mutations: {
 
 ### 双向绑定的计算属性
 
-必须承认，这样做比简单地使用“`v-model` + 局部状态”要啰嗦得多，并且也损失了一些 `v-model` 中很有用的特性。另一个方法是使用带有 setter 的双向绑定计算属性：
+必须承认，这样做比简单地使用“`v-model` + 局部状态”要啰嗦得多，并且也损失了一些 `v-model` 中很有用的特性。另一个方法是使用带有
+setter 的双向绑定计算属性：
 
 ```html
 <input v-model="message">
@@ -1162,7 +1201,8 @@ computed: {
 
 ### 测试 Mutation
 
-Mutation 很容易被测试，因为它们仅仅是一些完全依赖参数的函数。这里有一个小技巧，如果你在 `store.js` 文件中定义了 mutation，并且使用 ES2015 模块功能默认输出了 Vuex.Store 的实例，那么你仍然可以给 mutation 取个变量名然后把它输出去：
+Mutation 很容易被测试，因为它们仅仅是一些完全依赖参数的函数。这里有一个小技巧，如果你在 `store.js` 文件中定义了
+mutation，并且使用 ES2015 模块功能默认输出了 Vuex.Store 的实例，那么你仍然可以给 mutation 取个变量名然后把它输出去：
 
 ```js
 const state = { ... }
@@ -1204,7 +1244,9 @@ describe('mutations', () => {
 
 ### 测试 Action
 
-Action 应对起来略微棘手，因为它们可能需要调用外部的 API。当测试 action 的时候，我们需要增加一个 mocking 服务层——例如，我们可以把 API 调用抽象成服务，然后在测试文件中用 mock 服务回应 API 调用。为了便于解决 mock 依赖，可以用 webpack 和 [inject-loader](https://github.com/plasticine/inject-loader) 打包测试文件。
+Action 应对起来略微棘手，因为它们可能需要调用外部的 API。当测试 action 的时候，我们需要增加一个 mocking 服务层——例如，我们可以把
+API 调用抽象成服务，然后在测试文件中用 mock 服务回应 API 调用。为了便于解决 mock 依赖，可以用 webpack
+和 [inject-loader](https://github.com/plasticine/inject-loader) 打包测试文件。
 
 下面是一个测试异步 action 的例子：
 
@@ -1343,7 +1385,8 @@ describe('getters', () => {
 
 ### 执行测试
 
-如果你的 mutation 和 action 编写正确，经过合理地 mocking 处理之后这些测试应该不依赖任何浏览器 API，因此你可以直接用 webpack 打包这些测试文件然后在 Node 中执行。换种方式，你也可以用 `mocha-loader` 或 Karma + `karma-webpack`在真实浏览器环境中进行测试。
+如果你的 mutation 和 action 编写正确，经过合理地 mocking 处理之后这些测试应该不依赖任何浏览器 API，因此你可以直接用
+webpack 打包这些测试文件然后在 Node 中执行。换种方式，你也可以用 `mocha-loader` 或 Karma + `karma-webpack`在真实浏览器环境中进行测试。
 
 #### 在 Node 中执行测试
 
@@ -1385,7 +1428,9 @@ mocha test-bundle.js
 
 # 热重载
 
-使用 webpack 的 [Hot Module Replacement API](https://webpack.js.org/guides/hot-module-replacement/)，Vuex 支持在开发过程中热重载 mutation、module、action 和 getter。你也可以在 Browserify 中使用 [browserify-hmr](https://github.com/AgentME/browserify-hmr/) 插件。
+使用 webpack 的 [Hot Module Replacement API](https://webpack.js.org/guides/hot-module-replacement/)，Vuex 支持在开发过程中热重载
+mutation、module、action 和 getter。你也可以在 Browserify
+中使用 [browserify-hmr](https://github.com/AgentME/browserify-hmr/) 插件。
 
 对于 mutation 和模块，你需要使用 `store.hotUpdate()` 方法：
 

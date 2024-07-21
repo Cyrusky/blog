@@ -11,10 +11,12 @@ categories:
 toc: true
 abbrlink: f48cc00c
 date: 2019-12-09 09:38:42
-thumbnail: https://imgs.borgor.cn/imgs/20191227110243.png
+cover: /assets/images/20191227110243.webp
 ---
 
-一般来说，我们想要去学习 React 的源码的时候，可能会先`Build`一下，然后使用源码包下的`fixtures`内的测试样例进行调试，但是，不管是`production`的`build`还是`Development`的`build`，源码都是被打包在一个文件中的，结构混乱，即使代码没有被压缩，也很难看得懂具体那一个方法是属于哪一个模块的。所以，为何不使用源码包直接来调试源代码呢？
+一般来说，我们想要去学习 React 的源码的时候，可能会先`Build`一下，然后使用源码包下的`fixtures`
+内的测试样例进行调试，但是，不管是`production`的`build`还是`Development`的`build`
+，源码都是被打包在一个文件中的，结构混乱，即使代码没有被压缩，也很难看得懂具体那一个方法是属于哪一个模块的。所以，为何不使用源码包直接来调试源代码呢？
 
 本文将会介绍如何直接使用`React`源码包来调试源码。
 
@@ -66,7 +68,7 @@ yarn start
 
 此时会自动打开一个页面，显示下面的样子，说明，我们的项目创建成功了。
 
-![](https://imgs.borgor.cn/imgs/20191227100249.png)
+![](/assets/images/20191227100249.webp)
 
 # Eject 配置
 
@@ -78,11 +80,12 @@ $ yarn eject
 
 我们就会得到 React 项目的配置文件以及一些构建脚本：
 
-![](https://imgs.borgor.cn/imgs/20191227101015.png)
+![](/assets/images/20191227101015.webp)
 
 # 克隆 React 源码
 
-克隆一个指定版本的 React 源码，到`src/react`目录下，当然这里也可以使用`master`分支，但是不建议。如果你需要将你自己对代码的修改保存到版本控制中，你最好自己`fork`一份`React`官方的`repo`，到自己的账号。
+克隆一个指定版本的 React 源码，到`src/react`目录下，当然这里也可以使用`master`
+分支，但是不建议。如果你需要将你自己对代码的修改保存到版本控制中，你最好自己`fork`一份`React`官方的`repo`，到自己的账号。
 
 > 话说 github 是在是太慢了，所以，我`fork`了一份，到我的`github`仓库，然后，强制同步到了`gitee`仓库了。
 >
@@ -206,11 +209,13 @@ SyntaxError: ./reading_source/src/react/packages/react-dom/src/client/ReactDOM.j
 
 在`webpack.config.js`中的`alias`中添加`react-events`后，需要修改`react`源码包中相应引用`event`的部分，具体如下：
 
-> 替换源码中所有的`import XXX from 'events/...'`为`import XXX from 'react-events/...'`，其中`react-events`就是`alias`中的命名。
+> 替换源码中所有的`import XXX from 'events/...'`为`import XXX from 'react-events/...'`，其中`react-events`就是`alias`
+> 中的命名。
 
 ## 导出 HostConfig
 
-修改文件`/src/react/packages/react-reconciler/src/ReactFiberHostConfig.js`。注释中说明，这块还需要根据环境去导出`HostConfig`。
+修改文件`/src/react/packages/react-reconciler/src/ReactFiberHostConfig.js`
+。注释中说明，这块还需要根据环境去导出`HostConfig`。
 
 ```js
 // invariant(false, 'This module must be shimmed by a specific renderer.');
@@ -242,11 +247,11 @@ module.exports = {
 
 ## 安装`flowtype.flow-for-vscode`插件：
 
-![](https://imgs.borgor.cn/imgs/20191227105608.png)
+![](/assets/images/20191227105608.webp)
 
 进行配置，一般来说，我们只会在看源码的时候用到`flow`，所以我们将配置写在`workspace`的配置文件下：
 
-![](https://imgs.borgor.cn/imgs/20191227105706.png)
+![](/assets/images/20191227105706.webp)
 
 # 测试
 
@@ -268,6 +273,6 @@ export function createElement(
 
 一般来说，如果你操作了`yarn start`，在修改代码后，会热加载。所以，如果你的`development tools`是打开的，这个时候，应该就可以停在断点处了，具体如下：
 
-![](https://imgs.borgor.cn/imgs/20191227115228.png)
+![](/assets/images/20191227115228.webp)
 
 来愉快的进行调试把！！

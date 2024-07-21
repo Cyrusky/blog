@@ -9,7 +9,7 @@ categories:
   - Development
   - Python
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20200310114635.png'
+cover: '/assets/images/20200310114635.webp'
 abbrlink: bfa8d6bd
 date: 2020-03-10 11:45:29
 ---
@@ -20,7 +20,8 @@ date: 2020-03-10 11:45:29
 
 `Pandas`是一个基于`Numpy`的科学计算包,他将`Numpy`封装成一个更加易于用户使用的方式.
 
-> 如果用 python 的列表和字典来作比较, 那么可以说 Numpy 是列表形式的，没有数值标签，而 Pandas 就是字典形式。Pandas 是基于 Numpy 构建的，让 Numpy 为中心的应用变得更加简单。 -- <莫凡 Python-Pandas 简介>
+> 如果用 python 的列表和字典来作比较, 那么可以说 Numpy 是列表形式的，没有数值标签，而 Pandas 就是字典形式。Pandas 是基于
+> Numpy 构建的，让 Numpy 为中心的应用变得更加简单。 -- <莫凡 Python-Pandas 简介>
 
 <!-- more -->
 
@@ -41,7 +42,8 @@ pd.Series([1,2,3,4])
 
 ### `DataFrame`
 
-`DataFrame`是一个表格型的数据结构，它包含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。`DataFrame`既有行索引也有列索引， 它可以被看做由`Series`组成的大字典。
+`DataFrame`是一个表格型的数据结构，它包含有一组有序的列，每列可以是不同的值类型（数值，字符串，布尔值等）。`DataFrame`
+既有行索引也有列索引， 它可以被看做由`Series`组成的大字典。
 
 我们可以根据每一个不同的索引来挑选数据:
 

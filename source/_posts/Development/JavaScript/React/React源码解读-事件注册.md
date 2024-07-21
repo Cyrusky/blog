@@ -9,7 +9,7 @@ categories:
   - Development
   - JavaScript
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20200103164155.png'
+cover: '/assets/images/20200103164155.webp'
 abbrlink: 3f56f8e0
 date: 2020-01-03 15:48:10
 ---
@@ -20,7 +20,7 @@ date: 2020-01-03 15:48:10
 
 点击放大查看高清图片，如果还不够清晰，请戳：[原图](/assets/imgs/React源码解读-事件绑定.png)
 
-![](https://imgs.borgor.cn/imgs/20200103154917.png)
+![](/assets/images/20200103154917.webp)
 
 # setInitialProperties(事件绑定开始)
 
@@ -60,7 +60,8 @@ style.setProperty(styleName, styleValue);
 
 ### DANGEROUSLY_SET_INNER_HTML
 
-如果Node存在InnerHTML属性（他是一个可以配置InnerHTML的HTML标签）则直接使用：node.innerHTML = html;否则，会返回县创建一个DIV，然后在其内部创建一个SVG，然后在SVG中写入html文本
+如果Node存在InnerHTML属性（他是一个可以配置InnerHTML的HTML标签）则直接使用：node.innerHTML =
+html;否则，会返回县创建一个DIV，然后在其内部创建一个SVG，然后在SVG中写入html文本
 
 ### CHILDREN
 
@@ -86,7 +87,7 @@ style.setProperty(styleName, styleValue);
 
 - 上面这种情况，Button的CHILDREN的类型为Array，这种情况其实在递归调用的时候，其子节点已经是被setInitialDOMProperities处理过的，所以直接忽略掉
 
-### SUPPRESS_CONTENT_EDITABLE_WARNING 
+### SUPPRESS_CONTENT_EDITABLE_WARNING
 
 ### SUPPRESS_HYDRATION_WARNING
 
@@ -191,7 +192,7 @@ const nonInteractiveEventTypeNames: Array<EventTuple> = [
 
 > rootContainerElement是哪里来的？
 >
-> ​	在CreateElement的时候第二个参数就是rootContainerElement，其实就是一个原生的DOM节点。
+> ​ 在CreateElement的时候第二个参数就是rootContainerElement，其实就是一个原生的DOM节点。
 
 ## publishRegistrationName
 
@@ -226,132 +227,132 @@ export function listenTo(
 · 判断一个事件是不是交互事件，从而提供不同的`dispatch`
 
 - 具体是否信息是在addEventTypeNameToConfig中添加的，而判断依据为：
-  - addEventCaptureListener添加捕获绑定
+    - addEventCaptureListener添加捕获绑定
 
-    ```typescript
-    export function addEventCaptureListener(
-     element: Document | Element,
-     eventType: string,
-     listener: Function,
-    ): void {
-     element.addEventListener(eventType, listener, true);
-    }
-    ```
+      ```typescript
+      export function addEventCaptureListener(
+       element: Document | Element,
+       eventType: string,
+       listener: Function,
+      ): void {
+       element.addEventListener(eventType, listener, true);
+      }
+      ```
 
-  - addEventBubbleListener添加冒泡绑定
+    - addEventBubbleListener添加冒泡绑定
 
-    ```typescript
-    export function addEventBubbleListener(
-     element: Document | Element,
-     eventType: string,
-     listener: Function,
-    ): void {
-     element.addEventListener(eventType, listener, false);
-    }
-    ```
+      ```typescript
+      export function addEventBubbleListener(
+       element: Document | Element,
+       eventType: string,
+       listener: Function,
+      ): void {
+       element.addEventListener(eventType, listener, false);
+      }
+      ```
 
 · 事件绑定结束
 
-•	事实上，每次绑定的时候都会去创建一个新的dispatchEvent方法，并将其绑定到FiberNode上面，在事件发生时，直接调用该dispatchEvent。
+• 事实上，每次绑定的时候都会去创建一个新的dispatchEvent方法，并将其绑定到FiberNode上面，在事件发生时，直接调用该dispatchEvent。
 
-•	export function dispatchEvent(
- topLevelType: DOMTopLevelEventType,
- nativeEvent: AnyNativeEvent,
+• export function dispatchEvent(
+topLevelType: DOMTopLevelEventType,
+nativeEvent: AnyNativeEvent,
 )
 
 # EventType
 
 - SimpleEventPlugin
-  - interactiveEventTypeNames
-    - [DOMTopLevelEventTypes.TOP_BLUR, 'blur'],
-    -  [DOMTopLevelEventTypes.TOP_CANCEL, 'cancel'],
-    -  [DOMTopLevelEventTypes.TOP_CLICK, 'click'],
-    -  [DOMTopLevelEventTypes.TOP_CLOSE, 'close'],
-    -  [DOMTopLevelEventTypes.TOP_CONTEXT_MENU, 'contextMenu'],
-    -  [DOMTopLevelEventTypes.TOP_COPY, 'copy'],
-    -  [DOMTopLevelEventTypes.TOP_CUT, 'cut'],
-    -  [DOMTopLevelEventTypes.TOP_AUX_CLICK, 'auxClick'],
-    -  [DOMTopLevelEventTypes.TOP_DOUBLE_CLICK, 'doubleClick'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_END, 'dragEnd'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_START, 'dragStart'],
-    -  [DOMTopLevelEventTypes.TOP_DROP, 'drop'],
-    -  [DOMTopLevelEventTypes.TOP_FOCUS, 'focus'],
-    -  [DOMTopLevelEventTypes.TOP_INPUT, 'input'],
-    -  [DOMTopLevelEventTypes.TOP_INVALID, 'invalid'],
-    -  [DOMTopLevelEventTypes.TOP_KEY_DOWN, 'keyDown'],
-    -  [DOMTopLevelEventTypes.TOP_KEY_PRESS, 'keyPress'],
-    -  [DOMTopLevelEventTypes.TOP_KEY_UP, 'keyUp'],
-    -  [DOMTopLevelEventTypes.TOP_MOUSE_DOWN, 'mouseDown'],
-    -  [DOMTopLevelEventTypes.TOP_MOUSE_UP, 'mouseUp'],
-    -  [DOMTopLevelEventTypes.TOP_PASTE, 'paste'],
-    -  [DOMTopLevelEventTypes.TOP_PAUSE, 'pause'],
-    -  [DOMTopLevelEventTypes.TOP_PLAY, 'play'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_CANCEL, 'pointerCancel'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_DOWN, 'pointerDown'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_UP, 'pointerUp'],
-    -  [DOMTopLevelEventTypes.TOP_RATE_CHANGE, 'rateChange'],
-    -  [DOMTopLevelEventTypes.TOP_RESET, 'reset'],
-    -  [DOMTopLevelEventTypes.TOP_SEEKED, 'seeked'],
-    -  [DOMTopLevelEventTypes.TOP_SUBMIT, 'submit'],
-    -  [DOMTopLevelEventTypes.TOP_TOUCH_CANCEL, 'touchCancel'],
-    -  [DOMTopLevelEventTypes.TOP_TOUCH_END, 'touchEnd'],
-    -  [DOMTopLevelEventTypes.TOP_TOUCH_START, 'touchStart'],
-    -  [DOMTopLevelEventTypes.TOP_VOLUME_CHANGE, 'volumeChange']
-  - nonInteractiveEventTypeNames
-    - [DOMTopLevelEventTypes.TOP_ABORT, 'abort'],
-    -  [DOMTopLevelEventTypes.TOP_ANIMATION_END, 'animationEnd'],
-    -  [DOMTopLevelEventTypes.TOP_ANIMATION_ITERATION, 'animationIteration'],
-    -  [DOMTopLevelEventTypes.TOP_ANIMATION_START, 'animationStart'],
-    -  [DOMTopLevelEventTypes.TOP_CAN_PLAY, 'canPlay'],
-    -  [DOMTopLevelEventTypes.TOP_CAN_PLAY_THROUGH, 'canPlayThrough'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG, 'drag'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_ENTER, 'dragEnter'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_EXIT, 'dragExit'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_LEAVE, 'dragLeave'],
-    -  [DOMTopLevelEventTypes.TOP_DRAG_OVER, 'dragOver'],
-    -  [DOMTopLevelEventTypes.TOP_DURATION_CHANGE, 'durationChange'],
-    -  [DOMTopLevelEventTypes.TOP_EMPTIED, 'emptied'],
-    -  [DOMTopLevelEventTypes.TOP_ENCRYPTED, 'encrypted'],
-    -  [DOMTopLevelEventTypes.TOP_ENDED, 'ended'],
-    -  [DOMTopLevelEventTypes.TOP_ERROR, 'error'],
-    -  [DOMTopLevelEventTypes.TOP_GOT_POINTER_CAPTURE, 'gotPointerCapture'],
-    -  [DOMTopLevelEventTypes.TOP_LOAD, 'load'],
-    -  [DOMTopLevelEventTypes.TOP_LOADED_DATA, 'loadedData'],
-    -  [DOMTopLevelEventTypes.TOP_LOADED_METADATA, 'loadedMetadata'],
-    -  [DOMTopLevelEventTypes.TOP_LOAD_START, 'loadStart'],
-    -  [DOMTopLevelEventTypes.TOP_LOST_POINTER_CAPTURE, 'lostPointerCapture'],
-    -  [DOMTopLevelEventTypes.TOP_MOUSE_MOVE, 'mouseMove'],
-    -  [DOMTopLevelEventTypes.TOP_MOUSE_OUT, 'mouseOut'],
-    -  [DOMTopLevelEventTypes.TOP_MOUSE_OVER, 'mouseOver'],
-    -  [DOMTopLevelEventTypes.TOP_PLAYING, 'playing'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_MOVE, 'pointerMove'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_OUT, 'pointerOut'],
-    -  [DOMTopLevelEventTypes.TOP_POINTER_OVER, 'pointerOver'],
-    -  [DOMTopLevelEventTypes.TOP_PROGRESS, 'progress'],
-    -  [DOMTopLevelEventTypes.TOP_SCROLL, 'scroll'],
-    -  [DOMTopLevelEventTypes.TOP_SEEKING, 'seeking'],
-    -  [DOMTopLevelEventTypes.TOP_STALLED, 'stalled'],
-    -  [DOMTopLevelEventTypes.TOP_SUSPEND, 'suspend'],
-    -  [DOMTopLevelEventTypes.TOP_TIME_UPDATE, 'timeUpdate'],
-    -  [DOMTopLevelEventTypes.TOP_TOGGLE, 'toggle'],
-    -  [DOMTopLevelEventTypes.TOP_TOUCH_MOVE, 'touchMove'],
-    -  [DOMTopLevelEventTypes.TOP_TRANSITION_END, 'transitionEnd'],
-    -  [DOMTopLevelEventTypes.TOP_WAITING, 'waiting'],
-    -  [DOMTopLevelEventTypes.TOP_WHEEL, 'wheel']
+    - interactiveEventTypeNames
+        - [DOMTopLevelEventTypes.TOP_BLUR, 'blur'],
+        - [DOMTopLevelEventTypes.TOP_CANCEL, 'cancel'],
+        - [DOMTopLevelEventTypes.TOP_CLICK, 'click'],
+        - [DOMTopLevelEventTypes.TOP_CLOSE, 'close'],
+        - [DOMTopLevelEventTypes.TOP_CONTEXT_MENU, 'contextMenu'],
+        - [DOMTopLevelEventTypes.TOP_COPY, 'copy'],
+        - [DOMTopLevelEventTypes.TOP_CUT, 'cut'],
+        - [DOMTopLevelEventTypes.TOP_AUX_CLICK, 'auxClick'],
+        - [DOMTopLevelEventTypes.TOP_DOUBLE_CLICK, 'doubleClick'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_END, 'dragEnd'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_START, 'dragStart'],
+        - [DOMTopLevelEventTypes.TOP_DROP, 'drop'],
+        - [DOMTopLevelEventTypes.TOP_FOCUS, 'focus'],
+        - [DOMTopLevelEventTypes.TOP_INPUT, 'input'],
+        - [DOMTopLevelEventTypes.TOP_INVALID, 'invalid'],
+        - [DOMTopLevelEventTypes.TOP_KEY_DOWN, 'keyDown'],
+        - [DOMTopLevelEventTypes.TOP_KEY_PRESS, 'keyPress'],
+        - [DOMTopLevelEventTypes.TOP_KEY_UP, 'keyUp'],
+        - [DOMTopLevelEventTypes.TOP_MOUSE_DOWN, 'mouseDown'],
+        - [DOMTopLevelEventTypes.TOP_MOUSE_UP, 'mouseUp'],
+        - [DOMTopLevelEventTypes.TOP_PASTE, 'paste'],
+        - [DOMTopLevelEventTypes.TOP_PAUSE, 'pause'],
+        - [DOMTopLevelEventTypes.TOP_PLAY, 'play'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_CANCEL, 'pointerCancel'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_DOWN, 'pointerDown'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_UP, 'pointerUp'],
+        - [DOMTopLevelEventTypes.TOP_RATE_CHANGE, 'rateChange'],
+        - [DOMTopLevelEventTypes.TOP_RESET, 'reset'],
+        - [DOMTopLevelEventTypes.TOP_SEEKED, 'seeked'],
+        - [DOMTopLevelEventTypes.TOP_SUBMIT, 'submit'],
+        - [DOMTopLevelEventTypes.TOP_TOUCH_CANCEL, 'touchCancel'],
+        - [DOMTopLevelEventTypes.TOP_TOUCH_END, 'touchEnd'],
+        - [DOMTopLevelEventTypes.TOP_TOUCH_START, 'touchStart'],
+        - [DOMTopLevelEventTypes.TOP_VOLUME_CHANGE, 'volumeChange']
+    - nonInteractiveEventTypeNames
+        - [DOMTopLevelEventTypes.TOP_ABORT, 'abort'],
+        - [DOMTopLevelEventTypes.TOP_ANIMATION_END, 'animationEnd'],
+        - [DOMTopLevelEventTypes.TOP_ANIMATION_ITERATION, 'animationIteration'],
+        - [DOMTopLevelEventTypes.TOP_ANIMATION_START, 'animationStart'],
+        - [DOMTopLevelEventTypes.TOP_CAN_PLAY, 'canPlay'],
+        - [DOMTopLevelEventTypes.TOP_CAN_PLAY_THROUGH, 'canPlayThrough'],
+        - [DOMTopLevelEventTypes.TOP_DRAG, 'drag'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_ENTER, 'dragEnter'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_EXIT, 'dragExit'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_LEAVE, 'dragLeave'],
+        - [DOMTopLevelEventTypes.TOP_DRAG_OVER, 'dragOver'],
+        - [DOMTopLevelEventTypes.TOP_DURATION_CHANGE, 'durationChange'],
+        - [DOMTopLevelEventTypes.TOP_EMPTIED, 'emptied'],
+        - [DOMTopLevelEventTypes.TOP_ENCRYPTED, 'encrypted'],
+        - [DOMTopLevelEventTypes.TOP_ENDED, 'ended'],
+        - [DOMTopLevelEventTypes.TOP_ERROR, 'error'],
+        - [DOMTopLevelEventTypes.TOP_GOT_POINTER_CAPTURE, 'gotPointerCapture'],
+        - [DOMTopLevelEventTypes.TOP_LOAD, 'load'],
+        - [DOMTopLevelEventTypes.TOP_LOADED_DATA, 'loadedData'],
+        - [DOMTopLevelEventTypes.TOP_LOADED_METADATA, 'loadedMetadata'],
+        - [DOMTopLevelEventTypes.TOP_LOAD_START, 'loadStart'],
+        - [DOMTopLevelEventTypes.TOP_LOST_POINTER_CAPTURE, 'lostPointerCapture'],
+        - [DOMTopLevelEventTypes.TOP_MOUSE_MOVE, 'mouseMove'],
+        - [DOMTopLevelEventTypes.TOP_MOUSE_OUT, 'mouseOut'],
+        - [DOMTopLevelEventTypes.TOP_MOUSE_OVER, 'mouseOver'],
+        - [DOMTopLevelEventTypes.TOP_PLAYING, 'playing'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_MOVE, 'pointerMove'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_OUT, 'pointerOut'],
+        - [DOMTopLevelEventTypes.TOP_POINTER_OVER, 'pointerOver'],
+        - [DOMTopLevelEventTypes.TOP_PROGRESS, 'progress'],
+        - [DOMTopLevelEventTypes.TOP_SCROLL, 'scroll'],
+        - [DOMTopLevelEventTypes.TOP_SEEKING, 'seeking'],
+        - [DOMTopLevelEventTypes.TOP_STALLED, 'stalled'],
+        - [DOMTopLevelEventTypes.TOP_SUSPEND, 'suspend'],
+        - [DOMTopLevelEventTypes.TOP_TIME_UPDATE, 'timeUpdate'],
+        - [DOMTopLevelEventTypes.TOP_TOGGLE, 'toggle'],
+        - [DOMTopLevelEventTypes.TOP_TOUCH_MOVE, 'touchMove'],
+        - [DOMTopLevelEventTypes.TOP_TRANSITION_END, 'transitionEnd'],
+        - [DOMTopLevelEventTypes.TOP_WAITING, 'waiting'],
+        - [DOMTopLevelEventTypes.TOP_WHEEL, 'wheel']
 - EnterLeaveEventPlugin
-  - onMouseEnter
-  - onMouseLeave
-  - onPointerEnter
-  - onPointerLeave
+    - onMouseEnter
+    - onMouseLeave
+    - onPointerEnter
+    - onPointerLeave
 - ChangeEventPlugin
-  - onChange
+    - onChange
 - SelectEventPlugin
-  - onSelect
+    - onSelect
 - BeforeInputEventPlugin
-  - onBeforeInput
-  - onCompositionEnd
-  - onCompositionStart
-  - onCompositionUpdate
+    - onBeforeInput
+    - onCompositionEnd
+    - onCompositionStart
+    - onCompositionUpdate
 
 # setInitialProperties
 
@@ -377,15 +378,15 @@ export function createElement(
   const MATH_NAMESPACE = 'http://www.w3.org/1998/Math/MathML';
   const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
   ```
-  - Script元素，创建一个DIV标签，并将其InnerHTML写为空script标签
+    - Script元素，创建一个DIV标签，并将其InnerHTML写为空script标签
 
-  - 如果props.is === string， 会将该props传入原生DOM创建中
+    - 如果props.is === string， 会将该props传入原生DOM创建中
 
-  - 其他，即为customComponentTag
+    - 其他，即为customComponentTag
 
-  - 最终都会调用原生的DOM创建语法创建DOM
+    - 最终都会调用原生的DOM创建语法创建DOM
 
-    - > https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement
+        - > https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement
 
 - 否则创建相应的Element，包括SVG和MATH
 
@@ -396,16 +397,17 @@ export function createElement(
 ### injectEventPluginOrder
 
 - InjectedOrder
-  - 'ResponderEventPlugin',
-  - 'SimpleEventPlugin',
-  - 'EnterLeaveEventPlugin',
-  - 'ChangeEventPlugin',
-  - 'SelectEventPlugin',
-  - 'BeforeInputEventPlugin',
+    - 'ResponderEventPlugin',
+    - 'SimpleEventPlugin',
+    - 'EnterLeaveEventPlugin',
+    - 'ChangeEventPlugin',
+    - 'SelectEventPlugin',
+    - 'BeforeInputEventPlugin',
 
 ### injectEventPluginsByName
 
-按照上面的顺序，将所有的时间插件（`EventPlugins`）注册到`namesToPlugins`中，在过程中，如果顺序发生了变化，需要调用`recomputePluginOrdering`重新排序
+按照上面的顺序，将所有的时间插件（`EventPlugins`）注册到`namesToPlugins`
+中，在过程中，如果顺序发生了变化，需要调用`recomputePluginOrdering`重新排序
 
 其中，`namesToPlugins`（对象）来存放`eventPluginName->eventPlugin的映射，而plugins`（Array）中，保持`eventPlugin的`顺序
 

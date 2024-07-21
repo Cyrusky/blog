@@ -7,7 +7,7 @@ categories:
   - Development
   - JavaScript
 toc: true
-thumbnail: 'https://imgs.borgor.cn/imgs/20190725114435.png'
+cover: '/assets/images/20190725114435.webp'
 abbrlink: 789de642
 date: 2019-07-25 11:41:06
 ---
@@ -28,7 +28,8 @@ date: 2019-07-25 11:41:06
 
 ## [#](https://router.vuejs.org/zh/guide/advanced/transitions.html#单个路由的过渡)单个路由的过渡
 
-上面的用法会给所有路由设置一样的过渡效果，如果你想让每个路由组件有各自的过渡效果，可以在各路由组件内使用 `<transition>` 并设置不同的 name。
+上面的用法会给所有路由设置一样的过渡效果，如果你想让每个路由组件有各自的过渡效果，可以在各路由组件内使用 `<transition>`
+并设置不同的 name。
 
 ```js
 const Foo = {
