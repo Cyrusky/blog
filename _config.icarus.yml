@@ -163,7 +163,7 @@ comment:
     repo: Cyrusky/blog
     repoId: R_kgDOMZE7MA             # 必填项
     category: Q&A                    # 可选填，默认为 Announcements
-    categoryId: DIC_kwDOMZE7MM4ChC   # 必填项
+    categoryId: DIC_kwDOMZE7MM4ChC-U # 必填项
     mapping: pathname                # 可选填，默认为 pathname
     strict: false                    # 可选填
     reactionsEnabled: true           # 可选填
