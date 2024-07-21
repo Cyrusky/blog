@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const getUrlFromString = (str) => {
-  let reg = /(https?|http|ftp|file):\/\/imgs\.borgor\.cn\/[\u4e00-\u9fa5\x00-\xffA-Za-z0-9]*.[a-z]{2,5}/g;
+  let reg = /(https?|http|ftp|file):\/\/imgs\.borgor\.cn\/[A-Za-z0-9\/]+.[a-z]{2,5}/g;
   str = str.match(reg);
   return str
 }

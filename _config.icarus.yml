@@ -106,7 +106,7 @@ navbar:
   menu:
     首页: /
     归档: /archives
-    书单: /reading-list
+#    书单: /reading-list
 footer:
   # Copyright text
   copyright: <a target="_blank" href='https://beian.miit.gov.cn/'>陇ICP备19002255号-1</a>
