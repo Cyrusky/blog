@@ -160,9 +160,9 @@ search:
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
     type: changyan
-    appid: cytamhsyr
+    app_id: cytamhsyr
     # Disqus shortname
-    shortname: prod_fcde7dc27ea70c02301cfeda93997363
+    conf: prod_fcde7dc27ea70c02301cfeda93997363
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
