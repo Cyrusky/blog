@@ -1,0 +1,69 @@
+---
+title: 这只是一个笔记，全局灰度CSS
+tags:
+  - 全局
+  - 灰度
+categories:
+  - Development
+  - Styles
+toc: true
+thumbnail: 'https://imgs.borgor.cn/imgs/20200404155118.png'
+abbrlink: ca06c9bf
+date: 2020-04-04 15:33:22
+---
+
+> 在这个特殊的日子里，沉痛悼念在灾难里逝去的同胞，以及那些英勇抗击灾难的英雄和烈士，没有你们就没有现在的胜利。
+
+# 这行代码可以让你的网站或者 HTML 页面全局灰度
+
+```css
+html {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  _filter: none;
+}
+```
+
+<!-- more -->
+
+# CSS 语法
+
+```css
+filter: none | blur() | brightness() | contrast() | drop-shadow() | grayscale() |
+  hue-rotate() | invert() | opacity() | saturate() | sepia() | url();
+```
+
+# 详细使用方法(来自 W3School)
+
+| Filter                                             | Description                                                  |
+| :------------------------------------------------- | :----------------------------------------------------------- |
+| none                                               | Default value. Specifies no effects                          |
+| blur(_px_)                                         | Applies a blur effect to the image. A larger value will create more blur. If no value is specified, 0 is used. |
+| brightness(_%_)                                    | Adjusts the brightness of the image.<br />0% will make the image completely black. <br />100% (1) is default and represents the original image. <br />Values over 100% will provide brighter results. |
+| contrast(_%_)                                      | Adjusts the contrast of the image. <br />0% will make the image completely black. <br />100% (1) is default, and represents the original image. <br />Values over 100% will provide results with more contrast. |
+| drop-shadow(_h-shadow v-shadow blur spread color_) | Applies a drop shadow effect to the image. <br />**Possible values:** <br />_h-shadow_ - Required. Specifies a pixel value for the horizontal shadow. Negative values place the shadow to the left of the image. <br />_v-shadow_ - Required. Specifies a pixel value for the vertical shadow. Negative values place the shadow above the image. <br />_blur_ - Optional. This is the third value, and must be in pixels. Adds a blur effect to the shadow. A larger value will create more blur (the shadow becomes bigger and lighter). Negative values are not allowed. If no value is specified, 0 is used (the shadow's edge is sharp). <br />_spread_ - Optional. This is the fourth value, and must be in pixels. Positive values will cause the shadow to expand and grow bigger, and negative values will cause the shadow to shrink. If not specified, it will be 0 (the shadow will be the same size as the element). <br />**Note:** Chrome, Safari and Opera, and maybe other browsers, do not support this 4th length; it will not render if added. <br />_color_ - Optional. Adds a color to the shadow. If not specified, the color depends on the browser (often black). An example of creating a red shadow, which is 8px big both horizontally and vertically, with a blur effect of 10px: filter: drop-shadow(8px 8px 10px red); **Tip:** This filter is similar to the [box-shadow](https://www.w3schools.com/cssref/css3_pr_box-shadow.asp) property. |
+| grayscale(_%_)                                     | Converts the image to grayscale. <br />0% (0) is default and represents the original image. <br />100% will make the image completely gray (used for black and white images). <br />**Note:** Negative values are not allowed. |
+| hue-rotate(_deg_)                                  | Applies a hue rotation on the image. The value defines the number of degrees around the color circle the image samples will be adjusted. 0deg is default, and represents the original image. <br />**Note:** Maximum value is 360deg. |
+| invert(_%_)                                        | Inverts the samples in the image. <br />0% (0) is default and represents the original image. <br />100% will make the image completely inverted. <br />**Note:** Negative values are not allowed. |
+| opacity(_%_)                                       | Sets the opacity level for the image. The opacity-level describes the transparency-level, where: <br />0% is completely transparent. <br />100% (1) is default and represents the original image (no transparency). <br />**Note:** Negative values are not allowed. <br />**Tip:** This filter is similar to the [opacity](https://www.w3schools.com/cssref/css3_pr_opacity.asp) property. |
+| saturate(*%*)                                      | Saturates the image.  <br />0% (0) will make the image completely un-saturated. <br />100% is default and represents the original image. <br />Values over 100% provides super-saturated results.  <br />**Note:** Negative values are not allowed. |
+| sepia(*%*)                                         | Converts the image to sepia.  <br />0% (0) is default and represents the original image. <br />100% will make the image completely sepia.  <br />**Note:** Negative values are not allowed. |
+| url()                                              | The url() function takes the location of an XML file that specifies an SVG filter, and may include an anchor to a specific filter element. <br />**Example**:  filter: url(svg-url#element-id) |
+| initial                                            | Sets this property to its default value. [Read about *initial*](https://www.w3schools.com/cssref/css_initial.asp) |
+| inherit                                            | Inherits this property from its parent element. [Read about *inherit*](https://www.w3schools.com/cssref/css_inherit.asp) |
+
+
+
+<style>
+html {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  _filter: none;
+}
+</style>
