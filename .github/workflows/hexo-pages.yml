@@ -39,6 +39,9 @@ jobs:
         run: |
           pnpm install
           pnpm build
+          mv public _site
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3.0.1
 
   # Deployment job
   # Deploy job
