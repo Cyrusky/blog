@@ -155,20 +155,20 @@ search:
   index_pages: true
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
-#comment:
-#  type: giscus
-#  repo: Cyrusky/blog
-#  repoId: R_kgDOMZE7MA             # 必填项
-#  category: Q&A                    # 可选填，默认为 Announcements
-#  categoryId: DIC_kwDOMZE7MM4ChC-U # 必填项
-#  mapping: title                   # 可选填，默认为 pathname
-#  strict: false                    # 可选填
-#  reactionsEnabled: true           # 可选填
-#  emitMetadata: false              # 可选填
-#  inputPosition: top               # 可选填，默认为 top
-#  theme: light_tritanopia          # 可选填
-#  lang: zh-CN                      # 可选填，默认为 en
-#  lazy: true                       # 可选填，默认为 false
+comment:
+  type: giscus
+  repo: Cyrusky/blog
+  repoId: R_kgDOMZE7MA             # 必填项
+  category: Q&A                    # 可选填，默认为 Announcements
+  categoryId: DIC_kwDOMZE7MM4ChC-U # 必填项
+  mapping: title                   # 可选填，默认为 pathname
+  strict: false                    # 可选填
+  reactionsEnabled: true           # 可选填
+  emitMetadata: false              # 可选填
+  inputPosition: top               # 可选填，默认为 top
+  theme: light_tritanopia          # 可选填
+  lang: zh-CN                      # 可选填，默认为 en
+  lazy: true                       # 可选填，默认为 false
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 #donates:
