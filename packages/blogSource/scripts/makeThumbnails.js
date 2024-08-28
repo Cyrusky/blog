@@ -42,17 +42,18 @@ allMarkdownFiles.forEach(file => {
     fs.mkdirSync(thumbnailPath, {recursive: true})
   }
 
+  result.data.thumbnail = result.data.cover.replace('/assets/images/', '/assets/thumbnail/')
+  const fileContent = result.stringify()
+  if (!fs.existsSync(path.dirname(markdownPath))) {
+    fs.mkdirSync(path.dirname(markdownPath), {recursive: true})
+  }
+
   sharp(sourcePath)
     .resize(200, 200)
     .toFile(distPath, (err, info) => {
       if (err) {
         console.log(err)
       } else {
-        result.data.thumbnail = result.data.cover.replace('/assets/images/', '/assets/thumbnail/')
-        const fileContent = result.stringify()
-        if (!fs.existsSync(path.dirname(markdownPath))) {
-          fs.mkdirSync(path.dirname(markdownPath), {recursive: true})
-        }
         fs.writeFileSync(markdownPath, fileContent)
       }
     })
