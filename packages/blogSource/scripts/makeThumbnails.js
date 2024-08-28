@@ -8,6 +8,13 @@ const rootPath = path.resolve(__dirname, '..')
 const thumbnailPath = path.resolve(rootPath, 'source', 'assets', 'thumbnail')
 const imagePath = path.resolve(rootPath, 'source', 'assets', 'images')
 
+if (!fs.existsSync(imagePath)) {
+  fs.mkdirSync(imagePath, {recursive: true})
+}
+if (!fs.existsSync(thumbnailPath)) {
+  fs.mkdirSync(thumbnailPath, {recursive: true})
+}
+
 const allMarkdownFiles = readAllFiles(path.resolve(rootPath, 'source', '_posts'), ['.md'])
 
 allMarkdownFiles.forEach(file => {
