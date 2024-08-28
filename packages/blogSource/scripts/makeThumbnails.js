@@ -40,8 +40,6 @@ allMarkdownFiles.forEach(file => {
   const sourcePath = path.join(rootPath, 'source', coverUrl);
   const distPath = sourcePath.replace(imagePath, thumbnailPath);
 
-  console.log(`Source Path: ${sourcePath}\nDist Path: ${distPath}\nThumbnail Path: ${thumbnailPath}\n`)
-
   if (!fs.existsSync(sourcePath)) {
     console.log(`File not found: ${sourcePath}`)
     return;
@@ -62,6 +60,10 @@ allMarkdownFiles.forEach(file => {
   const fileContent = result.stringify()
   if (!fs.existsSync(path.dirname(markdownPath))) {
     fs.mkdirSync(path.dirname(markdownPath), {recursive: true})
+  }
+
+  if (!fs.existsSync(path.dirname(distPath))){
+    fs.mkdirSync(path.dirname(distPath), {recursive: true})
   }
 
   sharp(sourcePath)
