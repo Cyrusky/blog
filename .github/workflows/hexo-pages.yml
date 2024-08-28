@@ -1,5 +1,5 @@
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Hexo with GitHub Pages dependencies preinstalled
 
 on:
   # Runs on pushes targeting the default branch
@@ -40,9 +40,9 @@ jobs:
           pnpm install
       - name: Build
         run: |
-          node script/makeThumbnails.js
-          pnpm build
-          mv public _site
+          pnpm -F @borgor/blog-source makeThumbnails
+          pnpm -F @borgor/blog-source build
+          mv ./packages/blogSource/public ./_site
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3.0.1
 
