@@ -8,6 +8,13 @@ const rootPath = path.resolve(__dirname, '..')
 const thumbnailPath = path.resolve(rootPath, 'source', 'assets', 'thumbnail')
 const imagePath = path.resolve(rootPath, 'source', 'assets', 'images')
 
+console.table({
+  "Root Path": rootPath,
+  "Thumbnail Path": thumbnailPath,
+  "Image Path": imagePath
+})
+
+
 if (!fs.existsSync(imagePath)) {
   fs.mkdirSync(imagePath, {recursive: true})
 }
