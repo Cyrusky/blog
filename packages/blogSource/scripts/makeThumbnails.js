@@ -24,6 +24,13 @@ if (!fs.existsSync(thumbnailPath)) {
 
 const allMarkdownFiles = readAllFiles(path.resolve(rootPath, 'source', '_posts'), ['.md'])
 
+console.table(allMarkdownFiles.map(file => {
+  return {
+    "Name": file.name,
+    "Path": file.path,
+  }
+}))
+
 allMarkdownFiles.forEach(file => {
   const markdownPath = path.join(file.path, file.name)
   const content = fs.readFileSync(markdownPath, 'utf8')
@@ -32,6 +39,8 @@ allMarkdownFiles.forEach(file => {
   const coverUrl = result.data.cover;
   const sourcePath = path.join(rootPath, 'source', coverUrl);
   const distPath = sourcePath.replace(imagePath, thumbnailPath);
+
+  console.log(`Source Path: ${sourcePath}\nDist Path: ${distPath}\nThumbnail Path: ${thumbnailPath}\n`)
 
   if (!fs.existsSync(sourcePath)) {
     console.log(`File not found: ${sourcePath}`)
