@@ -12,5 +12,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "pnpm": {
+    "allowedDeprecatedVersions": {
+      "abab": "*",
+      "cuid": "*",
+      "domexception": "*",
+      "glob": "*",
+      "inflight": "*"
+    }
+  }
 }

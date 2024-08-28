@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 3ba82237
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 Facade模式是一种软件设计模式，属于结构型模式之一。它提供了一个统一的高层接口，用于访问子系统中的一群接口。这种模式定义了一个高层的接口，使得子系统更容易使用。简而言之，Facade模式隐藏了系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。

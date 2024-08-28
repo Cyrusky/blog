@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 2039af48
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 备忘录模式（Memento Pattern）是一种行为设计模式，用于在不破坏封装性的前提下捕获并存储对象的内部状态，以便之后可以将该对象恢复到该状态。这种模式通常用于实现撤销功能。

@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: fabda9c7
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 责任链模式中事宜一个链表的形式去管理任务, 每一个任务都是链表中的一个节点, 而任务本身会以参数的形式依次在链表中进行传递. 每一个节点负责处理并且终止任务或者将任务传递到下一个及诶单, 如果没有下一个节点,则任务执行失败.

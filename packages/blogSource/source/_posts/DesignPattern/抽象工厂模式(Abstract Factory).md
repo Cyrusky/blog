@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 6a486f00
 date: '2024-08-19 16:42:44'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 举个例子:

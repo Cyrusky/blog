@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 1b1ccf72
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 观察者模式（Observer Pattern），又称为发布-订阅模式或模型-视图模式，是一种行为型设计模式。它定义了对象之间的一种一对多的依赖关系，当一个对象（称为“主题”或“被观察者”）的状态发生改变时，所有依赖于它的对象（称为“观察者”）都会得到通知并自动更新。
 

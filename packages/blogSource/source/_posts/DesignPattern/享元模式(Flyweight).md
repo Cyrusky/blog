@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: b579649a
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 享元模式（Flyweight Pattern）是一种结构型设计模式，旨在通过共享来高效地管理大量细粒度对象。这种模式非常适合于当有大量相似或相同的对象时，通过共享这些对象的一部分数据来减少内存的使用量和提高性能。

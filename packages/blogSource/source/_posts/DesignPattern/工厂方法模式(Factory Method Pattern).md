@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: de947954
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 工厂方法模式是一种创建型设计模式，用于创建对象，但不直接指定将要创建的对象的类。工厂方法模式通过定义一个创建对象的接口，让子类决定实例化哪一个类。工厂方法让类的实例化推迟到子类中进行。

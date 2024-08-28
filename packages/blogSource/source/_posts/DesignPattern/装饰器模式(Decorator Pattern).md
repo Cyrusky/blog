@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: fae1db66
 date: '2024-08-19 16:42:44'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 装饰器模式（Decorator Pattern）是一种结构设计模式，它允许用户在不修改对象自身的基础上，向一个对象添加新的功能。这种模式通过创建一个包装对象，也就是装饰器，来包裹实际对象。装饰器模式通常用于以下场景：

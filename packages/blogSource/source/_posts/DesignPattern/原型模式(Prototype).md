@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 5ffaf317
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 原型模式（Prototype Pattern）是一种创建型设计模式，用于创建新对象时，通过复制现有的对象来避免创建新对象的高昂成本。这种模式特别适用于那些创建过程复杂、耗时或消耗资源较多的对象。

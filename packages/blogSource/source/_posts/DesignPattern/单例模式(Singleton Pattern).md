@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: b579649a
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 单例模式是一种常见的创建型设计模式，它确保一个类只有一个实例，并提供一个全局访问点。以下是一些单例模式的应用场景：

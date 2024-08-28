@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: da6cfa60
 date: '2024-08-19 16:42:44'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 状态模式（State Pattern）是一种行为设计模式，它允许一个对象在其内部状态改变时改变它的行为，看起来好像改变了其类。状态模式主要解决的是当一个对象的行为取决于它的状态，并且这个状态会随时间而变化的问题。

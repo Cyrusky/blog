@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: b579649a
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 中介者模式也叫做仲裁者模式（Mediator Pattern）是一种行为型设计模式，它定义了一个中介对象来封装一系列对象之间的交互。这种模式使得对象之间的耦合度降低，使得它们可以独立地改变和复用。在没有使用仲裁者模式的情况下，对象之间可能会直接相互引用，这会导致它们之间的高度耦合。

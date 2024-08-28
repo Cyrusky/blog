@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: a8139d13
 date: '2024-08-19 16:42:44'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 模板方法模式（Template Method Pattern）是一种行为设计模式，它定义了一个操作的算法框架，而将一些步骤的执行延迟到子类中。模板方法使得子类可以在**不改变算法结构**的情况下，**重新定义算法的某些特定步骤**。

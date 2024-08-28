@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: bbc59605
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 命令模式（Command Pattern）是一种行为设计模式，它将请求封装为一个对象，从而允许用户使用不同的请求、队列或日志请求来参数化其他对象，并支持可撤销的操作。命令模式通常用于以下场景：

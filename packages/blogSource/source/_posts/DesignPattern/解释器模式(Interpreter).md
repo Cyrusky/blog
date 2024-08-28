@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: d6fc1047
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 解释器模式（Interpreter Pattern）是一种行为设计模式，用于定义一个语言的语法规则，并且建立一个解释器，这个解释器可以解释该语言中的句子。解释器模式通常用于以下场景：

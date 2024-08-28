@@ -9,6 +9,7 @@ toc: true
 cover: /assets/images/design-patterns/design-pattern.jpg
 abbrlink: 8fd3abeb
 date: '2024-08-19 16:42:43'
+thumbnail: /assets/thumbnail/design-patterns/design-pattern.jpg
 ---
 
 代理模式（Proxy Pattern）是一种结构型设计模式，它为另一个对象提供一个代替或占位符，以控制对它的访问。代理模式可以在不直接与实际对象交互的情况下，提供对目标对象的间接访问。
