@@ -43,6 +43,9 @@ allMarkdownFiles.forEach(file => {
       } else {
         result.data.thumbnail = result.data.cover.replace('/assets/images/', '/assets/thumbnail/')
         const fileContent = result.stringify()
+        if (!fs.existsSync(path.dirname(markdownPath))) {
+          fs.mkdirSync(path.dirname(markdownPath), {recursive: true})
+        }
         fs.writeFileSync(markdownPath, fileContent)
       }
     })

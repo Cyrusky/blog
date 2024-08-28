@@ -1,7 +1,7 @@
 ---
 title: Horizon的登录过程
 tags:
-   - DevOps
+  - DevOps
 categories:
   - Operations
   - OpenStack

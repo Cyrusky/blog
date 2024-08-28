@@ -1,8 +1,8 @@
 ---
 title: SVM对偶形式推导
 tags:
-   - 数学
-   - 机器学习
+  - 数学
+  - 机器学习
 categories:
   - AI
   - 公式推导
