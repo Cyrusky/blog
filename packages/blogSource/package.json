@@ -27,7 +27,7 @@
     "hexo-theme-icarus": "^6.1.0"
   },
   "devDependencies": {
-    "@types/node": "^22.6.1",
+    "@types/node": "^22.7.3",
     "gray-matter": "^4.0.3",
     "sharp": "^0.33.5",
     "yaml": "^2.5.1"
