@@ -7,6 +7,13 @@ export default defineConfig({
   build: {
     outDir: "../../public/admin",
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler"
+      }
+    }
+  },
   plugins: [react({
     tsDecorators: true,
   })],
