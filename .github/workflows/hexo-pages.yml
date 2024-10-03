@@ -42,6 +42,7 @@ jobs:
         run: |
           pnpm -F @boris/blog-source makeThumbnails
           pnpm -F @boris/blog-source build
+          pnpm -F @boris/admin build
           mv ./packages/blogSource/public ./_site
       - name: Upload artifacts
         uses: actions/upload-pages-artifact@v3.0.1
