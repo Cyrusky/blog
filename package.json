@@ -1,14 +1,18 @@
 {
-  "name": "borgor",
+  "name": "boris",
   "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:blog": "pnpm -F @borgor/blog-source build",
-    "clean:blog": "pnpm -F @borgor/blog-source clean",
-    "deploy:blog": "pnpm -F @borgor/blog-source deploy",
-    "dev:blog": "pnpm -F @borgor/blog-source dev"
+    "dev:admin": "pnpm -F @boris/admin dev",
+    "build:admin": "pnpm -F @boris/admin build",
+    "dev:book": "",
+    "build:book": "",
+    "build:blog": "pnpm -F @boris/blog-source build",
+    "clean:blog": "pnpm -F @boris/blog-source clean",
+    "deploy:blog": "pnpm -F @boris/blog-source deploy",
+    "dev:blog": "pnpm -F @boris/blog-source dev"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +25,6 @@
       "glob": "*",
       "inflight": "*"
     }
-  }
+  },
+  "packageManager": "pnpm@9.11.0"
 }
