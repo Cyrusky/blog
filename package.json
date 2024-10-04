@@ -7,6 +7,8 @@
   "scripts": {
     "dev:admin": "pnpm -F @boris/admin dev",
     "build:admin": "pnpm -F @boris/admin build",
+    "build:backend": "pnpm -F @boris/backend build",
+    "dev:backend": "pnpm -F @boris/backend dev",
     "dev:book": "",
     "build:book": "",
     "build:blog": "pnpm -F @boris/blog-source build",

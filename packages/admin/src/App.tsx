@@ -1,10 +1,9 @@
 import './App.scss'
+import {Layout} from "@/layout";
 
 function App() {
   return (
-    <>
-      123
-    </>
+   <Layout />
   )
 }
 
