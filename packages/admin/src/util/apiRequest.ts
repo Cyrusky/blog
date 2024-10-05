@@ -1,8 +1,7 @@
-import axios, {AxiosInstance} from "axios";
-import {Configs} from "../config";
+import axios, { AxiosInstance } from "axios";
+import { Configs } from "../config";
 
 export class ApiRequest {
-
   private static instance: ApiRequest;
 
   private axios: AxiosInstance;
@@ -12,12 +11,12 @@ export class ApiRequest {
       baseURL: Configs.baseURL,
     });
     this.axios.interceptors.request.use((config) => {
-      return config
-    })
+      return config;
+    });
 
     this.axios.interceptors.response.use((response) => {
       return response.data;
-    })
+    });
   }
 
   public static getInstance(): ApiRequest {
@@ -28,18 +27,18 @@ export class ApiRequest {
   }
 
   public static get<T>(url: string, params?: object) {
-    return ApiRequest.getInstance().axios.get<T>(url, {params});
+    return ApiRequest.getInstance().axios.get<T, T>(url, { params });
   }
 
   public static post<T>(url: string, data?: object) {
-    return ApiRequest.getInstance().axios.post<T>(url, data);
+    return ApiRequest.getInstance().axios.post<T, T>(url, data);
   }
 
   public static put<T>(url: string, data?: object) {
-    return ApiRequest.getInstance().axios.put<T>(url, data);
+    return ApiRequest.getInstance().axios.put<T, T>(url, data);
   }
 
   public static delete<T>(url: string) {
-    return ApiRequest.getInstance().axios.delete<T>(url);
+    return ApiRequest.getInstance().axios.delete<T, T>(url);
   }
 }

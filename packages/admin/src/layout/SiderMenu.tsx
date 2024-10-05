@@ -8,20 +8,24 @@ export const SiderMenu: FC = () => {
   const [defaultActive, setDefaultActive] = useState("");
   const location = useLocation();
 
-  const menuItems = routers.map((router) => {
-    return {
-      key: router.name,
-      label: router.name,
-      icon: router.icon || null,
-      onClick: () => {
-        if (!router.path || router.path === "/") {
-          navigate("/");
-          return;
-        }
-        navigate(router.path);
-      },
-    };
-  });
+  const menuItems = routers
+    .filter((router) => {
+      return router.display;
+    })
+    .map((router) => {
+      return {
+        key: router.name,
+        label: router.name,
+        icon: router.icon || null,
+        onClick: () => {
+          if (!router.path || router.path === "/") {
+            navigate("/");
+            return;
+          }
+          navigate(router.path);
+        },
+      };
+    });
 
   useEffect(() => {
     const pathname = location.pathname;

@@ -1,30 +1,48 @@
 import { ProLayout } from "@ant-design/pro-components";
-import LogoImage from "@/assets/logo.webp";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { SiderMenu } from "@/layout/SiderMenu.tsx";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routers } from "@/router/routers.tsx";
+import LogoImage from "@/assets/logo.webp";
+import { useCheckLogin } from "@/hooks/useCheckLogin.ts";
 
 export const Layout = () => {
+  const router = useLocation();
+  useCheckLogin();
+
+  if (router.pathname === "/login") {
+    return (
+      <Routes>
+        {routers.map((router) => {
+          return (
+            <Route
+              key={router.path}
+              path={router.path}
+              element={router.element}
+            />
+          );
+        })}
+      </Routes>
+    );
+  }
+
   return (
-    <Router basename={"/admin"}>
-      <ProLayout
-        logo={LogoImage}
-        title={"Boris 管理系统"}
-        layout={"side"}
-        menuContentRender={() => <SiderMenu />}
-      >
-        <Routes>
-          {routers.map((router) => {
-            return (
-              <Route
-                key={router.path}
-                path={router.path}
-                element={router.element}
-              />
-            );
-          })}
-        </Routes>
-      </ProLayout>
-    </Router>
+    <ProLayout
+      logo={LogoImage}
+      title={"Boris 管理系统"}
+      layout={"side"}
+      menuContentRender={() => <SiderMenu />}
+    >
+      <Routes>
+        {routers.map((router) => {
+          return (
+            <Route
+              key={router.path}
+              path={router.path}
+              element={router.element}
+            />
+          );
+        })}
+      </Routes>
+    </ProLayout>
   );
 };
