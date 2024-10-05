@@ -4,9 +4,11 @@ export enum ServiceNames {
   Router = "Router",
   UserService = "UserService",
   AuthService = "AuthService",
+  LeetCodeService = "LeetCodeService",
 }
 
 export enum ControllerNames {
   HelloWorldController = "HelloWorldController",
   AuthController = "AuthController",
+  LeetCodeController = "LeetCodeController",
 }

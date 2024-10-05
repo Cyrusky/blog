@@ -7,7 +7,7 @@ export const useCheckLogin = () => {
 
   useEffect(() => {
     AuthAPI.isLogin().then((res) => {
-      if (res.code === 0) {
+      if (!res.isLogin) {
         navigate("/login");
       }
     });

@@ -11,6 +11,7 @@ export class Configs {
   static authBypass: RegExp[] = [
     /\//,
     /\/login/,
+    /\/isLogin/,
     /\/register/,
     /\/favicon.ico/,
   ];

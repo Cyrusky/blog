@@ -1,5 +1,11 @@
-import axios, { AxiosInstance } from "axios";
-import { Configs } from "../config";
+import type { AxiosInstance } from "axios";
+import axios from "axios";
+import { Configs } from "@/config";
+import { message } from "antd";
+import {
+  AUTH_TOKEN_HEADER_KEY,
+  AUTH_TOKEN_STORAGE_KEY,
+} from "@boris/common/src/constant";
 
 export class ApiRequest {
   private static instance: ApiRequest;
@@ -11,11 +17,31 @@ export class ApiRequest {
       baseURL: Configs.baseURL,
     });
     this.axios.interceptors.request.use((config) => {
+      const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);
+      if (token) {
+        config.headers[AUTH_TOKEN_HEADER_KEY] = token;
+      }
       return config;
     });
 
     this.axios.interceptors.response.use((response) => {
-      return response.data;
+      switch (response.status) {
+        case 401:
+          message.error("Unauthorized");
+          break;
+        case 403:
+          message.error("Forbidden");
+          break;
+        case 404:
+          message.error("Not Found");
+          break;
+        case 500:
+          message.error("Internal Server Error");
+          break;
+        default:
+          break;
+      }
+      return response.data.data;
     });
   }
 

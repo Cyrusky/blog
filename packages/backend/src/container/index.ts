@@ -7,6 +7,8 @@ import { DB } from "@/db";
 import { UserService } from "@/services/userService";
 import { AuthController } from "@/controller/AuthController";
 import { AuthService } from "@/services/authService";
+import { LeetCodeController } from "@/controller/LeetCodeController";
+import { LeetCodeService } from "@/services/leetCodeService";
 
 export class IOC {
   private static instance: IOC;
@@ -39,6 +41,10 @@ export class IOC {
       .bind<AuthController>(ControllerNames.AuthController)
       .to(AuthController)
       .inSingletonScope();
+    this.container
+      .bind<LeetCodeController>(ControllerNames.LeetCodeController)
+      .to(LeetCodeController)
+      .inSingletonScope();
     this.container.bind(ServiceNames.Router).to(BorisRouter);
   }
 
@@ -47,5 +53,8 @@ export class IOC {
     this.container.bind<DB>(ServiceNames.Database).to(DB).inSingletonScope();
     this.container.bind<UserService>(ServiceNames.UserService).to(UserService);
     this.container.bind<AuthService>(ServiceNames.AuthService).to(AuthService);
+    this.container
+      .bind<LeetCodeService>(ServiceNames.LeetCodeService)
+      .to(LeetCodeService);
   }
 }

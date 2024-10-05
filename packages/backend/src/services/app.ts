@@ -3,7 +3,7 @@ import { ServiceNames } from "@/constant/ServiceNames";
 import { Configs } from "@/config";
 import Koa from "koa";
 import { LogUtils } from "@/utils/logUtils";
-import { BorisRouter } from "@/router";
+import type { BorisRouter } from "@/router";
 import { logMiddleware } from "@/middleware/logMiddleware";
 import { authMiddleware } from "@/middleware/authMiddleware";
 import bodyParser from "koa-bodyparser";

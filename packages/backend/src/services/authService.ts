@@ -27,4 +27,8 @@ export class AuthService {
       username: user.username!,
     });
   }
+
+  async verifyToken(token: string) {
+    return JwtUtils.verifyToken(token);
+  }
 }

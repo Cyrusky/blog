@@ -1,10 +1,35 @@
 import { LoginForm, ProFormText } from "@ant-design/pro-components";
 import "./LoginPage.scss";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { AuthAPI } from "@/api/auth.ts";
+import { useNavigate } from "react-router-dom";
+import { AUTH_TOKEN_STORAGE_KEY } from "@boris/common/src/constant";
+
+interface LoginFormFields {
+  username: string;
+  password: string;
+}
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const handleFormFinished = async (values: LoginFormFields) => {
+    AuthAPI.login({
+      username: values.username,
+      password: values.password,
+    }).then((res) => {
+      if (res.token) {
+        localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, res.token);
+        navigate("/");
+      }
+    });
+  };
+
   return (
-    <LoginForm className={"login-page"} title={"Boris"}>
+    <LoginForm
+      className={"login-page"}
+      title={"Boris"}
+      onFinish={handleFormFinished}
+    >
       <ProFormText
         style={{
           marginTop: 100,

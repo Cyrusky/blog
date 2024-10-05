@@ -1,8 +1,8 @@
-import { Context, Next } from "koa";
+import type { Context, Next } from "koa";
 import { JwtUtils } from "@/utils/jwtUtils";
 import { ResponseUtil } from "@/utils/responseUtil";
 import { IOC } from "@/container";
-import { UserService } from "@/services/userService";
+import type { UserService } from "@/services/userService";
 import { ServiceNames } from "@/constant/ServiceNames";
 import { Configs } from "@/config";
 

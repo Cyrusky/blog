@@ -1,5 +1,5 @@
 export class ResponseUtil {
-  static success(data: object = {}, message: string = "success") {
+  static success<T = object>(data: T, message: string = "success") {
     return {
       code: 200,
       message,

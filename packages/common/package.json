@@ -1,0 +1,28 @@
+{
+  "name": "@boris/common",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "scripts": {
+  },
+  "keywords": [
+    "scaffold",
+    "koa",
+    "nodejs"
+  ],
+  "author": "cyrusky <bo.jin@borgor.cn>",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^22.7.2",
+    "eslint": "^9.11.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "dependencies": {
+  },
+  "packageManager": "pnpm@9.11.0"
+}

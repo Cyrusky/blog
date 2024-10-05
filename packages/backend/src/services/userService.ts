@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { DB } from "@/db";
+import type { DB } from "@/db";
 import { ServiceNames } from "@/constant/ServiceNames";
 
 @injectable()

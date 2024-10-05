@@ -3,7 +3,7 @@ import { LogUtils } from "@/utils/logUtils";
 import { injectable } from "inversify";
 import Router from "@koa/router";
 import { Configs } from "@/config";
-import { ControllerNames } from "@/constant/ServiceNames";
+import type { ControllerNames } from "@/constant/ServiceNames";
 import { IOC } from "@/container";
 
 export interface RouterRecords {
@@ -83,7 +83,11 @@ export class BorisRouter {
 
   private static hasRouterPath(records: RouterRecords) {
     return BorisRouter.registerRoutes.some((route) => {
-      return route.method === records.method && route.path === records.path;
+      return (
+        route.target === records.target &&
+        route.method === records.method &&
+        route.path === records.path
+      );
     });
   }
 

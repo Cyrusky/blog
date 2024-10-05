@@ -1,4 +1,4 @@
-import { TokenUserInfo } from "@/types/router";
+import type { TokenUserInfo } from "@/types/router";
 import jwt from "jsonwebtoken";
 import { LogUtils } from "@/utils/logUtils";
 import * as process from "node:process";
@@ -23,6 +23,7 @@ export class JwtUtils {
         LogUtils.error(`Token expired.`);
         return undefined;
       }
+      return userinfo;
     } catch (error) {
       if (error instanceof jwt.TokenExpiredError) {
         LogUtils.error(`Token expired.`);
