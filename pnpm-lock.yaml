@@ -58,7 +58,7 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.8(@types/node@22.7.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
+        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.8(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
       eslint:
         specifier: ^9.9.0
         version: 9.11.1
@@ -85,7 +85,7 @@ importers:
         version: 8.8.0(eslint@9.11.1)(typescript@5.6.2)
       vite:
         specifier: ^5.4.1
-        version: 5.4.8(@types/node@22.7.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+        version: 5.4.8(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
 
   packages/backend:
     dependencies:
@@ -154,8 +154,8 @@ importers:
         specifier: ^0.7.34
         version: 0.7.34
       '@types/node':
-        specifier: ^22.7.2
-        version: 22.7.4
+        specifier: ^22.7.5
+        version: 22.7.5
       '@types/node-rsa':
         specifier: ^1.1.4
         version: 1.1.4
@@ -167,7 +167,7 @@ importers:
         version: 9.11.1
       eslint-plugin-import:
         specifier: ^2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.8.0(eslint@9.11.1)(typescript@5.6.2))(eslint@9.11.1)
+        version: 2.31.0(eslint@9.11.1)
       eslint-plugin-prettier:
         specifier: ^5.2.1
         version: 5.2.1(eslint@9.11.1)(prettier@3.3.3)
@@ -182,7 +182,7 @@ importers:
         version: 3.3.3
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.7.4)(typescript@5.6.2)
+        version: 10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.7.5)(typescript@5.6.2)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -233,8 +233,8 @@ importers:
         version: 6.1.0(chokidar@3.6.0)
     devDependencies:
       '@types/node':
-        specifier: ^22.7.4
-        version: 22.7.4
+        specifier: ^22.7.5
+        version: 22.7.5
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -251,8 +251,8 @@ importers:
         specifier: ^9.11.1
         version: 9.11.1
       '@types/node':
-        specifier: ^22.7.2
-        version: 22.7.4
+        specifier: ^22.7.5
+        version: 22.7.5
       eslint:
         specifier: ^9.11.1
         version: 9.11.1
@@ -1836,8 +1836,8 @@ packages:
   '@types/node-rsa@1.1.4':
     resolution: {integrity: sha512-dB0ECel6JpMnq5ULvpUTunx3yNm8e/dIkv8Zu9p2c8me70xIRUUG3q+qXRwcSf9rN3oqamv4116iHy90dJGRpA==}
 
-  '@types/node@22.7.4':
-    resolution: {integrity: sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==}
+  '@types/node@22.7.5':
+    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -6412,16 +6412,16 @@ snapshots:
 
   '@types/accepts@1.3.7':
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/content-disposition@0.5.8': {}
 
@@ -6430,13 +6430,13 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/express': 5.0.0
       '@types/keygrip': 1.0.6
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/estree@1.0.6': {}
 
   '@types/express-serve-static-core@5.0.0':
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
       '@types/qs': 6.9.16
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -6458,7 +6458,7 @@ snapshots:
 
   '@types/jsonwebtoken@9.0.7':
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/keygrip@1.0.6': {}
 
@@ -6479,7 +6479,7 @@ snapshots:
       '@types/http-errors': 2.0.4
       '@types/keygrip': 1.0.6
       '@types/koa-compose': 3.2.8
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/koa__router@12.0.4':
     dependencies:
@@ -6491,9 +6491,9 @@ snapshots:
 
   '@types/node-rsa@1.1.4':
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
-  '@types/node@22.7.4':
+  '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.6
 
@@ -6515,12 +6515,12 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
       '@types/send': 0.17.4
 
   '@typescript-eslint/eslint-plugin@8.8.0(@typescript-eslint/parser@8.8.0(eslint@9.11.1)(typescript@5.6.2))(eslint@9.11.1)(typescript@5.6.2)':
@@ -6610,10 +6610,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.8(@types/node@22.7.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
+  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.8(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
     dependencies:
       '@swc/core': 1.7.26(@swc/helpers@0.5.1)
-      vite: 5.4.8(@types/node@22.7.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+      vite: 5.4.8(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -7516,17 +7516,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.8.0(eslint@9.11.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@9.11.1):
+  eslint-module-utils@2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.11.1):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 8.8.0(eslint@9.11.1)(typescript@5.6.2)
       eslint: 9.11.1
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.8.0(eslint@9.11.1)(typescript@5.6.2))(eslint@9.11.1):
+  eslint-plugin-import@2.31.0(eslint@9.11.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -7537,7 +7536,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.11.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.8.0(eslint@9.11.1)(typescript@5.6.2))(eslint-import-resolver-node@0.3.9)(eslint@9.11.1)
+      eslint-module-utils: 2.12.0(eslint-import-resolver-node@0.3.9)(eslint@9.11.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -7548,8 +7547,6 @@ snapshots:
       semver: 6.3.1
       string.prototype.trimend: 1.0.8
       tsconfig-paths: 3.15.0
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.8.0(eslint@9.11.1)(typescript@5.6.2)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -8282,7 +8279,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
@@ -9718,14 +9715,14 @@ snapshots:
     dependencies:
       typescript: 5.6.2
 
-  ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.7.4)(typescript@5.6.2):
+  ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.7.5)(typescript@5.6.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
       acorn: 8.12.1
       acorn-walk: 8.3.3
       arg: 4.1.3
@@ -9871,13 +9868,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@5.4.8(@types/node@22.7.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
+  vite@5.4.8(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.4)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
     dependencies:
       esbuild: 0.21.4
       postcss: 8.4.47
       rollup: 4.24.0
     optionalDependencies:
-      '@types/node': 22.7.4
+      '@types/node': 22.7.5
       fsevents: 2.3.3
       less: 4.2.0
       lightningcss: 1.22.1
