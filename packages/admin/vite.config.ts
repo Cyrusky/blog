@@ -6,6 +6,19 @@ export default defineConfig({
   base: "/admin/",
   build: {
     outDir: "../blogSource/public/admin",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react"],
+          "react-dom": ["react-dom"],
+          "react-router-dom": ["react-router-dom"],
+          antd: ["antd"],
+          axios: ["axios"],
+          "@ant-design/icons": ["@ant-design/icons"],
+          "@ant-design/pro-components": ["@ant-design/pro-components"],
+        },
+      },
+    },
   },
   css: {
     preprocessorOptions: {
