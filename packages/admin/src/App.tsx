@@ -1,12 +1,16 @@
 import "./App.scss";
 import { Layout } from "@/layout";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename={"/admin"}>
+    <HashRouter
+      future={{
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Layout />
-    </Router>
+    </HashRouter>
   );
 }
 

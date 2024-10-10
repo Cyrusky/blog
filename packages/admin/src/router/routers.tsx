@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { ReactNode } from "react";
-import { RouteObject } from "react-router-dom";
+import type { ReactNode } from "react";
+import React from "react";
+import type { RouteObject } from "react-router-dom";
 import { IconFont } from "@/component/Iconfont.tsx";
 
 export type RouterItem = RouteObject & {
