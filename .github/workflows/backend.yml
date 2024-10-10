@@ -65,7 +65,9 @@ jobs:
           first_ssh: |
             mkdir -p /root/runner/assistant_backend/{data,logs}
           scp: |
-            './build/deploy/docker-compose.yml' => /root/runner/assistant_backend/
-            './build/deploy/run_docker.sh' => /root/runner/assistant_backend/
+            './build/deploy/docker-compose.backend.yml' => /root/runner/assistant_backend/
+            './build/deploy/run_docker.backend.sh' => /root/runner/assistant_backend/
           last_ssh: |
+            mv /root/runner/assistant_backend/docker-compose.backend.yml /root/runner/assistant_backend/docker-compose.yml
+            mv /root/runner/assistant_backend/run_docker.backend.sh /root/runner/assistant_backend/run_docker.sh
             bash /root/runner/assistant_backend/run_docker.sh
