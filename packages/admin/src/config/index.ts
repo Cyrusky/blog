@@ -1,4 +1,3 @@
-
 export const Configs = {
-  baseURL: "/api",
-}
+  baseURL: _DEV_ ? "/api" : "https://vpcn.borgor.cn/boris/api",
+};

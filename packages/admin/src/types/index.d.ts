@@ -8,3 +8,5 @@ declare interface LoginRequest {
   username: string;
   password: string;
 }
+
+declare const _DEV_: string;
