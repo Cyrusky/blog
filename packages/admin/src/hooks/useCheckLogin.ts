@@ -6,10 +6,14 @@ export const useCheckLogin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AuthAPI.isLogin().then((res) => {
-      if (!res.isLogin) {
+    AuthAPI.isLogin()
+      .then((res) => {
+        if (!res.isLogin) {
+          navigate("/login");
+        }
+      })
+      .catch(() => {
         navigate("/login");
-      }
-    });
+      });
   }, [navigate]);
 };
