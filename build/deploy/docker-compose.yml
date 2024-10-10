@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: registry.cn-hangzhou.aliyuncs.com/borgor/assistant_backend:latest
+    container_name: assistant_backend
+    pull_policy: always
+    restart: unless-stopped
+    environment:
+      - JWT_SECRET=fd7YorCcJmsvRWemxtjNjh7mwTh7oNkZLaLMfTTZ475Fy0uo3aY0J0b4j
+      - DATABASE_URL="postgresql://postgres:Jinboagg1314%21%40%23@vpcn.borgor.cn:5432/borgor_prod?schema=bor_dev"
+    networks:
+      - tools_network
+    volumes:
+      - ./logs:/app/logs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
