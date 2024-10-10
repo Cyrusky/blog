@@ -18,7 +18,7 @@ export class AuthService {
       LogUtils.debug(`User [${username}] not found`);
       return null;
     }
-    const digestPassword = SHAUtils.digest(password);
+    const digestPassword = await SHAUtils.digest(password);
     if (user.password !== digestPassword) {
       LogUtils.debug(`Password [${username}:${password}] not match`);
       return null;
