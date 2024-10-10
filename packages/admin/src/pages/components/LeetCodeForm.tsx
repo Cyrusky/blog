@@ -192,7 +192,6 @@ export const LeetCodeForm: FC = () => {
                       message.error("翻译失败");
                     }
                   } finally {
-                    message.error("翻译失败");
                     setLoading(false);
                   }
                 }}
