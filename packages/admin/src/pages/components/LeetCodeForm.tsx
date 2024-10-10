@@ -13,21 +13,27 @@ import {
 } from "@ant-design/icons";
 
 const { Link } = Typography;
-
+type SortOrder = "descend" | "ascend" | null;
 export const LeetCodeForm: FC = () => {
   const [loading, setLoading] = useState(false);
   const actionRef = useRef<ActionType>();
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(15);
 
   // eslint-disable-next-line
-  const requestData = async (params: any) => {
+  const requestData: any = async (
+    params: { pageSize: number; current: number },
+    sort: Record<string, SortOrder>,
+  ) => {
     const { current, pageSize } = params;
     setLoading(true);
-    const result = await LeetcodeAPI.listLeetCodeQuestions({
-      page: current,
-      pageSize,
-    });
+    const result = await LeetcodeAPI.listLeetCodeQuestions(
+      {
+        page: current,
+        pageSize,
+      },
+      sort,
+    );
     setLoading(false);
     return { data: result.questions, total: result.total, success: true };
   };
@@ -39,9 +45,23 @@ export const LeetCodeForm: FC = () => {
       width: 40,
     },
     {
+      title: "No.",
+      dataIndex: "question_frontend_id",
+      width: 40,
+      sorter: true,
+      render: (text) => {
+        return (
+          <Tag color={"cyan-inverse"} bordered={false}>
+            {(text || "").toString().padStart(5, "0")}
+          </Tag>
+        );
+      },
+    },
+    {
       title: "难度",
       dataIndex: "difficulty",
       width: 100,
+      sorter: true,
       render: (text) => {
         const tagColor =
           text === Difficulty.Easy
@@ -62,7 +82,8 @@ export const LeetCodeForm: FC = () => {
     {
       title: "会员",
       dataIndex: "is_paid_only",
-      width: 30,
+      width: 60,
+      sorter: true,
       render: (text) => {
         return text ? (
           <Tag color={"red"} bordered={false}>
@@ -78,7 +99,8 @@ export const LeetCodeForm: FC = () => {
     {
       title: "状态",
       dataIndex: "status",
-      width: 50,
+      width: 60,
+      sorter: true,
       render: (text) => {
         switch (text) {
           case 0:
@@ -108,13 +130,14 @@ export const LeetCodeForm: FC = () => {
       title: "问题名称",
       dataIndex: "title",
       width: 500,
+      sorter: true,
       render: (text, record) => {
         const link = `https://leetcode.cn/problems/${record.title_slug}/description/`;
         const linkEn = `https://leetcode.com/problems/${record.title_slug}/description/`;
         return (
           <Space>
             <Link href={record.title_cn ? link : linkEn} target={"_blank"}>
-              {record.question_frontend_id}. {record.title_cn || text}
+              {record.title_cn || text}
             </Link>
             <Link href={record.title_cn ? linkEn : link} target={"_blank"}>
               <Tag color={"cyan"} bordered={false}>
@@ -126,11 +149,8 @@ export const LeetCodeForm: FC = () => {
       },
     },
     {
-      title: "创建时间",
-      dataIndex: "created_at",
-    },
-    {
       title: "操作",
+      width: 200,
       render: (_, record: LeetCodeQuestion) => {
         return (
           <Space>
@@ -144,7 +164,7 @@ export const LeetCodeForm: FC = () => {
             </Button>
             <Button
               size={"small"}
-              key={"edit"}
+              key={"delete"}
               color={"danger"}
               variant={"solid"}
             >
@@ -153,24 +173,28 @@ export const LeetCodeForm: FC = () => {
             {!record.title_cn && (
               <Button
                 size={"small"}
-                key={"edit"}
+                key={"refresh"}
                 variant={"dashed"}
                 color={"primary"}
                 icon={<RedoOutlined />}
                 onClick={async () => {
-                  setLoading(true);
-                  const question = await LeetcodeAPI.translateQuestion(
-                    record.id_auto,
-                  );
-                  if (question) {
-                    if (actionRef.current) {
-                      await actionRef.current.reload();
+                  try {
+                    setLoading(true);
+                    const question = await LeetcodeAPI.translateQuestion(
+                      record.id_auto,
+                    );
+                    if (question) {
+                      if (actionRef.current) {
+                        await actionRef.current.reload();
+                      }
+                      message.success("翻译成功");
+                    } else {
+                      message.error("翻译失败");
                     }
-                    message.success("翻译成功");
-                  } else {
+                  } finally {
                     message.error("翻译失败");
+                    setLoading(false);
                   }
-                  setLoading(false);
                 }}
               />
             )}

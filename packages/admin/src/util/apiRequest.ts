@@ -15,6 +15,7 @@ export class ApiRequest {
   private constructor() {
     this.axios = axios.create({
       baseURL: Configs.baseURL,
+      timeout: 10000,
     });
     this.axios.interceptors.request.use((config) => {
       const token = localStorage.getItem(AUTH_TOKEN_STORAGE_KEY);

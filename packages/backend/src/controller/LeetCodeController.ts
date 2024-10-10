@@ -17,9 +17,13 @@ export class LeetCodeController {
   async listLeetCodeQuestions(ctx: Context) {
     const page = parseInt(ctx.query.page as string) || 1;
     const pageSize = parseInt(ctx.query.pageSize as string) || 10;
+    const sortKey = ctx.query.sortKey as string | undefined;
+    const sortOrder = ctx.query.sortOrder as string | undefined;
     const result = await this.leetCodeService.listLeetCodeQuestions(
       page,
       pageSize,
+      sortKey,
+      sortOrder,
     );
     ctx.body = ResponseUtil.success({
       questions: result.questions,

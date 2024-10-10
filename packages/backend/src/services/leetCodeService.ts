@@ -7,11 +7,23 @@ import axios from "axios";
 export class LeetCodeService {
   constructor(@inject<DB>(ServiceNames.Database) private readonly db: DB) {}
 
-  async listLeetCodeQuestions(page: number = 1, pageSize: number = 10) {
-    const condition = {
+  async listLeetCodeQuestions(
+    page: number = 1,
+    pageSize: number = 10,
+    sortKey = "",
+    sortOrder = "",
+  ) {
+    // eslint-disable-next-line
+    const condition: any = {
       take: pageSize,
       skip: (page - 1) * pageSize,
+      orderBy: {},
     };
+    if (sortKey && sortOrder) {
+      condition["orderBy"] = {
+        [sortKey]: sortOrder === "ascend" ? "asc" : "desc",
+      };
+    }
     const questions =
       await this.db.client.bor_leetcode_questions.findMany(condition);
     const total = await this.db.client.bor_leetcode_questions.count();
