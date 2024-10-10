@@ -35,6 +35,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Inject Envs
+        run:
+          bash build/scripts/make-docker-compose.backend.sh
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -67,7 +71,9 @@ jobs:
           scp: |
             './build/deploy/docker-compose.backend.yml' => /root/runner/assistant_backend/
             './build/deploy/run_docker.backend.sh' => /root/runner/assistant_backend/
+            './build/deploy/.env.backend' => /root/runner/assistant_backend/.env
           last_ssh: |
             mv /root/runner/assistant_backend/docker-compose.backend.yml /root/runner/assistant_backend/docker-compose.yml
             mv /root/runner/assistant_backend/run_docker.backend.sh /root/runner/assistant_backend/run_docker.sh
+            
             bash /root/runner/assistant_backend/run_docker.sh

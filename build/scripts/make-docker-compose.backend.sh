@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+cat <<EOF > ./build/deploy/docker-compose.backend.yml
 services:
   backend:
     image: registry.cn-hangzhou.aliyuncs.com/borgor/assistant_backend:latest
@@ -5,8 +8,8 @@ services:
     pull_policy: always
     restart: unless-stopped
     environment:
-      - JWT_SECRET=
-      - DATABASE_URL=
+      - JWT_SECRET=${JWT_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
     networks:
       - tools_network
     volumes:
@@ -16,3 +19,4 @@ services:
 
 networks:
   tools_network:
+EOF
