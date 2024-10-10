@@ -50,6 +50,7 @@ jobs:
         with:
           push: true
           no-cache: true
+          file: ./build/backend.Dockerfile
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
