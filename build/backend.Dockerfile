@@ -14,6 +14,14 @@ WORKDIR /app
 
 COPY --from=builder /build/build/scripts/backend.sh /app/entrypoint.sh
 COPY --from=builder /build/packages/backend/dist/index.js /app/index.js
+COPY --from=builder /build/packages/backend/prisma/ /app/prisma/
+COPY --from=builder /build/build/deploy/package.backend.json /app/package.json
+
+
+RUN npm config set registry http://mirrors.cloud.tencent.com/npm/
+RUN npm install -g prisma
+RUN npm install
+RUN prisma generate
 
 ENV NODE_ENV=production
 ENV PORT=3000
