@@ -18,4 +18,5 @@ export class Configs {
   static api = {
     prefix: "/api",
   };
+  static FeiShuToken = process.env.FEISHU_TOKEN || "";
 }

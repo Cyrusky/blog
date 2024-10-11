@@ -2,6 +2,8 @@ import { inject, injectable } from "inversify";
 import type { DB } from "@/db";
 import { ServiceNames } from "@/constant/ServiceNames";
 import axios from "axios";
+import { LogUtils } from "@/utils/logUtils";
+import { AnyType } from "@/types/router";
 
 @injectable()
 export class LeetCodeService {
@@ -33,39 +35,94 @@ export class LeetCodeService {
     };
   }
 
-  async translateQuestion(titleSlug: number) {
-    const question = await this.db.client.bor_leetcode_questions.findUnique({
+  async listEnglishLeetCodeQuestions() {
+    return this.db.client.bor_leetcode_questions.findMany({
       where: {
-        id_auto: titleSlug,
+        title_cn: {
+          equals: "",
+        },
       },
     });
-    if (!question) {
+  }
+
+  async translateQuestionByAutoIdAndSlug(id_auto: number, slug: string) {
+    try {
+      const cnTitle = await this.getQuestionCNTitleBySlug(slug);
+      if (cnTitle) {
+        await this.updateQuestionCNTitle(id_auto, cnTitle);
+      }
+      return cnTitle;
+    } catch (e: AnyType) {
+      LogUtils.error("translateQuestionByAutoIdAndSlug", e.message);
       return undefined;
     }
-    const result = await axios.post(
-      "https://leetcode.com/graphql",
-      {
-        query:
-          "query questionTranslations($titleSlug: String!) {question(titleSlug: $titleSlug) {translatedTitle}}",
-        variables: {
-          titleSlug: question.title_slug,
-        },
-        operationName: "questionTranslations",
-      },
-      {
-        headers: {
-          Host: "leetcode.cn",
-          "Content-Type": "application/json",
-        },
-      },
-    );
-    await this.db.client.bor_leetcode_questions.update({
+  }
+
+  async translateQuestionByAutoId(autoId: number) {
+    const question = await this.db.client.bor_leetcode_questions.findUnique({
       where: {
-        id_auto: question.id_auto,
+        id_auto: autoId,
       },
-      data: { title_cn: result.data.data.question.translatedTitle },
     });
-    question.title_cn = result.data.data.question.translatedTitle;
+    if (!question || !question.title_slug) {
+      return undefined;
+    }
+    const cnTitle = await this.getQuestionCNTitleBySlug(question.title_slug);
+    await this.updateQuestionCNTitle(autoId, cnTitle);
+    question.title_cn = cnTitle;
     return question;
+  }
+
+  private async updateQuestionCNTitle(autoId: number, cn_title: string) {
+    try {
+      const question = await this.db.client.bor_leetcode_questions.findUnique({
+        where: {
+          id_auto: autoId,
+        },
+      });
+      if (!question) {
+        return false;
+      }
+      await this.db.client.bor_leetcode_questions.update({
+        where: {
+          id_auto: autoId,
+        },
+        data: {
+          title_cn: cn_title,
+        },
+      });
+      return true;
+    } catch (e: AnyType) {
+      LogUtils.error("updateQuestionCNTitle", e.message);
+      return false;
+    }
+  }
+
+  private async getQuestionCNTitleBySlug(title_slug: string) {
+    try {
+      const result = await axios.post(
+        "https://leetcode.com/graphql",
+        {
+          query:
+            "query questionTranslations($titleSlug: String!) {question(titleSlug: $titleSlug) {translatedTitle}}",
+          variables: {
+            titleSlug: title_slug,
+          },
+          operationName: "questionTranslations",
+        },
+        {
+          headers: {
+            Host: "leetcode.cn",
+            "Content-Type": "application/json",
+            "User-Agent":
+              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36",
+          },
+        },
+      );
+      return result.data.data.question.translatedTitle;
+    } catch (e: AnyType) {
+      LogUtils.error("getQuestionCNTitleBySlug", e.message);
+      return "";
+    }
   }
 }

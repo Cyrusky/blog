@@ -1,4 +1,4 @@
-import Router from "@koa/router";
+import type Router from "@koa/router";
 
 export interface TokenUserInfo {
   username: string;
@@ -11,3 +11,6 @@ export interface BorisRouter {
 
   get prefix(): string;
 }
+
+// eslint-disable-next-line
+export type AnyType = any;

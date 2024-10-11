@@ -5,6 +5,7 @@ export enum ServiceNames {
   UserService = "UserService",
   AuthService = "AuthService",
   LeetCodeService = "LeetCodeService",
+  ScheduleService = "ScheduleService",
 }
 
 export enum ControllerNames {

@@ -10,6 +10,7 @@ services:
     environment:
       - JWT_SECRET=${JWT_SECRET}
       - DATABASE_URL=${DATABASE_URL}
+      - FEISHU_TOKEN=${FEISHU_TOKEN}
     networks:
       - tools_network
     volumes:

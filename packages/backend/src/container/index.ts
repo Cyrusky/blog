@@ -9,6 +9,7 @@ import { AuthController } from "@/controller/AuthController";
 import { AuthService } from "@/services/authService";
 import { LeetCodeController } from "@/controller/LeetCodeController";
 import { LeetCodeService } from "@/services/leetCodeService";
+import { ScheduleService } from "@/services/scheduleService";
 
 export class IOC {
   private static instance: IOC;
@@ -30,6 +31,7 @@ export class IOC {
   private bindServices() {
     this.bindApplication();
     this.bindRouter();
+    this.bindScheduler();
   }
 
   private bindRouter() {
@@ -56,5 +58,12 @@ export class IOC {
     this.container
       .bind<LeetCodeService>(ServiceNames.LeetCodeService)
       .to(LeetCodeService);
+  }
+
+  private bindScheduler() {
+    this.container
+      .bind<ScheduleService>(ServiceNames.ScheduleService)
+      .to(ScheduleService)
+      .inSingletonScope();
   }
 }

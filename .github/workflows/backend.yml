@@ -39,6 +39,7 @@ jobs:
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          FEISHU_TOKEN: ${{ secrets.FEISHU_TOKEN }}
         run:
           bash build/scripts/make-docker-compose.backend.sh
 
