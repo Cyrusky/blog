@@ -19,11 +19,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type bor_config = $Result.DefaultSelection<Prisma.$bor_configPayload>
 /**
- * Model bor_leetcode_question_topic_tags
- * 
- */
-export type bor_leetcode_question_topic_tags = $Result.DefaultSelection<Prisma.$bor_leetcode_question_topic_tagsPayload>
-/**
  * Model bor_leetcode_questions
  * 
  */
@@ -33,6 +28,11 @@ export type bor_leetcode_questions = $Result.DefaultSelection<Prisma.$bor_leetco
  * 
  */
 export type bor_leetcode_topic_tags = $Result.DefaultSelection<Prisma.$bor_leetcode_topic_tagsPayload>
+/**
+ * Model bor_leetcode_resolve_records
+ * 
+ */
+export type bor_leetcode_resolve_records = $Result.DefaultSelection<Prisma.$bor_leetcode_resolve_recordsPayload>
 /**
  * Model bor_user
  * 
@@ -173,16 +173,6 @@ export class PrismaClient<
   get bor_config(): Prisma.bor_configDelegate<ExtArgs>;
 
   /**
-   * `prisma.bor_leetcode_question_topic_tags`: Exposes CRUD operations for the **bor_leetcode_question_topic_tags** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Bor_leetcode_question_topic_tags
-    * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findMany()
-    * ```
-    */
-  get bor_leetcode_question_topic_tags(): Prisma.bor_leetcode_question_topic_tagsDelegate<ExtArgs>;
-
-  /**
    * `prisma.bor_leetcode_questions`: Exposes CRUD operations for the **bor_leetcode_questions** model.
     * Example usage:
     * ```ts
@@ -201,6 +191,16 @@ export class PrismaClient<
     * ```
     */
   get bor_leetcode_topic_tags(): Prisma.bor_leetcode_topic_tagsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.bor_leetcode_resolve_records`: Exposes CRUD operations for the **bor_leetcode_resolve_records** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bor_leetcode_resolve_records
+    * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findMany()
+    * ```
+    */
+  get bor_leetcode_resolve_records(): Prisma.bor_leetcode_resolve_recordsDelegate<ExtArgs>;
 
   /**
    * `prisma.bor_user`: Exposes CRUD operations for the **bor_user** model.
@@ -653,9 +653,9 @@ export namespace Prisma {
 
   export const ModelName: {
     bor_config: 'bor_config',
-    bor_leetcode_question_topic_tags: 'bor_leetcode_question_topic_tags',
     bor_leetcode_questions: 'bor_leetcode_questions',
     bor_leetcode_topic_tags: 'bor_leetcode_topic_tags',
+    bor_leetcode_resolve_records: 'bor_leetcode_resolve_records',
     bor_user: 'bor_user'
   };
 
@@ -672,7 +672,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "bor_config" | "bor_leetcode_question_topic_tags" | "bor_leetcode_questions" | "bor_leetcode_topic_tags" | "bor_user"
+      modelProps: "bor_config" | "bor_leetcode_questions" | "bor_leetcode_topic_tags" | "bor_leetcode_resolve_records" | "bor_user"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -743,76 +743,6 @@ export namespace Prisma {
           count: {
             args: Prisma.bor_configCountArgs<ExtArgs>
             result: $Utils.Optional<Bor_configCountAggregateOutputType> | number
-          }
-        }
-      }
-      bor_leetcode_question_topic_tags: {
-        payload: Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>
-        fields: Prisma.bor_leetcode_question_topic_tagsFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.bor_leetcode_question_topic_tagsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.bor_leetcode_question_topic_tagsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          findFirst: {
-            args: Prisma.bor_leetcode_question_topic_tagsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.bor_leetcode_question_topic_tagsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          findMany: {
-            args: Prisma.bor_leetcode_question_topic_tagsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>[]
-          }
-          create: {
-            args: Prisma.bor_leetcode_question_topic_tagsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          createMany: {
-            args: Prisma.bor_leetcode_question_topic_tagsCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.bor_leetcode_question_topic_tagsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>[]
-          }
-          delete: {
-            args: Prisma.bor_leetcode_question_topic_tagsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          update: {
-            args: Prisma.bor_leetcode_question_topic_tagsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          deleteMany: {
-            args: Prisma.bor_leetcode_question_topic_tagsDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.bor_leetcode_question_topic_tagsUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.bor_leetcode_question_topic_tagsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_question_topic_tagsPayload>
-          }
-          aggregate: {
-            args: Prisma.Bor_leetcode_question_topic_tagsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBor_leetcode_question_topic_tags>
-          }
-          groupBy: {
-            args: Prisma.bor_leetcode_question_topic_tagsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Bor_leetcode_question_topic_tagsGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.bor_leetcode_question_topic_tagsCountArgs<ExtArgs>
-            result: $Utils.Optional<Bor_leetcode_question_topic_tagsCountAggregateOutputType> | number
           }
         }
       }
@@ -953,6 +883,76 @@ export namespace Prisma {
           count: {
             args: Prisma.bor_leetcode_topic_tagsCountArgs<ExtArgs>
             result: $Utils.Optional<Bor_leetcode_topic_tagsCountAggregateOutputType> | number
+          }
+        }
+      }
+      bor_leetcode_resolve_records: {
+        payload: Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>
+        fields: Prisma.bor_leetcode_resolve_recordsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.bor_leetcode_resolve_recordsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.bor_leetcode_resolve_recordsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          findFirst: {
+            args: Prisma.bor_leetcode_resolve_recordsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.bor_leetcode_resolve_recordsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          findMany: {
+            args: Prisma.bor_leetcode_resolve_recordsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>[]
+          }
+          create: {
+            args: Prisma.bor_leetcode_resolve_recordsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          createMany: {
+            args: Prisma.bor_leetcode_resolve_recordsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.bor_leetcode_resolve_recordsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>[]
+          }
+          delete: {
+            args: Prisma.bor_leetcode_resolve_recordsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          update: {
+            args: Prisma.bor_leetcode_resolve_recordsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          deleteMany: {
+            args: Prisma.bor_leetcode_resolve_recordsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.bor_leetcode_resolve_recordsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.bor_leetcode_resolve_recordsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bor_leetcode_resolve_recordsPayload>
+          }
+          aggregate: {
+            args: Prisma.Bor_leetcode_resolve_recordsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBor_leetcode_resolve_records>
+          }
+          groupBy: {
+            args: Prisma.bor_leetcode_resolve_recordsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Bor_leetcode_resolve_recordsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.bor_leetcode_resolve_recordsCountArgs<ExtArgs>
+            result: $Utils.Optional<Bor_leetcode_resolve_recordsCountAggregateOutputType> | number
           }
         }
       }
@@ -1181,6 +1181,67 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type Bor_leetcode_questionsCountOutputType
+   */
+
+  export type Bor_leetcode_questionsCountOutputType = {
+    tags: number
+  }
+
+  export type Bor_leetcode_questionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tags?: boolean | Bor_leetcode_questionsCountOutputTypeCountTagsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Bor_leetcode_questionsCountOutputType without action
+   */
+  export type Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bor_leetcode_questionsCountOutputType
+     */
+    select?: Bor_leetcode_questionsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Bor_leetcode_questionsCountOutputType without action
+   */
+  export type Bor_leetcode_questionsCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bor_leetcode_topic_tagsWhereInput
+  }
+
+
+  /**
+   * Count Type Bor_leetcode_topic_tagsCountOutputType
+   */
+
+  export type Bor_leetcode_topic_tagsCountOutputType = {
+    questions: number
+  }
+
+  export type Bor_leetcode_topic_tagsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    questions?: boolean | Bor_leetcode_topic_tagsCountOutputTypeCountQuestionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Bor_leetcode_topic_tagsCountOutputType without action
+   */
+  export type Bor_leetcode_topic_tagsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bor_leetcode_topic_tagsCountOutputType
+     */
+    select?: Bor_leetcode_topic_tagsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Bor_leetcode_topic_tagsCountOutputType without action
+   */
+  export type Bor_leetcode_topic_tagsCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bor_leetcode_questionsWhereInput
+  }
 
 
   /**
@@ -2076,894 +2137,6 @@ export namespace Prisma {
 
 
   /**
-   * Model bor_leetcode_question_topic_tags
-   */
-
-  export type AggregateBor_leetcode_question_topic_tags = {
-    _count: Bor_leetcode_question_topic_tagsCountAggregateOutputType | null
-    _avg: Bor_leetcode_question_topic_tagsAvgAggregateOutputType | null
-    _sum: Bor_leetcode_question_topic_tagsSumAggregateOutputType | null
-    _min: Bor_leetcode_question_topic_tagsMinAggregateOutputType | null
-    _max: Bor_leetcode_question_topic_tagsMaxAggregateOutputType | null
-  }
-
-  export type Bor_leetcode_question_topic_tagsAvgAggregateOutputType = {
-    id_auto: number | null
-  }
-
-  export type Bor_leetcode_question_topic_tagsSumAggregateOutputType = {
-    id_auto: number | null
-  }
-
-  export type Bor_leetcode_question_topic_tagsMinAggregateOutputType = {
-    question_id: string | null
-    tag_id: string | null
-    id_auto: number | null
-  }
-
-  export type Bor_leetcode_question_topic_tagsMaxAggregateOutputType = {
-    question_id: string | null
-    tag_id: string | null
-    id_auto: number | null
-  }
-
-  export type Bor_leetcode_question_topic_tagsCountAggregateOutputType = {
-    question_id: number
-    tag_id: number
-    id_auto: number
-    _all: number
-  }
-
-
-  export type Bor_leetcode_question_topic_tagsAvgAggregateInputType = {
-    id_auto?: true
-  }
-
-  export type Bor_leetcode_question_topic_tagsSumAggregateInputType = {
-    id_auto?: true
-  }
-
-  export type Bor_leetcode_question_topic_tagsMinAggregateInputType = {
-    question_id?: true
-    tag_id?: true
-    id_auto?: true
-  }
-
-  export type Bor_leetcode_question_topic_tagsMaxAggregateInputType = {
-    question_id?: true
-    tag_id?: true
-    id_auto?: true
-  }
-
-  export type Bor_leetcode_question_topic_tagsCountAggregateInputType = {
-    question_id?: true
-    tag_id?: true
-    id_auto?: true
-    _all?: true
-  }
-
-  export type Bor_leetcode_question_topic_tagsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which bor_leetcode_question_topic_tags to aggregate.
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of bor_leetcode_question_topic_tags to fetch.
-     */
-    orderBy?: bor_leetcode_question_topic_tagsOrderByWithRelationInput | bor_leetcode_question_topic_tagsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: bor_leetcode_question_topic_tagsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` bor_leetcode_question_topic_tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` bor_leetcode_question_topic_tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned bor_leetcode_question_topic_tags
-    **/
-    _count?: true | Bor_leetcode_question_topic_tagsCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Bor_leetcode_question_topic_tagsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Bor_leetcode_question_topic_tagsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Bor_leetcode_question_topic_tagsMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Bor_leetcode_question_topic_tagsMaxAggregateInputType
-  }
-
-  export type GetBor_leetcode_question_topic_tagsAggregateType<T extends Bor_leetcode_question_topic_tagsAggregateArgs> = {
-        [P in keyof T & keyof AggregateBor_leetcode_question_topic_tags]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateBor_leetcode_question_topic_tags[P]>
-      : GetScalarType<T[P], AggregateBor_leetcode_question_topic_tags[P]>
-  }
-
-
-
-
-  export type bor_leetcode_question_topic_tagsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: bor_leetcode_question_topic_tagsWhereInput
-    orderBy?: bor_leetcode_question_topic_tagsOrderByWithAggregationInput | bor_leetcode_question_topic_tagsOrderByWithAggregationInput[]
-    by: Bor_leetcode_question_topic_tagsScalarFieldEnum[] | Bor_leetcode_question_topic_tagsScalarFieldEnum
-    having?: bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Bor_leetcode_question_topic_tagsCountAggregateInputType | true
-    _avg?: Bor_leetcode_question_topic_tagsAvgAggregateInputType
-    _sum?: Bor_leetcode_question_topic_tagsSumAggregateInputType
-    _min?: Bor_leetcode_question_topic_tagsMinAggregateInputType
-    _max?: Bor_leetcode_question_topic_tagsMaxAggregateInputType
-  }
-
-  export type Bor_leetcode_question_topic_tagsGroupByOutputType = {
-    question_id: string | null
-    tag_id: string | null
-    id_auto: number
-    _count: Bor_leetcode_question_topic_tagsCountAggregateOutputType | null
-    _avg: Bor_leetcode_question_topic_tagsAvgAggregateOutputType | null
-    _sum: Bor_leetcode_question_topic_tagsSumAggregateOutputType | null
-    _min: Bor_leetcode_question_topic_tagsMinAggregateOutputType | null
-    _max: Bor_leetcode_question_topic_tagsMaxAggregateOutputType | null
-  }
-
-  type GetBor_leetcode_question_topic_tagsGroupByPayload<T extends bor_leetcode_question_topic_tagsGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Bor_leetcode_question_topic_tagsGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Bor_leetcode_question_topic_tagsGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Bor_leetcode_question_topic_tagsGroupByOutputType[P]>
-            : GetScalarType<T[P], Bor_leetcode_question_topic_tagsGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type bor_leetcode_question_topic_tagsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    question_id?: boolean
-    tag_id?: boolean
-    id_auto?: boolean
-  }, ExtArgs["result"]["bor_leetcode_question_topic_tags"]>
-
-  export type bor_leetcode_question_topic_tagsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    question_id?: boolean
-    tag_id?: boolean
-    id_auto?: boolean
-  }, ExtArgs["result"]["bor_leetcode_question_topic_tags"]>
-
-  export type bor_leetcode_question_topic_tagsSelectScalar = {
-    question_id?: boolean
-    tag_id?: boolean
-    id_auto?: boolean
-  }
-
-
-  export type $bor_leetcode_question_topic_tagsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "bor_leetcode_question_topic_tags"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      question_id: string | null
-      tag_id: string | null
-      id_auto: number
-    }, ExtArgs["result"]["bor_leetcode_question_topic_tags"]>
-    composites: {}
-  }
-
-  type bor_leetcode_question_topic_tagsGetPayload<S extends boolean | null | undefined | bor_leetcode_question_topic_tagsDefaultArgs> = $Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload, S>
-
-  type bor_leetcode_question_topic_tagsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<bor_leetcode_question_topic_tagsFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: Bor_leetcode_question_topic_tagsCountAggregateInputType | true
-    }
-
-  export interface bor_leetcode_question_topic_tagsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['bor_leetcode_question_topic_tags'], meta: { name: 'bor_leetcode_question_topic_tags' } }
-    /**
-     * Find zero or one Bor_leetcode_question_topic_tags that matches the filter.
-     * @param {bor_leetcode_question_topic_tagsFindUniqueArgs} args - Arguments to find a Bor_leetcode_question_topic_tags
-     * @example
-     * // Get one Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends bor_leetcode_question_topic_tagsFindUniqueArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsFindUniqueArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Bor_leetcode_question_topic_tags that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {bor_leetcode_question_topic_tagsFindUniqueOrThrowArgs} args - Arguments to find a Bor_leetcode_question_topic_tags
-     * @example
-     * // Get one Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends bor_leetcode_question_topic_tagsFindUniqueOrThrowArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Bor_leetcode_question_topic_tags that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsFindFirstArgs} args - Arguments to find a Bor_leetcode_question_topic_tags
-     * @example
-     * // Get one Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends bor_leetcode_question_topic_tagsFindFirstArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsFindFirstArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Bor_leetcode_question_topic_tags that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsFindFirstOrThrowArgs} args - Arguments to find a Bor_leetcode_question_topic_tags
-     * @example
-     * // Get one Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends bor_leetcode_question_topic_tagsFindFirstOrThrowArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsFindFirstOrThrowArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Bor_leetcode_question_topic_tags that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findMany()
-     * 
-     * // Get first 10 Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.findMany({ take: 10 })
-     * 
-     * // Only select the `question_id`
-     * const bor_leetcode_question_topic_tagsWithQuestion_idOnly = await prisma.bor_leetcode_question_topic_tags.findMany({ select: { question_id: true } })
-     * 
-     */
-    findMany<T extends bor_leetcode_question_topic_tagsFindManyArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsCreateArgs} args - Arguments to create a Bor_leetcode_question_topic_tags.
-     * @example
-     * // Create one Bor_leetcode_question_topic_tags
-     * const Bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.create({
-     *   data: {
-     *     // ... data to create a Bor_leetcode_question_topic_tags
-     *   }
-     * })
-     * 
-     */
-    create<T extends bor_leetcode_question_topic_tagsCreateArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsCreateArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsCreateManyArgs} args - Arguments to create many Bor_leetcode_question_topic_tags.
-     * @example
-     * // Create many Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends bor_leetcode_question_topic_tagsCreateManyArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Bor_leetcode_question_topic_tags and returns the data saved in the database.
-     * @param {bor_leetcode_question_topic_tagsCreateManyAndReturnArgs} args - Arguments to create many Bor_leetcode_question_topic_tags.
-     * @example
-     * // Create many Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Bor_leetcode_question_topic_tags and only return the `question_id`
-     * const bor_leetcode_question_topic_tagsWithQuestion_idOnly = await prisma.bor_leetcode_question_topic_tags.createManyAndReturn({ 
-     *   select: { question_id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends bor_leetcode_question_topic_tagsCreateManyAndReturnArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "createManyAndReturn">>
-
-    /**
-     * Delete a Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsDeleteArgs} args - Arguments to delete one Bor_leetcode_question_topic_tags.
-     * @example
-     * // Delete one Bor_leetcode_question_topic_tags
-     * const Bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.delete({
-     *   where: {
-     *     // ... filter to delete one Bor_leetcode_question_topic_tags
-     *   }
-     * })
-     * 
-     */
-    delete<T extends bor_leetcode_question_topic_tagsDeleteArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsDeleteArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsUpdateArgs} args - Arguments to update one Bor_leetcode_question_topic_tags.
-     * @example
-     * // Update one Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends bor_leetcode_question_topic_tagsUpdateArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsUpdateArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsDeleteManyArgs} args - Arguments to filter Bor_leetcode_question_topic_tags to delete.
-     * @example
-     * // Delete a few Bor_leetcode_question_topic_tags
-     * const { count } = await prisma.bor_leetcode_question_topic_tags.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends bor_leetcode_question_topic_tagsDeleteManyArgs>(args?: SelectSubset<T, bor_leetcode_question_topic_tagsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Bor_leetcode_question_topic_tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends bor_leetcode_question_topic_tagsUpdateManyArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Bor_leetcode_question_topic_tags.
-     * @param {bor_leetcode_question_topic_tagsUpsertArgs} args - Arguments to update or create a Bor_leetcode_question_topic_tags.
-     * @example
-     * // Update or create a Bor_leetcode_question_topic_tags
-     * const bor_leetcode_question_topic_tags = await prisma.bor_leetcode_question_topic_tags.upsert({
-     *   create: {
-     *     // ... data to create a Bor_leetcode_question_topic_tags
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Bor_leetcode_question_topic_tags we want to update
-     *   }
-     * })
-     */
-    upsert<T extends bor_leetcode_question_topic_tagsUpsertArgs>(args: SelectSubset<T, bor_leetcode_question_topic_tagsUpsertArgs<ExtArgs>>): Prisma__bor_leetcode_question_topic_tagsClient<$Result.GetResult<Prisma.$bor_leetcode_question_topic_tagsPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Bor_leetcode_question_topic_tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsCountArgs} args - Arguments to filter Bor_leetcode_question_topic_tags to count.
-     * @example
-     * // Count the number of Bor_leetcode_question_topic_tags
-     * const count = await prisma.bor_leetcode_question_topic_tags.count({
-     *   where: {
-     *     // ... the filter for the Bor_leetcode_question_topic_tags we want to count
-     *   }
-     * })
-    **/
-    count<T extends bor_leetcode_question_topic_tagsCountArgs>(
-      args?: Subset<T, bor_leetcode_question_topic_tagsCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Bor_leetcode_question_topic_tagsCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Bor_leetcode_question_topic_tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Bor_leetcode_question_topic_tagsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Bor_leetcode_question_topic_tagsAggregateArgs>(args: Subset<T, Bor_leetcode_question_topic_tagsAggregateArgs>): Prisma.PrismaPromise<GetBor_leetcode_question_topic_tagsAggregateType<T>>
-
-    /**
-     * Group by Bor_leetcode_question_topic_tags.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {bor_leetcode_question_topic_tagsGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends bor_leetcode_question_topic_tagsGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: bor_leetcode_question_topic_tagsGroupByArgs['orderBy'] }
-        : { orderBy?: bor_leetcode_question_topic_tagsGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, bor_leetcode_question_topic_tagsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBor_leetcode_question_topic_tagsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the bor_leetcode_question_topic_tags model
-   */
-  readonly fields: bor_leetcode_question_topic_tagsFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for bor_leetcode_question_topic_tags.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__bor_leetcode_question_topic_tagsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the bor_leetcode_question_topic_tags model
-   */ 
-  interface bor_leetcode_question_topic_tagsFieldRefs {
-    readonly question_id: FieldRef<"bor_leetcode_question_topic_tags", 'String'>
-    readonly tag_id: FieldRef<"bor_leetcode_question_topic_tags", 'String'>
-    readonly id_auto: FieldRef<"bor_leetcode_question_topic_tags", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * bor_leetcode_question_topic_tags findUnique
-   */
-  export type bor_leetcode_question_topic_tagsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter, which bor_leetcode_question_topic_tags to fetch.
-     */
-    where: bor_leetcode_question_topic_tagsWhereUniqueInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags findUniqueOrThrow
-   */
-  export type bor_leetcode_question_topic_tagsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter, which bor_leetcode_question_topic_tags to fetch.
-     */
-    where: bor_leetcode_question_topic_tagsWhereUniqueInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags findFirst
-   */
-  export type bor_leetcode_question_topic_tagsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter, which bor_leetcode_question_topic_tags to fetch.
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of bor_leetcode_question_topic_tags to fetch.
-     */
-    orderBy?: bor_leetcode_question_topic_tagsOrderByWithRelationInput | bor_leetcode_question_topic_tagsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for bor_leetcode_question_topic_tags.
-     */
-    cursor?: bor_leetcode_question_topic_tagsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` bor_leetcode_question_topic_tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` bor_leetcode_question_topic_tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of bor_leetcode_question_topic_tags.
-     */
-    distinct?: Bor_leetcode_question_topic_tagsScalarFieldEnum | Bor_leetcode_question_topic_tagsScalarFieldEnum[]
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags findFirstOrThrow
-   */
-  export type bor_leetcode_question_topic_tagsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter, which bor_leetcode_question_topic_tags to fetch.
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of bor_leetcode_question_topic_tags to fetch.
-     */
-    orderBy?: bor_leetcode_question_topic_tagsOrderByWithRelationInput | bor_leetcode_question_topic_tagsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for bor_leetcode_question_topic_tags.
-     */
-    cursor?: bor_leetcode_question_topic_tagsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` bor_leetcode_question_topic_tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` bor_leetcode_question_topic_tags.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of bor_leetcode_question_topic_tags.
-     */
-    distinct?: Bor_leetcode_question_topic_tagsScalarFieldEnum | Bor_leetcode_question_topic_tagsScalarFieldEnum[]
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags findMany
-   */
-  export type bor_leetcode_question_topic_tagsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter, which bor_leetcode_question_topic_tags to fetch.
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of bor_leetcode_question_topic_tags to fetch.
-     */
-    orderBy?: bor_leetcode_question_topic_tagsOrderByWithRelationInput | bor_leetcode_question_topic_tagsOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing bor_leetcode_question_topic_tags.
-     */
-    cursor?: bor_leetcode_question_topic_tagsWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` bor_leetcode_question_topic_tags from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` bor_leetcode_question_topic_tags.
-     */
-    skip?: number
-    distinct?: Bor_leetcode_question_topic_tagsScalarFieldEnum | Bor_leetcode_question_topic_tagsScalarFieldEnum[]
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags create
-   */
-  export type bor_leetcode_question_topic_tagsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * The data needed to create a bor_leetcode_question_topic_tags.
-     */
-    data?: XOR<bor_leetcode_question_topic_tagsCreateInput, bor_leetcode_question_topic_tagsUncheckedCreateInput>
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags createMany
-   */
-  export type bor_leetcode_question_topic_tagsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many bor_leetcode_question_topic_tags.
-     */
-    data: bor_leetcode_question_topic_tagsCreateManyInput | bor_leetcode_question_topic_tagsCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags createManyAndReturn
-   */
-  export type bor_leetcode_question_topic_tagsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many bor_leetcode_question_topic_tags.
-     */
-    data: bor_leetcode_question_topic_tagsCreateManyInput | bor_leetcode_question_topic_tagsCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags update
-   */
-  export type bor_leetcode_question_topic_tagsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * The data needed to update a bor_leetcode_question_topic_tags.
-     */
-    data: XOR<bor_leetcode_question_topic_tagsUpdateInput, bor_leetcode_question_topic_tagsUncheckedUpdateInput>
-    /**
-     * Choose, which bor_leetcode_question_topic_tags to update.
-     */
-    where: bor_leetcode_question_topic_tagsWhereUniqueInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags updateMany
-   */
-  export type bor_leetcode_question_topic_tagsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update bor_leetcode_question_topic_tags.
-     */
-    data: XOR<bor_leetcode_question_topic_tagsUpdateManyMutationInput, bor_leetcode_question_topic_tagsUncheckedUpdateManyInput>
-    /**
-     * Filter which bor_leetcode_question_topic_tags to update
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags upsert
-   */
-  export type bor_leetcode_question_topic_tagsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * The filter to search for the bor_leetcode_question_topic_tags to update in case it exists.
-     */
-    where: bor_leetcode_question_topic_tagsWhereUniqueInput
-    /**
-     * In case the bor_leetcode_question_topic_tags found by the `where` argument doesn't exist, create a new bor_leetcode_question_topic_tags with this data.
-     */
-    create: XOR<bor_leetcode_question_topic_tagsCreateInput, bor_leetcode_question_topic_tagsUncheckedCreateInput>
-    /**
-     * In case the bor_leetcode_question_topic_tags was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<bor_leetcode_question_topic_tagsUpdateInput, bor_leetcode_question_topic_tagsUncheckedUpdateInput>
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags delete
-   */
-  export type bor_leetcode_question_topic_tagsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-    /**
-     * Filter which bor_leetcode_question_topic_tags to delete.
-     */
-    where: bor_leetcode_question_topic_tagsWhereUniqueInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags deleteMany
-   */
-  export type bor_leetcode_question_topic_tagsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which bor_leetcode_question_topic_tags to delete
-     */
-    where?: bor_leetcode_question_topic_tagsWhereInput
-  }
-
-  /**
-   * bor_leetcode_question_topic_tags without action
-   */
-  export type bor_leetcode_question_topic_tagsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the bor_leetcode_question_topic_tags
-     */
-    select?: bor_leetcode_question_topic_tagsSelect<ExtArgs> | null
-  }
-
-
-  /**
    * Model bor_leetcode_questions
    */
 
@@ -2978,58 +2151,54 @@ export namespace Prisma {
   export type Bor_leetcode_questionsAvgAggregateOutputType = {
     id_auto: number | null
     ac_rate: number | null
+    translate_try_times: number | null
     status: number | null
   }
 
   export type Bor_leetcode_questionsSumAggregateOutputType = {
     id_auto: number | null
     ac_rate: number | null
+    translate_try_times: number | null
     status: number | null
   }
 
   export type Bor_leetcode_questionsMinAggregateOutputType = {
     id_auto: number | null
-    id: string | null
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
     is_paid_only: boolean | null
     title: string | null
     title_slug: string | null
-    status: number | null
     title_cn: string | null
-    finished_at: Date | null
-    start_at: Date | null
+    translate_try_times: number | null
+    status: number | null
   }
 
   export type Bor_leetcode_questionsMaxAggregateOutputType = {
     id_auto: number | null
-    id: string | null
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
     is_paid_only: boolean | null
     title: string | null
     title_slug: string | null
-    status: number | null
     title_cn: string | null
-    finished_at: Date | null
-    start_at: Date | null
+    translate_try_times: number | null
+    status: number | null
   }
 
   export type Bor_leetcode_questionsCountAggregateOutputType = {
     id_auto: number
-    id: number
     ac_rate: number
     difficulty: number
     question_frontend_id: number
     is_paid_only: number
     title: number
     title_slug: number
-    status: number
     title_cn: number
-    finished_at: number
-    start_at: number
+    translate_try_times: number
+    status: number
     _all: number
   }
 
@@ -3037,58 +2206,54 @@ export namespace Prisma {
   export type Bor_leetcode_questionsAvgAggregateInputType = {
     id_auto?: true
     ac_rate?: true
+    translate_try_times?: true
     status?: true
   }
 
   export type Bor_leetcode_questionsSumAggregateInputType = {
     id_auto?: true
     ac_rate?: true
+    translate_try_times?: true
     status?: true
   }
 
   export type Bor_leetcode_questionsMinAggregateInputType = {
     id_auto?: true
-    id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
     is_paid_only?: true
     title?: true
     title_slug?: true
-    status?: true
     title_cn?: true
-    finished_at?: true
-    start_at?: true
+    translate_try_times?: true
+    status?: true
   }
 
   export type Bor_leetcode_questionsMaxAggregateInputType = {
     id_auto?: true
-    id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
     is_paid_only?: true
     title?: true
     title_slug?: true
-    status?: true
     title_cn?: true
-    finished_at?: true
-    start_at?: true
+    translate_try_times?: true
+    status?: true
   }
 
   export type Bor_leetcode_questionsCountAggregateInputType = {
     id_auto?: true
-    id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
     is_paid_only?: true
     title?: true
     title_slug?: true
-    status?: true
     title_cn?: true
-    finished_at?: true
-    start_at?: true
+    translate_try_times?: true
+    status?: true
     _all?: true
   }
 
@@ -3180,17 +2345,15 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsGroupByOutputType = {
     id_auto: number
-    id: string | null
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
     is_paid_only: boolean | null
     title: string | null
     title_slug: string | null
-    status: number | null
     title_cn: string | null
-    finished_at: Date | null
-    start_at: Date | null
+    translate_try_times: number
+    status: number | null
     _count: Bor_leetcode_questionsCountAggregateOutputType | null
     _avg: Bor_leetcode_questionsAvgAggregateOutputType | null
     _sum: Bor_leetcode_questionsSumAggregateOutputType | null
@@ -3214,66 +2377,67 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
-    id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
     is_paid_only?: boolean
     title?: boolean
     title_slug?: boolean
-    status?: boolean
     title_cn?: boolean
-    finished_at?: boolean
-    start_at?: boolean
+    translate_try_times?: boolean
+    status?: boolean
+    tags?: boolean | bor_leetcode_questions$tagsArgs<ExtArgs>
+    _count?: boolean | Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["bor_leetcode_questions"]>
 
   export type bor_leetcode_questionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
-    id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
     is_paid_only?: boolean
     title?: boolean
     title_slug?: boolean
-    status?: boolean
     title_cn?: boolean
-    finished_at?: boolean
-    start_at?: boolean
+    translate_try_times?: boolean
+    status?: boolean
   }, ExtArgs["result"]["bor_leetcode_questions"]>
 
   export type bor_leetcode_questionsSelectScalar = {
     id_auto?: boolean
-    id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
     is_paid_only?: boolean
     title?: boolean
     title_slug?: boolean
-    status?: boolean
     title_cn?: boolean
-    finished_at?: boolean
-    start_at?: boolean
+    translate_try_times?: boolean
+    status?: boolean
   }
 
+  export type bor_leetcode_questionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tags?: boolean | bor_leetcode_questions$tagsArgs<ExtArgs>
+    _count?: boolean | Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type bor_leetcode_questionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $bor_leetcode_questionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "bor_leetcode_questions"
-    objects: {}
+    objects: {
+      tags: Prisma.$bor_leetcode_topic_tagsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
-      id: string | null
       ac_rate: number | null
       difficulty: string | null
       question_frontend_id: string | null
       is_paid_only: boolean | null
       title: string | null
       title_slug: string | null
-      status: number | null
       title_cn: string | null
-      finished_at: Date | null
-      start_at: Date | null
+      translate_try_times: number
+      status: number | null
     }, ExtArgs["result"]["bor_leetcode_questions"]>
     composites: {}
   }
@@ -3638,6 +2802,7 @@ export namespace Prisma {
    */
   export interface Prisma__bor_leetcode_questionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    tags<T extends bor_leetcode_questions$tagsArgs<ExtArgs> = {}>(args?: Subset<T, bor_leetcode_questions$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_topic_tagsPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3668,17 +2833,15 @@ export namespace Prisma {
    */ 
   interface bor_leetcode_questionsFieldRefs {
     readonly id_auto: FieldRef<"bor_leetcode_questions", 'Int'>
-    readonly id: FieldRef<"bor_leetcode_questions", 'String'>
     readonly ac_rate: FieldRef<"bor_leetcode_questions", 'Float'>
     readonly difficulty: FieldRef<"bor_leetcode_questions", 'String'>
     readonly question_frontend_id: FieldRef<"bor_leetcode_questions", 'String'>
     readonly is_paid_only: FieldRef<"bor_leetcode_questions", 'Boolean'>
     readonly title: FieldRef<"bor_leetcode_questions", 'String'>
     readonly title_slug: FieldRef<"bor_leetcode_questions", 'String'>
-    readonly status: FieldRef<"bor_leetcode_questions", 'Int'>
     readonly title_cn: FieldRef<"bor_leetcode_questions", 'String'>
-    readonly finished_at: FieldRef<"bor_leetcode_questions", 'DateTime'>
-    readonly start_at: FieldRef<"bor_leetcode_questions", 'DateTime'>
+    readonly translate_try_times: FieldRef<"bor_leetcode_questions", 'Int'>
+    readonly status: FieldRef<"bor_leetcode_questions", 'Int'>
   }
     
 
@@ -3691,6 +2854,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_questions
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_questions to fetch.
      */
@@ -3706,6 +2873,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_questions to fetch.
      */
     where: bor_leetcode_questionsWhereUniqueInput
@@ -3719,6 +2890,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_questions
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_questions to fetch.
      */
@@ -3764,6 +2939,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_questions to fetch.
      */
     where?: bor_leetcode_questionsWhereInput
@@ -3808,6 +2987,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_questions to fetch.
      */
     where?: bor_leetcode_questionsWhereInput
@@ -3846,6 +3029,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_questions
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
     /**
      * The data needed to create a bor_leetcode_questions.
      */
@@ -3887,6 +3074,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * The data needed to update a bor_leetcode_questions.
      */
     data: XOR<bor_leetcode_questionsUpdateInput, bor_leetcode_questionsUncheckedUpdateInput>
@@ -3919,6 +3110,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * The filter to search for the bor_leetcode_questions to update in case it exists.
      */
     where: bor_leetcode_questionsWhereUniqueInput
@@ -3941,6 +3136,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    /**
      * Filter which bor_leetcode_questions to delete.
      */
     where: bor_leetcode_questionsWhereUniqueInput
@@ -3957,6 +3156,26 @@ export namespace Prisma {
   }
 
   /**
+   * bor_leetcode_questions.tags
+   */
+  export type bor_leetcode_questions$tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_topic_tags
+     */
+    select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    where?: bor_leetcode_topic_tagsWhereInput
+    orderBy?: bor_leetcode_topic_tagsOrderByWithRelationInput | bor_leetcode_topic_tagsOrderByWithRelationInput[]
+    cursor?: bor_leetcode_topic_tagsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Bor_leetcode_topic_tagsScalarFieldEnum | Bor_leetcode_topic_tagsScalarFieldEnum[]
+  }
+
+  /**
    * bor_leetcode_questions without action
    */
   export type bor_leetcode_questionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3964,6 +3183,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_questions
      */
     select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
   }
 
 
@@ -3992,7 +3215,6 @@ export namespace Prisma {
     tag_id: string | null
     name: string | null
     slug: string | null
-    id: string | null
   }
 
   export type Bor_leetcode_topic_tagsMaxAggregateOutputType = {
@@ -4000,7 +3222,6 @@ export namespace Prisma {
     tag_id: string | null
     name: string | null
     slug: string | null
-    id: string | null
   }
 
   export type Bor_leetcode_topic_tagsCountAggregateOutputType = {
@@ -4008,7 +3229,6 @@ export namespace Prisma {
     tag_id: number
     name: number
     slug: number
-    id: number
     _all: number
   }
 
@@ -4026,7 +3246,6 @@ export namespace Prisma {
     tag_id?: true
     name?: true
     slug?: true
-    id?: true
   }
 
   export type Bor_leetcode_topic_tagsMaxAggregateInputType = {
@@ -4034,7 +3253,6 @@ export namespace Prisma {
     tag_id?: true
     name?: true
     slug?: true
-    id?: true
   }
 
   export type Bor_leetcode_topic_tagsCountAggregateInputType = {
@@ -4042,7 +3260,6 @@ export namespace Prisma {
     tag_id?: true
     name?: true
     slug?: true
-    id?: true
     _all?: true
   }
 
@@ -4137,7 +3354,6 @@ export namespace Prisma {
     tag_id: string | null
     name: string | null
     slug: string | null
-    id: string | null
     _count: Bor_leetcode_topic_tagsCountAggregateOutputType | null
     _avg: Bor_leetcode_topic_tagsAvgAggregateOutputType | null
     _sum: Bor_leetcode_topic_tagsSumAggregateOutputType | null
@@ -4164,7 +3380,8 @@ export namespace Prisma {
     tag_id?: boolean
     name?: boolean
     slug?: boolean
-    id?: boolean
+    questions?: boolean | bor_leetcode_topic_tags$questionsArgs<ExtArgs>
+    _count?: boolean | Bor_leetcode_topic_tagsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["bor_leetcode_topic_tags"]>
 
   export type bor_leetcode_topic_tagsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4172,7 +3389,6 @@ export namespace Prisma {
     tag_id?: boolean
     name?: boolean
     slug?: boolean
-    id?: boolean
   }, ExtArgs["result"]["bor_leetcode_topic_tags"]>
 
   export type bor_leetcode_topic_tagsSelectScalar = {
@@ -4180,19 +3396,24 @@ export namespace Prisma {
     tag_id?: boolean
     name?: boolean
     slug?: boolean
-    id?: boolean
   }
 
+  export type bor_leetcode_topic_tagsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    questions?: boolean | bor_leetcode_topic_tags$questionsArgs<ExtArgs>
+    _count?: boolean | Bor_leetcode_topic_tagsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type bor_leetcode_topic_tagsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $bor_leetcode_topic_tagsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "bor_leetcode_topic_tags"
-    objects: {}
+    objects: {
+      questions: Prisma.$bor_leetcode_questionsPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
       tag_id: string | null
       name: string | null
       slug: string | null
-      id: string | null
     }, ExtArgs["result"]["bor_leetcode_topic_tags"]>
     composites: {}
   }
@@ -4557,6 +3778,7 @@ export namespace Prisma {
    */
   export interface Prisma__bor_leetcode_topic_tagsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    questions<T extends bor_leetcode_topic_tags$questionsArgs<ExtArgs> = {}>(args?: Subset<T, bor_leetcode_topic_tags$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_questionsPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4590,7 +3812,6 @@ export namespace Prisma {
     readonly tag_id: FieldRef<"bor_leetcode_topic_tags", 'String'>
     readonly name: FieldRef<"bor_leetcode_topic_tags", 'String'>
     readonly slug: FieldRef<"bor_leetcode_topic_tags", 'String'>
-    readonly id: FieldRef<"bor_leetcode_topic_tags", 'String'>
   }
     
 
@@ -4603,6 +3824,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_topic_tags
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_topic_tags to fetch.
      */
@@ -4618,6 +3843,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_topic_tags to fetch.
      */
     where: bor_leetcode_topic_tagsWhereUniqueInput
@@ -4631,6 +3860,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_topic_tags
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_topic_tags to fetch.
      */
@@ -4676,6 +3909,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_topic_tags to fetch.
      */
     where?: bor_leetcode_topic_tagsWhereInput
@@ -4720,6 +3957,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_topic_tags to fetch.
      */
     where?: bor_leetcode_topic_tagsWhereInput
@@ -4758,6 +3999,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_topic_tags
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
     /**
      * The data needed to create a bor_leetcode_topic_tags.
      */
@@ -4799,6 +4044,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * The data needed to update a bor_leetcode_topic_tags.
      */
     data: XOR<bor_leetcode_topic_tagsUpdateInput, bor_leetcode_topic_tagsUncheckedUpdateInput>
@@ -4831,6 +4080,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * The filter to search for the bor_leetcode_topic_tags to update in case it exists.
      */
     where: bor_leetcode_topic_tagsWhereUniqueInput
@@ -4853,6 +4106,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+    /**
      * Filter which bor_leetcode_topic_tags to delete.
      */
     where: bor_leetcode_topic_tagsWhereUniqueInput
@@ -4869,6 +4126,26 @@ export namespace Prisma {
   }
 
   /**
+   * bor_leetcode_topic_tags.questions
+   */
+  export type bor_leetcode_topic_tags$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_questions
+     */
+    select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    where?: bor_leetcode_questionsWhereInput
+    orderBy?: bor_leetcode_questionsOrderByWithRelationInput | bor_leetcode_questionsOrderByWithRelationInput[]
+    cursor?: bor_leetcode_questionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Bor_leetcode_questionsScalarFieldEnum | Bor_leetcode_questionsScalarFieldEnum[]
+  }
+
+  /**
    * bor_leetcode_topic_tags without action
    */
   export type bor_leetcode_topic_tagsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4876,6 +4153,926 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_topic_tags
      */
     select?: bor_leetcode_topic_tagsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_topic_tagsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model bor_leetcode_resolve_records
+   */
+
+  export type AggregateBor_leetcode_resolve_records = {
+    _count: Bor_leetcode_resolve_recordsCountAggregateOutputType | null
+    _avg: Bor_leetcode_resolve_recordsAvgAggregateOutputType | null
+    _sum: Bor_leetcode_resolve_recordsSumAggregateOutputType | null
+    _min: Bor_leetcode_resolve_recordsMinAggregateOutputType | null
+    _max: Bor_leetcode_resolve_recordsMaxAggregateOutputType | null
+  }
+
+  export type Bor_leetcode_resolve_recordsAvgAggregateOutputType = {
+    id_auto: number | null
+    status: number | null
+  }
+
+  export type Bor_leetcode_resolve_recordsSumAggregateOutputType = {
+    id_auto: number | null
+    status: number | null
+  }
+
+  export type Bor_leetcode_resolve_recordsMinAggregateOutputType = {
+    id_auto: number | null
+    status: number | null
+    question_id: string | null
+    start_at: Date | null
+    finished_at: Date | null
+  }
+
+  export type Bor_leetcode_resolve_recordsMaxAggregateOutputType = {
+    id_auto: number | null
+    status: number | null
+    question_id: string | null
+    start_at: Date | null
+    finished_at: Date | null
+  }
+
+  export type Bor_leetcode_resolve_recordsCountAggregateOutputType = {
+    id_auto: number
+    status: number
+    question_id: number
+    start_at: number
+    finished_at: number
+    _all: number
+  }
+
+
+  export type Bor_leetcode_resolve_recordsAvgAggregateInputType = {
+    id_auto?: true
+    status?: true
+  }
+
+  export type Bor_leetcode_resolve_recordsSumAggregateInputType = {
+    id_auto?: true
+    status?: true
+  }
+
+  export type Bor_leetcode_resolve_recordsMinAggregateInputType = {
+    id_auto?: true
+    status?: true
+    question_id?: true
+    start_at?: true
+    finished_at?: true
+  }
+
+  export type Bor_leetcode_resolve_recordsMaxAggregateInputType = {
+    id_auto?: true
+    status?: true
+    question_id?: true
+    start_at?: true
+    finished_at?: true
+  }
+
+  export type Bor_leetcode_resolve_recordsCountAggregateInputType = {
+    id_auto?: true
+    status?: true
+    question_id?: true
+    start_at?: true
+    finished_at?: true
+    _all?: true
+  }
+
+  export type Bor_leetcode_resolve_recordsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bor_leetcode_resolve_records to aggregate.
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bor_leetcode_resolve_records to fetch.
+     */
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithRelationInput | bor_leetcode_resolve_recordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: bor_leetcode_resolve_recordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bor_leetcode_resolve_records from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bor_leetcode_resolve_records.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned bor_leetcode_resolve_records
+    **/
+    _count?: true | Bor_leetcode_resolve_recordsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Bor_leetcode_resolve_recordsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Bor_leetcode_resolve_recordsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Bor_leetcode_resolve_recordsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Bor_leetcode_resolve_recordsMaxAggregateInputType
+  }
+
+  export type GetBor_leetcode_resolve_recordsAggregateType<T extends Bor_leetcode_resolve_recordsAggregateArgs> = {
+        [P in keyof T & keyof AggregateBor_leetcode_resolve_records]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBor_leetcode_resolve_records[P]>
+      : GetScalarType<T[P], AggregateBor_leetcode_resolve_records[P]>
+  }
+
+
+
+
+  export type bor_leetcode_resolve_recordsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bor_leetcode_resolve_recordsWhereInput
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithAggregationInput | bor_leetcode_resolve_recordsOrderByWithAggregationInput[]
+    by: Bor_leetcode_resolve_recordsScalarFieldEnum[] | Bor_leetcode_resolve_recordsScalarFieldEnum
+    having?: bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Bor_leetcode_resolve_recordsCountAggregateInputType | true
+    _avg?: Bor_leetcode_resolve_recordsAvgAggregateInputType
+    _sum?: Bor_leetcode_resolve_recordsSumAggregateInputType
+    _min?: Bor_leetcode_resolve_recordsMinAggregateInputType
+    _max?: Bor_leetcode_resolve_recordsMaxAggregateInputType
+  }
+
+  export type Bor_leetcode_resolve_recordsGroupByOutputType = {
+    id_auto: number
+    status: number | null
+    question_id: string | null
+    start_at: Date | null
+    finished_at: Date | null
+    _count: Bor_leetcode_resolve_recordsCountAggregateOutputType | null
+    _avg: Bor_leetcode_resolve_recordsAvgAggregateOutputType | null
+    _sum: Bor_leetcode_resolve_recordsSumAggregateOutputType | null
+    _min: Bor_leetcode_resolve_recordsMinAggregateOutputType | null
+    _max: Bor_leetcode_resolve_recordsMaxAggregateOutputType | null
+  }
+
+  type GetBor_leetcode_resolve_recordsGroupByPayload<T extends bor_leetcode_resolve_recordsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Bor_leetcode_resolve_recordsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Bor_leetcode_resolve_recordsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Bor_leetcode_resolve_recordsGroupByOutputType[P]>
+            : GetScalarType<T[P], Bor_leetcode_resolve_recordsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type bor_leetcode_resolve_recordsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_auto?: boolean
+    status?: boolean
+    question_id?: boolean
+    start_at?: boolean
+    finished_at?: boolean
+  }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
+
+  export type bor_leetcode_resolve_recordsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id_auto?: boolean
+    status?: boolean
+    question_id?: boolean
+    start_at?: boolean
+    finished_at?: boolean
+  }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
+
+  export type bor_leetcode_resolve_recordsSelectScalar = {
+    id_auto?: boolean
+    status?: boolean
+    question_id?: boolean
+    start_at?: boolean
+    finished_at?: boolean
+  }
+
+
+  export type $bor_leetcode_resolve_recordsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "bor_leetcode_resolve_records"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id_auto: number
+      status: number | null
+      question_id: string | null
+      start_at: Date | null
+      finished_at: Date | null
+    }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
+    composites: {}
+  }
+
+  type bor_leetcode_resolve_recordsGetPayload<S extends boolean | null | undefined | bor_leetcode_resolve_recordsDefaultArgs> = $Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload, S>
+
+  type bor_leetcode_resolve_recordsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<bor_leetcode_resolve_recordsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Bor_leetcode_resolve_recordsCountAggregateInputType | true
+    }
+
+  export interface bor_leetcode_resolve_recordsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['bor_leetcode_resolve_records'], meta: { name: 'bor_leetcode_resolve_records' } }
+    /**
+     * Find zero or one Bor_leetcode_resolve_records that matches the filter.
+     * @param {bor_leetcode_resolve_recordsFindUniqueArgs} args - Arguments to find a Bor_leetcode_resolve_records
+     * @example
+     * // Get one Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends bor_leetcode_resolve_recordsFindUniqueArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsFindUniqueArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Bor_leetcode_resolve_records that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {bor_leetcode_resolve_recordsFindUniqueOrThrowArgs} args - Arguments to find a Bor_leetcode_resolve_records
+     * @example
+     * // Get one Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends bor_leetcode_resolve_recordsFindUniqueOrThrowArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Bor_leetcode_resolve_records that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsFindFirstArgs} args - Arguments to find a Bor_leetcode_resolve_records
+     * @example
+     * // Get one Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends bor_leetcode_resolve_recordsFindFirstArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsFindFirstArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Bor_leetcode_resolve_records that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsFindFirstOrThrowArgs} args - Arguments to find a Bor_leetcode_resolve_records
+     * @example
+     * // Get one Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends bor_leetcode_resolve_recordsFindFirstOrThrowArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsFindFirstOrThrowArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Bor_leetcode_resolve_records that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findMany()
+     * 
+     * // Get first 10 Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.findMany({ take: 10 })
+     * 
+     * // Only select the `id_auto`
+     * const bor_leetcode_resolve_recordsWithId_autoOnly = await prisma.bor_leetcode_resolve_records.findMany({ select: { id_auto: true } })
+     * 
+     */
+    findMany<T extends bor_leetcode_resolve_recordsFindManyArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsCreateArgs} args - Arguments to create a Bor_leetcode_resolve_records.
+     * @example
+     * // Create one Bor_leetcode_resolve_records
+     * const Bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.create({
+     *   data: {
+     *     // ... data to create a Bor_leetcode_resolve_records
+     *   }
+     * })
+     * 
+     */
+    create<T extends bor_leetcode_resolve_recordsCreateArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsCreateArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsCreateManyArgs} args - Arguments to create many Bor_leetcode_resolve_records.
+     * @example
+     * // Create many Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends bor_leetcode_resolve_recordsCreateManyArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bor_leetcode_resolve_records and returns the data saved in the database.
+     * @param {bor_leetcode_resolve_recordsCreateManyAndReturnArgs} args - Arguments to create many Bor_leetcode_resolve_records.
+     * @example
+     * // Create many Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bor_leetcode_resolve_records and only return the `id_auto`
+     * const bor_leetcode_resolve_recordsWithId_autoOnly = await prisma.bor_leetcode_resolve_records.createManyAndReturn({ 
+     *   select: { id_auto: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends bor_leetcode_resolve_recordsCreateManyAndReturnArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsDeleteArgs} args - Arguments to delete one Bor_leetcode_resolve_records.
+     * @example
+     * // Delete one Bor_leetcode_resolve_records
+     * const Bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.delete({
+     *   where: {
+     *     // ... filter to delete one Bor_leetcode_resolve_records
+     *   }
+     * })
+     * 
+     */
+    delete<T extends bor_leetcode_resolve_recordsDeleteArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsDeleteArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsUpdateArgs} args - Arguments to update one Bor_leetcode_resolve_records.
+     * @example
+     * // Update one Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends bor_leetcode_resolve_recordsUpdateArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsUpdateArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsDeleteManyArgs} args - Arguments to filter Bor_leetcode_resolve_records to delete.
+     * @example
+     * // Delete a few Bor_leetcode_resolve_records
+     * const { count } = await prisma.bor_leetcode_resolve_records.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends bor_leetcode_resolve_recordsDeleteManyArgs>(args?: SelectSubset<T, bor_leetcode_resolve_recordsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bor_leetcode_resolve_records.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends bor_leetcode_resolve_recordsUpdateManyArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Bor_leetcode_resolve_records.
+     * @param {bor_leetcode_resolve_recordsUpsertArgs} args - Arguments to update or create a Bor_leetcode_resolve_records.
+     * @example
+     * // Update or create a Bor_leetcode_resolve_records
+     * const bor_leetcode_resolve_records = await prisma.bor_leetcode_resolve_records.upsert({
+     *   create: {
+     *     // ... data to create a Bor_leetcode_resolve_records
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bor_leetcode_resolve_records we want to update
+     *   }
+     * })
+     */
+    upsert<T extends bor_leetcode_resolve_recordsUpsertArgs>(args: SelectSubset<T, bor_leetcode_resolve_recordsUpsertArgs<ExtArgs>>): Prisma__bor_leetcode_resolve_recordsClient<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Bor_leetcode_resolve_records.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsCountArgs} args - Arguments to filter Bor_leetcode_resolve_records to count.
+     * @example
+     * // Count the number of Bor_leetcode_resolve_records
+     * const count = await prisma.bor_leetcode_resolve_records.count({
+     *   where: {
+     *     // ... the filter for the Bor_leetcode_resolve_records we want to count
+     *   }
+     * })
+    **/
+    count<T extends bor_leetcode_resolve_recordsCountArgs>(
+      args?: Subset<T, bor_leetcode_resolve_recordsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Bor_leetcode_resolve_recordsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bor_leetcode_resolve_records.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Bor_leetcode_resolve_recordsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Bor_leetcode_resolve_recordsAggregateArgs>(args: Subset<T, Bor_leetcode_resolve_recordsAggregateArgs>): Prisma.PrismaPromise<GetBor_leetcode_resolve_recordsAggregateType<T>>
+
+    /**
+     * Group by Bor_leetcode_resolve_records.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bor_leetcode_resolve_recordsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends bor_leetcode_resolve_recordsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: bor_leetcode_resolve_recordsGroupByArgs['orderBy'] }
+        : { orderBy?: bor_leetcode_resolve_recordsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, bor_leetcode_resolve_recordsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBor_leetcode_resolve_recordsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the bor_leetcode_resolve_records model
+   */
+  readonly fields: bor_leetcode_resolve_recordsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for bor_leetcode_resolve_records.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__bor_leetcode_resolve_recordsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the bor_leetcode_resolve_records model
+   */ 
+  interface bor_leetcode_resolve_recordsFieldRefs {
+    readonly id_auto: FieldRef<"bor_leetcode_resolve_records", 'Int'>
+    readonly status: FieldRef<"bor_leetcode_resolve_records", 'Int'>
+    readonly question_id: FieldRef<"bor_leetcode_resolve_records", 'String'>
+    readonly start_at: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
+    readonly finished_at: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * bor_leetcode_resolve_records findUnique
+   */
+  export type bor_leetcode_resolve_recordsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter, which bor_leetcode_resolve_records to fetch.
+     */
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records findUniqueOrThrow
+   */
+  export type bor_leetcode_resolve_recordsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter, which bor_leetcode_resolve_records to fetch.
+     */
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records findFirst
+   */
+  export type bor_leetcode_resolve_recordsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter, which bor_leetcode_resolve_records to fetch.
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bor_leetcode_resolve_records to fetch.
+     */
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithRelationInput | bor_leetcode_resolve_recordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bor_leetcode_resolve_records.
+     */
+    cursor?: bor_leetcode_resolve_recordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bor_leetcode_resolve_records from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bor_leetcode_resolve_records.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bor_leetcode_resolve_records.
+     */
+    distinct?: Bor_leetcode_resolve_recordsScalarFieldEnum | Bor_leetcode_resolve_recordsScalarFieldEnum[]
+  }
+
+  /**
+   * bor_leetcode_resolve_records findFirstOrThrow
+   */
+  export type bor_leetcode_resolve_recordsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter, which bor_leetcode_resolve_records to fetch.
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bor_leetcode_resolve_records to fetch.
+     */
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithRelationInput | bor_leetcode_resolve_recordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bor_leetcode_resolve_records.
+     */
+    cursor?: bor_leetcode_resolve_recordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bor_leetcode_resolve_records from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bor_leetcode_resolve_records.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bor_leetcode_resolve_records.
+     */
+    distinct?: Bor_leetcode_resolve_recordsScalarFieldEnum | Bor_leetcode_resolve_recordsScalarFieldEnum[]
+  }
+
+  /**
+   * bor_leetcode_resolve_records findMany
+   */
+  export type bor_leetcode_resolve_recordsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter, which bor_leetcode_resolve_records to fetch.
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bor_leetcode_resolve_records to fetch.
+     */
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithRelationInput | bor_leetcode_resolve_recordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing bor_leetcode_resolve_records.
+     */
+    cursor?: bor_leetcode_resolve_recordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bor_leetcode_resolve_records from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bor_leetcode_resolve_records.
+     */
+    skip?: number
+    distinct?: Bor_leetcode_resolve_recordsScalarFieldEnum | Bor_leetcode_resolve_recordsScalarFieldEnum[]
+  }
+
+  /**
+   * bor_leetcode_resolve_records create
+   */
+  export type bor_leetcode_resolve_recordsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * The data needed to create a bor_leetcode_resolve_records.
+     */
+    data?: XOR<bor_leetcode_resolve_recordsCreateInput, bor_leetcode_resolve_recordsUncheckedCreateInput>
+  }
+
+  /**
+   * bor_leetcode_resolve_records createMany
+   */
+  export type bor_leetcode_resolve_recordsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many bor_leetcode_resolve_records.
+     */
+    data: bor_leetcode_resolve_recordsCreateManyInput | bor_leetcode_resolve_recordsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bor_leetcode_resolve_records createManyAndReturn
+   */
+  export type bor_leetcode_resolve_recordsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many bor_leetcode_resolve_records.
+     */
+    data: bor_leetcode_resolve_recordsCreateManyInput | bor_leetcode_resolve_recordsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bor_leetcode_resolve_records update
+   */
+  export type bor_leetcode_resolve_recordsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * The data needed to update a bor_leetcode_resolve_records.
+     */
+    data: XOR<bor_leetcode_resolve_recordsUpdateInput, bor_leetcode_resolve_recordsUncheckedUpdateInput>
+    /**
+     * Choose, which bor_leetcode_resolve_records to update.
+     */
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records updateMany
+   */
+  export type bor_leetcode_resolve_recordsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update bor_leetcode_resolve_records.
+     */
+    data: XOR<bor_leetcode_resolve_recordsUpdateManyMutationInput, bor_leetcode_resolve_recordsUncheckedUpdateManyInput>
+    /**
+     * Filter which bor_leetcode_resolve_records to update
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records upsert
+   */
+  export type bor_leetcode_resolve_recordsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * The filter to search for the bor_leetcode_resolve_records to update in case it exists.
+     */
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+    /**
+     * In case the bor_leetcode_resolve_records found by the `where` argument doesn't exist, create a new bor_leetcode_resolve_records with this data.
+     */
+    create: XOR<bor_leetcode_resolve_recordsCreateInput, bor_leetcode_resolve_recordsUncheckedCreateInput>
+    /**
+     * In case the bor_leetcode_resolve_records was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<bor_leetcode_resolve_recordsUpdateInput, bor_leetcode_resolve_recordsUncheckedUpdateInput>
+  }
+
+  /**
+   * bor_leetcode_resolve_records delete
+   */
+  export type bor_leetcode_resolve_recordsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Filter which bor_leetcode_resolve_records to delete.
+     */
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records deleteMany
+   */
+  export type bor_leetcode_resolve_recordsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bor_leetcode_resolve_records to delete
+     */
+    where?: bor_leetcode_resolve_recordsWhereInput
+  }
+
+  /**
+   * bor_leetcode_resolve_records without action
+   */
+  export type bor_leetcode_resolve_recordsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
   }
 
 
@@ -4901,7 +5098,6 @@ export namespace Prisma {
 
   export type Bor_userMinAggregateOutputType = {
     id_auto: number | null
-    id: string | null
     username: string | null
     password: string | null
     avatar: string | null
@@ -4915,7 +5111,6 @@ export namespace Prisma {
 
   export type Bor_userMaxAggregateOutputType = {
     id_auto: number | null
-    id: string | null
     username: string | null
     password: string | null
     avatar: string | null
@@ -4929,7 +5124,6 @@ export namespace Prisma {
 
   export type Bor_userCountAggregateOutputType = {
     id_auto: number
-    id: number
     username: number
     password: number
     avatar: number
@@ -4953,7 +5147,6 @@ export namespace Prisma {
 
   export type Bor_userMinAggregateInputType = {
     id_auto?: true
-    id?: true
     username?: true
     password?: true
     avatar?: true
@@ -4967,7 +5160,6 @@ export namespace Prisma {
 
   export type Bor_userMaxAggregateInputType = {
     id_auto?: true
-    id?: true
     username?: true
     password?: true
     avatar?: true
@@ -4981,7 +5173,6 @@ export namespace Prisma {
 
   export type Bor_userCountAggregateInputType = {
     id_auto?: true
-    id?: true
     username?: true
     password?: true
     avatar?: true
@@ -5082,7 +5273,6 @@ export namespace Prisma {
 
   export type Bor_userGroupByOutputType = {
     id_auto: number
-    id: string | null
     username: string | null
     password: string | null
     avatar: string | null
@@ -5115,7 +5305,6 @@ export namespace Prisma {
 
   export type bor_userSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
-    id?: boolean
     username?: boolean
     password?: boolean
     avatar?: boolean
@@ -5129,7 +5318,6 @@ export namespace Prisma {
 
   export type bor_userSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
-    id?: boolean
     username?: boolean
     password?: boolean
     avatar?: boolean
@@ -5143,7 +5331,6 @@ export namespace Prisma {
 
   export type bor_userSelectScalar = {
     id_auto?: boolean
-    id?: boolean
     username?: boolean
     password?: boolean
     avatar?: boolean
@@ -5161,7 +5348,6 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
-      id: string | null
       username: string | null
       password: string | null
       avatar: string | null
@@ -5565,7 +5751,6 @@ export namespace Prisma {
    */ 
   interface bor_userFieldRefs {
     readonly id_auto: FieldRef<"bor_user", 'Int'>
-    readonly id: FieldRef<"bor_user", 'String'>
     readonly username: FieldRef<"bor_user", 'String'>
     readonly password: FieldRef<"bor_user", 'String'>
     readonly avatar: FieldRef<"bor_user", 'String'>
@@ -5886,28 +6071,17 @@ export namespace Prisma {
   export type Bor_configScalarFieldEnum = (typeof Bor_configScalarFieldEnum)[keyof typeof Bor_configScalarFieldEnum]
 
 
-  export const Bor_leetcode_question_topic_tagsScalarFieldEnum: {
-    question_id: 'question_id',
-    tag_id: 'tag_id',
-    id_auto: 'id_auto'
-  };
-
-  export type Bor_leetcode_question_topic_tagsScalarFieldEnum = (typeof Bor_leetcode_question_topic_tagsScalarFieldEnum)[keyof typeof Bor_leetcode_question_topic_tagsScalarFieldEnum]
-
-
   export const Bor_leetcode_questionsScalarFieldEnum: {
     id_auto: 'id_auto',
-    id: 'id',
     ac_rate: 'ac_rate',
     difficulty: 'difficulty',
     question_frontend_id: 'question_frontend_id',
     is_paid_only: 'is_paid_only',
     title: 'title',
     title_slug: 'title_slug',
-    status: 'status',
     title_cn: 'title_cn',
-    finished_at: 'finished_at',
-    start_at: 'start_at'
+    translate_try_times: 'translate_try_times',
+    status: 'status'
   };
 
   export type Bor_leetcode_questionsScalarFieldEnum = (typeof Bor_leetcode_questionsScalarFieldEnum)[keyof typeof Bor_leetcode_questionsScalarFieldEnum]
@@ -5917,16 +6091,25 @@ export namespace Prisma {
     id_auto: 'id_auto',
     tag_id: 'tag_id',
     name: 'name',
-    slug: 'slug',
-    id: 'id'
+    slug: 'slug'
   };
 
   export type Bor_leetcode_topic_tagsScalarFieldEnum = (typeof Bor_leetcode_topic_tagsScalarFieldEnum)[keyof typeof Bor_leetcode_topic_tagsScalarFieldEnum]
 
 
+  export const Bor_leetcode_resolve_recordsScalarFieldEnum: {
+    id_auto: 'id_auto',
+    status: 'status',
+    question_id: 'question_id',
+    start_at: 'start_at',
+    finished_at: 'finished_at'
+  };
+
+  export type Bor_leetcode_resolve_recordsScalarFieldEnum = (typeof Bor_leetcode_resolve_recordsScalarFieldEnum)[keyof typeof Bor_leetcode_resolve_recordsScalarFieldEnum]
+
+
   export const Bor_userScalarFieldEnum: {
     id_auto: 'id_auto',
-    id: 'id',
     username: 'username',
     password: 'password',
     avatar: 'avatar',
@@ -6080,114 +6263,65 @@ export namespace Prisma {
     value?: StringNullableWithAggregatesFilter<"bor_config"> | string | null
   }
 
-  export type bor_leetcode_question_topic_tagsWhereInput = {
-    AND?: bor_leetcode_question_topic_tagsWhereInput | bor_leetcode_question_topic_tagsWhereInput[]
-    OR?: bor_leetcode_question_topic_tagsWhereInput[]
-    NOT?: bor_leetcode_question_topic_tagsWhereInput | bor_leetcode_question_topic_tagsWhereInput[]
-    question_id?: StringNullableFilter<"bor_leetcode_question_topic_tags"> | string | null
-    tag_id?: StringNullableFilter<"bor_leetcode_question_topic_tags"> | string | null
-    id_auto?: IntFilter<"bor_leetcode_question_topic_tags"> | number
-  }
-
-  export type bor_leetcode_question_topic_tagsOrderByWithRelationInput = {
-    question_id?: SortOrderInput | SortOrder
-    tag_id?: SortOrderInput | SortOrder
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_question_topic_tagsWhereUniqueInput = Prisma.AtLeast<{
-    id_auto?: number
-    AND?: bor_leetcode_question_topic_tagsWhereInput | bor_leetcode_question_topic_tagsWhereInput[]
-    OR?: bor_leetcode_question_topic_tagsWhereInput[]
-    NOT?: bor_leetcode_question_topic_tagsWhereInput | bor_leetcode_question_topic_tagsWhereInput[]
-    question_id?: StringNullableFilter<"bor_leetcode_question_topic_tags"> | string | null
-    tag_id?: StringNullableFilter<"bor_leetcode_question_topic_tags"> | string | null
-  }, "id_auto">
-
-  export type bor_leetcode_question_topic_tagsOrderByWithAggregationInput = {
-    question_id?: SortOrderInput | SortOrder
-    tag_id?: SortOrderInput | SortOrder
-    id_auto?: SortOrder
-    _count?: bor_leetcode_question_topic_tagsCountOrderByAggregateInput
-    _avg?: bor_leetcode_question_topic_tagsAvgOrderByAggregateInput
-    _max?: bor_leetcode_question_topic_tagsMaxOrderByAggregateInput
-    _min?: bor_leetcode_question_topic_tagsMinOrderByAggregateInput
-    _sum?: bor_leetcode_question_topic_tagsSumOrderByAggregateInput
-  }
-
-  export type bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput = {
-    AND?: bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput | bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput[]
-    OR?: bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput[]
-    NOT?: bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput | bor_leetcode_question_topic_tagsScalarWhereWithAggregatesInput[]
-    question_id?: StringNullableWithAggregatesFilter<"bor_leetcode_question_topic_tags"> | string | null
-    tag_id?: StringNullableWithAggregatesFilter<"bor_leetcode_question_topic_tags"> | string | null
-    id_auto?: IntWithAggregatesFilter<"bor_leetcode_question_topic_tags"> | number
-  }
-
   export type bor_leetcode_questionsWhereInput = {
     AND?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
     OR?: bor_leetcode_questionsWhereInput[]
     NOT?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
     id_auto?: IntFilter<"bor_leetcode_questions"> | number
-    id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     ac_rate?: FloatNullableFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     is_paid_only?: BoolNullableFilter<"bor_leetcode_questions"> | boolean | null
     title?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     title_slug?: StringNullableFilter<"bor_leetcode_questions"> | string | null
-    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
     title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
-    finished_at?: DateTimeNullableFilter<"bor_leetcode_questions"> | Date | string | null
-    start_at?: DateTimeNullableFilter<"bor_leetcode_questions"> | Date | string | null
+    translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
+    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
+    tags?: Bor_leetcode_topic_tagsListRelationFilter
   }
 
   export type bor_leetcode_questionsOrderByWithRelationInput = {
     id_auto?: SortOrder
-    id?: SortOrderInput | SortOrder
     ac_rate?: SortOrderInput | SortOrder
     difficulty?: SortOrderInput | SortOrder
     question_frontend_id?: SortOrderInput | SortOrder
     is_paid_only?: SortOrderInput | SortOrder
     title?: SortOrderInput | SortOrder
     title_slug?: SortOrderInput | SortOrder
-    status?: SortOrderInput | SortOrder
     title_cn?: SortOrderInput | SortOrder
-    finished_at?: SortOrderInput | SortOrder
-    start_at?: SortOrderInput | SortOrder
+    translate_try_times?: SortOrder
+    status?: SortOrderInput | SortOrder
+    tags?: bor_leetcode_topic_tagsOrderByRelationAggregateInput
   }
 
   export type bor_leetcode_questionsWhereUniqueInput = Prisma.AtLeast<{
     id_auto?: number
+    title_slug?: string
     AND?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
     OR?: bor_leetcode_questionsWhereInput[]
     NOT?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
-    id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     ac_rate?: FloatNullableFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     is_paid_only?: BoolNullableFilter<"bor_leetcode_questions"> | boolean | null
     title?: StringNullableFilter<"bor_leetcode_questions"> | string | null
-    title_slug?: StringNullableFilter<"bor_leetcode_questions"> | string | null
-    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
     title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
-    finished_at?: DateTimeNullableFilter<"bor_leetcode_questions"> | Date | string | null
-    start_at?: DateTimeNullableFilter<"bor_leetcode_questions"> | Date | string | null
-  }, "id_auto">
+    translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
+    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
+    tags?: Bor_leetcode_topic_tagsListRelationFilter
+  }, "id_auto" | "title_slug">
 
   export type bor_leetcode_questionsOrderByWithAggregationInput = {
     id_auto?: SortOrder
-    id?: SortOrderInput | SortOrder
     ac_rate?: SortOrderInput | SortOrder
     difficulty?: SortOrderInput | SortOrder
     question_frontend_id?: SortOrderInput | SortOrder
     is_paid_only?: SortOrderInput | SortOrder
     title?: SortOrderInput | SortOrder
     title_slug?: SortOrderInput | SortOrder
-    status?: SortOrderInput | SortOrder
     title_cn?: SortOrderInput | SortOrder
-    finished_at?: SortOrderInput | SortOrder
-    start_at?: SortOrderInput | SortOrder
+    translate_try_times?: SortOrder
+    status?: SortOrderInput | SortOrder
     _count?: bor_leetcode_questionsCountOrderByAggregateInput
     _avg?: bor_leetcode_questionsAvgOrderByAggregateInput
     _max?: bor_leetcode_questionsMaxOrderByAggregateInput
@@ -6200,17 +6334,15 @@ export namespace Prisma {
     OR?: bor_leetcode_questionsScalarWhereWithAggregatesInput[]
     NOT?: bor_leetcode_questionsScalarWhereWithAggregatesInput | bor_leetcode_questionsScalarWhereWithAggregatesInput[]
     id_auto?: IntWithAggregatesFilter<"bor_leetcode_questions"> | number
-    id?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     ac_rate?: FloatNullableWithAggregatesFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     is_paid_only?: BoolNullableWithAggregatesFilter<"bor_leetcode_questions"> | boolean | null
     title?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     title_slug?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
-    status?: IntNullableWithAggregatesFilter<"bor_leetcode_questions"> | number | null
     title_cn?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
-    finished_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_questions"> | Date | string | null
-    start_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_questions"> | Date | string | null
+    translate_try_times?: IntWithAggregatesFilter<"bor_leetcode_questions"> | number
+    status?: IntNullableWithAggregatesFilter<"bor_leetcode_questions"> | number | null
   }
 
   export type bor_leetcode_topic_tagsWhereInput = {
@@ -6221,7 +6353,7 @@ export namespace Prisma {
     tag_id?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
     name?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
     slug?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
-    id?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
+    questions?: Bor_leetcode_questionsListRelationFilter
   }
 
   export type bor_leetcode_topic_tagsOrderByWithRelationInput = {
@@ -6229,26 +6361,25 @@ export namespace Prisma {
     tag_id?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     slug?: SortOrderInput | SortOrder
-    id?: SortOrderInput | SortOrder
+    questions?: bor_leetcode_questionsOrderByRelationAggregateInput
   }
 
   export type bor_leetcode_topic_tagsWhereUniqueInput = Prisma.AtLeast<{
     id_auto?: number
+    tag_id?: string
+    slug?: string
     AND?: bor_leetcode_topic_tagsWhereInput | bor_leetcode_topic_tagsWhereInput[]
     OR?: bor_leetcode_topic_tagsWhereInput[]
     NOT?: bor_leetcode_topic_tagsWhereInput | bor_leetcode_topic_tagsWhereInput[]
-    tag_id?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
     name?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
-    slug?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
-    id?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
-  }, "id_auto">
+    questions?: Bor_leetcode_questionsListRelationFilter
+  }, "id_auto" | "tag_id" | "slug">
 
   export type bor_leetcode_topic_tagsOrderByWithAggregationInput = {
     id_auto?: SortOrder
     tag_id?: SortOrderInput | SortOrder
     name?: SortOrderInput | SortOrder
     slug?: SortOrderInput | SortOrder
-    id?: SortOrderInput | SortOrder
     _count?: bor_leetcode_topic_tagsCountOrderByAggregateInput
     _avg?: bor_leetcode_topic_tagsAvgOrderByAggregateInput
     _max?: bor_leetcode_topic_tagsMaxOrderByAggregateInput
@@ -6264,7 +6395,60 @@ export namespace Prisma {
     tag_id?: StringNullableWithAggregatesFilter<"bor_leetcode_topic_tags"> | string | null
     name?: StringNullableWithAggregatesFilter<"bor_leetcode_topic_tags"> | string | null
     slug?: StringNullableWithAggregatesFilter<"bor_leetcode_topic_tags"> | string | null
-    id?: StringNullableWithAggregatesFilter<"bor_leetcode_topic_tags"> | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsWhereInput = {
+    AND?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
+    OR?: bor_leetcode_resolve_recordsWhereInput[]
+    NOT?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
+    id_auto?: IntFilter<"bor_leetcode_resolve_records"> | number
+    status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+    question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    start_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    finished_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsOrderByWithRelationInput = {
+    id_auto?: SortOrder
+    status?: SortOrderInput | SortOrder
+    question_id?: SortOrderInput | SortOrder
+    start_at?: SortOrderInput | SortOrder
+    finished_at?: SortOrderInput | SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsWhereUniqueInput = Prisma.AtLeast<{
+    id_auto?: number
+    AND?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
+    OR?: bor_leetcode_resolve_recordsWhereInput[]
+    NOT?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
+    status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+    question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    start_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    finished_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+  }, "id_auto">
+
+  export type bor_leetcode_resolve_recordsOrderByWithAggregationInput = {
+    id_auto?: SortOrder
+    status?: SortOrderInput | SortOrder
+    question_id?: SortOrderInput | SortOrder
+    start_at?: SortOrderInput | SortOrder
+    finished_at?: SortOrderInput | SortOrder
+    _count?: bor_leetcode_resolve_recordsCountOrderByAggregateInput
+    _avg?: bor_leetcode_resolve_recordsAvgOrderByAggregateInput
+    _max?: bor_leetcode_resolve_recordsMaxOrderByAggregateInput
+    _min?: bor_leetcode_resolve_recordsMinOrderByAggregateInput
+    _sum?: bor_leetcode_resolve_recordsSumOrderByAggregateInput
+  }
+
+  export type bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput = {
+    AND?: bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput | bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput[]
+    OR?: bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput[]
+    NOT?: bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput | bor_leetcode_resolve_recordsScalarWhereWithAggregatesInput[]
+    id_auto?: IntWithAggregatesFilter<"bor_leetcode_resolve_records"> | number
+    status?: IntNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | number | null
+    question_id?: StringNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | string | null
+    start_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    finished_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
   }
 
   export type bor_userWhereInput = {
@@ -6272,7 +6456,6 @@ export namespace Prisma {
     OR?: bor_userWhereInput[]
     NOT?: bor_userWhereInput | bor_userWhereInput[]
     id_auto?: IntFilter<"bor_user"> | number
-    id?: StringNullableFilter<"bor_user"> | string | null
     username?: StringNullableFilter<"bor_user"> | string | null
     password?: StringNullableFilter<"bor_user"> | string | null
     avatar?: StringNullableFilter<"bor_user"> | string | null
@@ -6286,7 +6469,6 @@ export namespace Prisma {
 
   export type bor_userOrderByWithRelationInput = {
     id_auto?: SortOrder
-    id?: SortOrderInput | SortOrder
     username?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
@@ -6303,7 +6485,6 @@ export namespace Prisma {
     AND?: bor_userWhereInput | bor_userWhereInput[]
     OR?: bor_userWhereInput[]
     NOT?: bor_userWhereInput | bor_userWhereInput[]
-    id?: StringNullableFilter<"bor_user"> | string | null
     username?: StringNullableFilter<"bor_user"> | string | null
     password?: StringNullableFilter<"bor_user"> | string | null
     avatar?: StringNullableFilter<"bor_user"> | string | null
@@ -6317,7 +6498,6 @@ export namespace Prisma {
 
   export type bor_userOrderByWithAggregationInput = {
     id_auto?: SortOrder
-    id?: SortOrderInput | SortOrder
     username?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
     avatar?: SortOrderInput | SortOrder
@@ -6339,7 +6519,6 @@ export namespace Prisma {
     OR?: bor_userScalarWhereWithAggregatesInput[]
     NOT?: bor_userScalarWhereWithAggregatesInput | bor_userScalarWhereWithAggregatesInput[]
     id_auto?: IntWithAggregatesFilter<"bor_user"> | number
-    id?: StringNullableWithAggregatesFilter<"bor_user"> | string | null
     username?: StringNullableWithAggregatesFilter<"bor_user"> | string | null
     password?: StringNullableWithAggregatesFilter<"bor_user"> | string | null
     avatar?: StringNullableWithAggregatesFilter<"bor_user"> | string | null
@@ -6390,152 +6569,103 @@ export namespace Prisma {
     value?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type bor_leetcode_question_topic_tagsCreateInput = {
-    question_id?: string | null
-    tag_id?: string | null
-  }
-
-  export type bor_leetcode_question_topic_tagsUncheckedCreateInput = {
-    question_id?: string | null
-    tag_id?: string | null
-    id_auto?: number
-  }
-
-  export type bor_leetcode_question_topic_tagsUpdateInput = {
-    question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type bor_leetcode_question_topic_tagsUncheckedUpdateInput = {
-    question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id_auto?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type bor_leetcode_question_topic_tagsCreateManyInput = {
-    question_id?: string | null
-    tag_id?: string | null
-    id_auto?: number
-  }
-
-  export type bor_leetcode_question_topic_tagsUpdateManyMutationInput = {
-    question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type bor_leetcode_question_topic_tagsUncheckedUpdateManyInput = {
-    question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
-    id_auto?: IntFieldUpdateOperationsInput | number
-  }
-
   export type bor_leetcode_questionsCreateInput = {
-    id?: string | null
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
     is_paid_only?: boolean | null
     title?: string | null
     title_slug?: string | null
-    status?: number | null
     title_cn?: string | null
-    finished_at?: Date | string | null
-    start_at?: Date | string | null
+    translate_try_times?: number
+    status?: number | null
+    tags?: bor_leetcode_topic_tagsCreateNestedManyWithoutQuestionsInput
   }
 
   export type bor_leetcode_questionsUncheckedCreateInput = {
     id_auto?: number
-    id?: string | null
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
     is_paid_only?: boolean | null
     title?: string | null
     title_slug?: string | null
-    status?: number | null
     title_cn?: string | null
-    finished_at?: Date | string | null
-    start_at?: Date | string | null
+    translate_try_times?: number
+    status?: number | null
+    tags?: bor_leetcode_topic_tagsUncheckedCreateNestedManyWithoutQuestionsInput
   }
 
   export type bor_leetcode_questionsUpdateInput = {
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
     is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    tags?: bor_leetcode_topic_tagsUpdateManyWithoutQuestionsNestedInput
   }
 
   export type bor_leetcode_questionsUncheckedUpdateInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
     is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    tags?: bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsNestedInput
   }
 
   export type bor_leetcode_questionsCreateManyInput = {
     id_auto?: number
-    id?: string | null
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
     is_paid_only?: boolean | null
     title?: string | null
     title_slug?: string | null
-    status?: number | null
     title_cn?: string | null
-    finished_at?: Date | string | null
-    start_at?: Date | string | null
+    translate_try_times?: number
+    status?: number | null
   }
 
   export type bor_leetcode_questionsUpdateManyMutationInput = {
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
     is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_leetcode_questionsUncheckedUpdateManyInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
     is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_leetcode_topic_tagsCreateInput = {
     tag_id?: string | null
     name?: string | null
     slug?: string | null
-    id?: string | null
+    questions?: bor_leetcode_questionsCreateNestedManyWithoutTagsInput
   }
 
   export type bor_leetcode_topic_tagsUncheckedCreateInput = {
@@ -6543,14 +6673,14 @@ export namespace Prisma {
     tag_id?: string | null
     name?: string | null
     slug?: string | null
-    id?: string | null
+    questions?: bor_leetcode_questionsUncheckedCreateNestedManyWithoutTagsInput
   }
 
   export type bor_leetcode_topic_tagsUpdateInput = {
     tag_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: NullableStringFieldUpdateOperationsInput | string | null
+    questions?: bor_leetcode_questionsUpdateManyWithoutTagsNestedInput
   }
 
   export type bor_leetcode_topic_tagsUncheckedUpdateInput = {
@@ -6558,7 +6688,7 @@ export namespace Prisma {
     tag_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: NullableStringFieldUpdateOperationsInput | string | null
+    questions?: bor_leetcode_questionsUncheckedUpdateManyWithoutTagsNestedInput
   }
 
   export type bor_leetcode_topic_tagsCreateManyInput = {
@@ -6566,14 +6696,12 @@ export namespace Prisma {
     tag_id?: string | null
     name?: string | null
     slug?: string | null
-    id?: string | null
   }
 
   export type bor_leetcode_topic_tagsUpdateManyMutationInput = {
     tag_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type bor_leetcode_topic_tagsUncheckedUpdateManyInput = {
@@ -6581,11 +6709,62 @@ export namespace Prisma {
     tag_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: NullableStringFieldUpdateOperationsInput | string | null
     slug?: NullableStringFieldUpdateOperationsInput | string | null
-    id?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsCreateInput = {
+    status?: number | null
+    question_id?: string | null
+    start_at?: Date | string | null
+    finished_at?: Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedCreateInput = {
+    id_auto?: number
+    status?: number | null
+    question_id?: string | null
+    start_at?: Date | string | null
+    finished_at?: Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUpdateInput = {
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedUpdateInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsCreateManyInput = {
+    id_auto?: number
+    status?: number | null
+    question_id?: string | null
+    start_at?: Date | string | null
+    finished_at?: Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUpdateManyMutationInput = {
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedUpdateManyInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type bor_userCreateInput = {
-    id?: string | null
     username?: string | null
     password?: string | null
     avatar?: string | null
@@ -6599,7 +6778,6 @@ export namespace Prisma {
 
   export type bor_userUncheckedCreateInput = {
     id_auto?: number
-    id?: string | null
     username?: string | null
     password?: string | null
     avatar?: string | null
@@ -6612,7 +6790,6 @@ export namespace Prisma {
   }
 
   export type bor_userUpdateInput = {
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6626,7 +6803,6 @@ export namespace Prisma {
 
   export type bor_userUncheckedUpdateInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6640,7 +6816,6 @@ export namespace Prisma {
 
   export type bor_userCreateManyInput = {
     id_auto?: number
-    id?: string | null
     username?: string | null
     password?: string | null
     avatar?: string | null
@@ -6653,7 +6828,6 @@ export namespace Prisma {
   }
 
   export type bor_userUpdateManyMutationInput = {
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6667,7 +6841,6 @@ export namespace Prisma {
 
   export type bor_userUncheckedUpdateManyInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
-    id?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6770,32 +6943,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type bor_leetcode_question_topic_tagsCountOrderByAggregateInput = {
-    question_id?: SortOrder
-    tag_id?: SortOrder
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_question_topic_tagsAvgOrderByAggregateInput = {
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_question_topic_tagsMaxOrderByAggregateInput = {
-    question_id?: SortOrder
-    tag_id?: SortOrder
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_question_topic_tagsMinOrderByAggregateInput = {
-    question_id?: SortOrder
-    tag_id?: SortOrder
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_question_topic_tagsSumOrderByAggregateInput = {
-    id_auto?: SortOrder
-  }
-
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -6823,71 +6970,66 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type Bor_leetcode_topic_tagsListRelationFilter = {
+    every?: bor_leetcode_topic_tagsWhereInput
+    some?: bor_leetcode_topic_tagsWhereInput
+    none?: bor_leetcode_topic_tagsWhereInput
+  }
+
+  export type bor_leetcode_topic_tagsOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type bor_leetcode_questionsCountOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
     is_paid_only?: SortOrder
     title?: SortOrder
     title_slug?: SortOrder
-    status?: SortOrder
     title_cn?: SortOrder
-    finished_at?: SortOrder
-    start_at?: SortOrder
+    translate_try_times?: SortOrder
+    status?: SortOrder
   }
 
   export type bor_leetcode_questionsAvgOrderByAggregateInput = {
     id_auto?: SortOrder
     ac_rate?: SortOrder
+    translate_try_times?: SortOrder
     status?: SortOrder
   }
 
   export type bor_leetcode_questionsMaxOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
     is_paid_only?: SortOrder
     title?: SortOrder
     title_slug?: SortOrder
-    status?: SortOrder
     title_cn?: SortOrder
-    finished_at?: SortOrder
-    start_at?: SortOrder
+    translate_try_times?: SortOrder
+    status?: SortOrder
   }
 
   export type bor_leetcode_questionsMinOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
     is_paid_only?: SortOrder
     title?: SortOrder
     title_slug?: SortOrder
-    status?: SortOrder
     title_cn?: SortOrder
-    finished_at?: SortOrder
-    start_at?: SortOrder
+    translate_try_times?: SortOrder
+    status?: SortOrder
   }
 
   export type bor_leetcode_questionsSumOrderByAggregateInput = {
     id_auto?: SortOrder
     ac_rate?: SortOrder
+    translate_try_times?: SortOrder
     status?: SortOrder
   }
 
@@ -6931,6 +7073,90 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type Bor_leetcode_questionsListRelationFilter = {
+    every?: bor_leetcode_questionsWhereInput
+    some?: bor_leetcode_questionsWhereInput
+    none?: bor_leetcode_questionsWhereInput
+  }
+
+  export type bor_leetcode_questionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type bor_leetcode_topic_tagsCountOrderByAggregateInput = {
+    id_auto?: SortOrder
+    tag_id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+  }
+
+  export type bor_leetcode_topic_tagsAvgOrderByAggregateInput = {
+    id_auto?: SortOrder
+  }
+
+  export type bor_leetcode_topic_tagsMaxOrderByAggregateInput = {
+    id_auto?: SortOrder
+    tag_id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+  }
+
+  export type bor_leetcode_topic_tagsMinOrderByAggregateInput = {
+    id_auto?: SortOrder
+    tag_id?: SortOrder
+    name?: SortOrder
+    slug?: SortOrder
+  }
+
+  export type bor_leetcode_topic_tagsSumOrderByAggregateInput = {
+    id_auto?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsCountOrderByAggregateInput = {
+    id_auto?: SortOrder
+    status?: SortOrder
+    question_id?: SortOrder
+    start_at?: SortOrder
+    finished_at?: SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsAvgOrderByAggregateInput = {
+    id_auto?: SortOrder
+    status?: SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsMaxOrderByAggregateInput = {
+    id_auto?: SortOrder
+    status?: SortOrder
+    question_id?: SortOrder
+    start_at?: SortOrder
+    finished_at?: SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsMinOrderByAggregateInput = {
+    id_auto?: SortOrder
+    status?: SortOrder
+    question_id?: SortOrder
+    start_at?: SortOrder
+    finished_at?: SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsSumOrderByAggregateInput = {
+    id_auto?: SortOrder
+    status?: SortOrder
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -6945,41 +7171,8 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type bor_leetcode_topic_tagsCountOrderByAggregateInput = {
-    id_auto?: SortOrder
-    tag_id?: SortOrder
-    name?: SortOrder
-    slug?: SortOrder
-    id?: SortOrder
-  }
-
-  export type bor_leetcode_topic_tagsAvgOrderByAggregateInput = {
-    id_auto?: SortOrder
-  }
-
-  export type bor_leetcode_topic_tagsMaxOrderByAggregateInput = {
-    id_auto?: SortOrder
-    tag_id?: SortOrder
-    name?: SortOrder
-    slug?: SortOrder
-    id?: SortOrder
-  }
-
-  export type bor_leetcode_topic_tagsMinOrderByAggregateInput = {
-    id_auto?: SortOrder
-    tag_id?: SortOrder
-    name?: SortOrder
-    slug?: SortOrder
-    id?: SortOrder
-  }
-
-  export type bor_leetcode_topic_tagsSumOrderByAggregateInput = {
-    id_auto?: SortOrder
-  }
-
   export type bor_userCountOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     username?: SortOrder
     password?: SortOrder
     avatar?: SortOrder
@@ -6997,7 +7190,6 @@ export namespace Prisma {
 
   export type bor_userMaxOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     username?: SortOrder
     password?: SortOrder
     avatar?: SortOrder
@@ -7011,7 +7203,6 @@ export namespace Prisma {
 
   export type bor_userMinOrderByAggregateInput = {
     id_auto?: SortOrder
-    id?: SortOrder
     username?: SortOrder
     password?: SortOrder
     avatar?: SortOrder
@@ -7039,6 +7230,18 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type bor_leetcode_topic_tagsCreateNestedManyWithoutQuestionsInput = {
+    create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
+    connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
+    connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+  }
+
+  export type bor_leetcode_topic_tagsUncheckedCreateNestedManyWithoutQuestionsInput = {
+    create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
+    connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
+    connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -7057,6 +7260,70 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type bor_leetcode_topic_tagsUpdateManyWithoutQuestionsNestedInput = {
+    create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
+    connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
+    upsert?: bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput | bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput[]
+    set?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    disconnect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    delete?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    update?: bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput[]
+    updateMany?: bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput[]
+    deleteMany?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
+  }
+
+  export type bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsNestedInput = {
+    create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
+    connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
+    upsert?: bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput | bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput[]
+    set?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    disconnect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    delete?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+    update?: bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput[]
+    updateMany?: bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput[]
+    deleteMany?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
+  }
+
+  export type bor_leetcode_questionsCreateNestedManyWithoutTagsInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput> | bor_leetcode_questionsCreateWithoutTagsInput[] | bor_leetcode_questionsUncheckedCreateWithoutTagsInput[]
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutTagsInput | bor_leetcode_questionsCreateOrConnectWithoutTagsInput[]
+    connect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+  }
+
+  export type bor_leetcode_questionsUncheckedCreateNestedManyWithoutTagsInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput> | bor_leetcode_questionsCreateWithoutTagsInput[] | bor_leetcode_questionsUncheckedCreateWithoutTagsInput[]
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutTagsInput | bor_leetcode_questionsCreateOrConnectWithoutTagsInput[]
+    connect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+  }
+
+  export type bor_leetcode_questionsUpdateManyWithoutTagsNestedInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput> | bor_leetcode_questionsCreateWithoutTagsInput[] | bor_leetcode_questionsUncheckedCreateWithoutTagsInput[]
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutTagsInput | bor_leetcode_questionsCreateOrConnectWithoutTagsInput[]
+    upsert?: bor_leetcode_questionsUpsertWithWhereUniqueWithoutTagsInput | bor_leetcode_questionsUpsertWithWhereUniqueWithoutTagsInput[]
+    set?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    disconnect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    delete?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    connect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    update?: bor_leetcode_questionsUpdateWithWhereUniqueWithoutTagsInput | bor_leetcode_questionsUpdateWithWhereUniqueWithoutTagsInput[]
+    updateMany?: bor_leetcode_questionsUpdateManyWithWhereWithoutTagsInput | bor_leetcode_questionsUpdateManyWithWhereWithoutTagsInput[]
+    deleteMany?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
+  }
+
+  export type bor_leetcode_questionsUncheckedUpdateManyWithoutTagsNestedInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput> | bor_leetcode_questionsCreateWithoutTagsInput[] | bor_leetcode_questionsUncheckedCreateWithoutTagsInput[]
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutTagsInput | bor_leetcode_questionsCreateOrConnectWithoutTagsInput[]
+    upsert?: bor_leetcode_questionsUpsertWithWhereUniqueWithoutTagsInput | bor_leetcode_questionsUpsertWithWhereUniqueWithoutTagsInput[]
+    set?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    disconnect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    delete?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    connect?: bor_leetcode_questionsWhereUniqueInput | bor_leetcode_questionsWhereUniqueInput[]
+    update?: bor_leetcode_questionsUpdateWithWhereUniqueWithoutTagsInput | bor_leetcode_questionsUpdateWithWhereUniqueWithoutTagsInput[]
+    updateMany?: bor_leetcode_questionsUpdateManyWithWhereWithoutTagsInput | bor_leetcode_questionsUpdateManyWithWhereWithoutTagsInput[]
+    deleteMany?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -7159,17 +7426,6 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -7210,6 +7466,17 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -7224,19 +7491,187 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type bor_leetcode_topic_tagsCreateWithoutQuestionsInput = {
+    tag_id?: string | null
+    name?: string | null
+    slug?: string | null
+  }
+
+  export type bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput = {
+    id_auto?: number
+    tag_id?: string | null
+    name?: string | null
+    slug?: string | null
+  }
+
+  export type bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput = {
+    where: bor_leetcode_topic_tagsWhereUniqueInput
+    create: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput>
+  }
+
+  export type bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput = {
+    where: bor_leetcode_topic_tagsWhereUniqueInput
+    update: XOR<bor_leetcode_topic_tagsUpdateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedUpdateWithoutQuestionsInput>
+    create: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput>
+  }
+
+  export type bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput = {
+    where: bor_leetcode_topic_tagsWhereUniqueInput
+    data: XOR<bor_leetcode_topic_tagsUpdateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedUpdateWithoutQuestionsInput>
+  }
+
+  export type bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput = {
+    where: bor_leetcode_topic_tagsScalarWhereInput
+    data: XOR<bor_leetcode_topic_tagsUpdateManyMutationInput, bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsInput>
+  }
+
+  export type bor_leetcode_topic_tagsScalarWhereInput = {
+    AND?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
+    OR?: bor_leetcode_topic_tagsScalarWhereInput[]
+    NOT?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
+    id_auto?: IntFilter<"bor_leetcode_topic_tags"> | number
+    tag_id?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
+    name?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
+    slug?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
+  }
+
+  export type bor_leetcode_questionsCreateWithoutTagsInput = {
+    ac_rate?: number | null
+    difficulty?: string | null
+    question_frontend_id?: string | null
+    is_paid_only?: boolean | null
+    title?: string | null
+    title_slug?: string | null
+    title_cn?: string | null
+    translate_try_times?: number
+    status?: number | null
+  }
+
+  export type bor_leetcode_questionsUncheckedCreateWithoutTagsInput = {
+    id_auto?: number
+    ac_rate?: number | null
+    difficulty?: string | null
+    question_frontend_id?: string | null
+    is_paid_only?: boolean | null
+    title?: string | null
+    title_slug?: string | null
+    title_cn?: string | null
+    translate_try_times?: number
+    status?: number | null
+  }
+
+  export type bor_leetcode_questionsCreateOrConnectWithoutTagsInput = {
+    where: bor_leetcode_questionsWhereUniqueInput
+    create: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput>
+  }
+
+  export type bor_leetcode_questionsUpsertWithWhereUniqueWithoutTagsInput = {
+    where: bor_leetcode_questionsWhereUniqueInput
+    update: XOR<bor_leetcode_questionsUpdateWithoutTagsInput, bor_leetcode_questionsUncheckedUpdateWithoutTagsInput>
+    create: XOR<bor_leetcode_questionsCreateWithoutTagsInput, bor_leetcode_questionsUncheckedCreateWithoutTagsInput>
+  }
+
+  export type bor_leetcode_questionsUpdateWithWhereUniqueWithoutTagsInput = {
+    where: bor_leetcode_questionsWhereUniqueInput
+    data: XOR<bor_leetcode_questionsUpdateWithoutTagsInput, bor_leetcode_questionsUncheckedUpdateWithoutTagsInput>
+  }
+
+  export type bor_leetcode_questionsUpdateManyWithWhereWithoutTagsInput = {
+    where: bor_leetcode_questionsScalarWhereInput
+    data: XOR<bor_leetcode_questionsUpdateManyMutationInput, bor_leetcode_questionsUncheckedUpdateManyWithoutTagsInput>
+  }
+
+  export type bor_leetcode_questionsScalarWhereInput = {
+    AND?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
+    OR?: bor_leetcode_questionsScalarWhereInput[]
+    NOT?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
+    id_auto?: IntFilter<"bor_leetcode_questions"> | number
+    ac_rate?: FloatNullableFilter<"bor_leetcode_questions"> | number | null
+    difficulty?: StringNullableFilter<"bor_leetcode_questions"> | string | null
+    question_frontend_id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
+    is_paid_only?: BoolNullableFilter<"bor_leetcode_questions"> | boolean | null
+    title?: StringNullableFilter<"bor_leetcode_questions"> | string | null
+    title_slug?: StringNullableFilter<"bor_leetcode_questions"> | string | null
+    title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
+    translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
+    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
+  }
+
+  export type bor_leetcode_topic_tagsUpdateWithoutQuestionsInput = {
+    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bor_leetcode_topic_tagsUncheckedUpdateWithoutQuestionsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    tag_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type bor_leetcode_questionsUpdateWithoutTagsInput = {
+    ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
+    difficulty?: NullableStringFieldUpdateOperationsInput | string | null
+    question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title_slug?: NullableStringFieldUpdateOperationsInput | string | null
+    title_cn?: NullableStringFieldUpdateOperationsInput | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type bor_leetcode_questionsUncheckedUpdateWithoutTagsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
+    difficulty?: NullableStringFieldUpdateOperationsInput | string | null
+    question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title_slug?: NullableStringFieldUpdateOperationsInput | string | null
+    title_cn?: NullableStringFieldUpdateOperationsInput | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type bor_leetcode_questionsUncheckedUpdateManyWithoutTagsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
+    difficulty?: NullableStringFieldUpdateOperationsInput | string | null
+    question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title_slug?: NullableStringFieldUpdateOperationsInput | string | null
+    title_cn?: NullableStringFieldUpdateOperationsInput | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
 
 
   /**
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use Bor_leetcode_questionsCountOutputTypeDefaultArgs instead
+     */
+    export type Bor_leetcode_questionsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Bor_leetcode_topic_tagsCountOutputTypeDefaultArgs instead
+     */
+    export type Bor_leetcode_topic_tagsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Bor_leetcode_topic_tagsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use bor_configDefaultArgs instead
      */
     export type bor_configArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = bor_configDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use bor_leetcode_question_topic_tagsDefaultArgs instead
-     */
-    export type bor_leetcode_question_topic_tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = bor_leetcode_question_topic_tagsDefaultArgs<ExtArgs>
     /**
      * @deprecated Use bor_leetcode_questionsDefaultArgs instead
      */
@@ -7245,6 +7680,10 @@ export namespace Prisma {
      * @deprecated Use bor_leetcode_topic_tagsDefaultArgs instead
      */
     export type bor_leetcode_topic_tagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = bor_leetcode_topic_tagsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use bor_leetcode_resolve_recordsDefaultArgs instead
+     */
+    export type bor_leetcode_resolve_recordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = bor_leetcode_resolve_recordsDefaultArgs<ExtArgs>
     /**
      * @deprecated Use bor_userDefaultArgs instead
      */

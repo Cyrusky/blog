@@ -8,7 +8,10 @@ export class UserService {
   async getUser(username: string) {
     return this.db.client.bor_user.findFirst({
       where: {
-        username: username,
+        AND: {
+          username: username,
+          enabled: true,
+        },
       },
     });
   }

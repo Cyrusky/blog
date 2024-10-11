@@ -6,4 +6,5 @@ TOKEN_EXPIRE_IN="1d"
 DATABASE_URL="$DATABASE_URL"
 EOF
 
+prisma db push --accept-data-loss
 node index.js

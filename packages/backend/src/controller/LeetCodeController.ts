@@ -30,22 +30,4 @@ export class LeetCodeController {
       total: result.total,
     });
   }
-
-  @BorisRouter.Get("/translate/:auto_id")
-  async translateQuestion(ctx: Context) {
-    const autoId = ctx.params.auto_id as string | undefined;
-    if (!autoId) {
-      ctx.body = ResponseUtil.fail(400, "autoId is required");
-      return;
-    }
-    const question = await this.leetCodeService.translateQuestionByAutoId(
-      parseInt(autoId),
-    );
-    if (!question) {
-      ctx.body = ResponseUtil.fail(404, "Question not found");
-      return;
-    } else {
-      ctx.body = ResponseUtil.success(question);
-    }
-  }
 }

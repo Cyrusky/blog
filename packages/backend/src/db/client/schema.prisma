@@ -14,38 +14,38 @@ model bor_config {
   value   String?
 }
 
-model bor_leetcode_question_topic_tags {
-  question_id String? @db.VarChar
-  tag_id      String? @db.VarChar
-  id_auto     Int     @id @default(autoincrement())
-}
-
 model bor_leetcode_questions {
-  id_auto              Int       @id @default(autoincrement())
-  id                   String?   @db.VarChar
+  id_auto              Int                       @id @default(autoincrement())
   ac_rate              Float?
   difficulty           String?
   question_frontend_id String?
   is_paid_only         Boolean?
   title                String?
-  title_slug           String?
-  status               Int?
-  title_cn             String?   @db.VarChar
-  finished_at          DateTime? @db.Timestamp(6)
-  start_at             DateTime? @db.Timestamp(6)
+  title_slug           String?                   @unique
+  title_cn             String?                   @db.VarChar
+  translate_try_times  Int                       @default(0)
+  status               Int?                      @default(0)
+  tags                 bor_leetcode_topic_tags[]
 }
 
 model bor_leetcode_topic_tags {
-  id_auto Int     @id @default(autoincrement())
-  tag_id  String? @db.VarChar
-  name    String?
-  slug    String?
-  id      String?
+  id_auto   Int                      @id @default(autoincrement())
+  tag_id    String?                  @unique @db.VarChar
+  name      String?
+  slug      String?                  @unique
+  questions bor_leetcode_questions[]
+}
+
+model bor_leetcode_resolve_records {
+  id_auto     Int       @id @default(autoincrement())
+  status      Int?
+  question_id String?   @db.VarChar
+  start_at    DateTime? @db.Timestamp(6)
+  finished_at DateTime? @db.Timestamp(6)
 }
 
 model bor_user {
   id_auto         Int       @id @default(autoincrement())
-  id              String?   @db.VarChar(64)
   username        String?   @db.VarChar(255)
   password        String?   @db.VarChar(255)
   avatar          String?   @db.VarChar(255)

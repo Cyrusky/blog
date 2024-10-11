@@ -128,38 +128,36 @@ exports.Prisma.Bor_configScalarFieldEnum = {
   value: 'value'
 };
 
-exports.Prisma.Bor_leetcode_question_topic_tagsScalarFieldEnum = {
-  question_id: 'question_id',
-  tag_id: 'tag_id',
-  id_auto: 'id_auto'
-};
-
 exports.Prisma.Bor_leetcode_questionsScalarFieldEnum = {
   id_auto: 'id_auto',
-  id: 'id',
   ac_rate: 'ac_rate',
   difficulty: 'difficulty',
   question_frontend_id: 'question_frontend_id',
   is_paid_only: 'is_paid_only',
   title: 'title',
   title_slug: 'title_slug',
-  status: 'status',
   title_cn: 'title_cn',
-  finished_at: 'finished_at',
-  start_at: 'start_at'
+  translate_try_times: 'translate_try_times',
+  status: 'status'
 };
 
 exports.Prisma.Bor_leetcode_topic_tagsScalarFieldEnum = {
   id_auto: 'id_auto',
   tag_id: 'tag_id',
   name: 'name',
-  slug: 'slug',
-  id: 'id'
+  slug: 'slug'
+};
+
+exports.Prisma.Bor_leetcode_resolve_recordsScalarFieldEnum = {
+  id_auto: 'id_auto',
+  status: 'status',
+  question_id: 'question_id',
+  start_at: 'start_at',
+  finished_at: 'finished_at'
 };
 
 exports.Prisma.Bor_userScalarFieldEnum = {
   id_auto: 'id_auto',
-  id: 'id',
   username: 'username',
   password: 'password',
   avatar: 'avatar',
@@ -189,9 +187,9 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   bor_config: 'bor_config',
-  bor_leetcode_question_topic_tags: 'bor_leetcode_question_topic_tags',
   bor_leetcode_questions: 'bor_leetcode_questions',
   bor_leetcode_topic_tags: 'bor_leetcode_topic_tags',
+  bor_leetcode_resolve_records: 'bor_leetcode_resolve_records',
   bor_user: 'bor_user'
 };
 
