@@ -24,7 +24,7 @@ export enum LeetCodeQuestionDifficulty {
 export enum LeetCodeQuestionStatus {
   NotStarted,
   InProgress,
-  resolved,
+  Resolved,
 }
 export interface LeetCodeQuestionTag {
   id: string;

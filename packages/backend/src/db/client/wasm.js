@@ -152,6 +152,7 @@ exports.Prisma.Bor_leetcode_resolve_recordsScalarFieldEnum = {
   id_auto: 'id_auto',
   status: 'status',
   question_id: 'question_id',
+  question_title: 'question_title',
   record_time: 'record_time',
   bor_leetcode_questionsId_auto: 'bor_leetcode_questionsId_auto'
 };

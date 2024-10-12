@@ -41,7 +41,8 @@ model bor_leetcode_resolve_records {
   id_auto                       Int                     @id @default(autoincrement())
   status                        Int?
   question_id                   String?                 @db.VarChar
-  record_time                   DateTime?               @db.Timestamp(6)
+  question_title                String?                 @db.VarChar
+  record_time                   DateTime?               @default(now()) @db.Timestamp(6)
   bor_leetcode_questions        bor_leetcode_questions? @relation(fields: [bor_leetcode_questionsId_auto], references: [id_auto])
   bor_leetcode_questionsId_auto Int?
 }

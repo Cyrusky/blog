@@ -3,6 +3,7 @@ import type { DB } from "@/db";
 import { ServiceNames } from "@/constant/ServiceNames";
 import { LogUtils } from "@/utils/logUtils";
 import type { FetchedLeetCodeQuestion } from "@/types/router";
+import { LeetCodeQuestionStatus } from "@/types/router";
 import { GraphQLUtils, LeetCodeRegion } from "@/utils/graphQLUtils";
 import { GET_LEETCODE_CHINESE_NAME } from "@/constant/graphQL";
 import { v4 as uuid } from "uuid";
@@ -113,6 +114,73 @@ export class LeetCodeService {
       questions,
       total,
     };
+  }
+
+  async initDatabase() {
+    const finishedQuestions = [
+      "9ef4595c-75e6-42dc-80f4-f55e7d78b798",
+      "581cc1c7-8985-4fcd-8a37-c25f4e11bbb6",
+      "01d04ae3-423c-4ce8-b346-18e78fe8848a",
+      "521ec9e3-02e2-4f16-9a5c-0d17f7bab5b8",
+      "b330997f-a661-4641-bd9f-7a979e2d3d15",
+      "3279ccee-baf1-4f00-9c62-76f9c7677fed",
+      "d052b9b3-4ce5-4a33-8d8f-a2ca01528610",
+      "c96ec0de-4a09-4f52-8871-c7b091f8fb8e",
+      "b60d4a15-9410-416a-a4dc-8ea22cf7635c",
+      "64d8aeef-84e4-4082-9d69-9895df3e3a2f",
+      "ea75bd6c-9774-4ace-b4c8-b2463ea75dbb",
+      "d6d0ee29-e30e-45f0-b845-db86213aacbd",
+      "81722aac-ec53-4ce6-8656-4125747a3759",
+      "2d329464-f46c-43da-970d-09bb41f29eb5",
+      "052eee94-e635-4565-a1f6-7ffb43af65cb",
+      "82c71413-837f-4027-9979-7526831a397f",
+      "2ed29a99-6ab5-437f-8072-14b81900804f",
+      "39e3bd85-d656-46b2-b467-3e200177e02c",
+      "fc8cdd6a-2a39-4e67-92ad-152bd73f6f2f",
+      "dbcbae31-3b7b-4f11-b6db-eaf0932ebf4b",
+      "96eb4892-7ea3-420b-a348-76a62a3b7be6",
+      "6a1b94b2-5f2d-4444-9916-b020deacaa6c",
+      "496cd7f2-73c1-4761-b1e2-4dd89ea7f468",
+      "ed024a25-c29f-4bf8-9c81-9de71a26d1e3",
+    ];
+
+    const todoQuestions = [
+      "d491c151-e1b8-4576-a7ba-e43c7ba5c948",
+      "f45c7064-0639-41ff-8991-8507b5fa6fc1",
+      "e9cd60de-0962-4c1b-866d-ff950c8a2e92",
+    ];
+
+    for (const question of [...finishedQuestions, ...todoQuestions]) {
+      const dbQuestion = await this.db.client.bor_leetcode_questions.findUnique(
+        {
+          where: {
+            question_id: question,
+          },
+          include: {
+            records: true,
+          },
+        },
+      );
+      if (dbQuestion && dbQuestion.records.length === 0) {
+        await this.db.client.bor_leetcode_questions.update({
+          where: {
+            question_id: question,
+          },
+          data: {
+            records: {
+              create: {
+                question_id: question,
+                question_title: dbQuestion.title,
+                status: todoQuestions.includes(question)
+                  ? LeetCodeQuestionStatus.InProgress
+                  : LeetCodeQuestionStatus.Resolved,
+                record_time: new Date(),
+              },
+            },
+          },
+        });
+      }
+    }
   }
 
   private async updateQuestionCNTitle(autoId: number, cn_title: string) {

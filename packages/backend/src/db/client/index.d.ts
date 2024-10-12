@@ -4217,6 +4217,7 @@ export namespace Prisma {
     id_auto: number | null
     status: number | null
     question_id: string | null
+    question_title: string | null
     record_time: Date | null
     bor_leetcode_questionsId_auto: number | null
   }
@@ -4225,6 +4226,7 @@ export namespace Prisma {
     id_auto: number | null
     status: number | null
     question_id: string | null
+    question_title: string | null
     record_time: Date | null
     bor_leetcode_questionsId_auto: number | null
   }
@@ -4233,6 +4235,7 @@ export namespace Prisma {
     id_auto: number
     status: number
     question_id: number
+    question_title: number
     record_time: number
     bor_leetcode_questionsId_auto: number
     _all: number
@@ -4255,6 +4258,7 @@ export namespace Prisma {
     id_auto?: true
     status?: true
     question_id?: true
+    question_title?: true
     record_time?: true
     bor_leetcode_questionsId_auto?: true
   }
@@ -4263,6 +4267,7 @@ export namespace Prisma {
     id_auto?: true
     status?: true
     question_id?: true
+    question_title?: true
     record_time?: true
     bor_leetcode_questionsId_auto?: true
   }
@@ -4271,6 +4276,7 @@ export namespace Prisma {
     id_auto?: true
     status?: true
     question_id?: true
+    question_title?: true
     record_time?: true
     bor_leetcode_questionsId_auto?: true
     _all?: true
@@ -4366,6 +4372,7 @@ export namespace Prisma {
     id_auto: number
     status: number | null
     question_id: string | null
+    question_title: string | null
     record_time: Date | null
     bor_leetcode_questionsId_auto: number | null
     _count: Bor_leetcode_resolve_recordsCountAggregateOutputType | null
@@ -4393,6 +4400,7 @@ export namespace Prisma {
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
+    question_title?: boolean
     record_time?: boolean
     bor_leetcode_questionsId_auto?: boolean
     bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
@@ -4402,6 +4410,7 @@ export namespace Prisma {
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
+    question_title?: boolean
     record_time?: boolean
     bor_leetcode_questionsId_auto?: boolean
     bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
@@ -4411,6 +4420,7 @@ export namespace Prisma {
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
+    question_title?: boolean
     record_time?: boolean
     bor_leetcode_questionsId_auto?: boolean
   }
@@ -4431,6 +4441,7 @@ export namespace Prisma {
       id_auto: number
       status: number | null
       question_id: string | null
+      question_title: string | null
       record_time: Date | null
       bor_leetcode_questionsId_auto: number | null
     }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
@@ -4830,6 +4841,7 @@ export namespace Prisma {
     readonly id_auto: FieldRef<"bor_leetcode_resolve_records", 'Int'>
     readonly status: FieldRef<"bor_leetcode_resolve_records", 'Int'>
     readonly question_id: FieldRef<"bor_leetcode_resolve_records", 'String'>
+    readonly question_title: FieldRef<"bor_leetcode_resolve_records", 'String'>
     readonly record_time: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
     readonly bor_leetcode_questionsId_auto: FieldRef<"bor_leetcode_resolve_records", 'Int'>
   }
@@ -6204,6 +6216,7 @@ export namespace Prisma {
     id_auto: 'id_auto',
     status: 'status',
     question_id: 'question_id',
+    question_title: 'question_title',
     record_time: 'record_time',
     bor_leetcode_questionsId_auto: 'bor_leetcode_questionsId_auto'
   };
@@ -6510,6 +6523,7 @@ export namespace Prisma {
     id_auto?: IntFilter<"bor_leetcode_resolve_records"> | number
     status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    question_title?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
     record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
     bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     bor_leetcode_questions?: XOR<Bor_leetcode_questionsNullableRelationFilter, bor_leetcode_questionsWhereInput> | null
@@ -6519,6 +6533,7 @@ export namespace Prisma {
     id_auto?: SortOrder
     status?: SortOrderInput | SortOrder
     question_id?: SortOrderInput | SortOrder
+    question_title?: SortOrderInput | SortOrder
     record_time?: SortOrderInput | SortOrder
     bor_leetcode_questionsId_auto?: SortOrderInput | SortOrder
     bor_leetcode_questions?: bor_leetcode_questionsOrderByWithRelationInput
@@ -6531,6 +6546,7 @@ export namespace Prisma {
     NOT?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
     status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    question_title?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
     record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
     bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     bor_leetcode_questions?: XOR<Bor_leetcode_questionsNullableRelationFilter, bor_leetcode_questionsWhereInput> | null
@@ -6540,6 +6556,7 @@ export namespace Prisma {
     id_auto?: SortOrder
     status?: SortOrderInput | SortOrder
     question_id?: SortOrderInput | SortOrder
+    question_title?: SortOrderInput | SortOrder
     record_time?: SortOrderInput | SortOrder
     bor_leetcode_questionsId_auto?: SortOrderInput | SortOrder
     _count?: bor_leetcode_resolve_recordsCountOrderByAggregateInput
@@ -6556,6 +6573,7 @@ export namespace Prisma {
     id_auto?: IntWithAggregatesFilter<"bor_leetcode_resolve_records"> | number
     status?: IntNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | string | null
+    question_title?: StringNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | string | null
     record_time?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
     bor_leetcode_questionsId_auto?: IntNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | number | null
   }
@@ -6827,6 +6845,7 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsCreateInput = {
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
     bor_leetcode_questions?: bor_leetcode_questionsCreateNestedOneWithoutRecordsInput
   }
@@ -6835,6 +6854,7 @@ export namespace Prisma {
     id_auto?: number
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
     bor_leetcode_questionsId_auto?: number | null
   }
@@ -6842,6 +6862,7 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsUpdateInput = {
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bor_leetcode_questions?: bor_leetcode_questionsUpdateOneWithoutRecordsNestedInput
   }
@@ -6850,6 +6871,7 @@ export namespace Prisma {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bor_leetcode_questionsId_auto?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -6858,6 +6880,7 @@ export namespace Prisma {
     id_auto?: number
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
     bor_leetcode_questionsId_auto?: number | null
   }
@@ -6865,6 +6888,7 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsUpdateManyMutationInput = {
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -6872,6 +6896,7 @@ export namespace Prisma {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bor_leetcode_questionsId_auto?: NullableIntFieldUpdateOperationsInput | number | null
   }
@@ -7269,6 +7294,7 @@ export namespace Prisma {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
+    question_title?: SortOrder
     record_time?: SortOrder
     bor_leetcode_questionsId_auto?: SortOrder
   }
@@ -7283,6 +7309,7 @@ export namespace Prisma {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
+    question_title?: SortOrder
     record_time?: SortOrder
     bor_leetcode_questionsId_auto?: SortOrder
   }
@@ -7291,6 +7318,7 @@ export namespace Prisma {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
+    question_title?: SortOrder
     record_time?: SortOrder
     bor_leetcode_questionsId_auto?: SortOrder
   }
@@ -7765,6 +7793,7 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput = {
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
   }
 
@@ -7772,6 +7801,7 @@ export namespace Prisma {
     id_auto?: number
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
   }
 
@@ -7834,6 +7864,7 @@ export namespace Prisma {
     id_auto?: IntFilter<"bor_leetcode_resolve_records"> | number
     status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    question_title?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
     record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
     bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
   }
@@ -7976,6 +8007,7 @@ export namespace Prisma {
     id_auto?: number
     status?: number | null
     question_id?: string | null
+    question_title?: string | null
     record_time?: Date | string | null
   }
 
@@ -8002,6 +8034,7 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsUpdateWithoutBor_leetcode_questionsInput = {
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -8009,6 +8042,7 @@ export namespace Prisma {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
@@ -8016,6 +8050,7 @@ export namespace Prisma {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    question_title?: NullableStringFieldUpdateOperationsInput | string | null
     record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
