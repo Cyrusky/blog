@@ -56,7 +56,7 @@ export class LeetCodeService {
     while (true) {
       const { questions, total } =
         await this.fetchLeetCodeQuestionsByPage(page);
-      LogUtils.log(
+      LogUtils.trace(
         `Fetching leetcode questions page ${page}, ${page * PAGE_SIZE}/${total}`,
       );
       allQuestions.push(...questions);

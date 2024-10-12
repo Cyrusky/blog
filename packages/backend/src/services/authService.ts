@@ -1,5 +1,5 @@
 import { inject, injectable } from "inversify";
-import { UserService } from "@/services/userService";
+import type { UserService } from "@/services/userService";
 import { ServiceNames } from "@/constant/ServiceNames";
 import { LogUtils } from "@/utils/logUtils";
 import { SHAUtils } from "@/utils/SHAUtils";
