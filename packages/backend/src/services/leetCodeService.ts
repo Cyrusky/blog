@@ -8,6 +8,7 @@ import {
   GET_LEETCODE_CHINESE_NAME,
   GET_LEETCODE_QUESTION_BY_PAGE,
 } from "@/constant/graphQL";
+import { v4 as uuid } from "uuid";
 
 const PAGE_SIZE = 50;
 
@@ -57,7 +58,7 @@ export class LeetCodeService {
       const { questions, total } =
         await this.fetchLeetCodeQuestionsByPage(page);
       LogUtils.trace(
-        `Fetching leetcode questions page ${page}, ${page * PAGE_SIZE}/${total}`,
+        `Fetching leetcode questions page ${page}, ${Math.min(page * PAGE_SIZE, total)}/${total}`,
       );
       allQuestions.push(...questions);
       if (questions.length === 0) {
@@ -83,6 +84,26 @@ export class LeetCodeService {
           updateResult.title_slug,
         );
       }
+    }
+  }
+
+  async updateQuestionsUUID() {
+    const questions = await this.db.client.bor_leetcode_questions.findMany({
+      where: {
+        question_id: {
+          equals: "",
+        },
+      },
+    });
+    for (const question of questions) {
+      await this.db.client.bor_leetcode_questions.update({
+        where: {
+          id_auto: question.id_auto,
+        },
+        data: {
+          question_id: uuid(),
+        },
+      });
     }
   }
 
@@ -184,6 +205,7 @@ export class LeetCodeService {
           },
           create: {
             ac_rate: question.acRate,
+            question_id: uuid(),
             difficulty: question.difficulty,
             question_frontend_id: question.frontendQuestionId,
             is_paid_only: question.paidOnly,

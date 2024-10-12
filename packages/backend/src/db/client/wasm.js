@@ -130,6 +130,7 @@ exports.Prisma.Bor_configScalarFieldEnum = {
 
 exports.Prisma.Bor_leetcode_questionsScalarFieldEnum = {
   id_auto: 'id_auto',
+  question_id: 'question_id',
   ac_rate: 'ac_rate',
   difficulty: 'difficulty',
   question_frontend_id: 'question_frontend_id',

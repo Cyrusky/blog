@@ -2164,6 +2164,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsMinAggregateOutputType = {
     id_auto: number | null
+    question_id: string | null
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
@@ -2177,6 +2178,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsMaxAggregateOutputType = {
     id_auto: number | null
+    question_id: string | null
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
@@ -2190,6 +2192,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsCountAggregateOutputType = {
     id_auto: number
+    question_id: number
     ac_rate: number
     difficulty: number
     question_frontend_id: number
@@ -2219,6 +2222,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsMinAggregateInputType = {
     id_auto?: true
+    question_id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
@@ -2232,6 +2236,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsMaxAggregateInputType = {
     id_auto?: true
+    question_id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
@@ -2245,6 +2250,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsCountAggregateInputType = {
     id_auto?: true
+    question_id?: true
     ac_rate?: true
     difficulty?: true
     question_frontend_id?: true
@@ -2345,6 +2351,7 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsGroupByOutputType = {
     id_auto: number
+    question_id: string
     ac_rate: number | null
     difficulty: string | null
     question_frontend_id: string | null
@@ -2377,6 +2384,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
+    question_id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
@@ -2392,6 +2400,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
+    question_id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
@@ -2405,6 +2414,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsSelectScalar = {
     id_auto?: boolean
+    question_id?: boolean
     ac_rate?: boolean
     difficulty?: boolean
     question_frontend_id?: boolean
@@ -2429,6 +2439,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
+      question_id: string
       ac_rate: number | null
       difficulty: string | null
       question_frontend_id: string | null
@@ -2833,6 +2844,7 @@ export namespace Prisma {
    */ 
   interface bor_leetcode_questionsFieldRefs {
     readonly id_auto: FieldRef<"bor_leetcode_questions", 'Int'>
+    readonly question_id: FieldRef<"bor_leetcode_questions", 'String'>
     readonly ac_rate: FieldRef<"bor_leetcode_questions", 'Float'>
     readonly difficulty: FieldRef<"bor_leetcode_questions", 'String'>
     readonly question_frontend_id: FieldRef<"bor_leetcode_questions", 'String'>
@@ -3036,7 +3048,7 @@ export namespace Prisma {
     /**
      * The data needed to create a bor_leetcode_questions.
      */
-    data?: XOR<bor_leetcode_questionsCreateInput, bor_leetcode_questionsUncheckedCreateInput>
+    data: XOR<bor_leetcode_questionsCreateInput, bor_leetcode_questionsUncheckedCreateInput>
   }
 
   /**
@@ -6073,6 +6085,7 @@ export namespace Prisma {
 
   export const Bor_leetcode_questionsScalarFieldEnum: {
     id_auto: 'id_auto',
+    question_id: 'question_id',
     ac_rate: 'ac_rate',
     difficulty: 'difficulty',
     question_frontend_id: 'question_frontend_id',
@@ -6268,6 +6281,7 @@ export namespace Prisma {
     OR?: bor_leetcode_questionsWhereInput[]
     NOT?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
     id_auto?: IntFilter<"bor_leetcode_questions"> | number
+    question_id?: StringFilter<"bor_leetcode_questions"> | string
     ac_rate?: FloatNullableFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
@@ -6282,6 +6296,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsOrderByWithRelationInput = {
     id_auto?: SortOrder
+    question_id?: SortOrder
     ac_rate?: SortOrderInput | SortOrder
     difficulty?: SortOrderInput | SortOrder
     question_frontend_id?: SortOrderInput | SortOrder
@@ -6296,6 +6311,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsWhereUniqueInput = Prisma.AtLeast<{
     id_auto?: number
+    question_id?: string
     title_slug?: string
     AND?: bor_leetcode_questionsWhereInput | bor_leetcode_questionsWhereInput[]
     OR?: bor_leetcode_questionsWhereInput[]
@@ -6309,10 +6325,11 @@ export namespace Prisma {
     translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
     status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
     tags?: Bor_leetcode_topic_tagsListRelationFilter
-  }, "id_auto" | "title_slug">
+  }, "id_auto" | "question_id" | "title_slug">
 
   export type bor_leetcode_questionsOrderByWithAggregationInput = {
     id_auto?: SortOrder
+    question_id?: SortOrder
     ac_rate?: SortOrderInput | SortOrder
     difficulty?: SortOrderInput | SortOrder
     question_frontend_id?: SortOrderInput | SortOrder
@@ -6334,6 +6351,7 @@ export namespace Prisma {
     OR?: bor_leetcode_questionsScalarWhereWithAggregatesInput[]
     NOT?: bor_leetcode_questionsScalarWhereWithAggregatesInput | bor_leetcode_questionsScalarWhereWithAggregatesInput[]
     id_auto?: IntWithAggregatesFilter<"bor_leetcode_questions"> | number
+    question_id?: StringWithAggregatesFilter<"bor_leetcode_questions"> | string
     ac_rate?: FloatNullableWithAggregatesFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
@@ -6570,6 +6588,7 @@ export namespace Prisma {
   }
 
   export type bor_leetcode_questionsCreateInput = {
+    question_id: string
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
@@ -6584,6 +6603,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedCreateInput = {
     id_auto?: number
+    question_id: string
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
@@ -6597,6 +6617,7 @@ export namespace Prisma {
   }
 
   export type bor_leetcode_questionsUpdateInput = {
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6611,6 +6632,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedUpdateInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6625,6 +6647,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsCreateManyInput = {
     id_auto?: number
+    question_id: string
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
@@ -6637,6 +6660,7 @@ export namespace Prisma {
   }
 
   export type bor_leetcode_questionsUpdateManyMutationInput = {
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6650,6 +6674,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedUpdateManyInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6943,6 +6968,21 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
   export type FloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -6982,6 +7022,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsCountOrderByAggregateInput = {
     id_auto?: SortOrder
+    question_id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
@@ -7002,6 +7043,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsMaxOrderByAggregateInput = {
     id_auto?: SortOrder
+    question_id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
@@ -7015,6 +7057,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsMinOrderByAggregateInput = {
     id_auto?: SortOrder
+    question_id?: SortOrder
     ac_rate?: SortOrder
     difficulty?: SortOrder
     question_frontend_id?: SortOrder
@@ -7031,6 +7074,24 @@ export namespace Prisma {
     ac_rate?: SortOrder
     translate_try_times?: SortOrder
     status?: SortOrder
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7242,6 +7303,10 @@ export namespace Prisma {
     connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
   }
 
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -7410,6 +7475,20 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -7424,6 +7503,23 @@ export namespace Prisma {
   export type NestedBoolNullableFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7536,6 +7632,7 @@ export namespace Prisma {
   }
 
   export type bor_leetcode_questionsCreateWithoutTagsInput = {
+    question_id: string
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
@@ -7549,6 +7646,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedCreateWithoutTagsInput = {
     id_auto?: number
+    question_id: string
     ac_rate?: number | null
     difficulty?: string | null
     question_frontend_id?: string | null
@@ -7586,6 +7684,7 @@ export namespace Prisma {
     OR?: bor_leetcode_questionsScalarWhereInput[]
     NOT?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
     id_auto?: IntFilter<"bor_leetcode_questions"> | number
+    question_id?: StringFilter<"bor_leetcode_questions"> | string
     ac_rate?: FloatNullableFilter<"bor_leetcode_questions"> | number | null
     difficulty?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     question_frontend_id?: StringNullableFilter<"bor_leetcode_questions"> | string | null
@@ -7618,6 +7717,7 @@ export namespace Prisma {
   }
 
   export type bor_leetcode_questionsUpdateWithoutTagsInput = {
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7631,6 +7731,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedUpdateWithoutTagsInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7644,6 +7745,7 @@ export namespace Prisma {
 
   export type bor_leetcode_questionsUncheckedUpdateManyWithoutTagsInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
+    question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
     difficulty?: NullableStringFieldUpdateOperationsInput | string | null
     question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null

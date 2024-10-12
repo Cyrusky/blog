@@ -16,6 +16,7 @@ model bor_config {
 
 model bor_leetcode_questions {
   id_auto              Int                       @id @default(autoincrement())
+  question_id          String                    @unique @db.VarChar
   ac_rate              Float?
   difficulty           String?
   question_frontend_id String?
