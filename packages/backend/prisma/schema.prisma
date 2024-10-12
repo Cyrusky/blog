@@ -15,18 +15,18 @@ model bor_config {
 }
 
 model bor_leetcode_questions {
-  id_auto              Int                       @id @default(autoincrement())
-  question_id          String                    @unique @db.VarChar
+  id_auto              Int                            @id @default(autoincrement())
+  question_id          String                         @unique @db.VarChar
   ac_rate              Float?
   difficulty           String?
   question_frontend_id String?
   is_paid_only         Boolean?
   title                String?
-  title_slug           String?                   @unique
-  title_cn             String?                   @db.VarChar
-  translate_try_times  Int                       @default(0)
-  status               Int?                      @default(0)
+  title_slug           String?                        @unique
+  title_cn             String?                        @db.VarChar
+  translate_try_times  Int                            @default(0)
   tags                 bor_leetcode_topic_tags[]
+  records              bor_leetcode_resolve_records[]
 }
 
 model bor_leetcode_topic_tags {
@@ -38,11 +38,12 @@ model bor_leetcode_topic_tags {
 }
 
 model bor_leetcode_resolve_records {
-  id_auto     Int       @id @default(autoincrement())
-  status      Int?
-  question_id String?   @db.VarChar
-  start_at    DateTime? @db.Timestamp(6)
-  finished_at DateTime? @db.Timestamp(6)
+  id_auto                       Int                     @id @default(autoincrement())
+  status                        Int?
+  question_id                   String?                 @db.VarChar
+  record_time                   DateTime?               @db.Timestamp(6)
+  bor_leetcode_questions        bor_leetcode_questions? @relation(fields: [bor_leetcode_questionsId_auto], references: [id_auto])
+  bor_leetcode_questionsId_auto Int?
 }
 
 model bor_user {

@@ -2,15 +2,12 @@ import { inject, injectable } from "inversify";
 import type { DB } from "@/db";
 import { ServiceNames } from "@/constant/ServiceNames";
 import { LogUtils } from "@/utils/logUtils";
-import type { LeetCodeQuestion } from "@/types/router";
+import type { FetchedLeetCodeQuestion } from "@/types/router";
 import { GraphQLUtils, LeetCodeRegion } from "@/utils/graphQLUtils";
-import {
-  GET_LEETCODE_CHINESE_NAME,
-  GET_LEETCODE_QUESTION_BY_PAGE,
-} from "@/constant/graphQL";
+import { GET_LEETCODE_CHINESE_NAME } from "@/constant/graphQL";
 import { v4 as uuid } from "uuid";
-
-const PAGE_SIZE = 50;
+import axios from "axios";
+import { Configs } from "@/config";
 
 @injectable()
 export class LeetCodeService {
@@ -27,6 +24,14 @@ export class LeetCodeService {
       take: pageSize,
       skip: (page - 1) * pageSize,
       orderBy: {},
+      include: {
+        tags: true,
+        records: {
+          orderBy: {
+            records: "desc",
+          },
+        },
+      },
     };
     if (sortKey && sortOrder) {
       condition["orderBy"] = {
@@ -51,60 +56,63 @@ export class LeetCodeService {
     }
   }
 
-  async fetchLeetCodeQuestions() {
-    let page = 1;
-    const allQuestions: LeetCodeQuestion[] = [];
-    while (true) {
-      const { questions, total } =
-        await this.fetchLeetCodeQuestionsByPage(page);
-      LogUtils.trace(
-        `Fetching leetcode questions page ${page}, ${Math.min(page * PAGE_SIZE, total)}/${total}`,
-      );
-      allQuestions.push(...questions);
-      if (questions.length === 0) {
-        break;
-      }
-      page += 1;
-    }
-    return allQuestions;
-  }
-
-  async updateQuestions(questions: LeetCodeQuestion[]) {
-    for (let i = 0; i < questions.length; i++) {
-      const question = questions[i];
-      const updateResult = await this.updateQuestion(question);
-      if (
-        updateResult &&
-        !updateResult.title_cn &&
-        updateResult.title_slug &&
-        updateResult.translate_try_times < 5
-      ) {
-        await this.translateQuestion(
-          updateResult.id_auto,
-          updateResult.title_slug,
-        );
-      }
-    }
-  }
-
-  async updateQuestionsUUID() {
-    const questions = await this.db.client.bor_leetcode_questions.findMany({
-      where: {
-        question_id: {
-          equals: "",
-        },
-      },
-    });
-    for (const question of questions) {
-      await this.db.client.bor_leetcode_questions.update({
-        where: {
-          id_auto: question.id_auto,
-        },
-        data: {
-          question_id: uuid(),
+  async updateQuestions(questions: FetchedLeetCodeQuestion[]) {
+    const allDatabaseQuestions =
+      await this.db.client.bor_leetcode_questions.findMany({
+        include: {
+          tags: true,
         },
       });
+    for (let i = 0; i < questions.length; i++) {
+      const question = questions[i];
+      const dbQuestion = allDatabaseQuestions.find((q) => {
+        return q.title_slug === question.titleSlug;
+      });
+
+      if (!dbQuestion) {
+        await this.updateQuestion(question);
+        continue;
+      }
+
+      if (!dbQuestion.title_cn) {
+        await this.updateQuestion(question);
+        continue;
+      }
+
+      if (
+        dbQuestion.ac_rate?.toFixed(2) !== question.acRate.toFixed(2) ||
+        dbQuestion.difficulty !== question.difficulty ||
+        dbQuestion.question_frontend_id !== question.questionFrontendId ||
+        dbQuestion.is_paid_only !== question.isPaidOnly ||
+        dbQuestion.title !== question.title
+      ) {
+        await this.updateQuestion(question);
+        continue;
+      }
+
+      if (dbQuestion.tags.length !== question.topicTags.length) {
+        await this.updateQuestion(question);
+        continue;
+      }
+
+      LogUtils.log(`Skip question ${question.titleSlug}.`);
     }
+  }
+
+  public async fetchLeetCodeQuestions() {
+    const result = await axios.get(
+      `https://alfa-leetcode-api.onrender.com/problems?limit=${Configs.leetcode.maxCount}`,
+      {
+        timeout: 30000,
+      },
+    );
+    const data = result.data;
+    const total = data.totalQuestions as number;
+    const questions = data.problemsetQuestionList as FetchedLeetCodeQuestion[];
+    return {
+      questions,
+      total,
+    };
   }
 
   private async updateQuestionCNTitle(autoId: number, cn_title: string) {
@@ -169,24 +177,8 @@ export class LeetCodeService {
     }
   }
 
-  private async fetchLeetCodeQuestionsByPage(pageNum: number) {
-    const result = await GraphQLUtils.queryGraphQL(
-      GET_LEETCODE_QUESTION_BY_PAGE,
-      {
-        categorySlug: "all-code-essentials",
-        skip: (pageNum - 1) * PAGE_SIZE,
-        limit: PAGE_SIZE,
-        filters: {},
-      },
-      "problemsetQuestionList",
-    );
-    return {
-      questions: result.data.data.problemsetQuestionList.questions,
-      total: result.data.data.problemsetQuestionList.total,
-    };
-  }
-
-  private async updateQuestion(question: LeetCodeQuestion) {
+  private async updateQuestion(question: FetchedLeetCodeQuestion) {
+    LogUtils.log(`Question ${question.titleSlug} is up to date.`);
     try {
       const updatedQuestion =
         await this.db.client.bor_leetcode_questions.upsert({
@@ -196,8 +188,8 @@ export class LeetCodeService {
           update: {
             ac_rate: question.acRate,
             difficulty: question.difficulty,
-            question_frontend_id: question.frontendQuestionId,
-            is_paid_only: question.paidOnly,
+            question_frontend_id: question.questionFrontendId,
+            is_paid_only: question.isPaidOnly,
             title: question.title,
             tags: {
               set: [],
@@ -207,8 +199,8 @@ export class LeetCodeService {
             ac_rate: question.acRate,
             question_id: uuid(),
             difficulty: question.difficulty,
-            question_frontend_id: question.frontendQuestionId,
-            is_paid_only: question.paidOnly,
+            question_frontend_id: question.questionFrontendId,
+            is_paid_only: question.isPaidOnly,
             title: question.title,
             title_slug: question.titleSlug,
           },
@@ -243,6 +235,18 @@ export class LeetCodeService {
           },
         },
       });
+
+      if (
+        updatedQuestion &&
+        !updatedQuestion.title_cn &&
+        updatedQuestion.title_slug &&
+        updatedQuestion.translate_try_times < 5
+      ) {
+        await this.translateQuestion(
+          updatedQuestion.id_auto,
+          updatedQuestion.title_slug,
+        );
+      }
       return updatedQuestion;
       // eslint-disable-next-line
     } catch (e: any) {

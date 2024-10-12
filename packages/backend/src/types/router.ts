@@ -44,3 +44,20 @@ export interface LeetCodeQuestion {
   hasSolution: boolean;
   hasVideoSolution: boolean;
 }
+
+export interface FetchedLeetCodeQuestion {
+  acRate: number;
+  difficulty: string;
+  questionFrontendId: string;
+  isFavor: boolean;
+  isPaidOnly: boolean;
+  title: string;
+  titleSlug: string;
+  topicTags: Array<{
+    name: string;
+    id: string;
+    slug: string;
+  }>;
+  hasSolution: boolean;
+  hasVideoSolution: boolean;
+}

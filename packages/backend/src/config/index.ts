@@ -5,6 +5,7 @@ import * as path from "node:path";
 config();
 
 export class Configs {
+  static dev = process.env.NODE_ENV === "development";
   static port = process.env.PORT || 3000;
   static secretKeyDir =
     process.env.SECRET_KEY_PATH || path.join(__dirname, "../../secretKeys");
@@ -19,4 +20,7 @@ export class Configs {
     prefix: "/api",
   };
   static FeiShuToken = process.env.FEISHU_TOKEN || "";
+  static leetcode = {
+    maxCount: 5000,
+  };
 }

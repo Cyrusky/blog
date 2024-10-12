@@ -1188,10 +1188,12 @@ export namespace Prisma {
 
   export type Bor_leetcode_questionsCountOutputType = {
     tags: number
+    records: number
   }
 
   export type Bor_leetcode_questionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tags?: boolean | Bor_leetcode_questionsCountOutputTypeCountTagsArgs
+    records?: boolean | Bor_leetcode_questionsCountOutputTypeCountRecordsArgs
   }
 
   // Custom InputTypes
@@ -1210,6 +1212,13 @@ export namespace Prisma {
    */
   export type Bor_leetcode_questionsCountOutputTypeCountTagsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: bor_leetcode_topic_tagsWhereInput
+  }
+
+  /**
+   * Bor_leetcode_questionsCountOutputType without action
+   */
+  export type Bor_leetcode_questionsCountOutputTypeCountRecordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bor_leetcode_resolve_recordsWhereInput
   }
 
 
@@ -2152,14 +2161,12 @@ export namespace Prisma {
     id_auto: number | null
     ac_rate: number | null
     translate_try_times: number | null
-    status: number | null
   }
 
   export type Bor_leetcode_questionsSumAggregateOutputType = {
     id_auto: number | null
     ac_rate: number | null
     translate_try_times: number | null
-    status: number | null
   }
 
   export type Bor_leetcode_questionsMinAggregateOutputType = {
@@ -2173,7 +2180,6 @@ export namespace Prisma {
     title_slug: string | null
     title_cn: string | null
     translate_try_times: number | null
-    status: number | null
   }
 
   export type Bor_leetcode_questionsMaxAggregateOutputType = {
@@ -2187,7 +2193,6 @@ export namespace Prisma {
     title_slug: string | null
     title_cn: string | null
     translate_try_times: number | null
-    status: number | null
   }
 
   export type Bor_leetcode_questionsCountAggregateOutputType = {
@@ -2201,7 +2206,6 @@ export namespace Prisma {
     title_slug: number
     title_cn: number
     translate_try_times: number
-    status: number
     _all: number
   }
 
@@ -2210,14 +2214,12 @@ export namespace Prisma {
     id_auto?: true
     ac_rate?: true
     translate_try_times?: true
-    status?: true
   }
 
   export type Bor_leetcode_questionsSumAggregateInputType = {
     id_auto?: true
     ac_rate?: true
     translate_try_times?: true
-    status?: true
   }
 
   export type Bor_leetcode_questionsMinAggregateInputType = {
@@ -2231,7 +2233,6 @@ export namespace Prisma {
     title_slug?: true
     title_cn?: true
     translate_try_times?: true
-    status?: true
   }
 
   export type Bor_leetcode_questionsMaxAggregateInputType = {
@@ -2245,7 +2246,6 @@ export namespace Prisma {
     title_slug?: true
     title_cn?: true
     translate_try_times?: true
-    status?: true
   }
 
   export type Bor_leetcode_questionsCountAggregateInputType = {
@@ -2259,7 +2259,6 @@ export namespace Prisma {
     title_slug?: true
     title_cn?: true
     translate_try_times?: true
-    status?: true
     _all?: true
   }
 
@@ -2360,7 +2359,6 @@ export namespace Prisma {
     title_slug: string | null
     title_cn: string | null
     translate_try_times: number
-    status: number | null
     _count: Bor_leetcode_questionsCountAggregateOutputType | null
     _avg: Bor_leetcode_questionsAvgAggregateOutputType | null
     _sum: Bor_leetcode_questionsSumAggregateOutputType | null
@@ -2393,8 +2391,8 @@ export namespace Prisma {
     title_slug?: boolean
     title_cn?: boolean
     translate_try_times?: boolean
-    status?: boolean
     tags?: boolean | bor_leetcode_questions$tagsArgs<ExtArgs>
+    records?: boolean | bor_leetcode_questions$recordsArgs<ExtArgs>
     _count?: boolean | Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["bor_leetcode_questions"]>
 
@@ -2409,7 +2407,6 @@ export namespace Prisma {
     title_slug?: boolean
     title_cn?: boolean
     translate_try_times?: boolean
-    status?: boolean
   }, ExtArgs["result"]["bor_leetcode_questions"]>
 
   export type bor_leetcode_questionsSelectScalar = {
@@ -2423,11 +2420,11 @@ export namespace Prisma {
     title_slug?: boolean
     title_cn?: boolean
     translate_try_times?: boolean
-    status?: boolean
   }
 
   export type bor_leetcode_questionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tags?: boolean | bor_leetcode_questions$tagsArgs<ExtArgs>
+    records?: boolean | bor_leetcode_questions$recordsArgs<ExtArgs>
     _count?: boolean | Bor_leetcode_questionsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type bor_leetcode_questionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2436,6 +2433,7 @@ export namespace Prisma {
     name: "bor_leetcode_questions"
     objects: {
       tags: Prisma.$bor_leetcode_topic_tagsPayload<ExtArgs>[]
+      records: Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
@@ -2448,7 +2446,6 @@ export namespace Prisma {
       title_slug: string | null
       title_cn: string | null
       translate_try_times: number
-      status: number | null
     }, ExtArgs["result"]["bor_leetcode_questions"]>
     composites: {}
   }
@@ -2814,6 +2811,7 @@ export namespace Prisma {
   export interface Prisma__bor_leetcode_questionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     tags<T extends bor_leetcode_questions$tagsArgs<ExtArgs> = {}>(args?: Subset<T, bor_leetcode_questions$tagsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_topic_tagsPayload<ExtArgs>, T, "findMany"> | Null>
+    records<T extends bor_leetcode_questions$recordsArgs<ExtArgs> = {}>(args?: Subset<T, bor_leetcode_questions$recordsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bor_leetcode_resolve_recordsPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2853,7 +2851,6 @@ export namespace Prisma {
     readonly title_slug: FieldRef<"bor_leetcode_questions", 'String'>
     readonly title_cn: FieldRef<"bor_leetcode_questions", 'String'>
     readonly translate_try_times: FieldRef<"bor_leetcode_questions", 'Int'>
-    readonly status: FieldRef<"bor_leetcode_questions", 'Int'>
   }
     
 
@@ -3185,6 +3182,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Bor_leetcode_topic_tagsScalarFieldEnum | Bor_leetcode_topic_tagsScalarFieldEnum[]
+  }
+
+  /**
+   * bor_leetcode_questions.records
+   */
+  export type bor_leetcode_questions$recordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_resolve_records
+     */
+    select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    where?: bor_leetcode_resolve_recordsWhereInput
+    orderBy?: bor_leetcode_resolve_recordsOrderByWithRelationInput | bor_leetcode_resolve_recordsOrderByWithRelationInput[]
+    cursor?: bor_leetcode_resolve_recordsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Bor_leetcode_resolve_recordsScalarFieldEnum | Bor_leetcode_resolve_recordsScalarFieldEnum[]
   }
 
   /**
@@ -4187,35 +4204,37 @@ export namespace Prisma {
   export type Bor_leetcode_resolve_recordsAvgAggregateOutputType = {
     id_auto: number | null
     status: number | null
+    bor_leetcode_questionsId_auto: number | null
   }
 
   export type Bor_leetcode_resolve_recordsSumAggregateOutputType = {
     id_auto: number | null
     status: number | null
+    bor_leetcode_questionsId_auto: number | null
   }
 
   export type Bor_leetcode_resolve_recordsMinAggregateOutputType = {
     id_auto: number | null
     status: number | null
     question_id: string | null
-    start_at: Date | null
-    finished_at: Date | null
+    record_time: Date | null
+    bor_leetcode_questionsId_auto: number | null
   }
 
   export type Bor_leetcode_resolve_recordsMaxAggregateOutputType = {
     id_auto: number | null
     status: number | null
     question_id: string | null
-    start_at: Date | null
-    finished_at: Date | null
+    record_time: Date | null
+    bor_leetcode_questionsId_auto: number | null
   }
 
   export type Bor_leetcode_resolve_recordsCountAggregateOutputType = {
     id_auto: number
     status: number
     question_id: number
-    start_at: number
-    finished_at: number
+    record_time: number
+    bor_leetcode_questionsId_auto: number
     _all: number
   }
 
@@ -4223,35 +4242,37 @@ export namespace Prisma {
   export type Bor_leetcode_resolve_recordsAvgAggregateInputType = {
     id_auto?: true
     status?: true
+    bor_leetcode_questionsId_auto?: true
   }
 
   export type Bor_leetcode_resolve_recordsSumAggregateInputType = {
     id_auto?: true
     status?: true
+    bor_leetcode_questionsId_auto?: true
   }
 
   export type Bor_leetcode_resolve_recordsMinAggregateInputType = {
     id_auto?: true
     status?: true
     question_id?: true
-    start_at?: true
-    finished_at?: true
+    record_time?: true
+    bor_leetcode_questionsId_auto?: true
   }
 
   export type Bor_leetcode_resolve_recordsMaxAggregateInputType = {
     id_auto?: true
     status?: true
     question_id?: true
-    start_at?: true
-    finished_at?: true
+    record_time?: true
+    bor_leetcode_questionsId_auto?: true
   }
 
   export type Bor_leetcode_resolve_recordsCountAggregateInputType = {
     id_auto?: true
     status?: true
     question_id?: true
-    start_at?: true
-    finished_at?: true
+    record_time?: true
+    bor_leetcode_questionsId_auto?: true
     _all?: true
   }
 
@@ -4345,8 +4366,8 @@ export namespace Prisma {
     id_auto: number
     status: number | null
     question_id: string | null
-    start_at: Date | null
-    finished_at: Date | null
+    record_time: Date | null
+    bor_leetcode_questionsId_auto: number | null
     _count: Bor_leetcode_resolve_recordsCountAggregateOutputType | null
     _avg: Bor_leetcode_resolve_recordsAvgAggregateOutputType | null
     _sum: Bor_leetcode_resolve_recordsSumAggregateOutputType | null
@@ -4372,36 +4393,46 @@ export namespace Prisma {
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
-    start_at?: boolean
-    finished_at?: boolean
+    record_time?: boolean
+    bor_leetcode_questionsId_auto?: boolean
+    bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
   }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
 
   export type bor_leetcode_resolve_recordsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
-    start_at?: boolean
-    finished_at?: boolean
+    record_time?: boolean
+    bor_leetcode_questionsId_auto?: boolean
+    bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
   }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
 
   export type bor_leetcode_resolve_recordsSelectScalar = {
     id_auto?: boolean
     status?: boolean
     question_id?: boolean
-    start_at?: boolean
-    finished_at?: boolean
+    record_time?: boolean
+    bor_leetcode_questionsId_auto?: boolean
   }
 
+  export type bor_leetcode_resolve_recordsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
+  }
+  export type bor_leetcode_resolve_recordsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bor_leetcode_questions?: boolean | bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>
+  }
 
   export type $bor_leetcode_resolve_recordsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "bor_leetcode_resolve_records"
-    objects: {}
+    objects: {
+      bor_leetcode_questions: Prisma.$bor_leetcode_questionsPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id_auto: number
       status: number | null
       question_id: string | null
-      start_at: Date | null
-      finished_at: Date | null
+      record_time: Date | null
+      bor_leetcode_questionsId_auto: number | null
     }, ExtArgs["result"]["bor_leetcode_resolve_records"]>
     composites: {}
   }
@@ -4766,6 +4797,7 @@ export namespace Prisma {
    */
   export interface Prisma__bor_leetcode_resolve_recordsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    bor_leetcode_questions<T extends bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs> = {}>(args?: Subset<T, bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs>>): Prisma__bor_leetcode_questionsClient<$Result.GetResult<Prisma.$bor_leetcode_questionsPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4798,8 +4830,8 @@ export namespace Prisma {
     readonly id_auto: FieldRef<"bor_leetcode_resolve_records", 'Int'>
     readonly status: FieldRef<"bor_leetcode_resolve_records", 'Int'>
     readonly question_id: FieldRef<"bor_leetcode_resolve_records", 'String'>
-    readonly start_at: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
-    readonly finished_at: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
+    readonly record_time: FieldRef<"bor_leetcode_resolve_records", 'DateTime'>
+    readonly bor_leetcode_questionsId_auto: FieldRef<"bor_leetcode_resolve_records", 'Int'>
   }
     
 
@@ -4812,6 +4844,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_resolve_records
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_resolve_records to fetch.
      */
@@ -4827,6 +4863,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_resolve_records to fetch.
      */
     where: bor_leetcode_resolve_recordsWhereUniqueInput
@@ -4840,6 +4880,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_resolve_records
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
     /**
      * Filter, which bor_leetcode_resolve_records to fetch.
      */
@@ -4885,6 +4929,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_resolve_records to fetch.
      */
     where?: bor_leetcode_resolve_recordsWhereInput
@@ -4929,6 +4977,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * Filter, which bor_leetcode_resolve_records to fetch.
      */
     where?: bor_leetcode_resolve_recordsWhereInput
@@ -4968,6 +5020,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * The data needed to create a bor_leetcode_resolve_records.
      */
     data?: XOR<bor_leetcode_resolve_recordsCreateInput, bor_leetcode_resolve_recordsUncheckedCreateInput>
@@ -4997,6 +5053,10 @@ export namespace Prisma {
      */
     data: bor_leetcode_resolve_recordsCreateManyInput | bor_leetcode_resolve_recordsCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5007,6 +5067,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_resolve_records
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
     /**
      * The data needed to update a bor_leetcode_resolve_records.
      */
@@ -5040,6 +5104,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * The filter to search for the bor_leetcode_resolve_records to update in case it exists.
      */
     where: bor_leetcode_resolve_recordsWhereUniqueInput
@@ -5062,6 +5130,10 @@ export namespace Prisma {
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
+    /**
      * Filter which bor_leetcode_resolve_records to delete.
      */
     where: bor_leetcode_resolve_recordsWhereUniqueInput
@@ -5078,6 +5150,21 @@ export namespace Prisma {
   }
 
   /**
+   * bor_leetcode_resolve_records.bor_leetcode_questions
+   */
+  export type bor_leetcode_resolve_records$bor_leetcode_questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bor_leetcode_questions
+     */
+    select?: bor_leetcode_questionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_questionsInclude<ExtArgs> | null
+    where?: bor_leetcode_questionsWhereInput
+  }
+
+  /**
    * bor_leetcode_resolve_records without action
    */
   export type bor_leetcode_resolve_recordsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5085,6 +5172,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the bor_leetcode_resolve_records
      */
     select?: bor_leetcode_resolve_recordsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: bor_leetcode_resolve_recordsInclude<ExtArgs> | null
   }
 
 
@@ -6093,8 +6184,7 @@ export namespace Prisma {
     title: 'title',
     title_slug: 'title_slug',
     title_cn: 'title_cn',
-    translate_try_times: 'translate_try_times',
-    status: 'status'
+    translate_try_times: 'translate_try_times'
   };
 
   export type Bor_leetcode_questionsScalarFieldEnum = (typeof Bor_leetcode_questionsScalarFieldEnum)[keyof typeof Bor_leetcode_questionsScalarFieldEnum]
@@ -6114,8 +6204,8 @@ export namespace Prisma {
     id_auto: 'id_auto',
     status: 'status',
     question_id: 'question_id',
-    start_at: 'start_at',
-    finished_at: 'finished_at'
+    record_time: 'record_time',
+    bor_leetcode_questionsId_auto: 'bor_leetcode_questionsId_auto'
   };
 
   export type Bor_leetcode_resolve_recordsScalarFieldEnum = (typeof Bor_leetcode_resolve_recordsScalarFieldEnum)[keyof typeof Bor_leetcode_resolve_recordsScalarFieldEnum]
@@ -6290,8 +6380,8 @@ export namespace Prisma {
     title_slug?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
-    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
     tags?: Bor_leetcode_topic_tagsListRelationFilter
+    records?: Bor_leetcode_resolve_recordsListRelationFilter
   }
 
   export type bor_leetcode_questionsOrderByWithRelationInput = {
@@ -6305,8 +6395,8 @@ export namespace Prisma {
     title_slug?: SortOrderInput | SortOrder
     title_cn?: SortOrderInput | SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrderInput | SortOrder
     tags?: bor_leetcode_topic_tagsOrderByRelationAggregateInput
+    records?: bor_leetcode_resolve_recordsOrderByRelationAggregateInput
   }
 
   export type bor_leetcode_questionsWhereUniqueInput = Prisma.AtLeast<{
@@ -6323,8 +6413,8 @@ export namespace Prisma {
     title?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
-    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
     tags?: Bor_leetcode_topic_tagsListRelationFilter
+    records?: Bor_leetcode_resolve_recordsListRelationFilter
   }, "id_auto" | "question_id" | "title_slug">
 
   export type bor_leetcode_questionsOrderByWithAggregationInput = {
@@ -6338,7 +6428,6 @@ export namespace Prisma {
     title_slug?: SortOrderInput | SortOrder
     title_cn?: SortOrderInput | SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrderInput | SortOrder
     _count?: bor_leetcode_questionsCountOrderByAggregateInput
     _avg?: bor_leetcode_questionsAvgOrderByAggregateInput
     _max?: bor_leetcode_questionsMaxOrderByAggregateInput
@@ -6360,7 +6449,6 @@ export namespace Prisma {
     title_slug?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     title_cn?: StringNullableWithAggregatesFilter<"bor_leetcode_questions"> | string | null
     translate_try_times?: IntWithAggregatesFilter<"bor_leetcode_questions"> | number
-    status?: IntNullableWithAggregatesFilter<"bor_leetcode_questions"> | number | null
   }
 
   export type bor_leetcode_topic_tagsWhereInput = {
@@ -6422,16 +6510,18 @@ export namespace Prisma {
     id_auto?: IntFilter<"bor_leetcode_resolve_records"> | number
     status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
-    start_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
-    finished_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+    bor_leetcode_questions?: XOR<Bor_leetcode_questionsNullableRelationFilter, bor_leetcode_questionsWhereInput> | null
   }
 
   export type bor_leetcode_resolve_recordsOrderByWithRelationInput = {
     id_auto?: SortOrder
     status?: SortOrderInput | SortOrder
     question_id?: SortOrderInput | SortOrder
-    start_at?: SortOrderInput | SortOrder
-    finished_at?: SortOrderInput | SortOrder
+    record_time?: SortOrderInput | SortOrder
+    bor_leetcode_questionsId_auto?: SortOrderInput | SortOrder
+    bor_leetcode_questions?: bor_leetcode_questionsOrderByWithRelationInput
   }
 
   export type bor_leetcode_resolve_recordsWhereUniqueInput = Prisma.AtLeast<{
@@ -6441,16 +6531,17 @@ export namespace Prisma {
     NOT?: bor_leetcode_resolve_recordsWhereInput | bor_leetcode_resolve_recordsWhereInput[]
     status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
-    start_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
-    finished_at?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+    bor_leetcode_questions?: XOR<Bor_leetcode_questionsNullableRelationFilter, bor_leetcode_questionsWhereInput> | null
   }, "id_auto">
 
   export type bor_leetcode_resolve_recordsOrderByWithAggregationInput = {
     id_auto?: SortOrder
     status?: SortOrderInput | SortOrder
     question_id?: SortOrderInput | SortOrder
-    start_at?: SortOrderInput | SortOrder
-    finished_at?: SortOrderInput | SortOrder
+    record_time?: SortOrderInput | SortOrder
+    bor_leetcode_questionsId_auto?: SortOrderInput | SortOrder
     _count?: bor_leetcode_resolve_recordsCountOrderByAggregateInput
     _avg?: bor_leetcode_resolve_recordsAvgOrderByAggregateInput
     _max?: bor_leetcode_resolve_recordsMaxOrderByAggregateInput
@@ -6465,8 +6556,8 @@ export namespace Prisma {
     id_auto?: IntWithAggregatesFilter<"bor_leetcode_resolve_records"> | number
     status?: IntNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | number | null
     question_id?: StringNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | string | null
-    start_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
-    finished_at?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    record_time?: DateTimeNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    bor_leetcode_questionsId_auto?: IntNullableWithAggregatesFilter<"bor_leetcode_resolve_records"> | number | null
   }
 
   export type bor_userWhereInput = {
@@ -6597,8 +6688,8 @@ export namespace Prisma {
     title_slug?: string | null
     title_cn?: string | null
     translate_try_times?: number
-    status?: number | null
     tags?: bor_leetcode_topic_tagsCreateNestedManyWithoutQuestionsInput
+    records?: bor_leetcode_resolve_recordsCreateNestedManyWithoutBor_leetcode_questionsInput
   }
 
   export type bor_leetcode_questionsUncheckedCreateInput = {
@@ -6612,8 +6703,8 @@ export namespace Prisma {
     title_slug?: string | null
     title_cn?: string | null
     translate_try_times?: number
-    status?: number | null
     tags?: bor_leetcode_topic_tagsUncheckedCreateNestedManyWithoutQuestionsInput
+    records?: bor_leetcode_resolve_recordsUncheckedCreateNestedManyWithoutBor_leetcode_questionsInput
   }
 
   export type bor_leetcode_questionsUpdateInput = {
@@ -6626,8 +6717,8 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     tags?: bor_leetcode_topic_tagsUpdateManyWithoutQuestionsNestedInput
+    records?: bor_leetcode_resolve_recordsUpdateManyWithoutBor_leetcode_questionsNestedInput
   }
 
   export type bor_leetcode_questionsUncheckedUpdateInput = {
@@ -6641,8 +6732,8 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
     tags?: bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsNestedInput
+    records?: bor_leetcode_resolve_recordsUncheckedUpdateManyWithoutBor_leetcode_questionsNestedInput
   }
 
   export type bor_leetcode_questionsCreateManyInput = {
@@ -6656,7 +6747,6 @@ export namespace Prisma {
     title_slug?: string | null
     title_cn?: string | null
     translate_try_times?: number
-    status?: number | null
   }
 
   export type bor_leetcode_questionsUpdateManyMutationInput = {
@@ -6669,7 +6759,6 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_leetcode_questionsUncheckedUpdateManyInput = {
@@ -6683,7 +6772,6 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_leetcode_topic_tagsCreateInput = {
@@ -6739,54 +6827,53 @@ export namespace Prisma {
   export type bor_leetcode_resolve_recordsCreateInput = {
     status?: number | null
     question_id?: string | null
-    start_at?: Date | string | null
-    finished_at?: Date | string | null
+    record_time?: Date | string | null
+    bor_leetcode_questions?: bor_leetcode_questionsCreateNestedOneWithoutRecordsInput
   }
 
   export type bor_leetcode_resolve_recordsUncheckedCreateInput = {
     id_auto?: number
     status?: number | null
     question_id?: string | null
-    start_at?: Date | string | null
-    finished_at?: Date | string | null
+    record_time?: Date | string | null
+    bor_leetcode_questionsId_auto?: number | null
   }
 
   export type bor_leetcode_resolve_recordsUpdateInput = {
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bor_leetcode_questions?: bor_leetcode_questionsUpdateOneWithoutRecordsNestedInput
   }
 
   export type bor_leetcode_resolve_recordsUncheckedUpdateInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bor_leetcode_questionsId_auto?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_leetcode_resolve_recordsCreateManyInput = {
     id_auto?: number
     status?: number | null
     question_id?: string | null
-    start_at?: Date | string | null
-    finished_at?: Date | string | null
+    record_time?: Date | string | null
+    bor_leetcode_questionsId_auto?: number | null
   }
 
   export type bor_leetcode_resolve_recordsUpdateManyMutationInput = {
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type bor_leetcode_resolve_recordsUncheckedUpdateManyInput = {
     id_auto?: IntFieldUpdateOperationsInput | number
     status?: NullableIntFieldUpdateOperationsInput | number | null
     question_id?: NullableStringFieldUpdateOperationsInput | string | null
-    start_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    finished_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bor_leetcode_questionsId_auto?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type bor_userCreateInput = {
@@ -6999,24 +7086,23 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type Bor_leetcode_topic_tagsListRelationFilter = {
     every?: bor_leetcode_topic_tagsWhereInput
     some?: bor_leetcode_topic_tagsWhereInput
     none?: bor_leetcode_topic_tagsWhereInput
   }
 
+  export type Bor_leetcode_resolve_recordsListRelationFilter = {
+    every?: bor_leetcode_resolve_recordsWhereInput
+    some?: bor_leetcode_resolve_recordsWhereInput
+    none?: bor_leetcode_resolve_recordsWhereInput
+  }
+
   export type bor_leetcode_topic_tagsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type bor_leetcode_resolve_recordsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7031,14 +7117,12 @@ export namespace Prisma {
     title_slug?: SortOrder
     title_cn?: SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrder
   }
 
   export type bor_leetcode_questionsAvgOrderByAggregateInput = {
     id_auto?: SortOrder
     ac_rate?: SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrder
   }
 
   export type bor_leetcode_questionsMaxOrderByAggregateInput = {
@@ -7052,7 +7136,6 @@ export namespace Prisma {
     title_slug?: SortOrder
     title_cn?: SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrder
   }
 
   export type bor_leetcode_questionsMinOrderByAggregateInput = {
@@ -7066,14 +7149,12 @@ export namespace Prisma {
     title_slug?: SortOrder
     title_cn?: SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrder
   }
 
   export type bor_leetcode_questionsSumOrderByAggregateInput = {
     id_auto?: SortOrder
     ac_rate?: SortOrder
     translate_try_times?: SortOrder
-    status?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7118,22 +7199,6 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
   export type Bor_leetcode_questionsListRelationFilter = {
     every?: bor_leetcode_questionsWhereInput
     some?: bor_leetcode_questionsWhereInput
@@ -7173,6 +7238,17 @@ export namespace Prisma {
     id_auto?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -7184,38 +7260,61 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type Bor_leetcode_questionsNullableRelationFilter = {
+    is?: bor_leetcode_questionsWhereInput | null
+    isNot?: bor_leetcode_questionsWhereInput | null
+  }
+
   export type bor_leetcode_resolve_recordsCountOrderByAggregateInput = {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
-    start_at?: SortOrder
-    finished_at?: SortOrder
+    record_time?: SortOrder
+    bor_leetcode_questionsId_auto?: SortOrder
   }
 
   export type bor_leetcode_resolve_recordsAvgOrderByAggregateInput = {
     id_auto?: SortOrder
     status?: SortOrder
+    bor_leetcode_questionsId_auto?: SortOrder
   }
 
   export type bor_leetcode_resolve_recordsMaxOrderByAggregateInput = {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
-    start_at?: SortOrder
-    finished_at?: SortOrder
+    record_time?: SortOrder
+    bor_leetcode_questionsId_auto?: SortOrder
   }
 
   export type bor_leetcode_resolve_recordsMinOrderByAggregateInput = {
     id_auto?: SortOrder
     status?: SortOrder
     question_id?: SortOrder
-    start_at?: SortOrder
-    finished_at?: SortOrder
+    record_time?: SortOrder
+    bor_leetcode_questionsId_auto?: SortOrder
   }
 
   export type bor_leetcode_resolve_recordsSumOrderByAggregateInput = {
     id_auto?: SortOrder
     status?: SortOrder
+    bor_leetcode_questionsId_auto?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7297,10 +7396,24 @@ export namespace Prisma {
     connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
   }
 
+  export type bor_leetcode_resolve_recordsCreateNestedManyWithoutBor_leetcode_questionsInput = {
+    create?: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput> | bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput[] | bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput[]
+    connectOrCreate?: bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput[]
+    createMany?: bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInputEnvelope
+    connect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+  }
+
   export type bor_leetcode_topic_tagsUncheckedCreateNestedManyWithoutQuestionsInput = {
     create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
     connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
     connect?: bor_leetcode_topic_tagsWhereUniqueInput | bor_leetcode_topic_tagsWhereUniqueInput[]
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedCreateNestedManyWithoutBor_leetcode_questionsInput = {
+    create?: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput> | bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput[] | bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput[]
+    connectOrCreate?: bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput[]
+    createMany?: bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInputEnvelope
+    connect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7319,14 +7432,6 @@ export namespace Prisma {
     set?: boolean | null
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type bor_leetcode_topic_tagsUpdateManyWithoutQuestionsNestedInput = {
     create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
     connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
@@ -7340,6 +7445,20 @@ export namespace Prisma {
     deleteMany?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
   }
 
+  export type bor_leetcode_resolve_recordsUpdateManyWithoutBor_leetcode_questionsNestedInput = {
+    create?: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput> | bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput[] | bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput[]
+    connectOrCreate?: bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput[]
+    upsert?: bor_leetcode_resolve_recordsUpsertWithWhereUniqueWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpsertWithWhereUniqueWithoutBor_leetcode_questionsInput[]
+    createMany?: bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInputEnvelope
+    set?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    disconnect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    delete?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    connect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    update?: bor_leetcode_resolve_recordsUpdateWithWhereUniqueWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpdateWithWhereUniqueWithoutBor_leetcode_questionsInput[]
+    updateMany?: bor_leetcode_resolve_recordsUpdateManyWithWhereWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpdateManyWithWhereWithoutBor_leetcode_questionsInput[]
+    deleteMany?: bor_leetcode_resolve_recordsScalarWhereInput | bor_leetcode_resolve_recordsScalarWhereInput[]
+  }
+
   export type bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsNestedInput = {
     create?: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput> | bor_leetcode_topic_tagsCreateWithoutQuestionsInput[] | bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput[]
     connectOrCreate?: bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput | bor_leetcode_topic_tagsCreateOrConnectWithoutQuestionsInput[]
@@ -7351,6 +7470,20 @@ export namespace Prisma {
     update?: bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateWithWhereUniqueWithoutQuestionsInput[]
     updateMany?: bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput | bor_leetcode_topic_tagsUpdateManyWithWhereWithoutQuestionsInput[]
     deleteMany?: bor_leetcode_topic_tagsScalarWhereInput | bor_leetcode_topic_tagsScalarWhereInput[]
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedUpdateManyWithoutBor_leetcode_questionsNestedInput = {
+    create?: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput> | bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput[] | bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput[]
+    connectOrCreate?: bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput[]
+    upsert?: bor_leetcode_resolve_recordsUpsertWithWhereUniqueWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpsertWithWhereUniqueWithoutBor_leetcode_questionsInput[]
+    createMany?: bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInputEnvelope
+    set?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    disconnect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    delete?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    connect?: bor_leetcode_resolve_recordsWhereUniqueInput | bor_leetcode_resolve_recordsWhereUniqueInput[]
+    update?: bor_leetcode_resolve_recordsUpdateWithWhereUniqueWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpdateWithWhereUniqueWithoutBor_leetcode_questionsInput[]
+    updateMany?: bor_leetcode_resolve_recordsUpdateManyWithWhereWithoutBor_leetcode_questionsInput | bor_leetcode_resolve_recordsUpdateManyWithWhereWithoutBor_leetcode_questionsInput[]
+    deleteMany?: bor_leetcode_resolve_recordsScalarWhereInput | bor_leetcode_resolve_recordsScalarWhereInput[]
   }
 
   export type bor_leetcode_questionsCreateNestedManyWithoutTagsInput = {
@@ -7391,8 +7524,32 @@ export namespace Prisma {
     deleteMany?: bor_leetcode_questionsScalarWhereInput | bor_leetcode_questionsScalarWhereInput[]
   }
 
+  export type bor_leetcode_questionsCreateNestedOneWithoutRecordsInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutRecordsInput, bor_leetcode_questionsUncheckedCreateWithoutRecordsInput>
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutRecordsInput
+    connect?: bor_leetcode_questionsWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
+  }
+
+  export type bor_leetcode_questionsUpdateOneWithoutRecordsNestedInput = {
+    create?: XOR<bor_leetcode_questionsCreateWithoutRecordsInput, bor_leetcode_questionsUncheckedCreateWithoutRecordsInput>
+    connectOrCreate?: bor_leetcode_questionsCreateOrConnectWithoutRecordsInput
+    upsert?: bor_leetcode_questionsUpsertWithoutRecordsInput
+    disconnect?: bor_leetcode_questionsWhereInput | boolean
+    delete?: bor_leetcode_questionsWhereInput | boolean
+    connect?: bor_leetcode_questionsWhereUniqueInput
+    update?: XOR<XOR<bor_leetcode_questionsUpdateToOneWithWhereWithoutRecordsInput, bor_leetcode_questionsUpdateWithoutRecordsInput>, bor_leetcode_questionsUncheckedUpdateWithoutRecordsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -7546,6 +7703,17 @@ export namespace Prisma {
     _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -7560,17 +7728,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7605,6 +7762,29 @@ export namespace Prisma {
     create: XOR<bor_leetcode_topic_tagsCreateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedCreateWithoutQuestionsInput>
   }
 
+  export type bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput = {
+    status?: number | null
+    question_id?: string | null
+    record_time?: Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput = {
+    id_auto?: number
+    status?: number | null
+    question_id?: string | null
+    record_time?: Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsCreateOrConnectWithoutBor_leetcode_questionsInput = {
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+    create: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput>
+  }
+
+  export type bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInputEnvelope = {
+    data: bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInput | bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInput[]
+    skipDuplicates?: boolean
+  }
+
   export type bor_leetcode_topic_tagsUpsertWithWhereUniqueWithoutQuestionsInput = {
     where: bor_leetcode_topic_tagsWhereUniqueInput
     update: XOR<bor_leetcode_topic_tagsUpdateWithoutQuestionsInput, bor_leetcode_topic_tagsUncheckedUpdateWithoutQuestionsInput>
@@ -7631,6 +7811,33 @@ export namespace Prisma {
     slug?: StringNullableFilter<"bor_leetcode_topic_tags"> | string | null
   }
 
+  export type bor_leetcode_resolve_recordsUpsertWithWhereUniqueWithoutBor_leetcode_questionsInput = {
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+    update: XOR<bor_leetcode_resolve_recordsUpdateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedUpdateWithoutBor_leetcode_questionsInput>
+    create: XOR<bor_leetcode_resolve_recordsCreateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedCreateWithoutBor_leetcode_questionsInput>
+  }
+
+  export type bor_leetcode_resolve_recordsUpdateWithWhereUniqueWithoutBor_leetcode_questionsInput = {
+    where: bor_leetcode_resolve_recordsWhereUniqueInput
+    data: XOR<bor_leetcode_resolve_recordsUpdateWithoutBor_leetcode_questionsInput, bor_leetcode_resolve_recordsUncheckedUpdateWithoutBor_leetcode_questionsInput>
+  }
+
+  export type bor_leetcode_resolve_recordsUpdateManyWithWhereWithoutBor_leetcode_questionsInput = {
+    where: bor_leetcode_resolve_recordsScalarWhereInput
+    data: XOR<bor_leetcode_resolve_recordsUpdateManyMutationInput, bor_leetcode_resolve_recordsUncheckedUpdateManyWithoutBor_leetcode_questionsInput>
+  }
+
+  export type bor_leetcode_resolve_recordsScalarWhereInput = {
+    AND?: bor_leetcode_resolve_recordsScalarWhereInput | bor_leetcode_resolve_recordsScalarWhereInput[]
+    OR?: bor_leetcode_resolve_recordsScalarWhereInput[]
+    NOT?: bor_leetcode_resolve_recordsScalarWhereInput | bor_leetcode_resolve_recordsScalarWhereInput[]
+    id_auto?: IntFilter<"bor_leetcode_resolve_records"> | number
+    status?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+    question_id?: StringNullableFilter<"bor_leetcode_resolve_records"> | string | null
+    record_time?: DateTimeNullableFilter<"bor_leetcode_resolve_records"> | Date | string | null
+    bor_leetcode_questionsId_auto?: IntNullableFilter<"bor_leetcode_resolve_records"> | number | null
+  }
+
   export type bor_leetcode_questionsCreateWithoutTagsInput = {
     question_id: string
     ac_rate?: number | null
@@ -7641,7 +7848,7 @@ export namespace Prisma {
     title_slug?: string | null
     title_cn?: string | null
     translate_try_times?: number
-    status?: number | null
+    records?: bor_leetcode_resolve_recordsCreateNestedManyWithoutBor_leetcode_questionsInput
   }
 
   export type bor_leetcode_questionsUncheckedCreateWithoutTagsInput = {
@@ -7655,7 +7862,7 @@ export namespace Prisma {
     title_slug?: string | null
     title_cn?: string | null
     translate_try_times?: number
-    status?: number | null
+    records?: bor_leetcode_resolve_recordsUncheckedCreateNestedManyWithoutBor_leetcode_questionsInput
   }
 
   export type bor_leetcode_questionsCreateOrConnectWithoutTagsInput = {
@@ -7693,7 +7900,83 @@ export namespace Prisma {
     title_slug?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     title_cn?: StringNullableFilter<"bor_leetcode_questions"> | string | null
     translate_try_times?: IntFilter<"bor_leetcode_questions"> | number
-    status?: IntNullableFilter<"bor_leetcode_questions"> | number | null
+  }
+
+  export type bor_leetcode_questionsCreateWithoutRecordsInput = {
+    question_id: string
+    ac_rate?: number | null
+    difficulty?: string | null
+    question_frontend_id?: string | null
+    is_paid_only?: boolean | null
+    title?: string | null
+    title_slug?: string | null
+    title_cn?: string | null
+    translate_try_times?: number
+    tags?: bor_leetcode_topic_tagsCreateNestedManyWithoutQuestionsInput
+  }
+
+  export type bor_leetcode_questionsUncheckedCreateWithoutRecordsInput = {
+    id_auto?: number
+    question_id: string
+    ac_rate?: number | null
+    difficulty?: string | null
+    question_frontend_id?: string | null
+    is_paid_only?: boolean | null
+    title?: string | null
+    title_slug?: string | null
+    title_cn?: string | null
+    translate_try_times?: number
+    tags?: bor_leetcode_topic_tagsUncheckedCreateNestedManyWithoutQuestionsInput
+  }
+
+  export type bor_leetcode_questionsCreateOrConnectWithoutRecordsInput = {
+    where: bor_leetcode_questionsWhereUniqueInput
+    create: XOR<bor_leetcode_questionsCreateWithoutRecordsInput, bor_leetcode_questionsUncheckedCreateWithoutRecordsInput>
+  }
+
+  export type bor_leetcode_questionsUpsertWithoutRecordsInput = {
+    update: XOR<bor_leetcode_questionsUpdateWithoutRecordsInput, bor_leetcode_questionsUncheckedUpdateWithoutRecordsInput>
+    create: XOR<bor_leetcode_questionsCreateWithoutRecordsInput, bor_leetcode_questionsUncheckedCreateWithoutRecordsInput>
+    where?: bor_leetcode_questionsWhereInput
+  }
+
+  export type bor_leetcode_questionsUpdateToOneWithWhereWithoutRecordsInput = {
+    where?: bor_leetcode_questionsWhereInput
+    data: XOR<bor_leetcode_questionsUpdateWithoutRecordsInput, bor_leetcode_questionsUncheckedUpdateWithoutRecordsInput>
+  }
+
+  export type bor_leetcode_questionsUpdateWithoutRecordsInput = {
+    question_id?: StringFieldUpdateOperationsInput | string
+    ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
+    difficulty?: NullableStringFieldUpdateOperationsInput | string | null
+    question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title_slug?: NullableStringFieldUpdateOperationsInput | string | null
+    title_cn?: NullableStringFieldUpdateOperationsInput | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    tags?: bor_leetcode_topic_tagsUpdateManyWithoutQuestionsNestedInput
+  }
+
+  export type bor_leetcode_questionsUncheckedUpdateWithoutRecordsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    question_id?: StringFieldUpdateOperationsInput | string
+    ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
+    difficulty?: NullableStringFieldUpdateOperationsInput | string | null
+    question_frontend_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_paid_only?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    title_slug?: NullableStringFieldUpdateOperationsInput | string | null
+    title_cn?: NullableStringFieldUpdateOperationsInput | string | null
+    translate_try_times?: IntFieldUpdateOperationsInput | number
+    tags?: bor_leetcode_topic_tagsUncheckedUpdateManyWithoutQuestionsNestedInput
+  }
+
+  export type bor_leetcode_resolve_recordsCreateManyBor_leetcode_questionsInput = {
+    id_auto?: number
+    status?: number | null
+    question_id?: string | null
+    record_time?: Date | string | null
   }
 
   export type bor_leetcode_topic_tagsUpdateWithoutQuestionsInput = {
@@ -7716,6 +7999,26 @@ export namespace Prisma {
     slug?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type bor_leetcode_resolve_recordsUpdateWithoutBor_leetcode_questionsInput = {
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedUpdateWithoutBor_leetcode_questionsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type bor_leetcode_resolve_recordsUncheckedUpdateManyWithoutBor_leetcode_questionsInput = {
+    id_auto?: IntFieldUpdateOperationsInput | number
+    status?: NullableIntFieldUpdateOperationsInput | number | null
+    question_id?: NullableStringFieldUpdateOperationsInput | string | null
+    record_time?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type bor_leetcode_questionsUpdateWithoutTagsInput = {
     question_id?: StringFieldUpdateOperationsInput | string
     ac_rate?: NullableFloatFieldUpdateOperationsInput | number | null
@@ -7726,7 +8029,7 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
+    records?: bor_leetcode_resolve_recordsUpdateManyWithoutBor_leetcode_questionsNestedInput
   }
 
   export type bor_leetcode_questionsUncheckedUpdateWithoutTagsInput = {
@@ -7740,7 +8043,7 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
+    records?: bor_leetcode_resolve_recordsUncheckedUpdateManyWithoutBor_leetcode_questionsNestedInput
   }
 
   export type bor_leetcode_questionsUncheckedUpdateManyWithoutTagsInput = {
@@ -7754,7 +8057,6 @@ export namespace Prisma {
     title_slug?: NullableStringFieldUpdateOperationsInput | string | null
     title_cn?: NullableStringFieldUpdateOperationsInput | string | null
     translate_try_times?: IntFieldUpdateOperationsInput | number
-    status?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 

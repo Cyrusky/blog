@@ -5,28 +5,26 @@ import schedule from "node-schedule";
 import type { LeetCodeService } from "@/services/leetCodeService";
 import { ServiceNames } from "@/constant/ServiceNames";
 import { FeiShuUtils } from "@/utils/FeishuUtils";
+import { Configs } from "@/config";
 
 @injectable()
 export class ScheduleService {
   private jobQueue: [schedule.RecurrenceRule, JobCallback][] = [];
   private fetchingLeetCodeQuestionsLocking = false;
-  private updatingLeetCodeQuestionsUUIDLocking = false;
 
   constructor(
     @inject<LeetCodeService>(ServiceNames.LeetCodeService)
     private readonly leetCodeService: LeetCodeService,
   ) {
     const fetchingRule = new schedule.RecurrenceRule();
-    fetchingRule.hour = [0, 6, 12, 18];
+    if (Configs.dev) {
+      fetchingRule.second = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+    } else {
+      fetchingRule.hour = [0, 6, 12, 18];
+    }
     this.jobQueue.push([
       fetchingRule,
       this.fetchingLeetCodeQuestionsScheduler.bind(this),
-    ]);
-    const updatingRule = new schedule.RecurrenceRule();
-    updatingRule.second = [0, 10, 20, 30, 40, 50];
-    this.jobQueue.push([
-      updatingRule,
-      this.updatingLeetCodeQuestionsUUIDScheduler.bind(this),
     ]);
   }
 
@@ -45,7 +43,7 @@ export class ScheduleService {
     LogUtils.log(`Fetching question task start.`);
     await FeiShuUtils.sendNotification("开始刷新题库", "");
     try {
-      const questions = await this.leetCodeService.fetchLeetCodeQuestions();
+      const { questions } = await this.leetCodeService.fetchLeetCodeQuestions();
       await this.leetCodeService.updateQuestions(questions);
     } catch (e: unknown) {
       LogUtils.error(`Fetching question task error: ${e}`);
@@ -54,17 +52,5 @@ export class ScheduleService {
       await FeiShuUtils.sendNotification("刷新题库完成", "");
       this.fetchingLeetCodeQuestionsLocking = false;
     }
-  }
-  // things:///show?id=d491c151-e1b8-4576-a7ba-e43c7ba5c948
-
-  private async updatingLeetCodeQuestionsUUIDScheduler() {
-    if (this.updatingLeetCodeQuestionsUUIDLocking) {
-      return;
-    }
-    this.updatingLeetCodeQuestionsUUIDLocking = true;
-    LogUtils.trace(`Updating question uuid task start.`);
-    await this.leetCodeService.updateQuestionsUUID();
-    LogUtils.trace(`Updating question uuid task end.`);
-    this.updatingLeetCodeQuestionsUUIDLocking = false;
   }
 }

@@ -138,8 +138,7 @@ exports.Prisma.Bor_leetcode_questionsScalarFieldEnum = {
   title: 'title',
   title_slug: 'title_slug',
   title_cn: 'title_cn',
-  translate_try_times: 'translate_try_times',
-  status: 'status'
+  translate_try_times: 'translate_try_times'
 };
 
 exports.Prisma.Bor_leetcode_topic_tagsScalarFieldEnum = {
@@ -153,8 +152,8 @@ exports.Prisma.Bor_leetcode_resolve_recordsScalarFieldEnum = {
   id_auto: 'id_auto',
   status: 'status',
   question_id: 'question_id',
-  start_at: 'start_at',
-  finished_at: 'finished_at'
+  record_time: 'record_time',
+  bor_leetcode_questionsId_auto: 'bor_leetcode_questionsId_auto'
 };
 
 exports.Prisma.Bor_userScalarFieldEnum = {
