@@ -1,7 +1,8 @@
-import { createHash } from "crypto";
+import * as bcrypt from "bcrypt";
 
 export class SHAUtils {
-  static digest(data: string): string {
-    return createHash("sha256").update(data).digest("base64");
+  static async digest(data: string): Promise<string> {
+    const saltRounds = 10;
+    return await bcrypt.hash(data, saltRounds);
   }
 }

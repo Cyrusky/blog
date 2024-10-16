@@ -56,7 +56,6 @@
     "@koa/router": "^13.1.0",
     "@prisma/client": "^5.21.0",
     "axios": "^1.7.7",
-    "dayjs": "^1.11.13",
     "dotenv": "^16.4.5",
     "inversify": "^6.0.2",
     "jsonwebtoken": "^9.0.2",
@@ -68,7 +67,8 @@
     "node-schedule": "^2.1.1",
     "omit.js": "^2.0.2",
     "reflect-metadata": "^0.2.2",
-    "uuid": "^10.0.0"
+    "uuid": "^10.0.0",
+    "bcrypt": "^5.1.1"
   },
   "packageManager": "pnpm@9.11.0"
 }
