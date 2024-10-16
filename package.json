@@ -26,6 +26,12 @@
       "domexception": "*",
       "glob": "*",
       "inflight": "*"
+    },
+    "overrides": {
+      "postcss@<8.4.31": ">=8.4.31",
+      "micromatch@<4.0.8": ">=4.0.8",
+      "send@<0.19.0": ">=0.19.0",
+      "serve-static@<1.16.0": ">=1.16.0"
     }
   },
   "packageManager": "pnpm@9.11.0"
