@@ -23,4 +23,12 @@ export class Configs {
   static leetcode = {
     maxCount: 5000,
   };
+  static things = {
+    configKeys: {
+      historyKey: "config.things.historyKey",
+      latestServerIndex: "config.things.latestServerIndex",
+    },
+    email: process.env.THINGS_EMAIL || "",
+    password: process.env.THINGS_PASSWORD || "",
+  };
 }

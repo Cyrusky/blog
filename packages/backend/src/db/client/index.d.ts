@@ -6352,12 +6352,12 @@ export namespace Prisma {
 
   export type bor_configWhereUniqueInput = Prisma.AtLeast<{
     id_auto?: number
+    key?: string
     AND?: bor_configWhereInput | bor_configWhereInput[]
     OR?: bor_configWhereInput[]
     NOT?: bor_configWhereInput | bor_configWhereInput[]
-    key?: StringNullableFilter<"bor_config"> | string | null
     value?: StringNullableFilter<"bor_config"> | string | null
-  }, "id_auto">
+  }, "id_auto" | "key">
 
   export type bor_configOrderByWithAggregationInput = {
     id_auto?: SortOrder
