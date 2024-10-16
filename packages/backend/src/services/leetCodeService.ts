@@ -93,10 +93,7 @@ export class LeetCodeService {
 
       if (dbQuestion.tags.length !== question.topicTags.length) {
         await this.updateQuestion(question);
-        continue;
       }
-
-      LogUtils.log(`Skip question ${question.titleSlug}.`);
     }
   }
 

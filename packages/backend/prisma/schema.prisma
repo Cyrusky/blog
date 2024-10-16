@@ -10,7 +10,7 @@ datasource db {
 
 model bor_config {
   id_auto Int     @id @default(autoincrement())
-  key     String? @db.VarChar(64)
+  key     String? @unique @db.VarChar(64)
   value   String?
 }
 
