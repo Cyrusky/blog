@@ -15,7 +15,7 @@
     "@boris/common": "workspace: *",
     "antd": "^5.21.3",
     "axios": "^1.7.7",
-    "mobx": "^6.13.3",
+    "mobx": "^6.13.4",
     "mobx-react-lite": "^4.0.7",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
