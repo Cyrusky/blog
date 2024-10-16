@@ -46,7 +46,7 @@ export default defineConfig({
         target: "http://127.0.0.1:3000",
         changeOrigin: true,
         timeout: 1200_000,
-        rewrite: (path) => path.replace(/^\/api/, "/api"),
+        rewrite: (path) => path.replace(/^\/api\//, "/api"),
         bypass: (req, res, options) => {
           const proxyUrl =
             new URL(
