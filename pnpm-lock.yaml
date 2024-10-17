@@ -67,7 +67,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.5)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
+        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.80.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
       eslint:
         specifier: ^9.12.0
         version: 9.12.0
@@ -81,11 +81,11 @@ importers:
         specifier: ^15.11.0
         version: 15.11.0
       sass:
-        specifier: ^1.79.5
-        version: 1.79.5
+        specifier: ^1.80.0
+        version: 1.80.0
       sass-loader:
         specifier: ^16.0.2
-        version: 16.0.2(sass@1.79.5)(webpack@5.95.0)
+        version: 16.0.2(sass@1.80.0)(webpack@5.95.0)
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -94,7 +94,7 @@ importers:
         version: 8.9.0(eslint@9.12.0)(typescript@5.6.3)
       vite:
         specifier: ^5.4.9
-        version: 5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.5)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+        version: 5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.80.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
 
   packages/backend:
     dependencies:
@@ -4476,8 +4476,8 @@ packages:
       webpack:
         optional: true
 
-  sass@1.79.5:
-    resolution: {integrity: sha512-W1h5kp6bdhqFh2tk3DsI771MoEJjvrSY/2ihJRJS4pjIyfJCw0nTsxqhnrUzaLMOJjFchj8rOvraI/YUVjtx5g==}
+  sass@1.80.0:
+    resolution: {integrity: sha512-9Yzb4qTUJ//eTKZQzxAtNsezOvfQlB+7hAJjj5wFqKZb2c2xboeCYnKh2Gzyp6sdyiNe9FUgn8xgc1ffXHmM6g==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -6945,10 +6945,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.5)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
+  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.80.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
     dependencies:
       '@swc/core': 1.7.26(@swc/helpers@0.5.1)
-      vite: 5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.5)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+      vite: 5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.80.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -9820,14 +9820,14 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  sass-loader@16.0.2(sass@1.79.5)(webpack@5.95.0):
+  sass-loader@16.0.2(sass@1.80.0)(webpack@5.95.0):
     dependencies:
       neo-async: 2.6.2
     optionalDependencies:
-      sass: 1.79.5
+      sass: 1.80.0
       webpack: 5.95.0
 
-  sass@1.79.5:
+  sass@1.80.0:
     dependencies:
       '@parcel/watcher': 2.4.1
       chokidar: 4.0.1
@@ -10326,7 +10326,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.79.5)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
+  vite@5.4.9(@types/node@22.7.5)(less@4.2.0)(lightningcss@1.22.1)(sass@1.80.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
     dependencies:
       esbuild: 0.21.4
       postcss: 8.4.47
@@ -10336,7 +10336,7 @@ snapshots:
       fsevents: 2.3.3
       less: 4.2.0
       lightningcss: 1.22.1
-      sass: 1.79.5
+      sass: 1.80.0
       stylus: 0.62.0
       sugarss: 2.0.0
       terser: 5.34.1
