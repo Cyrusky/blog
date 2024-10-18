@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
-    "@ant-design/pro-components": "^2.6.48",
+    "@ant-design/pro-components": "^2.8.0",
     "@boris/common": "workspace: *",
     "antd": "^5.21.4",
     "axios": "^1.7.7",
