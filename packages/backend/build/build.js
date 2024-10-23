@@ -10,6 +10,7 @@ esbuild
     bundle: true,
     minify: true,
     sourcemap: false,
+    external: ["@mapbox/node-pre-gyp"],
   })
   .then(() => {
     console.log("Build complete");
