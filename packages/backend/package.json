@@ -67,7 +67,7 @@
     "node-schedule": "^2.1.1",
     "omit.js": "^2.0.2",
     "reflect-metadata": "^0.2.2",
-    "uuid": "^10.0.0",
+    "uuid": "^11.0.2",
     "bcrypt": "^5.1.1"
   },
   "packageManager": "pnpm@9.11.0"
