@@ -12,7 +12,7 @@
   "author": "cyrusky <bo.jin@borgor.cn>",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.13.0",
+    "@eslint/js": "^9.14.0",
     "@types/node": "^22.8.2",
     "eslint": "^9.13.0",
     "eslint-plugin-prettier": "^5.2.1",
