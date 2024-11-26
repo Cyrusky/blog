@@ -55,7 +55,7 @@
     "@boris/common": "workspace: *",
     "@koa/router": "^13.1.0",
     "@prisma/client": "^5.22.0",
-    "axios": "^1.7.7",
+    "axios": "^1.7.8",
     "dotenv": "^16.4.5",
     "inversify": "^6.1.4",
     "jsonwebtoken": "^9.0.2",
