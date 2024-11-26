@@ -63,8 +63,8 @@ importers:
         specifier: ^9.15.0
         version: 9.15.0
       '@types/node':
-        specifier: ^22.9.0
-        version: 22.9.0
+        specifier: ^22.9.4
+        version: 22.9.4
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -73,7 +73,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.11(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
+        version: 3.7.1(@swc/helpers@0.5.1)(vite@5.4.11(@types/node@22.9.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))
       eslint:
         specifier: ^9.15.0
         version: 9.15.0
@@ -100,7 +100,7 @@ importers:
         version: 8.14.0(eslint@9.15.0)(typescript@5.6.3)
       vite:
         specifier: ^5.4.11
-        version: 5.4.11(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+        version: 5.4.11(@types/node@22.9.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
 
   packages/backend:
     dependencies:
@@ -178,8 +178,8 @@ importers:
         specifier: ^0.7.34
         version: 0.7.34
       '@types/node':
-        specifier: ^22.9.0
-        version: 22.9.0
+        specifier: ^22.9.4
+        version: 22.9.4
       '@types/node-rsa':
         specifier: ^1.1.4
         version: 1.1.4
@@ -212,7 +212,7 @@ importers:
         version: 3.3.3
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.9.0)(typescript@5.6.3)
+        version: 10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.9.4)(typescript@5.6.3)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -263,8 +263,8 @@ importers:
         version: 6.1.0(chokidar@3.6.0)
     devDependencies:
       '@types/node':
-        specifier: ^22.9.0
-        version: 22.9.0
+        specifier: ^22.9.4
+        version: 22.9.4
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -281,8 +281,8 @@ importers:
         specifier: ^9.15.0
         version: 9.15.0
       '@types/node':
-        specifier: ^22.9.0
-        version: 22.9.0
+        specifier: ^22.9.4
+        version: 22.9.4
       eslint:
         specifier: ^9.15.0
         version: 9.15.0
@@ -1376,10 +1376,6 @@ packages:
     resolution: {integrity: sha512-grOjVNN8P3hjJn/eIETF1wwd12DdnwFDoyceUJLYYdkpbwq3nLi+4fqrTAONx7XDALqlL220wC/RHSC/QTI/0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.14.0':
-    resolution: {integrity: sha512-pFoEtFWCPyDOl+C6Ift+wC7Ro89otjigCf5vcuWqWgqNSQbRrpjSvdeE6ofLz4dHmyxD5f7gIdGT4+p36L6Twg==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
   '@eslint/js@9.15.0':
     resolution: {integrity: sha512-tMTqrY+EzbXmKJR5ToI8lxu7jaN5EdmrBFJpQk5JmSlyLsx6o4t27r883K5xsLuCYCpfKBCGswMSWXsM+jB7lg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -1966,8 +1962,8 @@ packages:
   '@types/node-schedule@2.1.7':
     resolution: {integrity: sha512-G7Z3R9H7r3TowoH6D2pkzUHPhcJrDF4Jz1JOQ80AX0K2DWTHoN9VC94XzFAPNMdbW9TBzMZ3LjpFi7RYdbxtXA==}
 
-  '@types/node@22.9.0':
-    resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
+  '@types/node@22.9.4':
+    resolution: {integrity: sha512-d9RWfoR7JC/87vj7n+PVTzGg9hDyuFjir3RxUHbjFSKNd9mpxbxwMEyaCim/ddCmy4IuW7HjTzF3g9p3EtWEOg==}
 
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
@@ -6443,8 +6439,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/js@9.14.0': {}
-
   '@eslint/js@9.15.0': {}
 
   '@eslint/object-schema@2.1.4': {}
@@ -6869,16 +6863,16 @@ snapshots:
 
   '@types/accepts@1.3.7':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/content-disposition@0.5.8': {}
 
@@ -6887,13 +6881,13 @@ snapshots:
       '@types/connect': 3.4.38
       '@types/express': 5.0.0
       '@types/keygrip': 1.0.6
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/estree@1.0.6': {}
 
   '@types/express-serve-static-core@5.0.0':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
       '@types/qs': 6.9.16
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -6915,7 +6909,7 @@ snapshots:
 
   '@types/jsonwebtoken@9.0.7':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/keygrip@1.0.6': {}
 
@@ -6936,7 +6930,7 @@ snapshots:
       '@types/http-errors': 2.0.4
       '@types/keygrip': 1.0.6
       '@types/koa-compose': 3.2.8
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/koa__router@12.0.4':
     dependencies:
@@ -6948,13 +6942,13 @@ snapshots:
 
   '@types/node-rsa@1.1.4':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/node-schedule@2.1.7':
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
-  '@types/node@22.9.0':
+  '@types/node@22.9.4':
     dependencies:
       undici-types: 6.19.8
 
@@ -6976,12 +6970,12 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
       '@types/send': 0.17.4
 
   '@types/uuid@10.0.0': {}
@@ -7073,10 +7067,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.11(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
+  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@5.4.11(@types/node@22.9.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1))':
     dependencies:
       '@swc/core': 1.7.26(@swc/helpers@0.5.1)
-      vite: 5.4.11(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
+      vite: 5.4.11(@types/node@22.9.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -8804,7 +8798,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
@@ -10384,14 +10378,14 @@ snapshots:
     dependencies:
       typescript: 5.6.3
 
-  ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.9.0)(typescript@5.6.3):
+  ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.1))(@types/node@22.9.4)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
       acorn: 8.12.1
       acorn-walk: 8.3.3
       arg: 4.1.3
@@ -10546,13 +10540,13 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@5.4.11(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
+  vite@5.4.11(@types/node@22.9.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1):
     dependencies:
       esbuild: 0.21.4
       postcss: 8.4.47
       rollup: 4.24.0
     optionalDependencies:
-      '@types/node': 22.9.0
+      '@types/node': 22.9.4
       fsevents: 2.3.3
       less: 4.2.0
       lightningcss: 1.22.1
