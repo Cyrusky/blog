@@ -72,8 +72,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       '@vitejs/plugin-react-swc':
-        specifier: ^3.5.0
-        version: 3.7.1(@swc/helpers@0.5.1)(vite@6.0.1(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.0))
+        specifier: ^3.7.2
+        version: 3.7.2(@swc/helpers@0.5.1)(vite@6.0.1(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.0))
       eslint:
         specifier: ^9.15.0
         version: 9.15.0
@@ -1916,10 +1916,10 @@ packages:
     peerDependencies:
       react: '*'
 
-  '@vitejs/plugin-react-swc@3.7.1':
-    resolution: {integrity: sha512-vgWOY0i1EROUK0Ctg1hwhtC3SdcDjZcdit4Ups4aPkDcB1jYhmo+RMYWY87cmXMhvtD5uf8lV89j2w16vkdSVg==}
+  '@vitejs/plugin-react-swc@3.7.2':
+    resolution: {integrity: sha512-y0byko2b2tSVVf5Gpng1eEhX1OvPC7x8yns1Fx8jDzlJp4LS6CMkCPfLw47cjyoMrshQDoQw4qcgjsU9VvlCew==}
     peerDependencies:
-      vite: ^4 || ^5
+      vite: ^4 || ^5 || ^6
 
   '@webassemblyjs/ast@1.12.1':
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
@@ -6861,7 +6861,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@vitejs/plugin-react-swc@3.7.1(@swc/helpers@0.5.1)(vite@6.0.1(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.0))':
+  '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.1)(vite@6.0.1(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.0))':
     dependencies:
       '@swc/core': 1.7.26(@swc/helpers@0.5.1)
       vite: 6.0.1(@types/node@22.9.0)(less@4.2.0)(lightningcss@1.22.1)(sass@1.81.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.0)
