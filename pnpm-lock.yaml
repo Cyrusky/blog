@@ -72,7 +72,7 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       '@vitejs/plugin-react-swc':
-        specifier: ^3.5.0
+        specifier: ^3.7.2
         version: 3.7.2(@swc/helpers@0.5.1)(vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1))
       eslint:
         specifier: ^9.17.0
@@ -4763,7 +4763,7 @@ packages:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
 
   source-map@0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==, tarball: https://r2.cnpmjs.org/source-map/-/source-map-0.6.1.tgz}
     engines: {node: '>=0.10.0'}
 
   source-map@0.7.4:
