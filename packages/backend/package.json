@@ -54,7 +54,7 @@
   "dependencies": {
     "@boris/common": "workspace: *",
     "@koa/router": "^13.1.0",
-    "@prisma/client": "^6.1.0",
+    "@prisma/client": "^6.3.0",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "inversify": "^6.2.1",
