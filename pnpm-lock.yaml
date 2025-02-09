@@ -26,8 +26,8 @@ importers:
         specifier: ^5.5.2
         version: 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/pro-components':
-        specifier: ^2.8.4
-        version: 2.8.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+        specifier: ^2.8.2
+        version: 2.8.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@boris/common':
         specifier: 'workspace: *'
         version: link:../common
@@ -60,8 +60,8 @@ importers:
         version: 7.1.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
     devDependencies:
       '@eslint/js':
-        specifier: ^9.17.0
-        version: 9.17.0
+        specifier: ^9.19.0
+        version: 9.19.0
       '@types/node':
         specifier: ^22.10.2
         version: 22.10.2
@@ -160,8 +160,8 @@ importers:
         specifier: ^0.1.2
         version: 0.1.2(esbuild@0.24.0)(typescript@5.7.2)
       '@eslint/js':
-        specifier: ^9.17.0
-        version: 9.17.0
+        specifier: ^9.19.0
+        version: 9.19.0
       '@types/jsonwebtoken':
         specifier: ^9.0.7
         version: 9.0.7
@@ -278,8 +278,8 @@ importers:
   packages/common:
     devDependencies:
       '@eslint/js':
-        specifier: ^9.17.0
-        version: 9.17.0
+        specifier: ^9.19.0
+        version: 9.19.0
       '@types/node':
         specifier: ^22.10.2
         version: 22.10.2
@@ -329,12 +329,6 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
 
-  '@ant-design/cssinjs@1.22.1':
-    resolution: {integrity: sha512-SLuXM4wiEE1blOx94iXrkOgseMZHzdr4ngdFu3VVDq6AOWh7rlwqTkMAtJho3EsBF6x/eUGOtK53VZXGQG7+sQ==}
-    peerDependencies:
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-
   '@ant-design/fast-color@2.0.6':
     resolution: {integrity: sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==}
     engines: {node: '>=8.x'}
@@ -349,55 +343,55 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
 
-  '@ant-design/pro-card@2.9.4':
-    resolution: {integrity: sha512-qxRJCLcLV+pc1ljSIjCq5AIDlNioiziIzX/K4JjYTBV8gmlcurV30mVt8k/K0PM2vbPS1RcEzhX0D7tlUNwWDg==}
+  '@ant-design/pro-card@2.9.2':
+    resolution: {integrity: sha512-mKOmNb7jc3Pz41RrPY7EFKRWBjLdN4tp9yzmRkS2g8K7P3pW435f7Ip6rc+58FWDzbZa8lElTGPxAoFB/dq7LA==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
 
-  '@ant-design/pro-components@2.8.4':
-    resolution: {integrity: sha512-TEI+V/zpD6KEP5vJUAKb7f9eq9T1q6TOBDuFndoVgNaij0I90SZZVHdiz+bwhuN5P7HIVdsWtnQo4MHMVM5JNw==}
+  '@ant-design/pro-components@2.8.2':
+    resolution: {integrity: sha512-gSzt/Pw1ayZeHhxh5yaeP7pGpk0V2ZsB4PZab0s6V88O15Ql3w5ciYTObxbxGXMPc+A72AwVThoYLv2ZIl3cMA==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-descriptions@2.6.4':
-    resolution: {integrity: sha512-/c0nFYI4HJBR+mY6wymiAiMjOVxgeS+KjGTWj3/GG7sM7BzodntlWeOpe8yW4ss9KFRc8Kd8M6DJOSL9BvqMhg==}
+  '@ant-design/pro-descriptions@2.6.2':
+    resolution: {integrity: sha512-IrXf4qNMyaypEhO54oZDOFNJ9jrQgg2ovARY7hHRZCChC+I2xVGFCFWXrmtyS82kusxHb6OlLw20ahm+TLZ71w==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
 
-  '@ant-design/pro-field@3.0.1':
-    resolution: {integrity: sha512-Wp2e5eeea7LIO7f3hMgf/PkZrwcnmWgkOLWRkeHXOyCuQzOfi9MiVHs2n7oFiTKMFvkaKipWBTJThBz5BFtIsQ==}
+  '@ant-design/pro-field@2.17.2':
+    resolution: {integrity: sha512-cebfWGaE6MYwfchXpU9xA6jPETZOvk3i9+1IvebjSEKKVXecXuA+muZorpwYzORmkgGBmSPyR0KW+6Ttgtmg9Q==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
 
-  '@ant-design/pro-form@2.31.4':
-    resolution: {integrity: sha512-LLlURJkJEtLAvwuPyYtfL9BxcrXtEOmHbmIBZ/u5Cekg/mAL/k5w04ElSP0ImiDU6p3jdHTbHeePzJAE1H603g==}
+  '@ant-design/pro-form@2.31.2':
+    resolution: {integrity: sha512-fzchlk+vGi8rCpmC62/SrikuwC2ZpyKnvNVAyihPCNe9oyyv+LD2TZAD0fbshfifP/1aHOOtS4fb7ptYq+LarQ==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       rc-field-form: '>=1.22.0'
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-layout@7.22.1':
-    resolution: {integrity: sha512-aOwdd/u/yz/0ZHPDpnoVUIDGneZUDw62lCo3C4s6o0SGQrCOkYvY0efG4yLC4RA8eSFvXwnMt5pB7ii7f46KLQ==}
+  '@ant-design/pro-layout@7.21.2':
+    resolution: {integrity: sha512-dtqap5YNDrxUWxhi43QJQSv1JLHYPCV4/h4cFM10HNiX/86Cxw37DiCOMdIM/ZwWk619BiwN7CJNgL5Q8obrAQ==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-list@2.6.4':
-    resolution: {integrity: sha512-ALsvn5l1gsTUgSj8zkMpoOMwutxJVnSU7w6zR5/zRMABnyVTw3a3JJv7C9/kPiEDBa30kvtqbh1P/Uq1qD1v2A==}
+  '@ant-design/pro-list@2.6.2':
+    resolution: {integrity: sha512-BEM/WFe8vj4TCdsxa1JDQwl87Xb7oj+3bxA8yLDjRWWwX+D9UuxdYyB2lZsFfSEnphau/mccDE3K/Lbtim6yJg==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-provider@2.15.3':
-    resolution: {integrity: sha512-jUBCuRrhAXNMumSZ++704/zEg/7U1k2N3jMVBgtirvVaCAk5O9iZQKK4W3O3LRFc+D8yO16sXjsxhawvdGL4cA==}
+  '@ant-design/pro-provider@2.15.2':
+    resolution: {integrity: sha512-7WSJcjYIuLwco1YiiSgEEJnrqvg7x/YZap8pxOChRnyNh9S3HuV1D5HTc18kfHTpWqZWTAUcS66b0kMP96uKrw==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
@@ -410,16 +404,16 @@ packages:
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-table@3.18.4':
-    resolution: {integrity: sha512-vQQ9R5/U6fS+b/Kb3iVqy/dkDe7avAiX/L3n/JIA5skp+t1NQTCZBlPDzopp+2dJDd96aXdWGDIfV6kiSuL82g==}
+  '@ant-design/pro-table@3.18.2':
+    resolution: {integrity: sha512-IIhWXvpBfdy1hqh0qYQOou6tDawrisFYwFhYdiMwuCnvy7UvaHi/JS4yikMe+KG0XVdh6xxfrF1Ad39SR8CrxQ==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       rc-field-form: '>=1.22.0'
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
 
-  '@ant-design/pro-utils@2.16.3':
-    resolution: {integrity: sha512-uNjKh51v/SUlCJbWfhg2lRQB/TB0MyNMCQkFZ8mZBQ2rk3Ew47Sly6VssVVWMjIWBLE+g9fOgPg0C1IVeilIXA==}
+  '@ant-design/pro-utils@2.16.2':
+    resolution: {integrity: sha512-ama73ZSzz9O6Qz6DvHd6cnyUA3vI7N+AAl5BV5plijujtnXpNC8KJMXl9jOI1K7QuUVJgJIKbZ2DVm8LnBcTAQ==}
     peerDependencies:
       antd: ^4.24.15 || ^5.11.2
       react: '>=17.0.0'
@@ -1002,8 +996,16 @@ packages:
   '@babel/regjsgen@0.8.0':
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
 
+  '@babel/runtime@7.25.7':
+    resolution: {integrity: sha512-FjoyLe754PMiYsFaN5C94ttGiOmBNYTf6pLr4xXHAT5uctHb092PBszndLDR5XA/jghQvn4n7JMHl7dmTgbm9w==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/runtime@7.26.0':
     resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.26.7':
+    resolution: {integrity: sha512-AOPI3D+a8dXnja+iwsUqGRjr1BbZIe771sXdapOtYI531gSqpi92vXivKcq2asu/DFpdl1ceFAKZyRzK2PCVcQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.24.7':
@@ -1031,13 +1033,13 @@ packages:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
 
-  '@dnd-kit/accessibility@3.1.1':
-    resolution: {integrity: sha512-2P+YgaXF+gRsIihwwY1gCsQSYnu9Zyj2py8kY5fFvUM1qm2WA2u639R6YNVfU4GWr+ZM5mqEsfHZZLoRONbemw==}
+  '@dnd-kit/accessibility@3.1.0':
+    resolution: {integrity: sha512-ea7IkhKvlJUv9iSHJOnxinBcoOI3ppGnnL+VDJ75O45Nss6HtZd8IdN8touXPDtASfeI2T2LImb8VOZcL47wjQ==}
     peerDependencies:
       react: '>=16.8.0'
 
-  '@dnd-kit/core@6.3.1':
-    resolution: {integrity: sha512-xkGBRQQab4RLwgXxoqETICr6S5JlogafbhNsidmrkVv2YRs5MLwpjoF2qpiGjQt8S9AoxtIV603s0GIUpY5eYQ==}
+  '@dnd-kit/core@6.1.0':
+    resolution: {integrity: sha512-J3cQBClB4TVxwGo3KEjssGEXNJqGVWx17aRTZ1ob0FliR5IjYgTxl5YJbKTzA6IzrtelotH19v6y7uoIRUZPSg==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -1392,6 +1394,10 @@ packages:
 
   '@eslint/js@9.17.0':
     resolution: {integrity: sha512-Sxc4hqcs1kTu0iID3kcZDW3JHq2a77HO9P8CP6YEA/FpH3Ll8UXE2r/86Rz9YJLKme39S9vU5OWNjC6Xl0Cr3w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@9.19.0':
+    resolution: {integrity: sha512-rbq9/g38qjfqFLOVPvwjIvFFdNziEC5S65jmjPw5r6A//QH+W91akh9irMwjDN8zKUTak6W9EsAv4m/7Wnw0UQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.4':
@@ -1979,11 +1985,11 @@ packages:
   '@types/node-schedule@2.1.7':
     resolution: {integrity: sha512-G7Z3R9H7r3TowoH6D2pkzUHPhcJrDF4Jz1JOQ80AX0K2DWTHoN9VC94XzFAPNMdbW9TBzMZ3LjpFi7RYdbxtXA==}
 
+  '@types/node@22.10.10':
+    resolution: {integrity: sha512-X47y/mPNzxviAGY5TcYPtYL8JsY3kAq2n8fMmKoRCxq/c4v4pyGNCzM2R6+M5/umG4ZfHuT+sgqDYqWc9rJ6ww==}
+
   '@types/node@22.10.2':
     resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
-
-  '@types/node@22.10.7':
-    resolution: {integrity: sha512-V09KvXxFiutGp6B7XkpaDXlNadZxrzajcY50EuoLIpQ6WWYCSvf19lVIazzfIzQvhUN2HjX12spLojTnhuKlGg==}
 
   '@types/qs@6.9.16':
     resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
@@ -2400,6 +2406,9 @@ packages:
   classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
 
+  client-only@0.0.1:
+    resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+
   clone-deep@4.0.1:
     resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
     engines: {node: '>=6'}
@@ -2625,10 +2634,6 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
-  dequal@2.0.3:
-    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
-    engines: {node: '>=6'}
-
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -2699,8 +2704,8 @@ packages:
   electron-to-chromium@1.4.832:
     resolution: {integrity: sha512-cTen3SB0H2SGU7x467NRe1eVcQgcuS6jckKfWJHia2eo0cHIGOqHoAxevIYZD4eRHcWjkvFzo93bi3vJ9W+1lA==}
 
-  electron-to-chromium@1.5.83:
-    resolution: {integrity: sha512-LcUDPqSt+V0QmI47XLzZrz5OqILSMGsPFkDYus22rIbgorSvBYEFqq854ltTmUdHkY92FSdAAvsh4jWEULMdfQ==}
+  electron-to-chromium@1.5.88:
+    resolution: {integrity: sha512-K3C2qf1o+bGzbilTDCTBhTQcMS9KW60yTAaTeeXsfvQuTDDwlokLam/AdqlqcSy9u4UainDgsHV23ksXAOgamw==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4098,8 +4103,8 @@ packages:
   path-to-regexp@6.3.0:
     resolution: {integrity: sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==}
 
-  path-to-regexp@8.2.0:
-    resolution: {integrity: sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==}
+  path-to-regexp@8.0.0:
+    resolution: {integrity: sha512-GAWaqWlTjYK/7SVpIUA6CTxmcg65SP30sbjdCvyYReosRkk7Z/LyHWwkK3Vu0FcIi0FNTADUs4eh1AsU5s10cg==}
     engines: {node: '>=16'}
 
   path-type@3.0.0:
@@ -4346,6 +4351,12 @@ packages:
 
   rc-resize-observer@0.2.6:
     resolution: {integrity: sha512-YX6nYnd6fk7zbuvT6oSDMKiZjyngjHoy+fz+vL3Tez38d/G5iGdaDJa2yE7345G6sc4Mm1IGRUIwclvltddhmA==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+
+  rc-resize-observer@1.4.0:
+    resolution: {integrity: sha512-PnMVyRid9JLxFavTjeDXEXo65HCRqbmLBw9xX9gfC4BZiSzbLXKzW3jPz+J0P71pLbD5tBMTT+mkstV5gD0c9Q==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -4839,9 +4850,6 @@ packages:
   stylis@4.3.4:
     resolution: {integrity: sha512-osIBl6BGUmSfDkyH2mB7EFvCJntXDrLhKjHTRj/rK6xLH0yuPrHULDRQzKokSOD4VoorhtKpfcfW1GAntu8now==}
 
-  stylis@4.3.5:
-    resolution: {integrity: sha512-K7npNOKGRYuhAFFzkzMGfxFDpN6gDwf8hcMiE+uveTVbBgm93HrNP3ZDUpKqzZ4pG7TP6fmb+EMAQPjq9FqqvA==}
-
   stylus@0.62.0:
     resolution: {integrity: sha512-v3YCf31atbwJQIMtPNX8hcQ+okD4NQaTuKGUWfII8eaqn+3otrbttGL1zSMZAAtiPsBztQnujVBugg/cXFUpyg==}
     hasBin: true
@@ -4865,10 +4873,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  swr@2.3.0:
-    resolution: {integrity: sha512-NyZ76wA4yElZWBHzSgEJc28a0u6QZvhb6w0azeL2k7+Q1gAzVK+IqQYXhVOC/mzi+HZIozrZvBVeSeOZNR2bqA==}
+  swr@2.2.5:
+    resolution: {integrity: sha512-QtxqyclFeAsxEUeZIYmsaQ0UjimSq1RZ9Un7I68/0ClKK/U3LoyQunwkQfJZr2fc22DfIXLNDc2wFyTEikCUpg==}
     peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
 
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -4987,6 +4995,9 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
+  tslib@2.8.0:
+    resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
+
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -5100,11 +5111,6 @@ packages:
     resolution: {integrity: sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
-  use-sync-external-store@1.4.0:
-    resolution: {integrity: sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -5327,18 +5333,6 @@ snapshots:
       react-dom: 18.3.1(react@19.0.0)
       stylis: 4.3.4
 
-  '@ant-design/cssinjs@1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@emotion/hash': 0.8.0
-      '@emotion/unitless': 0.7.5
-      classnames: 2.5.1
-      csstype: 3.1.3
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      react: 19.0.0
-      react-dom: 18.3.1(react@19.0.0)
-      stylis: 4.3.5
-
   '@ant-design/fast-color@2.0.6':
     dependencies:
       '@babel/runtime': 7.26.0
@@ -5355,33 +5349,34 @@ snapshots:
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
 
-  '@ant-design/pro-card@2.9.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-card@2.9.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
-      rc-resize-observer: 1.4.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      omit.js: 2.0.2
+      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
     transitivePeerDependencies:
       - react-dom
 
-  '@ant-design/pro-components@2.8.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-components@2.8.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/pro-card': 2.9.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-descriptions': 2.6.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-field': 3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-form': 2.31.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-layout': 7.22.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-list': 2.6.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-card': 2.9.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-descriptions': 2.6.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-field': 2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-form': 2.31.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-layout': 7.21.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-list': 2.6.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/pro-skeleton': 2.2.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-table': 3.18.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-table': 3.18.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
@@ -5389,27 +5384,27 @@ snapshots:
     transitivePeerDependencies:
       - rc-field-form
 
-  '@ant-design/pro-descriptions@2.6.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-descriptions@2.6.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/pro-field': 3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-form': 2.31.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-field': 2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-form': 2.31.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/pro-skeleton': 2.2.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       rc-resize-observer: 0.2.6(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
     transitivePeerDependencies:
       - rc-field-form
       - react-dom
 
-  '@ant-design/pro-field@3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-field@2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       '@chenshuai2144/sketch-color': 1.0.9(react@19.0.0)
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
@@ -5417,18 +5412,19 @@ snapshots:
       dayjs: 1.11.13
       lodash: 4.17.21
       lodash-es: 4.17.21
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      omit.js: 2.0.2
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
-      swr: 2.3.0(react@19.0.0)
+      swr: 2.2.5(react@19.0.0)
     transitivePeerDependencies:
       - react-dom
 
-  '@ant-design/pro-form@2.31.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-form@2.31.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-field': 3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-field': 2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       '@chenshuai2144/sketch-color': 1.0.9(react@19.0.0)
       '@umijs/use-params': 1.0.9(react@19.0.0)
@@ -5437,18 +5433,19 @@ snapshots:
       dayjs: 1.11.13
       lodash: 4.17.21
       lodash-es: 4.17.21
+      omit.js: 2.0.2
       rc-field-form: 2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-resize-observer: 1.4.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
 
-  '@ant-design/pro-layout@7.22.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-layout@7.21.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       '@umijs/route-utils': 4.0.1
       '@umijs/use-params': 1.0.9(react@19.0.0)
@@ -5456,44 +5453,45 @@ snapshots:
       classnames: 2.5.1
       lodash: 4.17.21
       lodash-es: 4.17.21
-      path-to-regexp: 8.2.0
-      rc-resize-observer: 1.4.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      omit.js: 2.0.2
+      path-to-regexp: 8.0.0
+      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
-      swr: 2.3.0(react@19.0.0)
+      swr: 2.2.5(react@19.0.0)
       warning: 4.0.3
 
-  '@ant-design/pro-list@2.6.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-list@2.6.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-card': 2.9.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-field': 3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-table': 3.18.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-card': 2.9.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-field': 2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-table': 3.18.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
       dayjs: 1.11.13
-      rc-resize-observer: 1.4.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       rc-util: 4.21.1
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
     transitivePeerDependencies:
       - rc-field-form
 
-  '@ant-design/pro-provider@2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-provider@2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       '@ctrl/tinycolor': 3.6.1
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       dayjs: 1.11.13
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
-      swr: 2.3.0(react@19.0.0)
+      swr: 2.2.5(react@19.0.0)
 
   '@ant-design/pro-skeleton@2.2.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
@@ -5502,46 +5500,47 @@ snapshots:
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
 
-  '@ant-design/pro-table@3.18.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-table@3.18.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@ant-design/cssinjs': 1.22.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/cssinjs': 1.21.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-card': 2.9.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-field': 3.0.1(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-form': 2.31.4(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-utils': 2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-card': 2.9.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-field': 2.17.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-form': 2.31.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(rc-field-form@2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-utils': 2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@dnd-kit/modifiers': 6.0.1(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)
-      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/modifiers': 6.0.1(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/sortable': 7.0.2(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)
       '@dnd-kit/utilities': 3.2.2(react@19.0.0)
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
       dayjs: 1.11.13
       lodash: 4.17.21
       lodash-es: 4.17.21
+      omit.js: 2.0.2
       rc-field-form: 2.7.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-resize-observer: 1.4.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
 
-  '@ant-design/pro-utils@2.16.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@ant-design/pro-utils@2.16.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@ant-design/icons': 5.5.2(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
-      '@ant-design/pro-provider': 2.15.3(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@ant-design/pro-provider': 2.15.2(antd@5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@babel/runtime': 7.26.0
       antd: 5.22.7(date-fns@2.30.0)(luxon@3.5.0)(moment@2.30.1)(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       classnames: 2.5.1
       dayjs: 1.11.13
       lodash: 4.17.21
       lodash-es: 4.17.21
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
       safe-stable-stringify: 2.5.0
-      swr: 2.3.0(react@19.0.0)
+      swr: 2.2.5(react@19.0.0)
 
   '@ant-design/react-slick@1.1.2(react@19.0.0)':
     dependencies:
@@ -6303,9 +6302,18 @@ snapshots:
 
   '@babel/regjsgen@0.8.0': {}
 
+  '@babel/runtime@7.25.7':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@babel/runtime@7.26.0':
     dependencies:
       regenerator-runtime: 0.14.1
+
+  '@babel/runtime@7.26.7':
+    dependencies:
+      regenerator-runtime: 0.14.1
+    optional: true
 
   '@babel/template@7.24.7':
     dependencies:
@@ -6346,37 +6354,37 @@ snapshots:
 
   '@ctrl/tinycolor@3.6.1': {}
 
-  '@dnd-kit/accessibility@3.1.1(react@19.0.0)':
+  '@dnd-kit/accessibility@3.1.0(react@19.0.0)':
     dependencies:
       react: 19.0.0
-      tslib: 2.8.1
+      tslib: 2.8.0
 
-  '@dnd-kit/core@6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
+  '@dnd-kit/core@6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@dnd-kit/accessibility': 3.1.1(react@19.0.0)
+      '@dnd-kit/accessibility': 3.1.0(react@19.0.0)
       '@dnd-kit/utilities': 3.2.2(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
-      tslib: 2.8.1
+      tslib: 2.8.0
 
-  '@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)':
+  '@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@dnd-kit/utilities': 3.2.2(react@19.0.0)
       react: 19.0.0
-      tslib: 2.8.1
+      tslib: 2.8.0
 
-  '@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)':
+  '@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@dnd-kit/core': 6.3.1(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       '@dnd-kit/utilities': 3.2.2(react@19.0.0)
       react: 19.0.0
-      tslib: 2.8.1
+      tslib: 2.8.0
 
   '@dnd-kit/utilities@3.2.2(react@19.0.0)':
     dependencies:
       react: 19.0.0
-      tslib: 2.8.1
+      tslib: 2.8.0
 
   '@emnapi/runtime@1.2.0':
     dependencies:
@@ -6576,6 +6584,8 @@ snapshots:
       - supports-color
 
   '@eslint/js@9.17.0': {}
+
+  '@eslint/js@9.19.0': {}
 
   '@eslint/object-schema@2.1.4': {}
 
@@ -7091,14 +7101,14 @@ snapshots:
     dependencies:
       '@types/node': 22.10.2
 
-  '@types/node@22.10.2':
-    dependencies:
-      undici-types: 6.20.0
-
-  '@types/node@22.10.7':
+  '@types/node@22.10.10':
     dependencies:
       undici-types: 6.20.0
     optional: true
+
+  '@types/node@22.10.2':
+    dependencies:
+      undici-types: 6.20.0
 
   '@types/qs@6.9.16': {}
 
@@ -7619,7 +7629,7 @@ snapshots:
   browserslist@4.24.4:
     dependencies:
       caniuse-lite: 1.0.30001695
-      electron-to-chromium: 1.5.83
+      electron-to-chromium: 1.5.88
       node-releases: 2.0.19
       update-browserslist-db: 1.1.2(browserslist@4.24.4)
     optional: true
@@ -7692,6 +7702,8 @@ snapshots:
     optional: true
 
   classnames@2.5.1: {}
+
+  client-only@0.0.1: {}
 
   clone-deep@4.0.1:
     dependencies:
@@ -7857,7 +7869,7 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.26.7
     optional: true
 
   date-format@4.0.14: {}
@@ -7907,8 +7919,6 @@ snapshots:
   depd@1.1.2: {}
 
   depd@2.0.0: {}
-
-  dequal@2.0.3: {}
 
   destroy@1.2.0: {}
 
@@ -7977,7 +7987,7 @@ snapshots:
 
   electron-to-chromium@1.4.832: {}
 
-  electron-to-chromium@1.5.83:
+  electron-to-chromium@1.5.88:
     optional: true
 
   emoji-regex@8.0.0: {}
@@ -9027,7 +9037,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
@@ -9310,7 +9320,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   lru-cache@5.1.1:
     dependencies:
@@ -9446,7 +9456,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   node-addon-api@5.1.0: {}
 
@@ -9637,7 +9647,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   path-exists@3.0.0: {}
 
@@ -9651,7 +9661,7 @@ snapshots:
 
   path-to-regexp@6.3.0: {}
 
-  path-to-regexp@8.2.0: {}
+  path-to-regexp@8.0.0: {}
 
   path-type@3.0.0:
     dependencies:
@@ -9929,7 +9939,16 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.0
       classnames: 2.5.1
-      rc-util: 5.44.3(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 18.3.1(react@19.0.0)
+      resize-observer-polyfill: 1.5.1
+
+  rc-resize-observer@1.4.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      classnames: 2.5.1
+      rc-util: 5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
       resize-observer-polyfill: 1.5.1
@@ -10067,7 +10086,7 @@ snapshots:
 
   rc-util@5.43.0(react-dom@18.3.1(react@19.0.0))(react@19.0.0):
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.25.7
       react: 19.0.0
       react-dom: 18.3.1(react@19.0.0)
       react-is: 18.3.1
@@ -10172,7 +10191,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.26.0
+      '@babel/runtime': 7.25.7
 
   regexp.prototype.flags@1.5.3:
     dependencies:
@@ -10529,8 +10548,6 @@ snapshots:
 
   stylis@4.3.4: {}
 
-  stylis@4.3.5: {}
-
   stylus@0.62.0:
     dependencies:
       '@adobe/css-tools': 4.3.3
@@ -10561,11 +10578,11 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swr@2.3.0(react@19.0.0):
+  swr@2.2.5(react@19.0.0):
     dependencies:
-      dequal: 2.0.3
+      client-only: 0.0.1
       react: 19.0.0
-      use-sync-external-store: 1.4.0(react@19.0.0)
+      use-sync-external-store: 1.2.2(react@19.0.0)
 
   symbol-tree@3.2.4: {}
 
@@ -10682,7 +10699,10 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tslib@2.8.1: {}
+  tslib@2.8.0: {}
+
+  tslib@2.8.1:
+    optional: true
 
   tsscmp@1.0.6: {}
 
@@ -10811,10 +10831,6 @@ snapshots:
       requires-port: 1.0.0
 
   use-sync-external-store@1.2.2(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-
-  use-sync-external-store@1.4.0(react@19.0.0):
     dependencies:
       react: 19.0.0
 
