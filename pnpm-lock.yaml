@@ -73,7 +73,7 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(@swc/helpers@0.5.1)(vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1))
+        version: 3.7.2(@swc/helpers@0.5.1)(vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.7.0))
       eslint:
         specifier: ^9.17.0
         version: 9.17.0
@@ -100,7 +100,7 @@ importers:
         version: 8.18.2(eslint@9.17.0)(typescript@5.7.2)
       vite:
         specifier: ^6.0.6
-        version: 6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1)
+        version: 6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.7.0)
 
   packages/backend:
     dependencies:
@@ -272,8 +272,8 @@ importers:
         specifier: ^0.33.5
         version: 0.33.5
       yaml:
-        specifier: ^2.6.1
-        version: 2.6.1
+        specifier: ^2.7.0
+        version: 2.7.0
 
   packages/common:
     devDependencies:
@@ -5220,8 +5220,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml@2.6.1:
-    resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
+  yaml@2.7.0:
+    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -7136,10 +7136,10 @@ snapshots:
     dependencies:
       react: 19.0.0
 
-  '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.1)(vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1))':
+  '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.1)(vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.7.0))':
     dependencies:
       '@swc/core': 1.7.26(@swc/helpers@0.5.1)
-      vite: 6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1)
+      vite: 6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.7.0)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -10711,7 +10711,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.6.1):
+  vite@6.0.6(@types/node@22.10.2)(less@4.2.0)(lightningcss@1.22.1)(sass@1.83.0)(stylus@0.62.0)(sugarss@2.0.0)(terser@5.34.1)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
@@ -10725,7 +10725,7 @@ snapshots:
       stylus: 0.62.0
       sugarss: 2.0.0
       terser: 5.34.1
-      yaml: 2.6.1
+      yaml: 2.7.0
 
   w3c-xmlserializer@4.0.0:
     dependencies:
@@ -10875,7 +10875,7 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml@2.6.1: {}
+  yaml@2.7.0: {}
 
   ylru@1.4.0: {}
 
